@@ -36,7 +36,7 @@ dict_start_sort = dict(sorted(dict_start.items(), key=lambda x: x[1], reverse=Tr
 num = 1
 for kk,vv in dict_start_sort.items():
     if type(kk) == str and vv.year > 2017:
-        sitename = kk.replace(' ', '-').replace('"', '').replace('(', '').replace(')', '').replace(',', '').replace('.', '').lower()
+        sitename = kk.lower().replace(' ', '-').replace('"', '').replace('(', '').replace(')', '').replace(',', '').replace('.', '-').replace('&', '-').replace('--', '-').rstrip('-')
         siteurl = 'https://www.londonstockexchange.com/stock/' + dict_code[kk].replace(' ', '') + '/' + sitename + '/company-page'
         if kk in dict_price.keys():
             print(num, ')', vv, ' // ', kk, ' // ', dict_currency[kk], dict_price[kk], ' / ', siteurl)
