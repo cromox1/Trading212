@@ -6,13 +6,13 @@ cur = conn.cursor()
 
 sqlcommand = """INSERT INTO persontwo
 SELECT DISTINCT
-3,
-'LastName3',
-'FirstName3',
-'Address3',
-'City3'
-FROM persontwo
-WHERE NOT EXISTS(SELECT DISTINCT PersonID FROM persontwo WHERE PersonID = 3);"""
+7,
+'LastName7',
+'FirstName7',
+'Address7',
+'City7'
+FROM persontwo 
+WHERE NOT EXISTS(SELECT DISTINCT PersonID FROM persontwo WHERE PersonID = 7);"""
 
 # sqlcommand = """INSERT INTO persontwo
 # SELECT
