@@ -1,0 +1,480 @@
+{
+  "name": "TEST123 Trading212",
+  "base_URL": "https://www.trading212.com",
+  "commands": [
+    {
+      "command": "open",
+      "target": "/en/login"
+    },
+    {
+      "command": "setWindowSize",
+      "target": "1911x1156"
+    },
+    {
+      "command": "click",
+      "target": "id=username-real",
+      "targets": [
+        [
+          "id=username-real",
+          "id"
+        ],
+        [
+          "name=login[username]",
+          "name"
+        ],
+        [
+          "css=#username-real",
+          "css:finder"
+        ],
+        [
+          "xpath=//input[@id='username-real']",
+          "xpath:attributes"
+        ],
+        [
+          "xpath=//input",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.tabs-container",
+      "targets": [
+        [
+          "css=.tabs-container",
+          "css:finder"
+        ],
+        [
+          "xpath=//section[2]/div/div",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "type",
+      "target": "id=username-real",
+      "targets": [
+        [
+          "id=username-real",
+          "id"
+        ],
+        [
+          "name=login[username]",
+          "name"
+        ],
+        [
+          "css=#username-real",
+          "css:finder"
+        ],
+        [
+          "xpath=//input[@id='username-real']",
+          "xpath:attributes"
+        ],
+        [
+          "xpath=//input",
+          "xpath:position"
+        ]
+      ],
+      "value": "mycromox@gmail.com"
+    },
+    {
+      "command": "click",
+      "target": "css=.form-group:nth-child(2) > label:nth-child(2)",
+      "targets": [
+        [
+          "css=.form-group:nth-child(2) > label:nth-child(2)",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[2]/label",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "type",
+      "target": "id=pass-real",
+      "targets": [
+        [
+          "id=pass-real",
+          "id"
+        ],
+        [
+          "name=login[password]",
+          "name"
+        ],
+        [
+          "css=#pass-real",
+          "css:finder"
+        ],
+        [
+          "xpath=//input[@id='pass-real']",
+          "xpath:attributes"
+        ],
+        [
+          "xpath=//div[2]/input",
+          "xpath:position"
+        ]
+      ],
+      "value": "Serverg0d!"
+    },
+    {
+      "command": "click",
+      "target": "css=.button-login",
+      "targets": [
+        [
+          "css=.button-login",
+          "css:finder"
+        ],
+        [
+          "xpath=//input[@value='Log in']",
+          "xpath:attributes"
+        ],
+        [
+          "xpath=//input[6]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.close-icon:nth-child(2)",
+      "targets": [
+        [
+          "css=.close-icon:nth-child(2)",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='onfido-upload']/div/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//body/div[6]/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "id=navigation-search-button",
+      "targets": [
+        [
+          "id=navigation-search-button",
+          "id"
+        ],
+        [
+          "css=#navigation-search-button",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='navigation-search-button']",
+          "xpath:attributes"
+        ],
+        [
+          "xpath=//div[@id='chart-tabs-widget']/div",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[4]/div[4]/div/div",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_223 > .folder-name",
+      "targets": [
+        [
+          "css=#uniqName_0_223 > .folder-name",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_223']/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[3]/div[4]/div/div/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_231 > .folder-name",
+      "targets": [
+        [
+          "css=#uniqName_0_231 > .folder-name",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_231']/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[4]/div/div[2]/div/div/div/div/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .ticker",
+      "targets": [
+        [
+          "css=#uniqName_0_344 > .ticker",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_344']/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div[3]/div[3]/div/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        [
+          "css=.search-header-background svg",
+          "css:finder"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .ticker > .has-ellipsed-text",
+      "targets": [
+        [
+          "css=#uniqName_0_344 > .ticker > .has-ellipsed-text",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_344']/div[2]/div",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div[3]/div[3]/div/div/div[2]/div",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        [
+          "css=.search-header-background svg",
+          "css:finder"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .full-name > .has-ellipsed-text",
+      "targets": [
+        [
+          "css=#uniqName_0_344 > .full-name > .has-ellipsed-text",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_344']/div[3]/div",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div[3]/div[3]/div/div/div[3]/div",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        [
+          "css=.search-header-background svg",
+          "css:finder"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_346 > .ticker > .has-ellipsed-text",
+      "targets": [
+        [
+          "css=#uniqName_0_346 > .ticker > .has-ellipsed-text",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_346']/div[2]/div",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div[3]/div[3]/div/div[2]/div[2]/div",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        [
+          "css=.search-header-background svg",
+          "css:finder"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .ticker > .has-ellipsed-text",
+      "targets": [
+        [
+          "css=#uniqName_0_344 > .ticker > .has-ellipsed-text",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_344']/div[2]/div",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div[3]/div[3]/div/div/div[2]/div",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_472-main-view .tradebox-sell span",
+      "targets": [
+        [
+          "css=#uniqName_0_472-main-view .tradebox-sell span",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_472-main-view']/div/div/div[2]/span",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div/div/div/div[6]/div/div/div/div[2]/span",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.popup-header > .close-icon",
+      "targets": [
+        [
+          "css=.popup-header > .close-icon",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='onfido-upload']/div/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//body/div[8]/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "id=body",
+      "targets": [
+        [
+          "id=body",
+          "id"
+        ],
+        [
+          "css=#body",
+          "css:finder"
+        ],
+        [
+          "xpath=//body[@id='body']",
+          "xpath:attributes"
+        ],
+        [
+          "xpath=//body",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_472-main-view .tradebox-buy > .tradebox-price",
+      "targets": [
+        [
+          "css=#uniqName_0_472-main-view .tradebox-buy > .tradebox-price",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_472-main-view']/div/div[2]/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div/div/div/div[6]/div/div/div[2]/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.popup-header > .close-icon",
+      "targets": [
+        [
+          "css=.popup-header > .close-icon",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='onfido-upload']/div/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//body/div[8]/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=#uniqName_0_472-main-view .tradebox-sell > .tradebox-price",
+      "targets": [
+        [
+          "css=#uniqName_0_472-main-view .tradebox-sell > .tradebox-price",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='uniqName_0_472-main-view']/div/div/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//div[2]/div/div/div/div[6]/div/div/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    },
+    {
+      "command": "click",
+      "target": "css=.popup-header > .close-icon",
+      "targets": [
+        [
+          "css=.popup-header > .close-icon",
+          "css:finder"
+        ],
+        [
+          "xpath=//div[@id='onfido-upload']/div/div[2]",
+          "xpath:idRelative"
+        ],
+        [
+          "xpath=//body/div[8]/div/div[2]",
+          "xpath:position"
+        ]
+      ]
+    }
+  ]
+}

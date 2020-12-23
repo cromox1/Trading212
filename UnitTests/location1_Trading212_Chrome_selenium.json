@@ -1,0 +1,320 @@
+{
+  "id": "3a435936-c45f-4d03-b012-463d658de2ac",
+  "version": "2.0",
+  "name": "trading212",
+  "url": "https://www.trading212.com",
+  "tests": [{
+    "id": "62c6624d-ad49-4701-b855-cb2f40b53de9",
+    "name": "check_graph_GBPUSB",
+    "commands": [{
+      "id": "dead5fde-ddd1-420c-9ffa-6ec2528e19cb",
+      "comment": "",
+      "command": "open",
+      "target": "/en/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4e516c4b-0af2-45d0-b866-e43402fb1dfe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1911x1156",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5b32ffd1-1959-452a-b20d-4b40399e9771",
+      "comment": "",
+      "command": "click",
+      "target": "id=username-real",
+      "targets": [
+        ["id=username-real", "id"],
+        ["name=login[username]", "name"],
+        ["css=#username-real", "css:finder"],
+        ["xpath=//input[@id='username-real']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dff6cb9e-9906-480d-acca-f22e446e70f6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.tabs-container",
+      "targets": [
+        ["css=.tabs-container", "css:finder"],
+        ["xpath=//section[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "21f5a886-0f8d-4781-a19c-259f2b7dca0b",
+      "comment": "",
+      "command": "type",
+      "target": "id=username-real",
+      "targets": [
+        ["id=username-real", "id"],
+        ["name=login[username]", "name"],
+        ["css=#username-real", "css:finder"],
+        ["xpath=//input[@id='username-real']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mycromox@gmail.com"
+    }, {
+      "id": "eb2268cb-5e51-4f09-9519-35cf814eb025",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(2) > label:nth-child(2)",
+      "targets": [
+        ["css=.form-group:nth-child(2) > label:nth-child(2)", "css:finder"],
+        ["xpath=//div[2]/label", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec605f9b-7c7c-4368-8485-0cb359999d65",
+      "comment": "",
+      "command": "type",
+      "target": "id=pass-real",
+      "targets": [
+        ["id=pass-real", "id"],
+        ["name=login[password]", "name"],
+        ["css=#pass-real", "css:finder"],
+        ["xpath=//input[@id='pass-real']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Serverg0d!"
+    }, {
+      "id": "fa4001d7-a468-4834-867d-7656885a48d9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-login",
+      "targets": [
+        ["css=.button-login", "css:finder"],
+        ["xpath=//input[@value='Log in']", "xpath:attributes"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aeed71b3-b5aa-4307-b5f6-f3c2e29ef615",
+      "comment": "",
+      "command": "click",
+      "target": "css=.close-icon:nth-child(2)",
+      "targets": [
+        ["css=.close-icon:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='onfido-upload']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div[6]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04b42498-adec-4c1c-b35e-6caae70f4319",
+      "comment": "",
+      "command": "click",
+      "target": "id=navigation-search-button",
+      "targets": [
+        ["id=navigation-search-button", "id"],
+        ["css=#navigation-search-button", "css:finder"],
+        ["xpath=//div[@id='navigation-search-button']", "xpath:attributes"],
+        ["xpath=//div[@id='chart-tabs-widget']/div", "xpath:idRelative"],
+        ["xpath=//div[4]/div[4]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "32ce8dca-6500-42e3-9188-679a2608d4f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_223 > .folder-name",
+      "targets": [
+        ["css=#uniqName_0_223 > .folder-name", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_223']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/div[4]/div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c537055-df50-4d15-b287-a64696eda6db",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_231 > .folder-name",
+      "targets": [
+        ["css=#uniqName_0_231 > .folder-name", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_231']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[4]/div/div[2]/div/div/div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a15e95b6-c7af-4e17-9f9e-23d1d8efea39",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .ticker",
+      "targets": [
+        ["css=#uniqName_0_344 > .ticker", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_344']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[3]/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eaa41428-2be8-45d9-90d8-633db7be6deb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        ["css=.search-header-background svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "26db3025-1831-47c1-b74e-193e81270384",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .ticker > .has-ellipsed-text",
+      "targets": [
+        ["css=#uniqName_0_344 > .ticker > .has-ellipsed-text", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_344']/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[3]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "274735f6-5bc9-4f15-8508-9b765ef14e52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        ["css=.search-header-background svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "de1bd7b5-c67a-415e-a7f5-a382a81e18b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .full-name > .has-ellipsed-text",
+      "targets": [
+        ["css=#uniqName_0_344 > .full-name > .has-ellipsed-text", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_344']/div[3]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[3]/div/div/div[3]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "527f1dc9-1718-42f7-8d2d-6bda215b0846",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        ["css=.search-header-background svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "65cb9b98-6873-49c9-8b5f-f729359233fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_346 > .ticker > .has-ellipsed-text",
+      "targets": [
+        ["css=#uniqName_0_346 > .ticker > .has-ellipsed-text", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_346']/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[3]/div/div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "feafbf44-743e-4c02-8a33-028274f5529a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.search-header-background svg",
+      "targets": [
+        ["css=.search-header-background svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "09e2df68-3fdf-436e-af65-48097e63934d",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_344 > .ticker > .has-ellipsed-text",
+      "targets": [
+        ["css=#uniqName_0_344 > .ticker > .has-ellipsed-text", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_344']/div[2]/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/div[3]/div/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f04dcece-5b7f-4977-a4d7-aca4f90ec3f8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_472-main-view .tradebox-sell span",
+      "targets": [
+        ["css=#uniqName_0_472-main-view .tradebox-sell span", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_472-main-view']/div/div/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[6]/div/div/div/div[2]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b415172c-d03f-47f0-b4e4-6dfe1eadff59",
+      "comment": "",
+      "command": "click",
+      "target": "css=.popup-header > .close-icon",
+      "targets": [
+        ["css=.popup-header > .close-icon", "css:finder"],
+        ["xpath=//div[@id='onfido-upload']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div[8]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "808e3d4d-5338-4186-8914-fe049288d940",
+      "comment": "",
+      "command": "click",
+      "target": "id=body",
+      "targets": [
+        ["id=body", "id"],
+        ["css=#body", "css:finder"],
+        ["xpath=//body[@id='body']", "xpath:attributes"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "addd3e90-cffc-4a72-a7ee-3db3f5500ce7",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_472-main-view .tradebox-buy > .tradebox-price",
+      "targets": [
+        ["css=#uniqName_0_472-main-view .tradebox-buy > .tradebox-price", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_472-main-view']/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[6]/div/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "75f3a688-0579-4506-9cb0-350b3924b812",
+      "comment": "",
+      "command": "click",
+      "target": "css=.popup-header > .close-icon",
+      "targets": [
+        ["css=.popup-header > .close-icon", "css:finder"],
+        ["xpath=//div[@id='onfido-upload']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div[8]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2862f0d-320f-4e57-9f33-db9cae60a2a8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#uniqName_0_472-main-view .tradebox-sell > .tradebox-price",
+      "targets": [
+        ["css=#uniqName_0_472-main-view .tradebox-sell > .tradebox-price", "css:finder"],
+        ["xpath=//div[@id='uniqName_0_472-main-view']/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div[6]/div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b70c6399-8b01-4b40-93de-b08d1ef45364",
+      "comment": "",
+      "command": "click",
+      "target": "css=.popup-header > .close-icon",
+      "targets": [
+        ["css=.popup-header > .close-icon", "css:finder"],
+        ["xpath=//div[@id='onfido-upload']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div[8]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "07dc9e8f-7f59-41ea-94f5-3dd3fb6164c1",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["62c6624d-ad49-4701-b855-cb2f40b53de9"]
+  }],
+  "urls": ["https://www.trading212.com/"],
+  "plugins": []
+}

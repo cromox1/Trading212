@@ -1,0 +1,163 @@
+1) # setup webdriver
+
+from selenium import webdriver
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+
+chromedriverpath = r'C:\tools\chromedriver\chromedriver.exe'
+chrome_options = Options()
+chrome_options.add_argument('--ignore-certificate-errors')
+chrome_options.add_argument("--disable-web-security")
+# chrome_options.add_argument("--incognito")
+chrome_options.add_argument("--allow-running-insecure-content")
+chrome_options.add_argument("--allow-cross-origin-auth-prompt")
+chrome_options.add_argument("--disable-cookie-encryption")
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-default-apps')
+chrome_options.add_argument('--disable-prompt-on-repost')
+chrome_options.add_argument("--disable-zero-browsers-open-for-tests")
+chrome_options.add_argument("--no-default-browser-check")
+chrome_options.add_argument("--test-type")
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+chrome_options.add_experimental_option("prefs", prefs)
+
+driver = webdriver.Chrome(chromedriverpath, options=chrome_options)
+
+2) Get all children elements from parent element
+
+# you can achieve it by: 
+# find_elements_by_css_selector("*") or find_elements_by_xpath(".//*").
+
+# parent element / header’s element
+driver.get("http://www.stackoverflow.com")
+header = driver.find_element_by_id("header")
+
+# start from your target element, here for example, "header"
+all_children_by_css = header.find_elements_by_css_selector("*")
+all_children_by_xpath = header.find_elements_by_xpath(".//*")
+
+print 'len(all_children_by_css): ' + str(len(all_children_by_css))
+print 'len(all_children_by_xpath): ' + str(len(all_children_by_xpath))
+
+3) find element from display text
+
+driver.find_element_by_xpath("//*[contains(text(),'Currencies')]")
+
+4) send ‘input data’ to element
+
+from selenium.webdriver.common.keys import Keys
+# driver.find_element_by_id("username-real").clear()     # sometimes you need this
+driver.find_element_by_id("username-real").send_keys(user1 + Keys.ENTER)
+# driver.find_element_by_id("pass-real").clear()      # sometimes you need this
+driver.find_element_by_id("pass-real").send_keys(pswd1 + Keys.ENTER)
+
+5) find element by tag_name vs class_name
+
+<div class="bar">
+    	<li>one</li>
+    	<li>two</li>
+</div>
+
+parentElement = driver.find_element_by_class_name("bar")
+elementList = parentElement.find_elements_by_tag_name("li")
+
+6) Hoover mouse
+
+basepixitmediaurl = driver.current_url
+print('URL = ' + str(basepixitmediaurl))
+elements_pixstor = driver.find_elements_by_xpath("//*[contains(text(),'PixStor')]")
+element_pixstor = elements_pixstor[0]      # if more than one elements
+hoover(driver).move_to_element(element_pixstor).perform()
+features_el = driver.find_element_by_xpath("//*[contains(text(),'Features')]")
+hoover(driver).move_to_element(features_el).perform()
+powersearch_el = driver.find_element_by_xpath("//*[contains(text(),'Powerful Search')]")
+hoover(driver).move_to_element(powersearch_el).perform()
+powersearch_el.click()
+
+7) Scrol down display (GUI browser display)
+
+def displayheight(self):
+       # Page scroll down
+       # driver.find_element_by_xpath("//*[contains(text(),'Contact Us')]").send_keys(Keys.PAGE_DOWN)
+       # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+       # driver.execute_script("window.scrollTo(0, Y)")
+    
+      driver = self.driver
+      try:
+           last_height = driver.execute_script("return document.body.scrollHeight")
+      except:
+           last_height = 1800
+      if last_height <= 1800:
+           last_height = 1850
+      half_height = int(0.5 * last_height)
+      oneten_height = int(0.1 * last_height)
+      # print('HEIGHT = ' + str(last_height) + ' / 0.5HEIGHT = ' + str(half_height) + ' / 0.1HEIGHT = ' + str(oneten_height))
+      return last_height, half_height, oneten_height
+
+driver.execute_script("window.scrollTo(0, " + str(self.displayheight()[1]) + ");")    # scroll half display
+
+8) pop-up display : to switch to pop-up display, click button, then go back to default display
+
+# new features by GOOGLE incognito mode - pop-up of Agree button which I need to click
+
+if driver.find_element_by_css_selector("iframe"):
+      iframe1 = driver.find_elements_by_css_selector("iframe")
+      driver.switch_to.frame(iframe1[0])
+      # driver.find_element_by_xpath("//*[contains(text(),'I agree')]").click()
+      driver.find_element_by_id("introAgreeButton").click()
+      driver.switch_to.default_content()
+
+9) Get URL from text link (use ‘get_attribute’ from element)
+
+pdffileurl = driver.find_element_by_xpath("//*[contains(text(),'DOWNLOAD')]").get_attribute('href')
+print('PDF FILE URL = ' + str(pdffileurl))
+
+10) Combine 2 xpath 
+
+<fieldset class="module aligned ">
+    <h2>Personal info</h2>
+        <div class="form-row field-first_name">
+                <div>
+                        <label>First name:</label>
+                            <div class="readonly">Iqraq</div>
+                </div>
+        </div>
+        <div class="form-row field-last_name">
+                <div>
+                        <label>Last name:</label>
+                            <div class="readonly">Salasa</div>
+                </div>
+        </div>
+        <div class="form-row field-email">
+                <div>
+                        <label>Email address:</label>
+                            <div class="readonly">akucromox@gmail.com</div>
+                </div>
+        </div>
+</fieldset>
+
+So, For email XPATH :
+email1 = driver.find_element_by_xpath('//*[@class="form-row field-email"]//*[@class="readonly"]').text
+
+11) if normal click() not working, we can use JavaScript click
+
+element = driver.find_element_by_xpath("(//a[contains(@href, '')])[20]")
+driver.execute_script("arguments[0].click();", element)
+
+if you has more than 1 elements, e.g. element1 & element2 :
+driver.execute_script("arguments[0].click();arguments[1].click()", element1, element2)
+
+12) find ID which contain some word (you didn’t know the full ID word)
+
+# CSS selector
+# valuetofind = 'input[id*="uniqName_"]'
+# list_ids = driver.find_elements_by_css_selector(valuetofind)
+
+# XPATH
+valuetofind = '//*[contains(@id, "uniqName_")]'
+list_ids = driver.find_elements_by_xpath(valuetofind)
+
+13) 
+
+
+
