@@ -63,6 +63,8 @@ elementList = parentElement.find_elements_by_tag_name("li")
 
 6) Hoover mouse
 
+from selenium.webdriver.common.action_chains import ActionChains as hoover
+
 basepixitmediaurl = driver.current_url
 print('URL = ' + str(basepixitmediaurl))
 elements_pixstor = driver.find_elements_by_xpath("//*[contains(text(),'PixStor')]")

@@ -41,7 +41,7 @@ pswd1 = "Serverg0d!"
 
 driver.find_element_by_id("username-real").send_keys(user1 + Keys.ENTER)
 driver.find_element_by_id("pass-real").send_keys(pswd1 + Keys.ENTER)
-sleep(10)
+sleep(8)
 
 # ### Need to find a way to go to pop-up window
 # but for now I just use simple solution - find the xpath :-)
@@ -57,19 +57,30 @@ search_section.click()
 
 driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
-sleep(2)
+sleep(1)
+
+# currency2 = "GBP/USD"
+currency2 = "EUR/USD"
+# currency2 = "USD/CAD"
+# currency2 = "USD/JPY"
+# currency2 = "USD/CHF"
+# currency2 = "AUD/USD"
+# currency2 = "NZD/USD"
+currency1 = currency2.replace('/', '')
 
 # xpath_gbpusd = '//*[@id="uniqName_0_344"]'
 # //*[@id="uniqName_0_341"]/div[2]/div[1]
 # xpath_gbpusd = '//*[@data-code="GBPUSD"]'
 # element1 = driver.find_element_by_xpath(xpath_gbpusd)
 
-css_gbpusd = "#uniqName_0_344 > .ticker > .has-ellipsed-text"
-element1 = driver.find_element_by_css_selector(css_gbpusd)
+# css_gbpusd = "#uniqName_0_344 > .ticker > .has-ellipsed-text"
+# element1 = driver.find_element_by_css_selector(css_gbpusd)
+xp_gbpusd = '//*[@data-code="' + currency1 + '"]//*[@class="ticker"]//*[@class="has-ellipsed-text"]'
+element1 = driver.find_element_by_xpath(xp_gbpusd)
 # print('ELE1 = ', element1, ' / TXT = ', element1.text.replace('\n', ' ## '))
 element1.click()
 # driver.execute_script("arguments[0].click();", element1)
-sleep(2)
+sleep(1)
 
 ##  #uniqName_0_372-main-view > div.tradebox-trade-container > div.tradebox-button.tradebox-sell > div.tradebox-price.tradebox-price-sell
 ##  //*[@id="uniqName_0_372-main-view"]/div[1]/div[1]/div[2]
@@ -77,8 +88,10 @@ sleep(2)
 ##  <div class="tradebox-price tradebox-price-sell" data-dojo-attach-point="sellPriceNode">1.33<span>82</span><label>6</label></div>
 ##  //*[@id="current-status-high-low-view"]/div[1]/span[1]
 
-xp_sell = '//*[@id="uniqName_0_372-main-view"]//*[@data-dojo-attach-point="sellPriceNode"]'
-xp_buy = '//*[@id="uniqName_0_372-main-view"]//*[@data-dojo-attach-point="buyPriceNode"]'
+# xp_sell = '//*[@id="uniqName_0_372-main-view"]//*[@data-dojo-attach-point="sellPriceNode"]'
+# xp_buy = '//*[@id="uniqName_0_372-main-view"]//*[@data-dojo-attach-point="buyPriceNode"]'
+xp_sell = '//*[@data-code="' + currency1 + '"]//*[@data-dojo-attach-point="mainViewNode"]//*[@data-dojo-attach-point="sellPriceNode"]'
+xp_buy = '//*[@data-code="' + currency1 + '"]//*[@data-dojo-attach-point="mainViewNode"]//*[@data-dojo-attach-point="buyPriceNode"]'
 
 print('SELL = ', driver.find_element_by_xpath(xp_sell).text)
 print('BUY = ', driver.find_element_by_xpath(xp_buy).text)
@@ -88,3 +101,5 @@ xp_high = '//*[@id="current-status-high-low-view"]//*[@data-dojo-attach-point="h
 
 print('LOW = ', driver.find_element_by_xpath(xp_low).text)
 print('HIGH = ', driver.find_element_by_xpath(xp_high).text)
+
+#uniqName_0_372-main-view > div.tradebox-trade-container > div.tradebox-button.tradebox-sell > div.tradebox-price.tradebox-price-sell
