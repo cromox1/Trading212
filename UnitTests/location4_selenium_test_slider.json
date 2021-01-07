@@ -1,0 +1,348 @@
+{
+  "id": "f5ef84a6-e096-4a7d-bbd8-d640b0240644",
+  "version": "2.0",
+  "name": "slide_slider",
+  "url": "https://demo.trading212.com",
+  "tests": [
+    {
+      "id": "01f64ddd-43c2-4cca-99c0-e8eaf33762d7",
+      "name": "test2",
+      "commands": [
+        {
+          "id": "313ed446-be9a-473e-bf54-d5b9ccd49e61",
+          "comment": "",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "fa245909-7fa3-42ec-b949-960919a398ce",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1856x1154",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "f10f946e-f702-49c2-9e7e-079af5690536",
+          "comment": "",
+          "command": "click",
+          "target": "css=.button-arrow",
+          "targets": [
+            [
+              "css=.button-arrow",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='navigation']/div[5]/span",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[5]/span",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "3b43441d-798e-4bd4-8ba6-af8e1bb2d19e",
+          "comment": "",
+          "command": "click",
+          "target": "id=navigation-search-button",
+          "targets": [
+            [
+              "id=navigation-search-button",
+              "id"
+            ],
+            [
+              "css=#navigation-search-button",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='navigation-search-button']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//div[@id='chart-tabs-widget']/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div[4]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "5d5e539c-7fdb-4986-b2a3-189cca400079",
+          "comment": "",
+          "command": "click",
+          "target": "css=#uniqName_0_156 > .folder-name",
+          "targets": [
+            [
+              "css=#uniqName_0_156 > .folder-name",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='uniqName_0_156']/div[2]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[3]/div[4]/div/div/div/div[2]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "d2550e3a-fbd8-4cf1-81f6-a2567b659c2f",
+          "comment": "",
+          "command": "click",
+          "target": "css=#uniqName_0_239 > .folder-name",
+          "targets": [
+            [
+              "css=#uniqName_0_239 > .folder-name",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='uniqName_0_239']/div[2]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[2]/div/div/div/div/div/div[2]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "74e1bf88-9435-429d-92fa-dc57d62c1e47",
+          "comment": "",
+          "command": "click",
+          "target": "css=#uniqName_0_354 > .ticker > .has-ellipsed-text",
+          "targets": [
+            [
+              "css=#uniqName_0_354 > .ticker > .has-ellipsed-text",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='uniqName_0_354']/div[2]/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[2]/div[3]/div[3]/div/div[2]/div[2]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cd377775-59e1-4ad4-8165-8c3235af2841",
+          "comment": "",
+          "command": "click",
+          "target": "css=#uniqName_0_368 > #chartTabTemplates",
+          "targets": [
+            [
+              "css=#uniqName_0_368 > #chartTabTemplates",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='chartTabTemplates'])[2]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//div[@id='uniqName_0_368']/div[10]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[7]/div[4]/div/div/div/div[10]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "96148a99-10f3-4967-85d8-cc2e7fce24fa",
+          "comment": "",
+          "command": "click",
+          "target": "css=.template:nth-child(1)",
+          "targets": [
+            [
+              "css=.template:nth-child(1)",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart-templates']/div[2]/div/div/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[8]/div[2]/div/div/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "6a4ebfd6-48cf-45f9-a1ca-62b9be80e987",
+          "comment": "",
+          "command": "click",
+          "target": "css=#uniqName_0_368 > #chartTabPeriods",
+          "targets": [
+            [
+              "css=#uniqName_0_368 > #chartTabPeriods",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='chartTabPeriods'])[2]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//div[@id='uniqName_0_368']/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[7]/div[4]/div/div/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "31950433-dced-4342-beca-7b641b0f2e84",
+          "comment": "",
+          "command": "click",
+          "target": "css=.item-periods-300000",
+          "targets": [
+            [
+              "css=.item-periods-300000",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart-periods-list']/div/div[3]/div/div/div[2]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[8]/div/div/div[3]/div/div/div[2]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "58a099b6-6efd-4e8d-b4fe-032c3b6321ff",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_3']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div/div[2]/div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "110,4"
+        },
+        {
+          "id": "1b70a511-6e9c-4477-911a-7dafda443d5d",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_3']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div/div[2]/div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "110,4"
+        },
+        {
+          "id": "d925c3ad-f212-46ec-9726-8bcc12964d71",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_3']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div/div[2]/div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "110,4"
+        },
+        {
+          "id": "f3462060-9aea-46ea-97bb-919d03e75139",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_3 .scr_slider",
+          "targets": [
+            [
+              "css=#chart_3 .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_3']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div/div[2]/div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "a80b5e31-301f-4465-889e-3b80ff5e5c12",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_3 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_3 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "21cfb4b9-5c0e-4c34-bf66-f9c4dce9d759",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "01f64ddd-43c2-4cca-99c0-e8eaf33762d7"
+      ]
+    }
+  ],
+  "urls": [
+    "https://demo.trading212.com/"
+  ],
+  "plugins": []
+}

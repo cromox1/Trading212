@@ -46,10 +46,12 @@ sleep(8)
 
 #### Task1 - pop-up window
 xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
-driver.find_element_by_xpath(xpath1).click()
+if driver.find_element_by_xpath(xpath1):
+    driver.find_element_by_xpath(xpath1).click()
 
 template_bar = '//*[@id="chartTabTemplates"]/div'
-driver.find_element_by_id("chartTabTemplates").click()
+if driver.find_element_by_id("chartTabTemplates"):
+    driver.find_element_by_id("chartTabTemplates").click()
 
 search_section = driver.find_element_by_id("navigation-search-button")
 search_section.click()
@@ -58,10 +60,10 @@ driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
 sleep(1)
 
-currency2 = "GBP/USD"
+# currency2 = "GBP/USD"
 # currency2 = "EUR/USD"
 # currency2 = "USD/CAD"
-# currency2 = "USD/JPY"
+currency2 = "USD/JPY"
 # currency2 = "USD/CHF"
 # currency2 = "AUD/USD"
 # currency2 = "NZD/USD"
@@ -122,7 +124,7 @@ element_period = driver.find_element_by_xpath(xp_period)
 element_period.clear()
 element_period.send_keys(str(value_EMA))
 
-# //*[@id="uniqName_0_383"]/div
+# //*[@id="uniqName_0_383"]/div # TODO - to bold the graph line to no 2
 # driver.find_elements_by_xpath('//*[@data-dojo-attach-point="valueNode"]')[-1].click()
 # for element in driver.find_elements_by_xpath('//*[@data-dojo-attach-point="valueNode"]'):
 #     print('element = ', element, ' / text = ', element.text)
@@ -149,27 +151,22 @@ xp_baca = '//*[((@class="chart-container") or (@class="chart-container draggable
 list1 = driver.find_elements_by_xpath(xp_baca)
 # print()
 # print('number of elements = ', len(list1))
-# if len(list1) > 0:
-#     for ele in list1:
-#         # print(ele, ele.text.replace('\n', ' ## '))
-#         print(ele, ele.text, 'TEST')
-# else:
-#     print('NO ELEMENT OCCURRED')
 
 features_el = list1[-1]
 hoover(driver).move_to_element(features_el).perform()
 currenturl = driver.current_url
 print('currentURL = ', currenturl)
-# datatxt = requests.get(currenturl)
-# print('DATA = ', datatxt.text.split('\n'))
 # datasource = driver.page_source
 # print('DATA = \n', datasource)
 
 # powersearch_el = driver.find_element_by_xpath("//*[contains(text(),'31.12.2020 22:00')]")
 # print('TEXT', powersearch_el.text)
 
-# driver.find_element_by_css_selector("#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer").click()
+# element2 = driver.find_element_by_xpath("//*[contains(text(),'31.12.2020 22:00')]")
+# driver.execute_script("arguments[0].click();", element2)   # if normal click not working, this is JS click
 
+
+## NI NOTE JER
 # 6) Hoover mouse
 #
 # basepixitmediaurl = driver.current_url
@@ -182,3 +179,31 @@ print('currentURL = ', currenturl)
 # powersearch_el = driver.find_element_by_xpath("//*[contains(text(),'Powerful Search')]")
 # hoover(driver).move_to_element(powersearch_el).perform()
 # powersearch_el.click()
+
+# //*[@id="chart_2"]/div[4]/div[1]/div[5]/div
+# #chart_2 > div.chart-container > div:nth-child(1) > div.chart-scroller > div
+
+lebar = driver.execute_script("return window.innerWidth")
+print('LEBAR = ', lebar)
+tinggi = driver.execute_script("return window.innerHeight")
+print('TINGGI = ', tinggi)
+driver.execute_script("window.scrollTo(" + str(int(lebar*0.92)) + "," + str(tinggi) + ");")
+
+list2 = driver.find_elements_by_xpath("//*[contains(text(),'19:20')]")
+print('Nombo = ', len(list2))
+
+chkelements = driver.find_elements_by_xpath('//*[@class="chart-tooltip"]')   ## chart-scroller  &   scr_slider_container  # "chart-tooltip"
+print('number of elements = ', len(chkelements))
+# print('ELEMENTS = ', chkelements)
+if len(chkelements) >= 1:
+    for ele in chkelements:
+
+        # hoover(driver).move_to_element(ele).perform()
+        # driver.execute_script("arguments[0].click();", ele)
+        # print(driver.execute_script("return arguments[0].text", ele))
+        # driver.execute_script('document.getElementsByTagName("05.01.2021 17:00")[0].click();')
+        # print(driver.execute_script('return document.getElementsByTagName("05.01.2021 17:00")[0].text'))
+        print('\nTEXT = \n\n', ele.text)
+        # driver.execute_script("arguments[0].click();", ele)
+        # print(driver.execute_script("return arguments[0].text", ele))
+        # print(driver.execute_script('return document.getElementsByTagName("05.01.2021 17:00")[0].text'))

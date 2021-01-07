@@ -1,0 +1,255 @@
+{
+  "id": "493ceb5b-3bf1-4ff5-8f3d-32d506899f26",
+  "version": "2.0",
+  "name": "slide_slider",
+  "url": "https://demo.trading212.com",
+  "tests": [
+    {
+      "id": "c3a32c11-f05a-41f4-b5be-01db9acd8363",
+      "name": "test456",
+      "commands": [
+        {
+          "id": "25002010-3144-4a7e-b8f1-69290a5644e9",
+          "comment": "",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e9fc5b94-1498-411d-bbaa-a38b256e6afc",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1856x1154",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "001a6ff4-f97a-474c-b043-99425ef3efcd",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "088615d4-bb29-4474-b570-96fc339c6781",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1426,2"
+        },
+        {
+          "id": "ecb8bf88-4dce-4d14-893c-e3f9a866da56",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1426,2"
+        },
+        {
+          "id": "2347a336-8901-4c01-a6e1-bcaf49997691",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1426,2"
+        },
+        {
+          "id": "39264365-0715-4882-ba7b-d2c2ad259778",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chart-scroller",
+          "targets": [
+            [
+              "css=#chart_0 .chart-scroller",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "1cafa24d-38fe-41b5-a083-217a526ca81d",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "15b41214-fe20-42bc-9964-e59b502a27f8",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "661449fb-fb25-4dba-ae80-3a35db852d69",
+          "comment": "",
+          "command": "click",
+          "target": "css=.chartLayer:nth-child(2) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=.chartLayer:nth-child(2) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "c418e87c-7328-4ea2-9bb2-ded04f4d960e",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": "786,581"
+        },
+        {
+          "id": "413e9e4f-2fed-4828-8127-d87cd6d07713",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": "786,581"
+        },
+        {
+          "id": "6a9ea600-21d8-43b7-8b65-e2bad37a70ea",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": "786,581"
+        },
+        {
+          "id": "52c17d4a-41a1-4169-b4bb-6aa629bf9b94",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1)",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1)",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[2]/div[4]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cabf1833-4486-4d21-9adc-629e194ad9c2",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "8e96edb8-b391-4d09-9382-70ad85f9f60c",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "c3a32c11-f05a-41f4-b5be-01db9acd8363"
+      ]
+    }
+  ],
+  "urls": [
+    "https://demo.trading212.com/"
+  ],
+  "plugins": []
+}

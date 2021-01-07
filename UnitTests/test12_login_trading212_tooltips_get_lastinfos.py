@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 # from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.common.action_chains import ActionChains as hoover
-import requests
+# import requests
 
 chromedriverpath = r'C:\tools\chromedriver\chromedriver.exe'
 chrome_options = Options()
@@ -44,12 +44,41 @@ driver.find_element_by_id("username-real").send_keys(user1 + Keys.ENTER)
 driver.find_element_by_id("pass-real").send_keys(pswd1 + Keys.ENTER)
 sleep(8)
 
+#### FUNCTION FOR TOOLTIP VALUE
+
+def dapatkan_values():
+    chkelements = driver.find_elements_by_xpath('//*[@class="chart-tooltip"]')
+    # chkelements = driver.find_elements_by_xpath('//*[@class="tooltip"]')
+    if len(chkelements) >= 1:
+        return chkelements[0].text
+
+def baca_graff():
+    print('\nTEST BACA GRAFF')
+
+    xp_baca = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
+    list1 = driver.find_elements_by_xpath(xp_baca)
+    print('number of elements = ', len(list1))
+
+    features_el = list1[-1]
+    id1 = features_el.get_attribute('class')
+    print('ID1 = ', id1)
+    hoover(driver).move_to_element(features_el).perform()
+    currenturl = driver.current_url
+    print('currentURL = ', currenturl)
+
+    # print()
+    text123 = dapatkan_values()
+    # print(text123)
+    return text123
+
 #### Task1 - pop-up window
 xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
-driver.find_element_by_xpath(xpath1).click()
+if driver.find_element_by_xpath(xpath1):
+    driver.find_element_by_xpath(xpath1).click()
 
 template_bar = '//*[@id="chartTabTemplates"]/div'
-driver.find_element_by_id("chartTabTemplates").click()
+if driver.find_element_by_id("chartTabTemplates"):
+    driver.find_element_by_id("chartTabTemplates").click()
 
 search_section = driver.find_element_by_id("navigation-search-button")
 search_section.click()
@@ -58,8 +87,8 @@ driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
 sleep(1)
 
-currency2 = "GBP/USD"
-# currency2 = "EUR/USD"
+# currency2 = "GBP/USD"
+currency2 = "EUR/USD"
 # currency2 = "USD/CAD"
 # currency2 = "USD/JPY"
 # currency2 = "USD/CHF"
@@ -69,9 +98,7 @@ currency1 = currency2.replace('/', '')
 
 xp_gbpusd = '//*[@data-code="' + currency1 + '"]//*[@class="ticker"]//*[@class="has-ellipsed-text"]'
 element1 = driver.find_element_by_xpath(xp_gbpusd)
-# print('ELE1 = ', element1, ' / TXT = ', element1.text.replace('\n', ' ## '))
 element1.click()
-# driver.execute_script("arguments[0].click();", element1)   # if normal click not working, this is JS click
 sleep(1)
 
 xp_sell = '//*[@data-code="' + currency1 + '"]//*[@data-dojo-attach-point="mainViewNode"]//*[@data-dojo-attach-point="sellPriceNode"]'
@@ -87,11 +114,6 @@ print('LOW = ', driver.find_element_by_xpath(xp_low).text)
 print('HIGH = ', driver.find_element_by_xpath(xp_high).text)
 
 ## change graph to candlestick
-# xp_templatebar = '//*[@id="chartTabTemplates"]//*[@class="arrow-icon svg-icon-holder"]'    # ok1
-# xp_templatebar = '//*[@id="chartTabTemplates"]//*[@data-dojo-attach-point="templatesArrowNode"]'   # ok2
-# xp_templatebar = '//*[@id="chartTabTemplates"]/div'    # ok3
-# xp_templatebar = '//*[(@data-dojo-attach-point="templatesArrowNode") and (@class="arrow-icon svg-icon-holder")]' # ok4
-# xp_templatebar = '//*[@data-dojo-attach-point="templatesArrowNode"]'   # ok5
 xp_templatebar = '//*[@class="chart-menu"]//*[@data-dojo-attach-point="templatesArrowNode"]'
 
 elements = driver.find_elements_by_xpath(xp_templatebar)
@@ -115,22 +137,14 @@ element_indicator.click()
 driver.find_element_by_xpath("//*[contains(text(),'Trend')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'EMA')]").click()
 
-# //*[@id="chart-settings"]/div[3]/div[1]/div[2]/input
 value_EMA = 30
 xp_period = '//*[@id="chart-settings"]//*[@class="editable-input"]'
 element_period = driver.find_element_by_xpath(xp_period)
 element_period.clear()
 element_period.send_keys(str(value_EMA))
 
-# //*[@id="uniqName_0_383"]/div
-# driver.find_elements_by_xpath('//*[@data-dojo-attach-point="valueNode"]')[-1].click()
-# for element in driver.find_elements_by_xpath('//*[@data-dojo-attach-point="valueNode"]'):
-#     print('element = ', element, ' / text = ', element.text)
-#     if element.text == '2':
-#         element.click()
-# driver.find_element_by_xpath("//*[contains(text(),'2')]").click()
-
-driver.find_element_by_xpath('//*[@class="button confirm-button"]').click()
+driver.find_elements_by_xpath('//*[@class="button confirm-button"]')[-1].click()
+# driver.find_element_by_xpath("//*[contains(text(),'Confirm')]").click()
 print('END 2 - ', value_EMA, ' EMA line')
 
 ### time period to 5 mins
@@ -141,44 +155,66 @@ print('END 3 - time period 5 mins')
 
 ## baca graph
 
-print('\nTEST123 - baca graf')
+baca1 = baca_graff()
+print()
+print('TEXT1 = \n', baca1)
 
-# xp_baca = "//*[contains(text(),'31.12.2020 22:00')]"
-# xp_baca = '//*[@class="chartLayer"]'
-xp_baca = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
-list1 = driver.find_elements_by_xpath(xp_baca)
-# print()
-# print('number of elements = ', len(list1))
-# if len(list1) > 0:
-#     for ele in list1:
-#         # print(ele, ele.text.replace('\n', ' ## '))
-#         print(ele, ele.text, 'TEST')
-# else:
-#     print('NO ELEMENT OCCURRED')
+for i in range(10):
+    zoom_in = '//*[@id="chartTabZoomIn"]'
+    driver.find_elements_by_xpath(zoom_in)[-1].click()
 
-features_el = list1[-1]
-hoover(driver).move_to_element(features_el).perform()
-currenturl = driver.current_url
-print('currentURL = ', currenturl)
-# datatxt = requests.get(currenturl)
-# print('DATA = ', datatxt.text.split('\n'))
-# datasource = driver.page_source
-# print('DATA = \n', datasource)
-
-# powersearch_el = driver.find_element_by_xpath("//*[contains(text(),'31.12.2020 22:00')]")
-# print('TEXT', powersearch_el.text)
-
-# driver.find_element_by_css_selector("#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer").click()
-
-# 6) Hoover mouse
+# # zoom_in = '//*[@id="chartTabZoomIn"]'
+# # driver.find_elements_by_xpath(zoom_in)[-1].click()
+# # driver.find_elements_by_xpath(zoom_in)[-1].click()
+# # driver.find_elements_by_xpath(zoom_in)[-1].click()
+# # driver.find_elements_by_xpath(zoom_in)[-1].click()
+# # driver.find_elements_by_xpath(zoom_in)[-1].click()
 #
-# basepixitmediaurl = driver.current_url
-# print('URL = ' + str(basepixitmediaurl))
-# elements_pixstor = driver.find_elements_by_xpath("//*[contains(text(),'PixStor')]")
-# element_pixstor = elements_pixstor[0]      # if more than one elements
-# hoover(driver).move_to_element(element_pixstor).perform()
-# features_el = driver.find_element_by_xpath("//*[contains(text(),'Features')]")
-# hoover(driver).move_to_element(features_el).perform()
-# powersearch_el = driver.find_element_by_xpath("//*[contains(text(),'Powerful Search')]")
-# hoover(driver).move_to_element(powersearch_el).perform()
-# powersearch_el.click()
+# # print()
+# # lebar = driver.execute_script("return window.innerWidth")
+# # print('LEBAR = ', lebar)
+# # # tinggi = driver.execute_script("return window.innerHeight")
+# # tinggi = 100
+# # print('TINGGI = ', tinggi)
+# # # print("window.scrollTo(" + str(int(lebar*0.9)) + "," + str(int(tinggi*0.5)) + ");")
+# # # driver.execute_script("window.scrollTo(" + str(int(lebar*0.92)) + "," + str(int(tinggi*0.5)) + ");")
+# # ### move mouse
+# #
+# # # xp23_baca = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
+# # # xp23_baca = '//*[@class="dragging"]'
+# # # list23 = driver.find_elements_by_xpath(xp23_baca)
+# # # css23_baca = ".dragging.scr_slider"
+# # # list23 = driver.find_elements_by_css_selector(css23_baca)
+# #
+# # # //*[@id="chart_2"]/div[4]/div[1]/div[5]/div
+# # #chart_1 > div.chart-container > div:nth-child(1) > div.layer.svg-layer.unselectable > svg > g:nth-child(4) > line
+# #
+# # xp34_baca = '//*[@class="chart-scroller"]//*[@class="scr_slider_container"]//*[@class="scr_slider"]'
+# xp34_baca = '//*[@class="current-price-line current-sell-price-line"]'
+# list34 = driver.find_elements_by_xpath(xp34_baca)
+# print('number of elements = ', len(list34))
+# print('SLIDER TEXT = ', list34[-1].text)
+# #
+# features_el34 = list34[-1]
+# id34 = features_el34.get_attribute('class')
+# print('ID34 = ', id34)
+# hoover(driver).move_to_element_with_offset(driver.find_element_by_tag_name('body'), 0,0)
+# # # hoover(driver).move_to_element(features_el23).move_by_offset(int(lebar*0.7), int(tinggi*0.5)).click().perform()
+# # # print("move_by_offset(" + str(int(lebar*0.2)) + "," + "0)")
+# # hoover(driver).move_to_element(features_el23).move_by_offset(int(lebar*0.2), 0).click().perform()
+#
+# #
+# # # slider = //*[@id="chart_1"]/div[4]/div[1]/div[5]/div/div    class="scr_slider"
+# #
+# # hoover(driver).move_to_element_with_offset(driver.find_element_by_tag_name('body'), 0,0)
+# # # nnn = 0.3
+# # # print("move_to_element_with_offset(" + "features_el23, " + str(int(lebar*nnn)) + "," + str(int(tinggi*nnn)) + ")")
+# # # hoover(driver).move_to_element_with_offset(features_el23, int(lebar*nnn), int(tinggi*nnn)).click().perform()
+# # # hoover(driver).move_to_element_with_offset(features_el23, 110, 4).click() # .perform()
+# # # hoover(driver).move_to_element_with_offset(driver.find_elements_by_css_selector(".dragging")[0], 110, 4).perform()
+# #
+# hoover(driver).move_to_element_with_offset(features_el34, 110, 4).click() # .perform()
+
+baca2 = baca_graff()
+print()
+print('TEXT2 = \n', baca2)

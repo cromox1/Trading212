@@ -1,0 +1,576 @@
+{
+  "id": "75e87930-f3f5-4ad1-9af6-14947a15c015",
+  "version": "2.0",
+  "name": "slide_slider2",
+  "url": "https://demo.trading212.com",
+  "tests": [
+    {
+      "id": "30db65d9-4997-4f40-a07a-c8a0c097a5a8",
+      "name": "test234",
+      "commands": [
+        {
+          "id": "9df0530e-4ccc-4a4c-b13c-f4617d2ff32f",
+          "comment": "",
+          "command": "open",
+          "target": "/",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bdaff72f-4dbb-4f24-a2b9-4b2300cf9583",
+          "comment": "",
+          "command": "setWindowSize",
+          "target": "1856x1154",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "aabe6502-689b-43be-91c4-620856d682c9",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "359,4"
+        },
+        {
+          "id": "c220a359-d61d-4282-bf6e-82b92c1262f1",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "359,4"
+        },
+        {
+          "id": "8c74eb8c-a0c1-4778-9f66-4dfe90127a30",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "359,4"
+        },
+        {
+          "id": "c1a9653b-6bba-4d30-9d98-2386ec5b7aa9",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .scr_slider",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "333cfe9f-282f-4152-b8b4-ddaffadfd9b3",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=#chart_0 .scr_slider_container",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider_container",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "1197,1"
+        },
+        {
+          "id": "be5a91d5-b3f8-461d-94d1-bdedd4f68eaf",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=#chart_0 .scr_slider_container",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider_container",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "1197,1"
+        },
+        {
+          "id": "aa600299-c2ee-4840-9610-6cf85319a421",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=#chart_0 .scr_slider_container",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider_container",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "1197,1"
+        },
+        {
+          "id": "217bfd8f-4002-485f-9de9-877cf2d2da93",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .scr_slider_container",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider_container",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "eaa428f0-97c6-41e2-b8c9-9c87481bff9b",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "38,5"
+        },
+        {
+          "id": "34b01f03-b7f8-4ae7-8f6f-614dd7fbb2d2",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "38,5"
+        },
+        {
+          "id": "b0fe3e2a-b86d-435b-a44f-cd8501100995",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "38,5"
+        },
+        {
+          "id": "b1f4aaf7-5904-46cc-85dd-a4301a4cf0f8",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .scr_slider",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "9b8ee07c-4f61-4aa4-bf8e-2e61dda9efd2",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "686a9ec9-7439-4d96-a9ce-1b02d5d977cb",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+          "targets": [
+            [
+              "css=#chart_0 .chartLayer:nth-child(1) .price-snapshot-layer",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "85e30ec5-86cd-405b-acdc-9f543485e201",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1041,3"
+        },
+        {
+          "id": "d4995268-b1d6-43b1-928c-a1d2e1321734",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1041,3"
+        },
+        {
+          "id": "bcaefd71-1442-42b6-a034-603c10fdef71",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1041,3"
+        },
+        {
+          "id": "d3921b5f-08a1-41f0-9223-27ba9ad3330e",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chart-scroller",
+          "targets": [
+            [
+              "css=#chart_0 .chart-scroller",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "caa3b774-f2e0-4c3c-b639-d9a22d1f3e7d",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "79,5"
+        },
+        {
+          "id": "e0c9f71d-bda4-449a-b071-50482f3251a5",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "79,5"
+        },
+        {
+          "id": "7ee6c0c4-9115-494d-8c45-4d6a5d93f59c",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging .scr_slider",
+          "targets": [
+            [
+              "css=.dragging .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": "79,5"
+        },
+        {
+          "id": "2258f004-0534-401c-99d6-65bbfc11c246",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .scr_slider",
+          "targets": [
+            [
+              "css=#chart_0 .scr_slider",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]/div/div",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]/div/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "8442a9ac-28ed-40c1-aa23-91fd567c329f",
+          "comment": "",
+          "command": "mouseDownAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1205,1"
+        },
+        {
+          "id": "1fe444a5-86bf-4d50-9745-3caed53cd890",
+          "comment": "",
+          "command": "mouseMoveAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1205,1"
+        },
+        {
+          "id": "0cbbeae9-ec07-4cb4-92ed-080b62b2941b",
+          "comment": "",
+          "command": "mouseUpAt",
+          "target": "css=.dragging",
+          "targets": [
+            [
+              "css=.dragging",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": "1205,1"
+        },
+        {
+          "id": "00c4b6fc-7a7d-4342-bef2-4955f3eb0cab",
+          "comment": "",
+          "command": "click",
+          "target": "css=#chart_0 .chart-scroller",
+          "targets": [
+            [
+              "css=#chart_0 .chart-scroller",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[@id='chart_0']/div[4]/div/div[5]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//div[4]/div/div[5]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "4c695071-b155-4525-97c4-6ed940cc0300",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "30db65d9-4997-4f40-a07a-c8a0c097a5a8"
+      ]
+    }
+  ],
+  "urls": [
+    "https://demo.trading212.com/"
+  ],
+  "plugins": []
+}
