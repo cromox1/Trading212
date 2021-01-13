@@ -49,7 +49,27 @@ sleep(8)
 def dapatkan_values():
     chkelements = driver.find_elements_by_xpath('//*[@class="chart-tooltip"]')
     # chkelements = driver.find_elements_by_xpath('//*[@class="tooltip"]')
+    print('INVESTIGATE')
+    for ele in chkelements:
+        print('ele, get_attribute_id, get_attribute_class, id, location, location_once_scrolled_into_view, tag_name')
+        print('ELE ', chkelements.index(ele) + 1, ele.get_attribute('id'), ele.get_attribute('class'), ele.id, ele.location,
+              ele.location_once_scrolled_into_view, ele.tag_name)
+
+        # elenew = hoover(driver).move_by_offset(950, 440)
+        # elenew = ele.move_by_offset(950, 440)
+        # print('TYPE = ', type(elenew))
+        # elenew.location['x'] = 950
+        # elenew.location['y'] = 440
+        # print('TEST 2 = ', elenew.location, ' // ', elenew.text.split('\n')[0])
+        # print('TEST 2 = ', ' // ', elenew.text.split('\n')[0])
+
+        # //*[@id="chart_1"]/div[4]/div[1]/div[4]/svg/g[2]/line
+
     if len(chkelements) >= 1:
+        # # chkelements[0].location.update({'x': 950, 'y': 440})
+        # hoover(driver).move_to_element(chkelements[0]).move_by_offset(950,440).perform()
+        # print('new location = ', chkelements[0].location)
+        # return driver.execute_script('return arguments[0].value;', chkelements[0])   ## wrong output
         return chkelements[0].text
 
 def baca_graff():
@@ -153,36 +173,33 @@ driver.find_elements_by_xpath('//*[@id="chartTabPeriods"]//*[@class="arrow-icon 
 driver.find_element_by_xpath("//*[contains(text(),'5 minutes')]").click()
 print('END 3 - time period 5 mins')
 
-## baca graph
-zoom_in = '//*[@id="chartTabZoomIn"]'
-
 baca1 = baca_graff()
 print()
-print('TEXT1 = \n', baca1)
+print('TEXT1 = \n', " // ".join(baca1.split('\n')[0:3] + baca1.split('\n')[-2:]))
+
 sleep(5)
 
-### time period to 1 min
+# javas = "document.getElementsByText('11.01.2021 16:00')[0].click();"
+# driver.execute_script(javas)
+# print(driver.execute_script('return document.documentElement.innerText'))
 
-driver.find_elements_by_xpath('//*[@id="chartTabPeriods"]//*[@class="arrow-icon svg-icon-holder"]')[-1].click()
-driver.find_element_by_xpath("//*[contains(text(),'1 minute')]").click()
-print('\nEND 4 - time period 1 min')
-
-
-# for i in range(10):
-#     zoom_in = '//*[@id="chartTabZoomIn"]'
-#     driver.find_elements_by_xpath(zoom_in)[-1].click()
-
-driver.find_elements_by_xpath(zoom_in)[-1].click()
-
-baca2 = baca_graff()
 print()
-print('TEXT2 = \n', baca2)
-sleep(5)
+lebar = driver.execute_script("return window.innerWidth")
+print('LEBAR = ', lebar)
+tinggi = driver.execute_script("return window.innerHeight")
+print('TINGGI = ', tinggi)
 
-# driver.quit()
-
-driver.find_elements_by_xpath(zoom_in)[-1].click()
-
-baca3 = baca_graff()
-print()
-print('TEXT3 = \n', baca3)
+chkelements2 = driver.find_elements_by_xpath('//*[@class="chart-tooltip"]')
+print('number of elements chkelements2 = ', len(chkelements2))
+for ele in chkelements2:
+    # try:
+    #     driver.execute_script("arguments[0].scrollIntoView(true); window.scrollBy(100,0);", ele)
+    #     ele.click()
+    #     print('TEXT2 = \n', ele.text)
+    # except:
+    #     print('ELE = ', ele, ' FAILED')
+    driver.execute_script("arguments[0].scrollIntoView(true); window.scrollBy(100,0);", ele)
+    print('ELE2A LOCATION ', ele.location)
+    print('ELE2B LOCATION ', ele.location_once_scrolled_into_view)
+    # ele.click()
+    print('TEXT2 = \n', " // ".join(ele.text.split('\n')[0:3]))

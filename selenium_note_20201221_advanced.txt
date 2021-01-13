@@ -46,8 +46,10 @@ driver.find_element_by_xpath("//*[contains(text(),'Currencies')]")
 4) send ‘input data’ to element
 
 from selenium.webdriver.common.keys import Keys
+
 # driver.find_element_by_id("username-real").clear()     # sometimes you need this
 driver.find_element_by_id("username-real").send_keys(user1 + Keys.ENTER)
+
 # driver.find_element_by_id("pass-real").clear()      # sometimes you need this
 driver.find_element_by_id("pass-real").send_keys(pswd1 + Keys.ENTER)
 
@@ -61,7 +63,7 @@ driver.find_element_by_id("pass-real").send_keys(pswd1 + Keys.ENTER)
 parentElement = driver.find_element_by_class_name("bar")
 elementList = parentElement.find_elements_by_tag_name("li")
 
-6) Hoover mouse
+6) Hoover mouse (ActionChains)
 
 from selenium.webdriver.common.action_chains import ActionChains as hoover
 
@@ -109,7 +111,7 @@ if driver.find_element_by_css_selector("iframe"):
       driver.find_element_by_id("introAgreeButton").click()
       driver.switch_to.default_content()
 
-9) Get URL from text link (use ‘get_attribute’ from element)
+9) Get URL from text link (use ‘get_attribute’ from element and then find the link/'href')
 
 pdffileurl = driver.find_element_by_xpath("//*[contains(text(),'DOWNLOAD')]").get_attribute('href')
 print('PDF FILE URL = ' + str(pdffileurl))
@@ -147,7 +149,7 @@ element = driver.find_element_by_xpath("(//a[contains(@href, '')])[20]")
 driver.execute_script("arguments[0].click();", element)
 
 if you has more than 1 elements, e.g. element1 & element2 :
-driver.execute_script("arguments[0].click();arguments[1].click()", element1, element2)
+driver.execute_script("arguments[0].click(); arguments[1].click()", element1, element2)
 
 12) find ID which contain some word (you didn’t know the full ID word)
 
@@ -159,7 +161,38 @@ driver.execute_script("arguments[0].click();arguments[1].click()", element1, ele
 valuetofind = '//*[contains(@id, "uniqName_")]'
 list_ids = driver.find_elements_by_xpath(valuetofind)
 
-13) 
+13) Width & Height browser's display window
 
+lebar = driver.execute_script("return window.innerWidth")
+print('LEBAR = ', lebar)
+tinggi = driver.execute_script("return window.innerHeight")
+print('TINGGI = ', tinggi)
 
+14) XPATH - using AND and OR (example only)
 
+<div tabindex="-1" class="chart-container" style="width: 1015px; height: 694px;">
+    <div class="chartLayer" style="width: 1015px; height: 560px;">
+        <div class="clip-path" style="width: 955px; height: 561px; margin-top: 0px; margin-left: 0px;">
+................
+<div tabindex="-1" class="chart-container draggable" style="width: 1015px; height: 694px;">
+    <div class="chartLayer" style="width: 1015px; height: 560px;">
+        <div class="clip-path" style="width: 955px; height: 561px; margin-top: 0px; margin-left: 0px;">
+................
+
+xp_baca = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
+driver.find_elements_by_xpath(xp_baca)
+
+15) list - to multi slicing
+
+slice the list, then add it together
+
+test2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+print(test2[0:3] + test2[-2:])   # first 3 and last 2
+
+16) reverse LIST  - use ‘[::-1]’
+
+test3 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
+print(test3)            	# original list
+print(test3[::-1])    	    # reverse list
+
+17)
