@@ -189,10 +189,24 @@ slice the list, then add it together
 test2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
 print(test2[0:3] + test2[-2:])   # first 3 and last 2
 
-16) reverse LIST  - use ‘[::-1]’
+16) reverse LIST  - use '[::-1]'
 
 test3 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
 print(test3)            	# original list
 print(test3[::-1])    	    # reverse list
 
-17)
+17) UI WbDriver/Selenium wait till the element (toolTip element) appear
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains as hoover
+
+xpath1 = '//*[@class="chart-tooltip"]'
+toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xpath1)))
+
+hoover(driver).move_to_element(toolTip).perform()
+print('ELE LOCATION ', toolTip.location)
+print('TEXT = ', toolTip.text)
+
+18)
