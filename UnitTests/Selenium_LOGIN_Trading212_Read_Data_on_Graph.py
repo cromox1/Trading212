@@ -50,35 +50,23 @@ sleep(8)
 
 #### FUNCTION FOR TOOLTIP VALUE
 
-def baca_graff(driver):
-    print('\nTEST BACA GRAFF')
-    xp_baca = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
-    list1 = driver.find_elements_by_xpath(xp_baca)
-    print('number of elements = ', len(list1))
-    features_el = list1[-1]
-    id1 = features_el.get_attribute('class')
-    print('ID1 = ', id1)
-    hoover(driver).move_to_element(features_el).perform()
-    currenturl = driver.current_url
-    print('currentURL = ', currenturl)
-    xp_tooltip = '//*[@class="chart-tooltip"]'
-    chkelements = driver.find_elements_by_xpath(xp_tooltip)
-    if len(chkelements) >= 1:
-        return chkelements[0].text
-    else:
-        return 'no_text'
-
-def movearound_showtext(driver, element, x_value, y_value):
+def movearound_showtext(driver, element, x_value, y_value, prev_text):
     hoover(driver).move_to_element_with_offset(element, x_value, y_value).perform()
-    print()
-    print('x = ', x_value, ' / y = ', y_value)
-    if len(element.text.split('\n')) >= 12:
-        print('NEWTEXT =', " / ".join(element.text.split('\n')[0:11] + element.text.split('\n')[-2:]))
-        print('NEWLOCTN = ', element.location)
-    else:
-        print('NEWTEXT =', " / ".join(element.text.split('\n')[0:3]))
+    # print('x = ', x_value, ' / y = ', y_value)
     chktext = element.text.split('\n')[0].replace(' ', '')
-    return int(element.location['x']), int(element.location['y']), chktext
+    if chktext != prev_text:
+        text = text_to_display(element.text.split('\n'))
+    else:
+        text = ''
+    return int(element.location['x']), int(element.location['y']), text, chktext
+
+def text_to_display(list_text):
+    if len(list_text) >= 12:
+        text = " / ".join(list_text[0:11] + list_text[-2:])
+    else:
+        text = " / ".join(list_text[0:3])
+    print('NEWTEXT = ', text)
+    return text
 
 #### Task1 - pop-up window
 xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
@@ -96,8 +84,8 @@ driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
 sleep(1)
 
-# currency2 = "GBP/USD"
-currency2 = "EUR/USD"
+currency2 = "GBP/USD"
+# currency2 = "EUR/USD"
 # currency2 = "USD/CAD"
 # currency2 = "USD/JPY"
 # currency2 = "USD/CHF"
@@ -161,9 +149,9 @@ driver.find_elements_by_xpath('//*[@id="chartTabPeriods"]//*[@class="arrow-icon 
 driver.find_element_by_xpath("//*[contains(text(),'5 minutes')]").click()
 print('END 3 - time period 5 mins')
 
-baca1 = baca_graff(driver)
-print()
-print('TEXT1 = \n', " // ".join(baca1.split('\n')[0:3] + baca1.split('\n')[-2:]))
+# print()
+# baca1 = baca_graff(driver)
+# text_to_display(baca1.split('\n'))
 
 sleep(1)
 
@@ -187,15 +175,14 @@ elements_tooltip = driver.find_elements_by_xpath(xp_tooltip)
 for ele in elements_tooltip:
     toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
 
-    hoover(driver).move_to_element(toolTip).perform()
-    print('TEXT = ', " // ".join(toolTip.text.split('\n')[0:3]))
-
-    move1 = movearound_showtext(driver, toolTip, -15, -15)
+    move0 = movearound_showtext(driver, toolTip, int(xdisplay/3), int(ydisplay/3), '')
+    move1 = movearound_showtext(driver, toolTip, -15, -15, move0[-1])
     arrear = move1[0]
     chktext = move1[-1]
     for steppx in range(xdisplay + 190 - 15, 1, -5):
-        move = movearound_showtext(driver, toolTip, steppx - arrear - 15, -15)
+        move = movearound_showtext(driver, toolTip, steppx - arrear - 15, -15, chktext)
         arrear = move[0]
+        chktext = move[-1]
         if arrear < move1[0]:
             print('move0/arrear = ', move[0], ' / move10 = ', move1[0])
             break
