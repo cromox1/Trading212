@@ -62,11 +62,28 @@ def movearound_showtext(driver, element, x_value, y_value, prev_text):
 
 def text_to_display(list_text):
     if len(list_text) >= 12:
-        text = " / ".join(list_text[0:11] + list_text[-2:])
+        open = list_text[4]
+        close = list_text[6]
+        ema = list_text[-1]
+        fxstatus = forex_status_diffEMA(open, close, ema)
+        text = " / ".join(list_text[0:11] + list_text[-2:] + [fxstatus[0], fxstatus[1], fxstatus[2], fxstatus[-1]])
     else:
         text = " / ".join(list_text[0:3])
     print('NEWTEXT = ', text)
     return text
+
+def forex_status_diffEMA(open, close, ema):
+    diffopenclose = float(close) - float(open)
+    diffema = float(ema) - float(close)
+    if diffopenclose <= 0:
+        statusfx = 'RUGI'
+    else:
+        statusfx = 'UNTUNG'
+    if diffema >= 0:
+        statusema = 'UNDER_30EMA'
+    else:
+        statusema = 'OVER_30EMA'
+    return statusfx, str("%.5f" % round(diffopenclose, 5)), statusema, str("%.5f" % round(diffema, 5))
 
 #### Task1 - pop-up window
 xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
@@ -84,10 +101,10 @@ driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
 sleep(1)
 
-currency2 = "GBP/USD"
+# currency2 = "GBP/USD"
 # currency2 = "EUR/USD"
 # currency2 = "USD/CAD"
-# currency2 = "USD/JPY"
+currency2 = "USD/JPY"
 # currency2 = "USD/CHF"
 # currency2 = "AUD/USD"
 # currency2 = "NZD/USD"
@@ -109,12 +126,12 @@ xp_high = '//*[@id="current-status-high-low-view"]//*[@data-dojo-attach-point="h
 
 print('LOW = ', driver.find_element_by_xpath(xp_low).text)
 print('HIGH = ', driver.find_element_by_xpath(xp_high).text)
-
+print()
 ## change graph to candlestick
 xp_templatebar = '//*[@class="chart-menu"]//*[@data-dojo-attach-point="templatesArrowNode"]'
 
 elements = driver.find_elements_by_xpath(xp_templatebar)
-print('number of elements = ', len(elements))
+# print('number of elements = ', len(elements))
 element_template = elements[-1]
 element_template.click()
 
@@ -123,11 +140,11 @@ driver.find_element_by_xpath(xp_pro_tab).click()
 
 element_template.click()
 
-print('END 1 - Candlestick')
+print('-- > END 1 - Candlestick')
 
 xp_indicator = '//*[@id="chartTabIndicators"]//*[@data-dojo-attach-point="indicatorsArrowNode"]'
 elements = driver.find_elements_by_xpath(xp_indicator)
-print('number of elements = ', len(elements))
+# print('number of elements = ', len(elements))
 element_indicator = elements[-1]
 element_indicator.click()
 
@@ -142,16 +159,12 @@ element_period.send_keys(str(value_EMA))
 
 driver.find_elements_by_xpath('//*[@class="button confirm-button"]')[-1].click()
 # driver.find_element_by_xpath("//*[contains(text(),'Confirm')]").click()
-print('END 2 - ', value_EMA, ' EMA line')
+print('-- > END 2 -', value_EMA, 'EMA line')
 
 ### time period to 5 mins
 driver.find_elements_by_xpath('//*[@id="chartTabPeriods"]//*[@class="arrow-icon svg-icon-holder"]')[-1].click()
 driver.find_element_by_xpath("//*[contains(text(),'5 minutes')]").click()
-print('END 3 - time period 5 mins')
-
-# print()
-# baca1 = baca_graff(driver)
-# text_to_display(baca1.split('\n'))
+print('-- > END 3 - set time period 5 mins')
 
 sleep(1)
 
@@ -174,13 +187,16 @@ xp_tooltip = '//*[@class="chart-tooltip"]'
 elements_tooltip = driver.find_elements_by_xpath(xp_tooltip)
 for ele in elements_tooltip:
     toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
-
     move0 = movearound_showtext(driver, toolTip, int(xdisplay/3), int(ydisplay/3), '')
     move1 = movearound_showtext(driver, toolTip, -15, -15, move0[-1])
     arrear = move1[0]
     chktext = move1[-1]
     for steppx in range(xdisplay + 190 - 15, 1, -5):
-        move = movearound_showtext(driver, toolTip, steppx - arrear - 15, -15, chktext)
+        if int(arrear/8) % 2 == 0:
+            ynum = -11
+        else:
+            ynum = -19
+        move = movearound_showtext(driver, toolTip, steppx - arrear - 15, ynum, chktext)
         arrear = move[0]
         chktext = move[-1]
         if arrear < move1[0]:
