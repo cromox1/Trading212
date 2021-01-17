@@ -88,7 +88,7 @@ def forex_status_diffEMA(open, close, ema, value_EMA):
     elif diffema < 0:
         statusema = 'OVER_' + str(value_EMA) + 'EMA'
     else:
-        statusema = 'EQUAL_' + str(value_EMA) + 'EMA'
+        statusema = '#EQUAL_' + str(value_EMA) + 'EMA'
     return statusfx, str("%.5f" % round(diffopenclose, 5)), statusema, str("%.5f" % round(diffema, 5))
 
 #### Task1 - pop-up window
@@ -109,10 +109,10 @@ sleep(1)
 
 # currency2 = "GBP/USD"
 # currency2 = "EUR/USD"
-# currency2 = "USD/CAD"
+currency2 = "USD/CAD"
 # currency2 = "USD/JPY"
 # currency2 = "USD/CHF"
-currency2 = "AUD/USD"
+# currency2 = "AUD/USD"
 # currency2 = "NZD/USD"
 currency1 = currency2.replace('/', '')
 
@@ -157,7 +157,7 @@ element_indicator.click()
 driver.find_element_by_xpath("//*[contains(text(),'Trend')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'EMA')]").click()
 
-value_EMA = 45
+value_EMA = 35
 xp_period = '//*[@id="chart-settings"]//*[@class="editable-input"]'
 element_period = driver.find_element_by_xpath(xp_period)
 element_period.clear()
@@ -193,7 +193,7 @@ xp_tooltip = '//*[@class="chart-tooltip"]'
 elements_tooltip = driver.find_elements_by_xpath(xp_tooltip)
 for ele in elements_tooltip:
     toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
-    move0 = movearound_showtext(driver, toolTip, int(xdisplay/2), int(ydisplay/2), 'x', value_EMA)
+    move0 = movearound_showtext(driver, toolTip, int(xdisplay/3), int(ydisplay/3), 'x', value_EMA)
     arrear = move0[0]
     chktext = move0[-1]
     stepadd = 5
