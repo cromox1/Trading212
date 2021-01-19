@@ -53,11 +53,15 @@ sleep(8)
 def movearound_showtext(driver, element, x_value, y_value, prev_text, value_EMA):
     hoover(driver).move_to_element_with_offset(element, x_value, y_value).perform()
     # print('x = ', x_value, ' / y = ', y_value)
-    chktext = element.text.split('\n')[0].replace(' ', '')
-    if chktext != prev_text:
-        text = text_to_display(element.text.split('\n'), value_EMA)
-    else:
-        text = ''
+    try:
+        chktext = element.text.split('\n')[0].replace(' ', '')
+        if chktext != prev_text:
+            text = text_to_display(element.text.split('\n'), value_EMA)
+        else:
+            text = ''
+    except:
+        chktext = 'error'
+        text = 'out_of_boundary'
     return int(element.location['x']), int(element.location['y']), text, chktext
 
 def text_to_display(list_text, value_EMA):
@@ -76,9 +80,9 @@ def forex_status_diffEMA(open, close, ema, value_EMA):
     diffopenclose = float(close) - float(open)
     diffema = float(ema) - float(close)
     if diffopenclose <= 0:
-        statusfx = 'RUGI'
+        statusfx = 'BEARISH'
     else:
-        statusfx = 'UNTUNG'
+        statusfx = 'BULLISH'
     if diffema > 0:
         statusema = 'UNDER_' + str(value_EMA) + 'EMA'
     elif diffema < 0:
@@ -104,9 +108,9 @@ driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
 sleep(1)
 
 # currency2 = "GBP/USD"
-# currency2 = "EUR/USD"
+currency2 = "EUR/USD"
 # currency2 = "USD/CAD"
-currency2 = "USD/JPY"
+# currency2 = "USD/JPY"
 # currency2 = "USD/CHF"
 # currency2 = "AUD/USD"
 # currency2 = "NZD/USD"
@@ -153,11 +157,12 @@ element_indicator.click()
 driver.find_element_by_xpath("//*[contains(text(),'Trend')]").click()
 driver.find_element_by_xpath("//*[contains(text(),'EMA')]").click()
 
-value_EMA = 30
+value_EMA = 50
 xp_period = '//*[@id="chart-settings"]//*[@class="editable-input"]'
 element_period = driver.find_element_by_xpath(xp_period)
 element_period.clear()
 element_period.send_keys(str(value_EMA))
+# //*[@id="uniqName_0_463"]/span
 
 driver.find_elements_by_xpath('//*[@class="button confirm-button"]')[-1].click()
 # driver.find_element_by_xpath("//*[contains(text(),'Confirm')]").click()
@@ -189,18 +194,18 @@ xp_tooltip = '//*[@class="chart-tooltip"]'
 elements_tooltip = driver.find_elements_by_xpath(xp_tooltip)
 for ele in elements_tooltip:
     toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
-    move0 = movearound_showtext(driver, toolTip, int(xdisplay/3), int(ydisplay/3), 'x', value_EMA)
-    move1 = movearound_showtext(driver, toolTip, -15, -15, move0[-1], value_EMA)
-    arrear = move1[0]
-    chktext = move1[-1]
-    for steppx in range(xdisplay + 190 - 15, 1, -5):
+    move0 = movearound_showtext(driver, toolTip, int(xdisplay/4), int(ydisplay/4), 'x', value_EMA)
+    arrear = move0[0]
+    chktext = move0[-1]
+    stepadd = 5
+    for steppx in range(1, xdisplay, stepadd):
         if int(arrear/8) % 2 == 0:
             ynum = -11
         else:
             ynum = -19
-        move = movearound_showtext(driver, toolTip, steppx - arrear - 15, ynum, chktext, value_EMA)
+        move = movearound_showtext(driver, toolTip, -9, ynum, chktext, value_EMA)
         arrear = move[0]
         chktext = move[-1]
-        if arrear < move1[0]:
-            print('move0/arrear = ', move[0], ' / move10 = ', move1[0])
+        if move[0] > xdisplay + 190 - 15:
+            print('xlocation = ', move[0], ' / xdisplay = ', xdisplay)
             break

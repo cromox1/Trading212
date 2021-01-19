@@ -100,10 +100,10 @@ def collectdata_from_dailyfx():
 
 ### LOOPING
 import time
-t_end = time.time() + 10*60
+t_end = time.time() + 5*60
 while time.time() < t_end:
     collectdata_from_dailyfx()
-    time.sleep(60*5)
+    time.sleep(5*60)
 
 # print(time.time())
 # print(t_end)
