@@ -53,11 +53,31 @@ def close_popup_ask_upload_docs(driver):
         driver.find_element_by_xpath(xpath1).click()
     return driver
 
+def mode_live_or_demo(driver, mode):
+    current_url = driver.current_url
+    urlmode = current_url.split('//')[-1].split(".")[0]     #  -- > live or demo
+    if urlmode == "live" and mode == "Practice":
+        elem = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "account-menu-button")))
+        elem.click()
+        try:
+            elem = driver.find_element_by_class_name("green")
+            elem.click()
+        except:
+            return driver
+    elif urlmode == "demo" and mode == "Real":
+        try:
+            elem = driver.find_element_by_class_name("blue")
+            elem.click()
+        except:
+            return driver
+    return driver
+
 def from_search_goto_specific_currency(driver, currency):
-    if driver.find_element_by_id("navigation-search-button"):
-        driver.find_elements_by_id("navigation-search-button")[-1].click()
     # if driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]'):
     #     driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]').click()
+    elemlist = driver.find_elements_by_id("navigation-search-button")
+    hoover(driver).move_to_element_with_offset(elemlist[0], 10, 0).perform()
+    elemlist[0].click()
     driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
     driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
     sleep(1)
@@ -81,7 +101,9 @@ def change_graph_to_candlestick(driver):
     # print('number of elements = ', len(elements))
     element_template = elements[-1]
     element_template.click()
-    xp_pro_tab = '//*[@id="chart-templates"]/div[2]/div/div/div/div'
+    # change graph type from linear to PRO/candlestick
+    # xp_pro_tab = '//*[@id="chart-templates"]/div[2]/div/div/div/div'
+    xp_pro_tab = '//*[@id="chart-templates"]//*[contains(text(), "PRO")]'
     driver.find_element_by_xpath(xp_pro_tab).click()
     element_template.click()
     print('-- > END 1 - Candlestick')
@@ -243,10 +265,14 @@ driver1 = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 # 3) pop-up window (which ask to upload ID documents)
 driver2 = close_popup_ask_upload_docs(driver1)
 
-# 4) go to speficic currency or looping all currencies
+# 4) switch to Practice Mode   # Real or Practice
+driver3 = mode_live_or_demo(driver2, "Practice")
+
+# 5) go to speficic currency or looping all currencies
+stock = "USD/JPY"
 value_EMA = 75
 tperiod = '15 minutes'
-grph_div_start_point = 2  # division graph of starting point? ( value = 1.28 to infinity)
+grph_div_start_point = 1.3  # division graph of starting point? ( value = 1.28 to infinity)
 cont_or_stop = 'N'  # at end of the graph - wait&collecting newdata 'Y' or stop/break 'N'?
 
 # currency2 = "GBP/USD"
@@ -257,7 +283,100 @@ cont_or_stop = 'N'  # at end of the graph - wait&collecting newdata 'Y' or stop/
 # currency2 = "AUD/USD"
 # currency2 = "NZD/USD"
 
-main_collect_data(driver2, "EUR/USD", value_EMA, tperiod, grph_div_start_point, cont_or_stop)
+main_collect_data(driver3, stock, value_EMA, tperiod, grph_div_start_point, cont_or_stop)
 
 # for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
 #     main_collect_data(driver2, currency, value_EMA, tperiod, grph_div_start_point, cont_or_stop)
+
+
+def buy(driver, amount):
+    element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
+        (By.XPATH, "//div[@class='visible-input']//input[contains(@id, 'uniqName')]")))
+    element.clear()
+    for character in str(amount):
+        element.send_keys(character)
+        sleep(0.5)
+    # Confirm Button
+    driver.find_elements_by_xpath("//div[contains(@class,'confirm-button')]")[0].click()
+
+def sell(driver, amount):
+    # Switching to sell
+    driver.find_elements_by_xpath("//div[@data-dojo-attach-event='click: setDirectionSell']")[0].click()
+    # From there on it's exactly like the buy
+    buy(driver, amount)
+
+def script_click_xpath(driver, xpath):
+    driver.execute_script(f"document.evaluate(\"{xpath}\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()")
+
+def open_stock_dialog(driver, stock):
+    WebDriverWait(driver, 5).until(EC.visibility_of_any_elements_located((By.XPATH, "//span[contains(@data-dojo-attach-event, 'onOpenDialogClick')]")))
+    elem = driver.find_elements_by_xpath("//span[contains(@data-dojo-attach-event, 'onOpenDialogClick')]")
+    # try both elements
+    try:
+        elem[0].click()
+    except:
+        elem[1].click()
+    # Search the stock
+    elem = driver.find_element_by_xpath("//input[@placeholder=\"Instrument search\"]")
+    # Setting the max length to 100 so the API'll be able to enter long stocks names
+    driver.execute_script("arguments[0].setAttribute('maxlength',arguments[1])", elem, 100)
+    elem.send_keys(stock)
+    # Open its dialog with JS. Selenium couldn't open the dialog itself.
+    script_click_xpath(driver, f"//*[@id='list-results-instruments']//span[contains(@class, 'instrument-name') and .='{stock}']")
+    sleep(1)
+
+def buy_stock(driver, stock, amount):
+    open_stock_dialog(driver, stock)
+    buy(driver, amount)
+    sleep(0.5)
+
+def sell_stock(driver, stock, amount):
+    # It's just opening a stock and selling it
+    open_stock_dialog(driver, stock)
+    sell(driver, amount)
+    sleep(0.5)
+
+def stock_simple_information(driver, stock):
+    # position info
+    nombor = len(driver.find_elements_by_xpath(f"//td[@class='name' and text()='{stock}']"))
+    print()
+    if nombor >= 1:
+        for i in range(nombor):
+            print(i+1, ') name =', stock, end=' / ')
+            for info in ["quantity", "direction", "averagePrice", "currentPrice", "margin", "ppl"]:
+                element = driver.find_elements_by_xpath(
+                    f"//td[@class='name' and text()='{stock}']/following::td[contains(@class,'{info}')]")[i]
+                print(info, "=", element.text.replace(' ', ''), end=' / ')
+            print()
+    else:
+        print("No position/stock for", stock)
+    return nombor
+
+def close_position_existing_CFD(driver, stock):
+    nombor = stock_simple_information(driver, stock)
+    pilihan = 0
+    if nombor > 1:
+        pilihan = input("Position to close ? [ 1 -" + str(nombor) + "] :")
+    elif nombor == 1:
+        pilihan = 1
+    else:
+        print("No position/stock for", stock, "to CLOSE")
+    if 0 < pilihan <= nombor:
+        confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
+        if confirmation.lower() == 'y':
+            driver.find_elements_by_xpath(
+                f"//td[@class='name' and text()='{stock}']/following::div[@class='close-icon svg-icon-holder']")[
+                pilihan - 1].click()
+            driver.find_elements_by_xpath(f"//span[@class='btn btn-primary' and text()='OK']")[0].click()
+        else:
+            print("Didn't CLOSE ", stock, " position - Change Mind")
+    else:
+        print("Nothing TODO for", stock)
+
+# buy_stock(driver3, "EUR/USD", 500)
+# sell_stock(driver3, "EUR/USD", 500)
+# buy_stock(driver3, stock, 9000)
+# sell_stock(driver3, stock, 8888)
+
+# stock_simple_information(driver3, stock)
+close_position_existing_CFD(driver3, stock)
