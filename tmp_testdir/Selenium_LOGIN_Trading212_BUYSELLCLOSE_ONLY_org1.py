@@ -1,7 +1,7 @@
 __author__ = 'cromox'
 
 from time import sleep
-# from datetime import datetime
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -146,26 +146,28 @@ def stock_simple_information(driver, stock):
     return nombor
 
 def list_CFD_open_position(driver):
-    instrument_list = driver3.find_elements_by_xpath('//table[@data-dojo-attach-point="tableNode"]//tr')
-    print('# No of Instruments = ', len(instrument_list))
+    instrument_list = driver3.find_elements_by_xpath('//table[@data-dojo-attach-point="tableNode"]//td[@class="name"]')
     dict1 = {}
-    dict2 = {}
-    if len(instrument_list) > 1:
-        i = 1
-        for ele in instrument_list:
-            id_ele = ele.get_attribute('id')
-            print(i, end=' ) ')
-            text = ''
-            for info in ["name", "quantity", "direction", "averagePrice", "currentPrice", "margin", "ppl"]:
-                xpathx = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_ele}']//td[contains(@class,'{info}')]"
-                element = driver3.find_elements_by_xpath(xpathx)[0]
-                print(info, "=", element.text.replace(' ', ''), end=' / ')
-                text = text + element.text.replace(' ', '') + ' / '
-            dict1[i] = id_ele
-            dict2[i] = text
-            i += 1
-            print()
-    return driver, dict1, dict2
+    ix = 1
+    jy = 0
+    for ele in instrument_list:
+        if ele.text not in [x[0] for x in list(dict1.values())]:
+            jy = 0
+            dict1[ix] = [ele.text, jy]
+        else:
+            jy += 1
+            dict1[ix] = [ele.text, jy]
+        ix += 1
+    for kk, vv in dict1.items():
+        stock = str(vv[0])
+        tlox = int(vv[1])
+        print(kk, ') name =', stock, end=' / ')
+        for info in ["quantity", "direction", "averagePrice", "currentPrice", "margin", "ppl"]:
+            xpathcreate = f"//td[@class='name' and text()='{stock}']/following::td[contains(@class,'{info}')]"
+            element = driver.find_elements_by_xpath(xpathcreate)[tlox]
+            print(info, "=", element.text.replace(' ', ''), end=' / ')
+        print()
+    return driver, dict1
 
 def pilihan_to_close_position(num_choice):
     pilihan = 0
@@ -209,22 +211,21 @@ def close_position_CFD_ANY(driver):
     list_choice = list_CFD_open_position(driver)
     driver = list_choice[0]
     dict1 = list_choice[1]
-    dict2 = list_choice[-1]
     buy_sell_dict = pilihan_buy_or_sell(dict1)
     number_of_choice = len(dict1) + 2
     pilihan = pilihan_to_close_position(number_of_choice)
     try:
-        if  len(dict1) > 0 and 0 < int(pilihan) <= len(dict1):
-            print(' -- > Close Position [', str(pilihan), '] =', dict2[int(pilihan)])
+        if 0 < int(pilihan) <= len(dict1):
             confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
-            id_ele = dict1[int(pilihan)]
+            stock = str(dict1[int(pilihan)][0])
+            iloct = int(dict1[int(pilihan)][1])
             if confirmation.lower() == 'y':
-                xpathto = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_ele}']//div[@class='close-icon svg-icon-holder']"
-                driver.find_elements_by_xpath(xpathto)[0].click()
+                xpathcreate = f"//td[@class='name' and text()='{stock}']/following::div[@class='close-icon svg-icon-holder']"
+                driver.find_elements_by_xpath(xpathcreate)[iloct].click()
                 driver.find_elements_by_xpath(f"//span[@class='btn btn-primary' and text()='OK']")[0].click()
                 sleep(2)
             else:
-                print("CHANGE MIND!! - Didn't CLOSE [", str(pilihan), '] =', dict2[int(pilihan)])
+                print("CHANGE MIND!! - Didn't CLOSE ", stock)
         elif int(pilihan) == buy_sell_dict['buy']:
             currency = choice_currency("BUY")
             amount = input('Amount to BUY (min 500) : ')
@@ -245,8 +246,6 @@ def close_position_CFD_ANY(driver):
                     print('Wrong currency')
             except:
                 print('ERROR on SELL')
-        elif int(pilihan) == 99:
-            print("You choose - QUIT/EXIT !!")
         else:
             print("Out of range")
         return pilihan
@@ -263,8 +262,6 @@ chromebrowserdriver = google_chrome_browser()
 base_url = "https://www.trading212.com"
 user1 = "mycromox@gmail.com"
 pswd1 = "Serverg0d!"
-# user1 = "xixa01@yahoo.co.uk"
-# pswd1 = "H0meBase"
 driver1 = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
