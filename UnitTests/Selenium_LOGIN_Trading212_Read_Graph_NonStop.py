@@ -54,10 +54,11 @@ def close_popup_ask_upload_docs(driver):
     return driver
 
 def from_search_goto_specific_currency(driver, currency):
-    if driver.find_element_by_id("navigation-search-button"):
-        driver.find_elements_by_id("navigation-search-button")[-1].click()
     # if driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]'):
     #     driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]').click()
+    elemlist = driver.find_elements_by_id("navigation-search-button")
+    hoover(driver).move_to_element_with_offset(elemlist[0], 10, 0).perform()
+    elemlist[0].click()
     driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
     driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
     sleep(1)
@@ -257,7 +258,7 @@ cont_or_stop = 'N'  # at end of the graph - wait&collecting newdata 'Y' or stop/
 # currency2 = "AUD/USD"
 # currency2 = "NZD/USD"
 
-main_collect_data(driver2, "EUR/USD", value_EMA, tperiod, grph_div_start_point, cont_or_stop)
+# main_collect_data(driver2, "EUR/USD", value_EMA, tperiod, grph_div_start_point, cont_or_stop)
 
-# for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
-#     main_collect_data(driver2, currency, value_EMA, tperiod, grph_div_start_point, cont_or_stop)
+for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
+    main_collect_data(driver2, currency, value_EMA, tperiod, grph_div_start_point, cont_or_stop)

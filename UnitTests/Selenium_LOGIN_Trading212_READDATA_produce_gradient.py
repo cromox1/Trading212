@@ -1,14 +1,15 @@
 __author__ = 'cromox'
 
 from time import sleep
-# from datetime import datetime
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-# from selenium.webdriver.common.action_chains import ActionChains as hoover
+from selenium.webdriver.common.action_chains import ActionChains as hoover
+import requests
 
 ##### General function
 
@@ -51,7 +52,9 @@ def close_popup_ask_upload_docs(driver):
     xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
     if driver.find_element_by_xpath(xpath1):
         driver.find_element_by_xpath(xpath1).click()
-    return driver
+        return driver
+    else:
+        return driver
 
 def mode_live_or_demo(driver, mode):
     current_url = driver.current_url
@@ -73,6 +76,159 @@ def mode_live_or_demo(driver, mode):
         except:
             return driver
     return driver
+
+##### FUNCTIONS FOR READ DATA FROM GRAPH FOR ALL CURRENCIES
+
+def from_search_goto_specific_currency(driver, currency):
+    # if driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]'):
+    #     driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]').click()
+    elemlist = driver.find_elements_by_id("navigation-search-button")
+    hoover(driver).move_to_element_with_offset(elemlist[0], 10, 0).perform()
+    elemlist[0].click()
+    driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
+    driver.find_element_by_xpath("//*[contains(text(),'Major')]").click()
+    sleep(1)
+    currency1 = currency.replace('/', '')
+    xp_gbpusd = '//*[@data-code="' + currency1 + '"]//*[@class="ticker"]//*[@class="has-ellipsed-text"]'
+    element1 = driver.find_element_by_xpath(xp_gbpusd)
+    element1.click()
+    print('\nCURRENCY = ', currency)
+    sleep(1)
+    return driver
+
+def change_graph_to_candlestick(driver):
+    xp_templatebar = '//*[@class="chart-menu"]//*[@data-dojo-attach-point="templatesArrowNode"]'
+    elements = driver.find_elements_by_xpath(xp_templatebar)
+    # print('number of elements = ', len(elements))
+    element_template = elements[-1]
+    element_template.click()
+    # xp_pro_tab = '//*[@id="chart-templates"]/div[2]/div/div/div/div'
+    xp_pro_tab = '//*[@id="chart-templates"]//*[contains(text(), "PRO")]'
+    driver.find_element_by_xpath(xp_pro_tab).click()
+    element_template.click()
+    # print('-- > END 1 - Candlestick')
+    return driver
+
+def change_graph_time_period(driver, time_period):
+    driver.find_elements_by_xpath('//*[@id="chartTabPeriods"]//*[@class="arrow-icon svg-icon-holder"]')[-1].click()
+    driver.find_element_by_xpath('//*[contains(text(), "' + time_period + '")]').click()
+    # print('-- > END 3 - set time period ' + time_period)
+    sleep(1)
+    return driver
+
+def collecting_data_on_graph(driver, fr_graph_div):
+    data_list = []
+    lebar = driver.execute_script("return window.innerWidth")
+    tinggi = driver.execute_script("return window.innerHeight")
+    # print('LEBAR x = ', lebar, ' / TINGGI y = ', tinggi)
+    xp_chart_container = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
+    elements_chart_container = driver.find_elements_by_xpath(xp_chart_container)
+    xdisplay = lebar
+    ydisplay = tinggi
+    if elements_chart_container[-1].get_attribute('style') != None:
+        xdisplay = int(
+            elements_chart_container[-1].get_attribute('style').split(';')[0].split('width:')[-1].split('px')[0])
+        ydisplay = int(
+            elements_chart_container[-1].get_attribute('style').split(';')[1].split('height:')[-1].split('px')[0])
+    # print('DISPLAY = ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)), int(ydisplay/3))
+    xp_tooltip = '//*[@class="chart-tooltip"]'
+    toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
+    sleep(1)
+    move0 = movearound_showtext(driver, toolTip, int(float(xdisplay)/float(fr_graph_div)), int(ydisplay/3), 'x')
+    arrear = move0[0]
+    chktext = move0[-1]
+    stepadd = 5
+    for steppx in range(1, xdisplay, stepadd):
+        if int(arrear / 8) % 2 == 0:
+            ynum = -11
+        else:
+            ynum = -19
+        move = movearound_showtext(driver, toolTip, -9, ynum, chktext)
+        arrear = move[0]
+        chktext = move[-1]
+        if move[2] != 'duplicate' and move[2].split('/')[0].replace(' ', '') != 'xlocation':
+            # print('NEWTEXT = ', move[2])
+            data_list = data_list + [move[2].split('Close')[-1].split('/')[1].replace(' ', '')]
+        elif move[2].split('/')[0].replace(' ', '') == 'xlocation':
+            # print('NEWTEXT = ', move[2])
+            break
+        if arrear > xdisplay + 190 - 15:
+            print('xlocation = ', arrear, ' / xdisplay = ', xdisplay)
+            break
+    xp_backbutton = '//*[@id="search-header"]//*[@data-dojo-attach-point="backButtonNode"]'
+    driver.find_element_by_xpath(xp_backbutton).click()
+    driver.find_element_by_xpath(xp_backbutton).click()
+    # print('DATALIST = ', data_list)
+    return data_list
+
+## functions for tooltip value
+
+def movearound_showtext(driver, element, x_value, y_value, prev_text):
+    hoover(driver).move_to_element_with_offset(element, x_value, y_value).perform()
+    chktext = element.text.split('\n')[0].replace(' ', '')
+    try:
+        if chktext == prev_text:
+            text = 'duplicate'
+        elif str(element.text.split('\n')[4]) == 'Close':
+            text = 'xlocation / ' + str(element.location['x']) + ' / ylocation / ' + str(element.location['y'])
+        else:
+            text = text_to_display(element.text.split('\n'))
+    except:
+        text = 'out_of_boundary_or_wrong_value'
+    return int(element.location['x']), int(element.location['y']), text, chktext
+
+def text_to_display(list_text):
+    if len(list_text) >= 12:
+        text = " / ".join(
+            list_text[0:1] + list_text[3:7] + list_text[11:13]).replace('Tick volume', 'TickV')
+    else:
+        text = " / ".join(list_text[0:3])
+    return text
+
+def main_collect_data(driver, currency, time_period, grph_div_start, dict_fx):
+    driver = from_search_goto_specific_currency(driver, currency)
+    driver = change_graph_to_candlestick(driver)
+    driver = change_graph_time_period(driver, time_period)
+    # collect data from graph
+    datalist = collecting_data_on_graph(driver, grph_div_start)
+    # gradient1 = float(datalist[-2]) - ((float(datalist[-3]) + float(datalist[-4])) / 2)
+    # gradient2 = float(datalist[-3]) - ((float(datalist[-4]) + float(datalist[-5])) / 2)
+    # gradient3 = float(datalist[-4]) - ((float(datalist[-5]) + float(datalist[-6])) / 2)
+    gradient1 = float(datalist[-2]) - float(datalist[-3])
+    gradient2 = float(datalist[-3]) - float(datalist[-4])
+    gradient3 = float(datalist[-4]) - float(datalist[-5])
+    ### convert to GBP
+    gradient1x = 5000 * gradient1 / float(dict_fx[currency.split('/')[-1]])
+    gradient2x = 5000 * gradient2 / float(dict_fx[currency.split('/')[-1]])
+    gradient3x = 5000 * gradient3 / float(dict_fx[currency.split('/')[-1]])
+    text1 = ''
+    if gradient3x < gradient2x < gradient1x:
+        text1 = 'BUY/LONG'
+    if gradient3x > gradient2x > gradient1x:
+        text1 = 'SELL/SHORT'
+    print('GRADIENT for ' + currency + ' =', str("%.5f" % round(gradient3, 5)), '/', str("%.6f" % round(gradient3x, 6)),
+          '//' , str("%.5f" % round(gradient2, 5)), '/', str("%.6f" % round(gradient2x, 6)),
+          '//' , str("%.5f" % round(gradient1, 5)), '/', str("%.6f" % round(gradient1x, 6)), '#', text1)
+    return driver
+
+## FUNCTIONS FOR CHANGE CURRENCY
+
+def currency_date_value():
+    baseurl = 'https://www.dailyfx.com/'
+    dict1 = {}
+    for currency in ['gbp-usd', 'gbp-jpy', 'gbp-chf', 'gbp-cad']:
+        url = baseurl + currency
+        out1 = requests.get(url = url)
+        data = []
+        for line in out1.text.split('\n'):
+            if 'data-value=' in line:
+                if 'data-value="--' not in line:
+                    data = data + [line]
+        datalast = data[-1]
+        data_list = [float(x) for x in datalast.split('=')[1].split('"')[1].split(',')]
+        average = sum(data_list)/len(data_list)
+        dict1[currency.replace('gbp-', '').upper()] = "%.7f" % round(average, 7)
+    return dict1
 
 ## FUNCTIONS FOR BUY / SELL / CLOSE_POSITION
 
@@ -252,27 +408,41 @@ def close_position_CFD_ANY(driver):
         print("Nothing TODO")
         return pilihan
 
-### STEPS BY STEPS running
+##### STEPS BY STEPS running  #########
 
 # 1) start webdriver
 chromebrowserdriver = google_chrome_browser()
 
 # 2) login
 base_url = "https://www.trading212.com"
-user1 = "mycromox@gmail.com"
-pswd1 = "Serverg0d!"
-# user1 = "xixa01@yahoo.co.uk"
-# pswd1 = "H0meBase"
+user1 = "roslitalib2017@gmail.com"
+pswd1 = "Malaysia123"
 driver = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
-driver = close_popup_ask_upload_docs(driver)
+# driver = close_popup_ask_upload_docs(driver)
 
 # 4) switch to Practice Mode   # Real or Practice
 driver = mode_live_or_demo(driver, "Practice")
 
-# # 5) Buy/Sell/Close_Position
-pilihan = 0
-while pilihan != 99 :
-    print()
-    pilihan = close_position_CFD_ANY(driver)
+# 5) go to speficic currency or looping all currencies
+# tperiod = '5 minutes'
+tperiod = '10 minutes'
+grph_div_start_point = 1.328  # division graph of starting point? ( value = 1.28 to infinity)
+
+fxconvert = currency_date_value()
+# print(fxconvert)
+
+for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
+    driver = main_collect_data(driver, currency, tperiod, grph_div_start_point, fxconvert)
+#
+# main_collect_data(driver, "EUR/USD", tperiod, grph_div_start_point)
+
+# # 6) Buy/Sell/Close_Position
+#
+# pilihan = 0
+# while pilihan != 99 :
+#     print()
+#     pilihan = close_position_CFD_ANY(driver)
+
+# //*[@id="chart_2"]/div[4]/div[1]/div[4]/svg/rect[2]
