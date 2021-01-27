@@ -261,8 +261,6 @@ chromebrowserdriver = google_chrome_browser()
 base_url = "https://www.trading212.com"
 user1 = "mycromox@gmail.com"
 pswd1 = "Serverg0d!"
-# user1 = "xixa01@yahoo.co.uk"
-# pswd1 = "H0meBase"
 driver = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
