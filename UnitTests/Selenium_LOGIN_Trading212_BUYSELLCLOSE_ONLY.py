@@ -1,7 +1,7 @@
 __author__ = 'cromox'
 
 from time import sleep
-# from datetime import datetime
+from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -49,9 +49,11 @@ def autologin_maxwindows(driver, base_url, username, passwd):
 
 def close_popup_ask_upload_docs(driver):
     xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
-    if driver.find_element_by_xpath(xpath1):
+    try:
         driver.find_element_by_xpath(xpath1).click()
-    return driver
+        return driver
+    except:
+        return driver
 
 def mode_live_or_demo(driver, mode):
     current_url = driver.current_url
@@ -138,8 +140,10 @@ def list_CFD_open_position(driver):
         '//*[@id="equity-total"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
     result = driver.find_elements_by_xpath(
         '//*[@id="equity-ppl"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
-    print('# No of Instruments = ', len(instrument_list), ' / Total Fund = ', total_fund, ' / Free Fund = ',
-          free_fund, ' / Live Result = ', result)
+    myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
+    arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print('# No of Instruments = ', len(instrument_list), ' // TIME_RUN =', arini, '// DFD = ', '£' + str(myDFD),
+          '// Total_Fund =', total_fund, '// Free_Fund =', free_fund, '// Live_Result =', result)
     dict1 = {}
     dict2 = {}
     if len(instrument_list) >= 1:
@@ -162,25 +166,30 @@ def list_CFD_open_position(driver):
 def pilihan_to_close_position(num_choice):
     # pilihan = 0
     if num_choice > 3:
+        print('x ) QUIT')
         pilihan = input("Your Choice ? CLOSE [ 1 - " + str(num_choice - 2) + " ] or BUY/SELL [ " +
                         str(num_choice - 1) + " / " + str(num_choice) + " ] or QUIT [ x / 99 ] : ")
     elif num_choice == 3:
+        print('x ) QUIT')
         pilihan = input("Your Choice ? CLOSE [ 1 ] or BUY/SELL [ " +
                         str(num_choice - 1) + " / " + str(num_choice) + " ] or QUIT [ x / 99 ] : ")
     elif num_choice == 1:
         pilihan = 1
     else:
+        print('x ) QUIT')
         pilihan = input("Your Choice ? BUY/SELL [ " + str(num_choice - 1) + " / " + str(num_choice) +
                         " ] or QUIT [ x / 99 ] : ")
     try:
         return int(pilihan)
     except:
-        print("Error - Not an integer =", pilihan)
+        print("Error - '" + str(pilihan) + "' is not an integer  -- >  ", end='')
         if pilihan.lower()[0] == 'b':
             return int(num_choice - 1)
         elif pilihan.lower()[0] == 's':
             return int(num_choice)
         elif pilihan.lower()[0] == 'x':
+            return int(99)
+        elif pilihan.lower()[0] == 'q':
             return int(99)
         else:
             return int(0)
@@ -245,6 +254,7 @@ def close_position_CFD_ANY(driver):
                 print('ERROR on SELL')
         elif int(pilihan) == 99:
             print("You choose - QUIT/EXIT !!")
+            driver.close()
         else:
             print("Out of range")
         return pilihan

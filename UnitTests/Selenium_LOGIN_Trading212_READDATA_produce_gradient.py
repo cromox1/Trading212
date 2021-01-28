@@ -109,6 +109,27 @@ def change_graph_to_candlestick(driver):
     # print('-- > END 1 - Candlestick')
     return driver
 
+def set_graph_EMA_value(driver, value_EMA):
+    xp_indicator = '//*[@id="chartTabIndicators"]//*[@data-dojo-attach-point="indicatorsArrowNode"]'
+    elements = driver.find_elements_by_xpath(xp_indicator)
+    element_indicator = elements[-1]
+    element_indicator.click()
+    driver.find_element_by_xpath("//*[contains(text(),'Trend')]").click()
+    # driver.find_element_by_xpath("//*[contains(text(),'EMA')]").click()  # < -- if using EMA
+    driver.find_element_by_css_selector(".item-trend-sma").click()         # < -- if using Simple Moving Average (SMA)
+    xp_period = '//*[@id="chart-settings"]//*[@class="editable-input"]'
+    element_period = driver.find_element_by_xpath(xp_period)
+    element_period.clear()
+    element_period.send_keys(str(value_EMA))
+    if driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div"):
+        driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div").click()
+        driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+    # confirm button
+    driver.find_elements_by_xpath('//div[@class="window-controls"]/div[@class="button confirm-button"]')[0].click()
+    # driver.find_element_by_xpath("//*[contains(text(),'Confirm')]").click()
+    # print('-- > END 2 -', value_EMA, 'EMA line')
+    return driver
+
 def change_graph_time_period(driver, time_period):
     driver.find_elements_by_xpath('//*[@id="chartTabPeriods"]//*[@class="arrow-icon svg-icon-holder"]')[-1].click()
     driver.find_element_by_xpath('//*[contains(text(), "' + time_period + '")]').click()
@@ -118,6 +139,7 @@ def change_graph_time_period(driver, time_period):
 
 def collecting_data_on_graph(driver, fr_graph_div):
     data_list = []
+    EMA_list = []
     lebar = driver.execute_script("return window.innerWidth")
     tinggi = driver.execute_script("return window.innerHeight")
     # print('LEBAR x = ', lebar, ' / TINGGI y = ', tinggi)
@@ -149,6 +171,8 @@ def collecting_data_on_graph(driver, fr_graph_div):
         if move[2] != 'duplicate' and move[2].split('/')[0].replace(' ', '') != 'xlocation':
             # print('NEWTEXT = ', move[2])
             data_list = data_list + [move[2].split('Close')[-1].split('/')[1].replace(' ', '')]
+            # EMA_list = EMA_list + [move[2].split('EMA')[-1].split('/')[1].replace(' ', '')]
+            EMA_list = EMA_list + [move[2].split('SMA')[-1].split('/')[1].replace(' ', '')]
         elif move[2].split('/')[0].replace(' ', '') == 'xlocation':
             # print('NEWTEXT = ', move[2])
             break
@@ -159,7 +183,8 @@ def collecting_data_on_graph(driver, fr_graph_div):
     driver.find_element_by_xpath(xp_backbutton).click()
     driver.find_element_by_xpath(xp_backbutton).click()
     # print('DATALIST = ', data_list)
-    return data_list
+    # print('EMALIST = ', EMA_list)
+    return data_list, EMA_list
 
 ## functions for tooltip value
 
@@ -180,17 +205,21 @@ def movearound_showtext(driver, element, x_value, y_value, prev_text):
 def text_to_display(list_text):
     if len(list_text) >= 12:
         text = " / ".join(
-            list_text[0:1] + list_text[3:7] + list_text[11:13]).replace('Tick volume', 'TickV')
+            list_text[0:1] + list_text[3:7] + list_text[11:13] + list_text[-2:]).replace('Tick volume', 'TickV')
     else:
         text = " / ".join(list_text[0:3])
     return text
 
-def main_collect_data(driver, currency, time_period, grph_div_start, dict_fx):
+def main_collect_data(driver, currency, value_EMA, time_period, grph_div_start, dict_fx):
+    arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     driver = from_search_goto_specific_currency(driver, currency)
     driver = change_graph_to_candlestick(driver)
+    driver = set_graph_EMA_value(driver, value_EMA)
     driver = change_graph_time_period(driver, time_period)
     # collect data from graph
-    datalist = collecting_data_on_graph(driver, grph_div_start)
+    collectdata = collecting_data_on_graph(driver, grph_div_start)
+    datalist = collectdata[0]
+    emalist = collectdata[-1]
     # gradient1 = float(datalist[-2]) - ((float(datalist[-3]) + float(datalist[-4])) / 2)
     # gradient2 = float(datalist[-3]) - ((float(datalist[-4]) + float(datalist[-5])) / 2)
     # gradient3 = float(datalist[-4]) - ((float(datalist[-5]) + float(datalist[-6])) / 2)
@@ -202,11 +231,43 @@ def main_collect_data(driver, currency, time_period, grph_div_start, dict_fx):
     gradient2x = 5000 * gradient2 / float(dict_fx[currency.split('/')[-1]])
     gradient3x = 5000 * gradient3 / float(dict_fx[currency.split('/')[-1]])
     text1 = ''
-    if gradient3x < gradient2x < gradient1x:
-        text1 = 'BUY/LONG'
-    if gradient3x > gradient2x > gradient1x:
-        text1 = 'SELL/SHORT'
-    print('GRADIENT for ' + currency + ' =', str("%.5f" % round(gradient3, 5)), '/', str("%.6f" % round(gradient3x, 6)),
+    # if gradient3x < gradient2x < gradient1x and float(datalist[-5]) <= float(emalist[-5]) and \
+    #         abs(gradient1x) > float(0.7) and float(datalist[-1]) >= float(datalist[-2]):
+    #     text1 = text1 + ' BUY/LONG1'
+    # if gradient3x > gradient2x > gradient1x and float(datalist[-2]) > float(emalist[-2]) + float(0.0001) \
+    #         and abs(gradient1x) > float(0.7) and float(datalist[-1]) < float(datalist[-2]):
+    #     text1 = text1 + ' SELL/SHORT1'
+    # if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) and float(datalist[-5]) <= float(emalist[-5]) \
+    #         and abs(gradient1x) > float(0.7) and float(datalist[-1]) >= float(datalist[-2]):
+    #     text1 = text1 + ' BUY/LONG2'
+    # if float(datalist[-4]) > float(datalist[-3]) > float(datalist[-2]) and float(datalist[-2]) > float(emalist[-2]) \
+    #         + float(0.0001) and abs(gradient1x) > float(0.7) and float(datalist[-1]) < float(datalist[-2]):
+    #     text1 = text1 + ' SELL/SHORT2'
+    # if float(datalist[-5]) <= float(emalist[-5]) and float(datalist[-2]) > float(emalist[-2]) \
+    #         and float(datalist[-1]) >= float(datalist[-2]):
+    #     text1 = text1 + ' BUY/LONG3'
+    # if float(datalist[-5]) > float(emalist[-5]) + float(0.00075) and abs(float(datalist[-2]) - float(emalist[-2])) \
+    #         < float(0.00025) and float(datalist[-1]) < float(datalist[-2]):
+    #     text1 = text1 + ' SELL/SHORT3'
+    if gradient3x < gradient2x < gradient1x and abs(gradient1x) > float(0.7) and \
+            float(datalist[-1]) >= float(datalist[-2]):
+        text1 = text1 + ' BUY/LONG1 @ ' + str(datalist[-1])
+    if gradient3x > gradient2x > gradient1x and abs(gradient1x) > float(0.7) and \
+            float(datalist[-1]) < float(datalist[-2]):
+        text1 = text1 + ' SELL/SHORT1 @ ' + str(datalist[-1])
+    if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) and abs(gradient1x) > float(0.7) \
+            and float(datalist[-1]) >= float(datalist[-2]):
+        text1 = text1 + ' BUY/LONG2 @ ' + str(datalist[-1])
+    if float(datalist[-4]) > float(datalist[-3]) > float(datalist[-2]) and abs(gradient1x) > float(0.7) \
+            and float(datalist[-1]) < float(datalist[-2]):
+        text1 = text1 + ' SELL/SHORT2 @ ' + str(datalist[-1])
+    if float(datalist[-5]) <= float(emalist[-5]) and float(datalist[-2]) > float(emalist[-2]) \
+            and float(datalist[-1]) >= float(datalist[-2]):
+        text1 = text1 + ' BUY/LONG3 @ ' + str(datalist[-1])
+    if float(datalist[-5]) > float(emalist[-5]) + float(0.00075) and abs(float(datalist[-2]) - float(emalist[-2])) \
+            < float(0.00025) and float(datalist[-1]) < float(datalist[-2]):
+        text1 = text1 + ' SELL/SHORT3 @ ' + str(datalist[-1])
+    print('TIME ' + str(arini) + ' # GRADIENT for ' + currency + ' =', str("%.5f" % round(gradient3, 5)), '/', str("%.6f" % round(gradient3x, 6)),
           '//' , str("%.5f" % round(gradient2, 5)), '/', str("%.6f" % round(gradient2x, 6)),
           '//' , str("%.5f" % round(gradient1, 5)), '/', str("%.6f" % round(gradient1x, 6)), '#', text1)
     return driver
@@ -331,12 +392,14 @@ def pilihan_to_close_position(num_choice):
     try:
         return int(pilihan)
     except:
-        print("Error - Not an integer =", pilihan)
+        print("Error - '" + str(pilihan) + "' is not an integer  -- >  ", end='')
         if pilihan.lower()[0] == 'b':
             return int(num_choice - 1)
         elif pilihan.lower()[0] == 's':
             return int(num_choice)
         elif pilihan.lower()[0] == 'x':
+            return int(99)
+        elif pilihan.lower()[0] == 'q':
             return int(99)
         else:
             return int(0)
@@ -368,7 +431,7 @@ def close_position_CFD_ANY(driver):
     number_of_choice = len(dict1) + 2
     pilihan = pilihan_to_close_position(number_of_choice)
     try:
-        if  len(dict1) > 0 and 0 < int(pilihan) <= len(dict1):
+        if  len(dict1) > 0 and len(dict1) >= int(pilihan) > 0:
             print(' -- > Close Position [', str(pilihan), '] =', dict2[int(pilihan)])
             confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
             id_ele = dict1[int(pilihan)]
@@ -401,6 +464,7 @@ def close_position_CFD_ANY(driver):
                 print('ERROR on SELL')
         elif int(pilihan) == 99:
             print("You choose - QUIT/EXIT !!")
+            driver.close()
         else:
             print("Out of range")
         return pilihan
@@ -426,17 +490,18 @@ driver = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 driver = mode_live_or_demo(driver, "Practice")
 
 # 5) go to speficic currency or looping all currencies
-# tperiod = '5 minutes'
-tperiod = '10 minutes'
-grph_div_start_point = 1.328  # division graph of starting point? ( value = 1.28 to infinity)
-
-fxconvert = currency_date_value()
-# print(fxconvert)
-
-for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
-    driver = main_collect_data(driver, currency, tperiod, grph_div_start_point, fxconvert)
+# value_EMA = 21
+# # tperiod = '5 minutes'
+# tperiod = '10 minutes'
+# grph_div_start_point = 1.328  # division graph of starting point? ( value = 1.28 to infinity)
 #
-# main_collect_data(driver, "EUR/USD", tperiod, grph_div_start_point)
+# fxconvert = currency_date_value()
+# # print(fxconvert)
+#
+# for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
+#     driver = main_collect_data(driver, currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
+
+# driver = main_collect_data(driver, "GBP/USD", value_EMA, tperiod, grph_div_start_point, fxconvert)
 
 # # 6) Buy/Sell/Close_Position
 #
@@ -445,4 +510,28 @@ for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD
 #     print()
 #     pilihan = close_position_CFD_ANY(driver)
 
-# //*[@id="chart_2"]/div[4]/div[1]/div[4]/svg/rect[2]
+#### LOOP PRODUCE DATA
+
+tt = 1
+while tt != 99:
+    value_EMA = 25
+    tperiod = '1 minute'
+    # tperiod = '5 minutes'
+    # tperiod = '10 minutes'
+    # tperiod = '15 minutes'
+    grph_div_start_point = 1.329  # division graph of starting point? ( value = 1.28 to infinity)
+    fxconvert = currency_date_value()
+    for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
+        driver = main_collect_data(driver, currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
+    # sleep(60)
+    print()
+    ttt = input('CHOICE [ OTHERS - TO RERUN ] / [ x / 99 - TO STOP ] : ')
+    try:
+        tt = int(ttt)
+    except:
+        if ttt.lower()[0] == 'x':
+            tt = int(99)
+        else:
+            tt = int(0)
+    if tt == 99:
+        driver.close()
