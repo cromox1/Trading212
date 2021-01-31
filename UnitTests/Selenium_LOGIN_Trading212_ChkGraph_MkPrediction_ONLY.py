@@ -49,11 +49,12 @@ def autologin_maxwindows(driver, base_url, username, passwd):
     return driver
 
 def close_popup_ask_upload_docs(driver):
-    xpath1 = '//*[@id="onfido-upload"]/div[1]/div[2]'
-    if driver.find_element_by_xpath(xpath1):
+    # //*[@id="onfido-upload"]/div[1]/div[2]
+    xpath1 = '//div[@id="onfido-upload"]//div[@class="close-icon svg-icon-holder"]'
+    try:
         driver.find_element_by_xpath(xpath1).click()
         return driver
-    else:
+    except:
         return driver
 
 def mode_live_or_demo(driver, mode):
@@ -152,11 +153,11 @@ def collecting_data_on_graph(driver, fr_graph_div):
             elements_chart_container[-1].get_attribute('style').split(';')[0].split('width:')[-1].split('px')[0])
         ydisplay = int(
             elements_chart_container[-1].get_attribute('style').split(';')[1].split('height:')[-1].split('px')[0])
-    # print('DISPLAY = ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)), int(ydisplay/3))
+    # print('DISPLAY = ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)), int(ydisplay/4))
     xp_tooltip = '//*[@class="chart-tooltip"]'
     toolTip = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
     sleep(1)
-    move0 = movearound_showtext(driver, toolTip, int(float(xdisplay)/float(fr_graph_div)), int(ydisplay/3), 'x')
+    move0 = movearound_showtext(driver, toolTip, int(float(xdisplay)/float(fr_graph_div)), int(ydisplay/4), 'x')
     arrear = move0[0]
     chktext = move0[-1]
     stepadd = 5
@@ -189,7 +190,8 @@ def collecting_data_on_graph(driver, fr_graph_div):
 ## functions for tooltip value
 
 def movearound_showtext(driver, element, x_value, y_value, prev_text):
-    hoover(driver).move_to_element_with_offset(element, x_value, y_value).perform()
+    # print('DISPLAY = ( x2 y2 ) ', int(x_value), int(y_value))
+    hoover(driver).move_to_element_with_offset(element, int(x_value), int(y_value)).perform()
     chktext = element.text.split('\n')[0].replace(' ', '')
     try:
         if chktext == prev_text:
@@ -479,12 +481,14 @@ chromebrowserdriver = google_chrome_browser()
 
 # 2) login
 base_url = "https://www.trading212.com"
-user1 = "roslitalib2017@gmail.com"
-pswd1 = "Malaysia123"
+# user1 = "roslitalib2017@gmail.com"
+# pswd1 = "Malaysia123"
+user1 = "mycromox@gmail.com"
+pswd1 = "Serverg0d!"
 driver = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
-# driver = close_popup_ask_upload_docs(driver)
+driver = close_popup_ask_upload_docs(driver)
 
 # 4) switch to Practice Mode   # Real or Practice
 driver = mode_live_or_demo(driver, "Practice")
@@ -515,8 +519,8 @@ driver = mode_live_or_demo(driver, "Practice")
 tt = 1
 while tt != 99:
     value_EMA = 25
-    tperiod = '1 minute'
-    # tperiod = '5 minutes'
+    # tperiod = '1 minute'
+    tperiod = '5 minutes'
     # tperiod = '10 minutes'
     # tperiod = '15 minutes'
     grph_div_start_point = 1.329  # division graph of starting point? ( value = 1.28 to infinity)

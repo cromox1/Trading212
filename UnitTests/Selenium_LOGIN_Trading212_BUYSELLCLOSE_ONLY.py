@@ -140,6 +140,7 @@ def list_CFD_open_position(driver):
         '//*[@id="equity-total"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
     result = driver.find_elements_by_xpath(
         '//*[@id="equity-ppl"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
+    # "%.5f" % round(float(VALUE)), 5)
     myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
     arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     print('# No of Instruments = ', len(instrument_list), ' // TIME_RUN =', arini, '// DFD = ', '£' + str(myDFD),
