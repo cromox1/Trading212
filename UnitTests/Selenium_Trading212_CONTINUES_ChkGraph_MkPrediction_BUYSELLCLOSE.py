@@ -140,7 +140,7 @@ def change_graph_time_period(driver, time_period):
     return driver
 
 def collecting_data_on_graph(driver, fr_graph_div):
-    y_divider = 4.4567
+    y_divider = 4 # 8 # 4.45 # 2.5 # 4.4567
     data_list = []
     EMA_list = []
     lebar = driver.execute_script("return window.innerWidth")
