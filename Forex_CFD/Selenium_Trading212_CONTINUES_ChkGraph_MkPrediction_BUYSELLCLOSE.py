@@ -305,6 +305,7 @@ def currency_date_value():
         data_list = [float(x) for x in datalast.split('=')[1].split('"')[1].split(',')]
         average = sum(data_list)/len(data_list)
         dict1[currency.replace('gbp-', '').upper()] = "%.7f" % round(average, 7)
+    # print('DICT_CURRENCY = ', dict1)
     return dict1
 
 ## FUNCTIONS FOR BUY / SELL / CLOSE_POSITION
@@ -517,10 +518,10 @@ chromebrowserdriver = google_chrome_browser()
 base_url = "https://www.trading212.com"
 # user1 = "roslitalib2017@gmail.com"
 # pswd1 = "Malaysia123"
-# user1 = "mycromox@gmail.com"
-# pswd1 = "Serverg0d!"
-user1 = "xixa01@yahoo.co.uk"
-pswd1 = "H0meBase"
+user1 = "mycromox@gmail.com"
+pswd1 = "Serverg0d!"
+# user1 = "xixa01@yahoo.co.uk"
+# pswd1 = "H0meBase"
 driver = autologin_maxwindows(chromebrowserdriver, base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
@@ -537,7 +538,7 @@ driver = mode_live_or_demo(driver, "Practice")
 pilihan = 0
 rerun = 'Y'
 value_EMA = 25
-tperiod = '5 minutes'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
+tperiod = '1 minute'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
 
 while pilihan != 99 :
     penutup = close_position_CFD_ANY(driver, value_EMA, tperiod, rerun)
