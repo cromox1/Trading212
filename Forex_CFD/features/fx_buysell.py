@@ -50,16 +50,16 @@ class FxBuySell():
         self.driver.execute_script("arguments[0].setAttribute('maxlength',arguments[1])", elem, 100)
         elem.send_keys(stock)
         # Open its dialog with JS. Selenium couldn't open the dialog itself.
-        self.script_click_xpath(self.driver, f"//*[@id='list-results-instruments']//span[contains(@class, 'instrument-name') and .='{stock}']")
+        self.script_click_xpath(f"//*[@id='list-results-instruments']//span[contains(@class, 'instrument-name') and .='{stock}']")
         sleep(1)
 
     def buy_stock(self, stock, amount):
-        self.open_stock_dialog(self.driver, stock)
-        self.buy(self.driver, amount)
+        self.open_stock_dialog(stock)
+        self.buy(amount)
         sleep(0.5)
 
     def sell_stock(self, stock, amount):
         # It's just opening a stock and selling it
-        self.open_stock_dialog(self.driver, stock)
-        self.sell(self.driver, amount)
+        self.open_stock_dialog(stock)
+        self.sell(amount)
         sleep(0.5)

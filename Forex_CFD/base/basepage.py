@@ -10,8 +10,6 @@ Example:
     Class LoginPage(BasePage)
 """
 
-#### NOT USE/IMPLEMENT YET ######
-
 from Forex_CFD.base.selenium_driver import SeleniumDriver
 from traceback import print_stack
 from Forex_CFD.utilities.util import Util
@@ -55,22 +53,6 @@ class BasePage(SeleniumDriver):
         currentURL1 = self.driver.current_url
         countN = currentURL1.lower().split(word.lower())
         return len(countN) > 1
-
-    def verifyLocatorText(self, locator, locatorType, expectedText):
-        result = self.getText(locator, locatorType)
-        self.log.info("expectedText ( " + str(expectedText) + " ) VS LocatorText ( " + str(result) + " )")
-        return str(result) == str(expectedText)
-
-    def verifyLocatorTextNotNone(self, locator, locatorType):
-        result = self.getText(locator, locatorType)
-        self.log.info("LocatorText = " + str(result) + " locator (" + str(locator) + ") + locatorType (" + locatorType + ")")
-        return result is not None
-
-    def verifyLocatorValueText(self, locator, locatorType, expectedText):
-        element = self.getElement(locator, locatorType)
-        result = element.get_attribute('value')
-        self.log.info("expectedText ( " + str(expectedText) + " ) VS LocatorText ( " + str(result) + " )")
-        return str(result.lower()) == str(expectedText.lower())
 
     def verifyActualGreaterEqualExpected(self, Actual, Expected):
         self.log.info("Actual ( " + str(Actual) + " ) >= Expected ( " + str(Expected) + " )")
