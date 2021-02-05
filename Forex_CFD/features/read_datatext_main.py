@@ -1,17 +1,12 @@
 from time import sleep
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains as hoover
-from Forex_CFD.utilities.util import Util
-from Forex_CFD.features.read_datatext_tooltip import FxReadDataText_ToolTip
+from Forex_CFD.features.main_page import FxMainPage
 
-class FxReadDataText_Main(FxReadDataText_ToolTip):
+class FxReadDataText_Main(FxMainPage):
 
     def __init__(self, driver):
-        super(FxReadDataText_Main, self).__init__(driver)
+        super().__init__(driver)
         self.driver = driver
-        self.util = Util()
 
     def from_search_goto_specific_currency(self, currency):
         # if self.driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]'):
@@ -26,7 +21,6 @@ class FxReadDataText_Main(FxReadDataText_ToolTip):
         xp_currency = '//*[@data-code="' + currency1 + '"]//*[@class="ticker"]//*[@class="has-ellipsed-text"]'
         element1 = self.driver.find_element_by_xpath(xp_currency)
         element1.click()
-        # print('\nCURRENCY = ', currency)
         print('CURRENCY = ', currency)
         sleep(0.5)
 
@@ -69,55 +63,3 @@ class FxReadDataText_Main(FxReadDataText_ToolTip):
         self.driver.find_element_by_xpath('//*[contains(text(), "' + time_period + '")]').click()
         # print('-- > END 3 - set time period ' + time_period)
         sleep(0.5)
-
-    def collecting_data_on_graph(self, fr_graph_div):
-        y_divider = 4  # 8 # 4.45 # 2.5 # 4.4567
-        data_list = []
-        EMA_list = []
-        lebar = self.driver.execute_script("return window.innerWidth")
-        tinggi = self.driver.execute_script("return window.innerHeight")
-        # print('LEBAR x = ', lebar, ' / TINGGI y = ', tinggi)
-        xp_chart_container = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
-        elements_chart_container = self.driver.find_elements_by_xpath(xp_chart_container)
-        xdisplay = lebar
-        ydisplay = tinggi
-        if elements_chart_container[-1].get_attribute('style') != None:
-            xdisplay = int(
-                elements_chart_container[-1].get_attribute('style').split(';')[0].split('width:')[-1].split('px')[0])
-            ydisplay = int(
-                elements_chart_container[-1].get_attribute('style').split(';')[1].split('height:')[-1].split('px')[0])
-        # print('DISPLAY = ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)),
-        #   int(ydisplay/y_divider))
-        xp_tooltip = '//*[@class="chart-tooltip"]'
-        toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
-        sleep(1)
-        move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),
-                                    int(ydisplay / y_divider), 'x')
-        arrear = move0[0]
-        chktext = move0[-1]
-        stepadd = 5
-        for steppx in range(1, xdisplay, stepadd):
-            if int(arrear / 8) % 2 == 0:
-                ynum = -11
-            else:
-                ynum = -19
-            move = self.movearound_showtext(toolTip, -9, ynum, chktext)
-            arrear = move[0]
-            chktext = move[-1]
-            if move[2] != 'duplicate' and move[2].split('/')[0].replace(' ', '') != 'xlocation':
-                # print('NEWTEXT = ', move[2])
-                data_list = data_list + [move[2].split('Close')[-1].split('/')[1].replace(' ', '')]
-                # EMA_list = EMA_list + [move[2].split('EMA')[-1].split('/')[1].replace(' ', '')]
-                EMA_list = EMA_list + [move[2].split('SMA')[-1].split('/')[1].replace(' ', '')]
-            elif move[2].split('/')[0].replace(' ', '') == 'xlocation':
-                # print('NEWTEXT = ', move[2])
-                break
-            if arrear > xdisplay + 190 - 15:
-                print('xlocation = ', arrear, ' / xdisplay = ', xdisplay)
-                break
-        xp_backbutton = '//*[@id="search-header"]//*[@data-dojo-attach-point="backButtonNode"]'
-        self.driver.find_element_by_xpath(xp_backbutton).click()
-        self.driver.find_element_by_xpath(xp_backbutton).click()
-        # print('DATALIST = ', data_list)
-        # print('EMALIST = ', EMA_list)
-        return data_list, EMA_list

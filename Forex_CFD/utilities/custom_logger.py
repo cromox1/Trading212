@@ -20,7 +20,7 @@ def customLogger(logLevel=logging.DEBUG):
         minitni = int(int(minitni) / 5 ) * 5
 
     masani = datetime.datetime.now().strftime("%Y%m%d_%H")
-    fileHandler = logging.FileHandler("logs\\automation_" + masani + str(minitni) + "00.log", mode='a')
+    fileHandler = logging.FileHandler("..\\logs\\automation_" + masani + str(minitni) + "00.log", mode='a')
     fileHandler.setLevel(logLevel)
 
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s',

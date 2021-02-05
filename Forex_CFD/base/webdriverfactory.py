@@ -13,21 +13,14 @@ from selenium import webdriver
 class WebDriverFactory():
 
     def __init__(self, browser):
-        """
-        Inits WebDriverFactory class
-        Returns:
-            None
-        """
-        self.browser = browser
         #"""
-        #Set chrome driver and iexplorer environment based on OS
-        #
+        #Set chrome driver based on OS
         #chromedriver = "C:/.../chromedriver.exe"
         #os.environ["webdriver.chrome.driver"] = chromedriver
         #self.driver = webdriver.Chrome(chromedriver)
-        #
         #PREFERRED: Set the path on the machine where browser will be executed
         #"""
+        self.browser = browser
 
     def getWebDriverInstance(self, baseURL):
         """
@@ -70,18 +63,6 @@ class WebDriverFactory():
             driver_version = _operacurrentversion
         elif self.browser == "firefox" or self.browser == "ff":
             driver = webdriver.Firefox()
-        elif self.browser == "headless" or self.browser == "nobrowser" or self.browser == "virtual":
-            # This is for running without open Browser UI display - good for Jenkins
-            chromedriverpath = r'C:\tools\chromedriver\chromedriver.exe'
-            chrome_options = webdriver.ChromeOptions()
-            # chrome_options.add_argument('--disable-extensions')
-            chrome_options.add_argument("--incognito")
-            # chrome_options.add_argument("--disable-plugins-discovery")
-            # chrome_options.add_argument("--start-maximized")
-            chrome_options.add_argument('--headless')
-            chrome_options.add_argument("--proxy-server='direct://'")
-            chrome_options.add_argument("--proxy-bypass-list=*")
-            driver = webdriver.Chrome(chromedriverpath, options=chrome_options)
         elif self.browser == 'brave':
             brave_exe = r'C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\brave.exe'
             chromedriverpath = r'C:\tools\chromedriver\chromedriver.exe'
@@ -98,16 +79,28 @@ class WebDriverFactory():
             ## webdriver section
             driver = webdriver.Chrome(chromedriverpath, options=chrome_options)
             driver_name = 'brave'
+        elif self.browser == "headless" or self.browser == "nobrowser" or self.browser == "virtual":
+            # This is for running without open Browser UI display - good for Jenkins
+            chromedriverpath = r'C:\tools\chromedriver\chromedriver.exe'
+            chrome_options = webdriver.ChromeOptions()
+            # chrome_options.add_argument('--disable-extensions')
+            chrome_options.add_argument("--incognito")
+            # chrome_options.add_argument("--disable-plugins-discovery")
+            # chrome_options.add_argument("--start-maximized")
+            chrome_options.add_argument('--headless')
+            chrome_options.add_argument("--proxy-server='direct://'")
+            chrome_options.add_argument("--proxy-bypass-list=*")
+            driver = webdriver.Chrome(chromedriverpath, options=chrome_options)
         else:
             # Set chrome driver
             # self.browser == "chrome":
             chromedriverpath = r'C:\tools\chromedriver\chromedriver.exe'
             #os.environ["webdriver.chrome.driver"] = chromedriverpath
             chrome_options = webdriver.ChromeOptions()
-            # chrome_options.add_argument('--disable-extensions')
-            # chrome_options.add_argument('--profile-directory=Default')
-            # chrome_options.add_argument("--disable-plugins-discovery")
-            # chrome_options.add_argument("--start-maximized")
+            #### headless - but not working at the moment
+            # chrome_options.add_argument('--headless')
+            # chrome_options.add_argument('--disable-gpu')
+            # chrome_options.headless = True
             chrome_options.add_argument('--ignore-certificate-errors')
             chrome_options.add_argument("--disable-web-security")
             chrome_options.add_argument("--incognito")
@@ -116,14 +109,18 @@ class WebDriverFactory():
             chrome_options.add_argument("--disable-cookie-encryption")
             chrome_options.add_argument('--disable-dev-shm-usage')
             chrome_options.add_argument("--test-type")
+            chrome_options.add_argument('--disable-default-apps')
+            chrome_options.add_argument('--disable-prompt-on-repost')
+            chrome_options.add_argument("--disable-zero-browsers-open-for-tests")
+            chrome_options.add_argument("--no-default-browser-check")
+            prefs = {"profile.default_content_setting_values.notifications": 2}
+            chrome_options.add_experimental_option("prefs", prefs)
+            ## webdriver section
             driver = webdriver.Chrome(chromedriverpath, options=chrome_options)
-            #driver.set_window_size(1440, 900)
-
         # Setting Driver Implicit Time out for An Element
         driver.implicitly_wait(10)
         # Loading browser with App URL
         driver.get(baseURL)
-
         if driver_name == 'unknown':
             try:
                 driver_name = driver.name
@@ -159,5 +156,4 @@ class WebDriverFactory():
         else:
             print('OS ' + str(osname()) + ' is not support yet')
             # chromedriverexe = r'C:\tools\chromedriver\chromedriver.exe'
-
         return chromedriverexe, chromedriverbin

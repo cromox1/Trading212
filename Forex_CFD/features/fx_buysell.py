@@ -2,14 +2,13 @@ from time import sleep
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from Forex_CFD.utilities.util import Util
+from Forex_CFD.features.main_page import FxMainPage
 
-class FxBuySell():
+class FxBuySell(FxMainPage):
 
     def __init__(self, driver):
-        super(FxBuySell, self).__init__(driver)
+        super().__init__(driver)
         self.driver = driver
-        self.util = Util()
 
     def buy(self, amount):
         if self.driver.find_element_by_xpath("//div[@class='visible-input']//input[contains(@id, 'uniqName')]"):

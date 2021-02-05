@@ -49,23 +49,6 @@ class BasePage(SeleniumDriver):
         self.log.info("expectedURL ( " + expectedURLlow + " ) VS currentURL ( " + currentURL + " )")
         return currentURL == expectedURLlow
 
-    def verifyWordExistInURL(self, word=' '):
-        currentURL1 = self.driver.current_url
-        countN = currentURL1.lower().split(word.lower())
-        return len(countN) > 1
-
-    def verifyActualGreaterEqualExpected(self, Actual, Expected):
-        self.log.info("Actual ( " + str(Actual) + " ) >= Expected ( " + str(Expected) + " )")
-        return Actual >= Expected
-
-    def verifyActualEqualExpected(self, Actual, Expected):
-        self.log.info("Actual ( " + str(Actual) + " ) == Expected ( " + str(Expected) + " )")
-        return Actual == Expected
-
-    def verifyTextEqual(self, Text, Expected):
-        self.log.info("Text ( " + str(Text) + " ) == Expected ( " + str(Expected) + " )")
-        return Text == Expected
-
     def verifyDateIsFuture(self, futureepoch):
         from time import time, strftime, localtime
         currentepoch = int(time())
