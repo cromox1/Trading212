@@ -1,4 +1,7 @@
+__author__ = 'cromox'
+
 from time import sleep
+import inspect
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -11,6 +14,7 @@ class FxBuySell(FxMainPage):
         self.driver = driver
 
     def buy(self, amount):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         if self.driver.find_element_by_xpath("//div[@class='visible-input']//input[contains(@id, 'uniqName')]"):
             # element = WebDriverWait(driver, 5).until(EC.visibility_of_element_located(
             #             (By.XPATH, "//div[@class='visible-input']//input[contains(@id, 'uniqName')]")))
@@ -27,15 +31,18 @@ class FxBuySell(FxMainPage):
             self.driver.find_elements_by_xpath("//*[@class='header']//*[@class='close-icon']")[0].click()
 
     def sell(self, amount):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         # Switching to sell
         self.driver.find_elements_by_xpath("//div[@data-dojo-attach-event='click: setDirectionSell']")[0].click()
         # From there on it's exactly like the buy
         self.buy(amount)
 
     def script_click_xpath(self, xpath):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         self.driver.execute_script(f"document.evaluate(\"{xpath}\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.click()")
 
     def open_stock_dialog(self, stock):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         WebDriverWait(self.driver, 5).until(EC.visibility_of_any_elements_located((By.XPATH, "//span[contains(@data-dojo-attach-event, 'onOpenDialogClick')]")))
         elem = self.driver.find_elements_by_xpath("//span[contains(@data-dojo-attach-event, 'onOpenDialogClick')]")
         # try both elements
@@ -53,11 +60,13 @@ class FxBuySell(FxMainPage):
         sleep(1)
 
     def buy_stock(self, stock, amount):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         self.open_stock_dialog(stock)
         self.buy(amount)
         sleep(0.5)
 
     def sell_stock(self, stock, amount):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         # It's just opening a stock and selling it
         self.open_stock_dialog(stock)
         self.sell(amount)

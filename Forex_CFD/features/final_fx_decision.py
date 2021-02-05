@@ -1,4 +1,7 @@
+__author__ = 'cromox'
+
 from time import sleep
+import inspect
 from Forex_CFD.features.final_read_datatext import ReadAllDataText
 from Forex_CFD.features.fx_close_position import FxClosePosition
 
@@ -9,6 +12,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
         self.driver = driver
 
     def close_position_CFD_ANY(self, value_EMA, tperiod, rerun):
+        self.log.info("-> " + inspect.stack()[0][3] + " started")
         if rerun == 'Y':
             self.looping_check_all_currencies(value_EMA, tperiod)
         list_choice = self.list_CFD_open_position()

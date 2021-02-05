@@ -1,4 +1,7 @@
+__author__ = 'cromox'
+
 from time import sleep
+import inspect
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,6 +15,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
         self.driver = driver
 
     def movearound_showtext(self, element, x_value, y_value, prev_text):
+        # self.log.info("--> " + inspect.stack()[0][3] + " started")
         # print('DISPLAY = ( x2 y2 ) ', int(x_value), int(y_value))
         hoover(self.driver).move_to_element_with_offset(element, int(x_value), int(y_value)).perform()
         chktext = element.text.split('\n')[0].replace(' ', '')
@@ -27,6 +31,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
         return int(element.location['x']), int(element.location['y']), text, chktext
 
     def text_to_display(self, list_text):
+        # self.log.info("--> " + inspect.stack()[0][3] + " started")
         if len(list_text) >= 12:
             text = " / ".join(
                 list_text[0:1] + list_text[3:7] + list_text[11:13] + list_text[-2:]).replace('Tick volume', 'TickV')
@@ -35,6 +40,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
         return text
 
     def collecting_data_on_graph(self, fr_graph_div):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         y_divider = 4  # 8 # 4.45 # 2.5 # 4.4567
         data_list = []
         EMA_list = []

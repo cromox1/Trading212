@@ -1,4 +1,7 @@
+__author__ = 'cromox'
+
 from time import sleep
+import inspect
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -16,15 +19,19 @@ class FxMainPage(BasePage):
         self.driver = driver
 
     def autologin_maxwindows(self, base_url, username, passwd):
+        self.log.info("-> " + inspect.stack()[0][3] + " started")
+        self.log.info("--> Trading212 user = " + str(username))
         self.driver.maximize_window()
         self.driver.get(base_url)
         self.driver.find_element_by_id("cookie-bar").click()
         self.driver.find_element_by_id("login-header-desktop").click()
         self.driver.find_element_by_id("username-real").send_keys(username + Keys.ENTER)
+        print('Trading212 user = ', username)
         self.driver.find_element_by_id("pass-real").send_keys(passwd + Keys.ENTER)
         sleep(3)
 
     def close_popup_ask_upload_docs(self):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         # //*[@id="onfido-upload"]/div[1]/div[2]
         xpath1 = '//div[@id="onfido-upload"]//div[@class="close-icon svg-icon-holder"]'
         try:
@@ -33,6 +40,8 @@ class FxMainPage(BasePage):
             print('no pop-up')
 
     def mode_live_or_demo(self, mode):
+        self.log.info("--> " + inspect.stack()[0][3] + " started // Mode = " + str(mode))
+        print('Mode use = ', mode)
         current_url = self.driver.current_url
         urlmode = current_url.split('//')[-1].split(".")[0]  # -- > live or demo
         if urlmode == "live" and mode == "Practice":

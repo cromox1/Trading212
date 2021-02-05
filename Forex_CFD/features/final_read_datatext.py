@@ -1,4 +1,7 @@
+__author__ = 'cromox'
+
 from datetime import datetime
+import inspect
 from Forex_CFD.features.dailyfx_currency import currency_date_value
 from Forex_CFD.features.read_datatext_tooltip import FxReadDataText_ToolTip
 
@@ -9,6 +12,7 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         self.driver = driver
 
     def looping_check_all_currencies(self, value_EMA, tperiod):
+        self.log.info("-> " + inspect.stack()[0][3] + " started")
         grph_div_start_point = 1.329  # division graph of starting point? ( value = 1.28 to infinity)
         fxconvert = currency_date_value()
         ix = 1
@@ -19,6 +23,7 @@ class ReadAllDataText(FxReadDataText_ToolTip):
             ix += 1
 
     def main_collect_data(self, currency, value_EMA, time_period, grph_div_start, dict_fx):
+        # self.log.info("-> " + inspect.stack()[0][3] + " started")
         arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.from_search_goto_specific_currency(currency)
         self.change_graph_to_candlestick()

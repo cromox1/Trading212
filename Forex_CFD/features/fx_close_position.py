@@ -1,4 +1,7 @@
+__author__ = 'cromox'
+
 from time import sleep
+import inspect
 from datetime import datetime
 from Forex_CFD.features.fx_buysell import FxBuySell
 
@@ -9,6 +12,7 @@ class FxClosePosition(FxBuySell):
         self.driver = driver
 
     def list_CFD_open_position(self):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         instrument_list = self.driver.find_elements_by_xpath('//table[@data-dojo-attach-point="tableNode"]//tr')
         sleep(1)
         free_fund = self.driver.find_elements_by_xpath(
@@ -42,6 +46,7 @@ class FxClosePosition(FxBuySell):
         return dict1, dict2
 
     def pilihan_to_close_position(self, num_choice):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         if num_choice > 3:
             print('r ) RERUN/CHECK CURRENCY PROJECTION')
             print('x ) QUIT')
@@ -81,12 +86,14 @@ class FxClosePosition(FxBuySell):
                 return int(0)
 
     def pilihan_buy_or_sell(self, dict_position):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         n = len(dict_position)
         print(n + 1, ") BUY NEW")
         print(n + 2, ") SELL NEW")
         return {'buy': n + 1, 'sell': n + 2}
 
     def choice_currency(self, buysell):
+        self.log.info("--> " + inspect.stack()[0][3] + " started")
         list = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         for curr in list:
             print(list.index(curr) + 1, ")", curr)

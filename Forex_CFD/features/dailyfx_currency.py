@@ -1,3 +1,5 @@
+__author__ = 'cromox'
+
 from requests import get as req_get
 
 def currency_date_value():

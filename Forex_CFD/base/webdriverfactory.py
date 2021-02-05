@@ -45,9 +45,10 @@ class WebDriverFactory():
             from selenium.webdriver.common import desired_capabilities as operacapabilities
             from selenium.webdriver.opera import options as operaoptions
             # OperaDriver - win64 2.36 - https://github.com/operasoftware/operachromiumdriver/releases
-            _operaDriverLoc = r'C:\tools\operadriver\operadriver.exe'
+            _operaDriverLoc = r'C:\tools\operadriver_win64\operadriver.exe'
             # Opera browser
-            _operaInstDir = r'C:\tools\Opera\\'
+            # _operaInstDir = r'C:\tools\Opera\\'
+            _operaInstDir = r'C:\Program Files\Opera\\'
             listOperaDir = listdir(_operaInstDir)
             listOperaVer = [char for char in listOperaDir if char[0].isdigit() and char[-1].isdigit()]
             # listOperaVer.sort(key=lambda version: [int(ver) for ver in version.split('.')])
