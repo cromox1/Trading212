@@ -1,0 +1,35 @@
+05/02/2021 07:40:38 PM - FxMainPage - INFO: -> autologin_maxwindows started
+05/02/2021 07:40:38 PM - FxMainPage - INFO: --> Trading212 user = mycromox@gmail.com
+05/02/2021 07:40:43 PM - FxMainPage - INFO: --> close_popup_ask_upload_docs started
+05/02/2021 07:40:45 PM - FxMainPage - INFO: --> mode_live_or_demo started // Mode = Practice
+05/02/2021 07:40:46 PM - FxMainPage - INFO: -> close_position_CFD_ANY started
+05/02/2021 07:40:46 PM - FxMainPage - INFO: -> looping_check_all_currencies started
+05/02/2021 07:40:47 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+05/02/2021 07:40:55 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:41:00 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+05/02/2021 07:41:05 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:41:10 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+05/02/2021 07:41:15 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:41:20 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+05/02/2021 07:41:25 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:41:30 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CAD
+05/02/2021 07:41:35 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:41:40 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+05/02/2021 07:41:45 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:41:50 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+05/02/2021 07:41:55 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:42:00 PM - FxMainPage - INFO: --> list_CFD_open_position started
+05/02/2021 07:42:01 PM - FxMainPage - INFO: --> pilihan_buy_or_sell started
+05/02/2021 07:42:01 PM - FxMainPage - INFO: --> pilihan_to_close_position started
+05/02/2021 07:42:09 PM - FxMainPage - INFO: --> choice_currency started
+05/02/2021 07:42:28 PM - FxMainPage - INFO: --> ERROR on BUY // amount = limaratus
+05/02/2021 07:42:28 PM - FxMainPage - INFO: -> close_position_CFD_ANY started
+05/02/2021 07:42:28 PM - FxMainPage - INFO: --> list_CFD_open_position started
+05/02/2021 07:42:29 PM - FxMainPage - INFO: --> pilihan_buy_or_sell started
+05/02/2021 07:42:29 PM - FxMainPage - INFO: --> pilihan_to_close_position started
+05/02/2021 07:42:39 PM - FxMainPage - INFO: --> choice_currency started
+05/02/2021 07:43:00 PM - FxMainPage - INFO: --> ERROR on SELL // amount = saj
+05/02/2021 07:43:00 PM - FxMainPage - INFO: -> close_position_CFD_ANY started
+05/02/2021 07:43:00 PM - FxMainPage - INFO: --> list_CFD_open_position started
+05/02/2021 07:43:02 PM - FxMainPage - INFO: --> pilihan_buy_or_sell started
+05/02/2021 07:43:02 PM - FxMainPage - INFO: --> pilihan_to_close_position started

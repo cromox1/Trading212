@@ -1,0 +1,66 @@
+C:\tools\Python38\python.exe C:/Users/cromox/PycharmProjects/Trading212/Forex_CFD/run_nonstop/run_continously_anyuser.py
+Browser ( chrome ) version = 88.0.4324.104
+Trading212 user =  mycromox@gmail.com
+Mode use =  Practice
+
+1 ) (tperiod: 5 minutes) // CURRENCY =  GBP/USD
+TIME 2021-02-05 19:23:02 # GRADIENT for GBP/USD = 0.00006 / 0.219127 // 0.00014 / 0.511297 // 0.00010 / 0.365212 # 
+2 ) (tperiod: 5 minutes) // CURRENCY =  EUR/USD
+TIME 2021-02-05 19:23:14 # GRADIENT for EUR/USD = -0.00003 / -0.109564 // -0.00005 / -0.182606 // -0.00026 / -0.949552 # 
+3 ) (tperiod: 5 minutes) // CURRENCY =  USD/JPY
+TIME 2021-02-05 19:23:24 # GRADIENT for USD/JPY = 0.00400 / 0.138442 // -0.02100 / -0.726821 // 0.02300 / 0.796042 #  BUY/LONG3 @105.377<105.382
+4 ) (tperiod: 5 minutes) // CURRENCY =  USD/CHF
+TIME 2021-02-05 19:23:34 # GRADIENT for USD/CHF = -0.00007 / -0.283129 // 0.00001 / 0.040447 // 0.00019 / 0.768492 # 
+5 ) (tperiod: 5 minutes) // CURRENCY =  USD/CAD
+TIME 2021-02-05 19:23:44 # GRADIENT for USD/CAD = -0.00022 / -0.627361 // -0.00006 / -0.171099 // -0.00015 / -0.427746 # 
+6 ) (tperiod: 5 minutes) // CURRENCY =  AUD/USD
+TIME 2021-02-05 19:23:54 # GRADIENT for AUD/USD = 0.00020 / 0.730425 // -0.00003 / -0.109564 // -0.00011 / -0.401734 # 
+7 ) (tperiod: 5 minutes) // CURRENCY =  NZD/USD
+TIME 2021-02-05 19:24:04 # GRADIENT for NZD/USD = 0.00000 / 0.000000 // 0.00018 / 0.657382 // -0.00017 / -0.620861 # 
+
+# No of Instruments =  1  // TIME_RUN = 2021-02-05 19:24:15 // DFD =  £102.60 // Total_Fund = £102.13 // Free_Fund = £89.88 // Live_Result = -£0.47
+1 ) name = USD/CAD / quantity = 505 / direction = BUY / averagePrice = 1.2782200 / currentPrice = 1.27662 / margin = 12.25 / ppl = -0.47 / 
+2 ) BUY NEW
+3 ) SELL NEW
+r ) RERUN/CHECK CURRENCY PROJECTION
+x ) QUIT
+Your Choice ? CLOSE [ 1 ] or BUY/SELL [ 2 / 3 ] or RERUN [ r / 77 ] or QUIT [ x / 99 ] : 2
+1 ) GBP/USD
+2 ) EUR/USD
+3 ) USD/JPY
+4 ) USD/CHF
+5 ) USD/CAD
+6 ) AUD/USD
+7 ) NZD/USD
+Chose currency to BUY [ 1 - 7 ] : x
+Nothing TODO
+
+# No of Instruments =  1  // TIME_RUN = 2021-02-05 19:25:00 // DFD =  £102.60 // Total_Fund = £102.13 // Free_Fund = £89.88 // Live_Result = -£0.47
+1 ) name = USD/CAD / quantity = 505 / direction = BUY / averagePrice = 1.2782200 / currentPrice = 1.27662 / margin = 12.25 / ppl = -0.47 / 
+2 ) BUY NEW
+3 ) SELL NEW
+r ) RERUN/CHECK CURRENCY PROJECTION
+x ) QUIT
+Your Choice ? CLOSE [ 1 ] or BUY/SELL [ 2 / 3 ] or RERUN [ r / 77 ] or QUIT [ x / 99 ] : s
+Error - 's' is not an integer  -- >  SELL forex !!
+1 ) GBP/USD
+2 ) EUR/USD
+3 ) USD/JPY
+4 ) USD/CHF
+5 ) USD/CAD
+6 ) AUD/USD
+7 ) NZD/USD
+Chose currency to SELL [ 1 - 7 ] : x
+Nothing TODO
+
+# No of Instruments =  1  // TIME_RUN = 2021-02-05 19:25:08 // DFD =  £102.60 // Total_Fund = £102.13 // Free_Fund = £89.88 // Live_Result = -£0.47
+1 ) name = USD/CAD / quantity = 505 / direction = BUY / averagePrice = 1.2782200 / currentPrice = 1.27664 / margin = 12.25 / ppl = -0.47 / 
+2 ) BUY NEW
+3 ) SELL NEW
+r ) RERUN/CHECK CURRENCY PROJECTION
+x ) QUIT
+Your Choice ? CLOSE [ 1 ] or BUY/SELL [ 2 / 3 ] or RERUN [ r / 77 ] or QUIT [ x / 99 ] : q
+Error - 'q' is not an integer  -- >  You choose - QUIT/EXIT !!
+
+Process finished with exit code 0
+

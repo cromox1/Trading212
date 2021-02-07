@@ -44,6 +44,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                         print('Wrong currency')
                 except:
                     print('ERROR on BUY')
+                    self.log.info("---> ERROR on BUY // amount = " + str(amount))
             elif int(pilihan) == buy_sell_dict['sell']:
                 currency = self.choice_currency("SELL")
                 amount = input('Amount to SELL (min 500) : ')
@@ -54,6 +55,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                         print('Wrong currency')
                 except:
                     print('ERROR on SELL')
+                    self.log.info("---> ERROR on SELL // amount = " + str(amount))
             elif int(pilihan) == 99:
                 print("You choose - QUIT/EXIT !!")
                 self.driver.close()

@@ -70,6 +70,7 @@ class FxClosePosition(FxBuySell):
             return int(pilihan)
         except:
             print("Error - '" + str(pilihan) + "' is not an integer  -- >  ", end='')
+            self.log.info("---> " + "Error - '" + str(pilihan) + "' is not an integer")
             if pilihan.lower()[0] == 'b':
                 print('BUY forex !!')
                 return int(num_choice - 1)
@@ -103,4 +104,5 @@ class FxClosePosition(FxBuySell):
         elif 0 < int(currency) <= len(list):
             return list[int(currency) - 1]
         else:
+            self.log.info("---> Wrong currency // currency = " + str(currency))
             return 'x'

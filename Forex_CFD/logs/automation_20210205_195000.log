@@ -1,0 +1,36 @@
+05/02/2021 07:52:01 PM - FxMainPage - INFO: -> autologin_maxwindows started
+05/02/2021 07:52:01 PM - FxMainPage - INFO: --> Trading212 user = mycromox@gmail.com
+05/02/2021 07:52:06 PM - FxMainPage - INFO: --> close_popup_ask_upload_docs started
+05/02/2021 07:52:07 PM - FxMainPage - INFO: --> mode_live_or_demo started // Mode = Practice
+05/02/2021 07:52:09 PM - FxMainPage - INFO: -> close_position_CFD_ANY started
+05/02/2021 07:52:09 PM - FxMainPage - INFO: -> looping_check_all_currencies started
+05/02/2021 07:52:10 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+05/02/2021 07:52:17 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:52:22 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+05/02/2021 07:52:27 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:52:32 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+05/02/2021 07:52:37 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:52:42 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+05/02/2021 07:52:47 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:52:52 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CAD
+05/02/2021 07:52:57 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:53:02 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+05/02/2021 07:53:07 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:53:12 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+05/02/2021 07:53:17 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+05/02/2021 07:53:22 PM - FxMainPage - INFO: --> list_CFD_open_position started
+05/02/2021 07:53:24 PM - FxMainPage - INFO: --> pilihan_buy_or_sell started
+05/02/2021 07:53:24 PM - FxMainPage - INFO: --> pilihan_to_close_position started
+05/02/2021 07:53:31 PM - FxMainPage - INFO: ---> Error - 'b' is not an integer
+05/02/2021 07:53:31 PM - FxMainPage - INFO: --> choice_currency started
+05/02/2021 07:53:35 PM - FxMainPage - INFO: -> close_position_CFD_ANY started
+05/02/2021 07:53:35 PM - FxMainPage - INFO: --> list_CFD_open_position started
+05/02/2021 07:53:37 PM - FxMainPage - INFO: --> pilihan_buy_or_sell started
+05/02/2021 07:53:37 PM - FxMainPage - INFO: --> pilihan_to_close_position started
+05/02/2021 07:53:43 PM - FxMainPage - INFO: --> choice_currency started
+05/02/2021 07:53:51 PM - FxMainPage - INFO: ---> Wrong currency // currency = 99
+05/02/2021 07:54:05 PM - FxMainPage - INFO: -> close_position_CFD_ANY started
+05/02/2021 07:54:05 PM - FxMainPage - INFO: --> list_CFD_open_position started
+05/02/2021 07:54:07 PM - FxMainPage - INFO: --> pilihan_buy_or_sell started
+05/02/2021 07:54:07 PM - FxMainPage - INFO: --> pilihan_to_close_position started
+05/02/2021 07:54:10 PM - FxMainPage - INFO: ---> Error - 'x' is not an integer

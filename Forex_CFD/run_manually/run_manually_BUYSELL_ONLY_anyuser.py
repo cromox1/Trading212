@@ -5,13 +5,13 @@ from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
 # 1) start webdriver
 base_url = "https://www.trading212.com"
-chromebrowserdriver = webbrowser('chrome').getWebDriverInstance(base_url)
+chromedriver = webbrowser('chrome').getWebDriverInstance(base_url)
 
 # 2) login
 user1 = "mycromox@gmail.com"
 pswd1 = "Serverg0d!"
 
-fxfinal = FxFinalDecision(chromebrowserdriver)
+fxfinal = FxFinalDecision(chromedriver)
 fxfinal.autologin_maxwindows(base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
@@ -26,11 +26,11 @@ fxfinal.mode_live_or_demo("Practice")
 ## NOW COMBINE NO 5) & 6)
 
 pilihan = 0
-rerun = 'Y'
+rerun = 'N'
 value_EMA = 25
 tperiod = '1 minute'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
 
 while pilihan != 99 :
     penutup = fxfinal.close_position_CFD_ANY(value_EMA, tperiod, rerun)
     pilihan = penutup[0]
-    rerun = penutup[-1]
+    rerun = 'N'
