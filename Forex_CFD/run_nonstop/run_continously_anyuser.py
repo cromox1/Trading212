@@ -28,7 +28,7 @@ fxfinal.mode_live_or_demo("Practice")
 pilihan = 0
 rerun = 'Y'
 value_EMA = 25
-tperiod = '5 minutes'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
+tperiod = '1 minute'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
 
 while pilihan != 99 :
     penutup = fxfinal.close_position_CFD_ANY(value_EMA, tperiod, rerun)

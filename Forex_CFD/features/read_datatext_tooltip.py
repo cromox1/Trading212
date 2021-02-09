@@ -16,7 +16,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
 
     def movearound_showtext(self, element, x_value, y_value, prev_text):
         # self.log.info("--> " + inspect.stack()[0][3] + " started")
-        # print('DISPLAY = ( x2 y2 ) ', int(x_value), int(y_value))
+        # print('DISPLAY ( x2 y2 ) ', str(element.location['x']), str(element.location['y']))
         hoover(self.driver).move_to_element_with_offset(element, int(x_value), int(y_value)).perform()
         chktext = element.text.split('\n')[0].replace(' ', '')
         try:
@@ -41,13 +41,13 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
 
     def collecting_data_on_graph(self, fr_graph_div):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
-        y_divider = 4  # 8 # 4.45 # 2.5 # 4.4567
+        y_divider = 3.5 # 4.3 # 3.5 # 2.7 # 4  # 8 # 4.45 # 2.5 (min) # 4.4567
         data_list = []
         EMA_list = []
         lebar = self.driver.execute_script("return window.innerWidth")
         tinggi = self.driver.execute_script("return window.innerHeight")
-        # print('LEBAR x = ', lebar, ' / TINGGI y = ', tinggi)
-        xp_chart_container = '//*[((@class="chart-container") or (@class="chart-container draggable")) and (@tabindex="-1")]'
+        # print('LEBAR = ', lebar, ' / TINGGI = ', tinggi, end=' // ')
+        xp_chart_container = '//div[(@class="chart-container") or (@class="chart-container draggable")]//div[@class="clip-path"]'
         elements_chart_container = self.driver.find_elements_by_xpath(xp_chart_container)
         xdisplay = lebar
         ydisplay = tinggi
@@ -56,10 +56,12 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
                 elements_chart_container[-1].get_attribute('style').split(';')[0].split('width:')[-1].split('px')[0])
             ydisplay = int(
                 elements_chart_container[-1].get_attribute('style').split(';')[1].split('height:')[-1].split('px')[0])
-        # print('DISPLAY = ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)),
-        #   int(ydisplay/y_divider))
-        xp_tooltip = '//*[@class="chart-tooltip"]'
-        toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
+
+        # print('DISPLAY ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)),
+        #    int(ydisplay/y_divider), end=' // ')
+
+        css_tooltip = 'div.chart-tooltip'
+        toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_tooltip)))
         sleep(1)
         move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),
                                     int(ydisplay / y_divider), 'x')
@@ -83,7 +85,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
                 # print('NEWTEXT = ', move[2])
                 break
             if arrear > xdisplay + 190 - 15:
-                print('xlocation = ', arrear, ' / xdisplay = ', xdisplay)
+                # print('xlocation = ', arrear, ' / xdisplay = ', xdisplay)
                 break
         xp_backbutton = '//*[@id="search-header"]//*[@data-dojo-attach-point="backButtonNode"]'
         self.driver.find_element_by_xpath(xp_backbutton).click()

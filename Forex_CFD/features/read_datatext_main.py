@@ -36,7 +36,7 @@ class FxReadDataText_Main(FxMainPage):
         element_template = elements[-1]
         element_template.click()
         # xp_pro_tab = '//*[@id="chart-templates"]/div[2]/div/div/div/div'
-        xp_pro_tab = '//*[@id="chart-templates"]//*[contains(text(), "PRO")]'
+        xp_pro_tab = '//*[@id="chart-templates"]//div[contains(text(), "MACD")]'
         self.driver.find_element_by_xpath(xp_pro_tab).click()
         element_template.click()
         # print('-- > END 1 - Candlestick')
