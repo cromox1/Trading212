@@ -21,16 +21,20 @@ fxfinal.close_popup_ask_upload_docs()
 fxfinal.mode_live_or_demo("Practice")
 
 # 5) go to speficic currency or looping all currencies   # looping_check_all_currencies(driver)
-# 6) Buy/Sell/Close_Position
+### AUTO RUN SCRIPTS - BUY / SELL / CLOSE POSITION AUTOMATICALLY & CONTINOUSLY
 
-## NOW COMBINE NO 5) & 6)
-
-pilihan = 0
-rerun = 'Y'
 value_EMA = 25
-tperiod = '1 minute'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
-
-while pilihan != 99 :
-    penutup = fxfinal.close_position_CFD_ANY(value_EMA, tperiod, rerun)
-    pilihan = penutup[0]
-    rerun = penutup[-1]
+list_tperiod = ['1 minute', '5 minutes']
+check_cfd_current = fxfinal.close_position_CFD_ANY_auto(value_EMA, list_tperiod)
+todopoint = check_cfd_current[0]
+open_position = check_cfd_current[1]
+instrument_id = check_cfd_current[-1]
+print('\nBUYSELLPOINT = ', todopoint)
+print('\nCLOSEINSTPOINT = ', open_position)
+# for k,v in todopoint.items():
+#     if v > 0:
+#         print('TO BUY Currency = ', k)
+#         print('Amount = ', 511 + list(todopoint.keys()).index(k))
+#     elif v < 0:
+#         print('TO SELL Currency = ', k)
+#         print('Amount = ', 501 + list(todopoint.keys()).index(k))

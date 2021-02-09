@@ -209,4 +209,12 @@ hoover(driver).move_to_element(toolTip).perform()
 print('ELE LOCATION ', toolTip.location)
 print('TEXT = ', toolTip.text)
 
-18)
+18) XPATH vs CSS selector 
+
+xp_tooltip = '//div[@class="chart-tooltip"]'
+
+css_tooltip = "div[class='chart-tooltip']"
+
+css_tooltip = 'div.chart-tooltip'     <-- exact match
+
+19) 

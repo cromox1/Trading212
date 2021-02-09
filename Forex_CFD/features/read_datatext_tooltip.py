@@ -41,7 +41,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
 
     def collecting_data_on_graph(self, fr_graph_div):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
-        y_divider = 3.5 # 4.3 # 3.5 # 2.7 # 4  # 8 # 4.45 # 2.5 (min) # 4.4567
+        y_divider = 2.75 # 4.25 # 3.75 # 4.3 # 3.5 # 2.7 # 4  # 8 # 4.45 # 2.5 (min) # 4.4567
         data_list = []
         EMA_list = []
         lebar = self.driver.execute_script("return window.innerWidth")
@@ -63,8 +63,12 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
         css_tooltip = 'div.chart-tooltip'
         toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_tooltip)))
         sleep(1)
-        move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),
-                                    int(ydisplay / y_divider), 'x')
+        try:
+            move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),
+                                        int(ydisplay / y_divider), 'x')
+        except:
+            move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),
+                                             int(ydisplay / y_divider) - 100, 'x')
         arrear = move0[0]
         chktext = move0[-1]
         stepadd = 5
