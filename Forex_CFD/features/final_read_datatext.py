@@ -15,10 +15,27 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         grph_div_start_point = 1.331 # 1.329  # division graph of starting point? ( value = 1.28 to infinity)
         fxconvert = currency_date_value()
-        ix = 1
         print()
         todopoint = {}
-        for currency in ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]:
+        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        for currency in all_currencies:
+            ix = all_currencies.index(currency) + 1
+            print(str(ix) + ' ) (tperiod: ' + str(tperiod) + ') // ', end='')
+            tindakan = self.main_collect_data(currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
+            todopoint.update(tindakan)
+            ix += 1
+        print('\nToDoPoint = ', todopoint)
+        return todopoint
+
+    def looping_check_currencies(self, value_EMA, tperiod, list_currency):
+        self.log.info("-> " + inspect.stack()[0][3] + " started")
+        grph_div_start_point = 1.331 # 1.329  # division graph of starting point? ( value = 1.28 to infinity)
+        fxconvert = currency_date_value()
+        print()
+        todopoint = {}
+        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        for currency in list_currency:
+            ix = all_currencies.index(currency) + 1
             print(str(ix) + ' ) (tperiod: ' + str(tperiod) + ') // ', end='')
             tindakan = self.main_collect_data(currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
             todopoint.update(tindakan)
@@ -72,12 +89,12 @@ class ReadAllDataText(FxReadDataText_ToolTip):
                 < float(0.00025) and float(datalist[-1]) <= float(datalist[-2]):
             text1 = text1 + ' SELL/SHORT3 @' + str(datalist[-2]) + '>' + str(datalist[-1])
             tindakan[currency] = tindakan[currency] - (1*markah)
-        if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) < float(datalist[-1]):
-            text1 = text1 + ' BUY/LONG4 @' + str(datalist[-2]) + '<' + str(datalist[-1])
-            tindakan[currency] = tindakan[currency] + (1*markah)
-        if float(datalist[-4]) > float(datalist[-3]) > float(datalist[-2]) > float(datalist[-1]):
-            text1 = text1 + ' SELL/SHORT4 @' + str(datalist[-2]) + '>' + str(datalist[-1])
-            tindakan[currency] = tindakan[currency] - (1*markah)
+        # if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) < float(datalist[-1]):
+        #     text1 = text1 + ' BUY/LONG4 @' + str(datalist[-2]) + '<' + str(datalist[-1])
+        #     tindakan[currency] = tindakan[currency] + (1*markah)
+        # if float(datalist[-4]) > float(datalist[-3]) > float(datalist[-2]) > float(datalist[-1]):
+        #     text1 = text1 + ' SELL/SHORT4 @' + str(datalist[-2]) + '>' + str(datalist[-1])
+        #     tindakan[currency] = tindakan[currency] - (1*markah)
         print('TIME ' + str(arini) + ' # GRADIENT for ' + currency + ' =', str("%.5f" % round(gradient3, 5)), '/',
               str("%.6f" % round(gradient3x, 6)),
               '//', str("%.5f" % round(gradient2, 5)), '/', str("%.6f" % round(gradient2x, 6)),

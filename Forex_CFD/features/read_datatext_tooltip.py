@@ -41,7 +41,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
 
     def collecting_data_on_graph(self, fr_graph_div):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
-        y_divider = 2.75 # 4.25 # 3.75 # 4.3 # 3.5 # 2.7 # 4  # 8 # 4.45 # 2.5 (min) # 4.4567
+        y_divider = 4.75 # 4.25 # 3.75 # 4.3 # 3.5 # 2.7 # 4  # 8 # 4.45 # 2.5 (min) # 4.4567
         data_list = []
         EMA_list = []
         lebar = self.driver.execute_script("return window.innerWidth")

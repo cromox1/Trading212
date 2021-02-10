@@ -1,0 +1,187 @@
+10/02/2021 01:57:43 PM - FxMainPage - INFO: -> autologin_maxwindows started
+10/02/2021 01:57:43 PM - FxMainPage - INFO: --> Trading212 user = xixa01@yahoo.co.uk
+10/02/2021 01:57:48 PM - FxMainPage - INFO: --> close_popup_ask_upload_docs started
+10/02/2021 01:57:49 PM - FxMainPage - INFO: --> mode_live_or_demo started // Mode = Practice
+10/02/2021 01:57:51 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 01:57:51 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 01:58:02 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 01:58:03 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 01:58:09 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:58:16 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 01:58:22 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:58:28 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 01:58:34 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:58:40 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 01:58:46 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:58:52 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CAD
+10/02/2021 01:58:58 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:59:04 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+10/02/2021 01:59:10 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:59:16 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 01:59:22 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:59:28 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 01:59:30 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 01:59:35 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:59:42 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 01:59:47 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 01:59:54 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:00:00 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:00:06 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:00:12 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:00:18 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CAD
+10/02/2021 02:00:24 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:00:30 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+10/02/2021 02:00:36 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:00:42 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:00:48 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:00:54 PM - FxMainPage - INFO: --> buy_stock started
+10/02/2021 02:00:54 PM - FxMainPage - INFO: --> open_stock_dialog started
+10/02/2021 02:01:08 PM - FxMainPage - INFO: --> script_click_xpath started
+10/02/2021 02:01:09 PM - FxMainPage - INFO: --> buy started
+10/02/2021 02:03:41 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 02:03:41 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 02:03:43 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:03:45 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:03:51 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:03:57 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:04:03 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:04:09 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:04:15 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:04:22 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:04:27 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:04:34 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+10/02/2021 02:04:39 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:04:46 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:04:52 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:04:58 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:05:00 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:05:05 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:05:12 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:05:17 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:05:24 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:05:30 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:05:37 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:05:42 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:05:49 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+10/02/2021 02:05:55 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:06:01 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:06:07 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:08:43 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 02:08:43 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 02:08:45 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:08:46 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:08:52 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:08:58 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:09:04 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:09:11 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:09:16 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:09:23 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:09:28 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:09:35 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+10/02/2021 02:09:41 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:09:47 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:09:53 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:10:00 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:10:01 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:10:07 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:10:14 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:10:19 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:10:26 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:10:31 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:10:38 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:10:44 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:10:51 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = AUD/USD
+10/02/2021 02:10:56 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:11:03 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:11:08 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:11:15 PM - FxMainPage - INFO: --> buy_stock started
+10/02/2021 02:11:15 PM - FxMainPage - INFO: --> open_stock_dialog started
+10/02/2021 02:11:18 PM - FxMainPage - INFO: --> script_click_xpath started
+10/02/2021 02:11:19 PM - FxMainPage - INFO: --> buy started
+10/02/2021 02:13:52 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 02:13:52 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 02:13:54 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:13:55 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:14:00 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:14:07 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:14:13 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:14:20 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:14:25 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:14:32 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:14:37 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:14:44 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:14:50 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:14:56 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:14:57 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:15:03 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:15:10 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:15:15 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:15:22 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:15:27 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:15:34 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:15:40 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:15:47 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:15:52 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:18:29 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 02:18:29 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 02:18:31 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:18:32 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:18:37 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:18:44 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:18:50 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:18:56 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:19:02 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:19:09 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:19:14 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:19:21 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:19:26 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:19:33 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:19:34 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:19:40 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:19:46 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:19:52 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:19:59 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:20:04 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:20:11 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:20:16 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:20:23 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:20:29 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:23:05 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 02:23:05 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 02:23:07 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:23:08 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:23:14 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:23:21 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:23:26 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:23:33 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:23:39 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:23:45 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:23:51 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:23:58 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:24:03 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:24:10 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:24:11 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:24:17 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:24:23 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:24:29 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:24:36 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/JPY
+10/02/2021 02:24:41 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:24:48 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:24:53 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:25:00 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:25:06 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:25:12 PM - FxMainPage - INFO: --> buy_stock started
+10/02/2021 02:25:12 PM - FxMainPage - INFO: --> open_stock_dialog started
+10/02/2021 02:25:16 PM - FxMainPage - INFO: --> script_click_xpath started
+10/02/2021 02:25:17 PM - FxMainPage - INFO: --> buy started
+10/02/2021 02:27:49 PM - FxMainPage - INFO: -> close_position_CFD_ANY_auto started
+10/02/2021 02:27:49 PM - FxMainPage - INFO: --> list_CFD_open_position started
+10/02/2021 02:27:52 PM - FxMainPage - INFO: -> looping_check_currencies started
+10/02/2021 02:27:53 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = GBP/USD
+10/02/2021 02:27:59 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:28:05 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = EUR/USD
+10/02/2021 02:28:11 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:28:18 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = USD/CHF
+10/02/2021 02:28:23 PM - FxMainPage - INFO: --> collecting_data_on_graph started
+10/02/2021 02:28:30 PM - FxMainPage - INFO: -> from_search_goto_specific_currency started / CURRENCY = NZD/USD
+10/02/2021 02:28:36 PM - FxMainPage - INFO: --> collecting_data_on_graph started

@@ -18,6 +18,12 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                 dict3[key] = value + dict1[key]
         return dict3
 
+    def close_position_elementid(self, id_element):
+        xpathto = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_element}']//div[@class='close-icon svg-icon-holder']"
+        self.driver.find_elements_by_xpath(xpathto)[0].click()
+        self.driver.find_elements_by_xpath(f"//span[@class='btn btn-primary' and text()='OK']")[0].click()
+        sleep(2)
+
     def close_position_CFD_ANY(self, value_EMA, tperiod, rerun):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         if rerun == 'Y':
@@ -35,10 +41,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                 confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
                 id_ele = dict1[int(pilihan)]
                 if confirmation.lower() == 'y':
-                    xpathto = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_ele}']//div[@class='close-icon svg-icon-holder']"
-                    self.driver.find_elements_by_xpath(xpathto)[0].click()
-                    self.driver.find_elements_by_xpath(f"//span[@class='btn btn-primary' and text()='OK']")[0].click()
-                    sleep(2)
+                    self.close_position_elementid(id_ele)
                 else:
                     print("CHANGE MIND!! - Didn't CLOSE [", str(pilihan), '] =', dict2[int(pilihan)])
             elif int(pilihan) == buy_sell_dict['buy']:
@@ -94,9 +97,12 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
             newdict1.update({newkk: newvvid})
 
         # ### ni section checking whatever status of the current Forex/CFD
+        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        list_currencies = [i for i in all_currencies if i not in open_position]
         todopoint = {}
-        for tperiod in list_tperiod:
-            newpoint = self.looping_check_all_currencies(value_EMA, tperiod)
-            todopoint = self.mergeDict(todopoint, newpoint)
+        if len(list_currencies) >= 1:
+            for tperiod in list_tperiod:
+                newpoint = self.looping_check_currencies(value_EMA, tperiod, list_currencies)
+                todopoint = self.mergeDict(todopoint, newpoint)
         return todopoint, open_position, newdict1
 
