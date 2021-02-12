@@ -1,3 +1,4 @@
+from datetime import datetime
 from time import sleep
 from Forex_CFD.base.webdriverfactory import WebDriverFactory as webbrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
@@ -34,26 +35,39 @@ while pilihan != 99:
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
     instrument_id = check_cfd_current[-1]
-    print()
-    print('BUYSELLPOINT = ', todopoint)
-    print('CLOSEINSTPOINT = ', open_position)
-    print()
+
     ### AUTO TRADING
+    buymark = 8         # maxmax 24
+    sellmark = -8       # minmax -24
+    closeloss = -0.50
+    closeprofit = 0.15
+    print()
+    print('1) CLOSEPOSITION // LOSS # IF <', closeloss, ' / PROFIT # IF >', closeprofit)
+    print(' - > CLOSEINSTPOINT = ', open_position)
     for ko,vo in open_position.items():
-        if vo < -0.35:
+        if vo < closeloss:
             # print('TO CLOSE/RUGI = ', ko, ' / ID = ', instrument_id[ko])
             print('TO CLOSE (LOSS) = ', ko)
             fxfinal.close_position_elementid(instrument_id[ko])
-        if vo > 0.30:
+        elif vo > closeprofit:
             # print('TO CLOSE/UNTUNG = ', ko, ' / ID = ', instrument_id[ko])
             print('TO CLOSE (PROFIT) = ', ko)
             fxfinal.close_position_elementid(instrument_id[ko])
+    print('2) BUYSELLINSTRUMENT // BUY # IF POINT >', buymark, ' / SELL # IF POINT <', sellmark)
+    print(' - > BUYSELLPOINT = ', todopoint)
     for kt,vt in todopoint.items():
         all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        if vt > 0 and kt not in open_position:
-            print('TO BUY = (Currency)', kt, '(Amount)', 521 + all_currencies.index(kt))
-            fxfinal.buy_stock(kt, 521 + all_currencies.index(kt))
-        elif vt < 0 and kt not in open_position:
-            print('TO SELL = (Currency)', kt, '(Amount)', 511 + all_currencies.index(kt))
-            fxfinal.sell_stock(kt, 511 + all_currencies.index(kt))
-    sleep(285)
+        if vt > buymark and kt not in open_position:
+            amount = 521 + all_currencies.index(kt)
+            print('TO BUY = (Currency)', kt, '(Amount)', amount)
+            fxfinal.buy_stock(kt, amount)
+        elif vt < sellmark and kt not in open_position:
+            amount = 511 + all_currencies.index(kt)
+            print('TO SELL = (Currency)', kt, '(Amount)', amount)
+            fxfinal.sell_stock(kt, amount)
+    print()
+    tidor = 180
+    future = int(datetime.now().timestamp()) + tidor
+    futuretime = datetime.fromtimestamp(future).strftime('%Y-%m-%d %H:%M:%S')
+    print('SCRIPT WILL RUN AGAIN AT : ', futuretime)
+    sleep(tidor)
