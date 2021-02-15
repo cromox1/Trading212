@@ -37,8 +37,8 @@ while pilihan != 99:
     instrument_id = check_cfd_current[-1]
 
     ### AUTO TRADING
-    buymark = 8         # maxmax 24
-    sellmark = -8       # minmax -24
+    buymark = 12
+    sellmark = -12
     closeloss = -0.50
     closeprofit = 0.15
     print()
@@ -66,8 +66,9 @@ while pilihan != 99:
             print('TO SELL = (Currency)', kt, '(Amount)', amount)
             fxfinal.sell_stock(kt, amount)
     print()
-    tidor = 180
-    future = int(datetime.now().timestamp()) + tidor
-    futuretime = datetime.fromtimestamp(future).strftime('%Y-%m-%d %H:%M:%S')
-    print('SCRIPT WILL RUN AGAIN AT : ', futuretime)
+    tidor = int(3.5*60)
+    arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    nanti = int(datetime.now().timestamp()) + tidor
+    futuretime = datetime.fromtimestamp(nanti).strftime('%Y-%m-%d %H:%M:%S')
+    print('SCRIPT WILL RUN AGAIN AT : ', futuretime, '( NOW =', arini, ')')
     sleep(tidor)

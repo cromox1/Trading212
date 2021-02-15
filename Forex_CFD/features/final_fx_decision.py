@@ -99,6 +99,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
         # ### ni section checking whatever status of the current Forex/CFD
         all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         list_currencies = [i for i in all_currencies if i not in open_position]
+        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         todopoint = {}
         if len(list_currencies) >= 1:
             for tperiod in list_tperiod:

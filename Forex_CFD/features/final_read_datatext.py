@@ -63,7 +63,12 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         gradient3x = 5000 * gradient3 / float(dict_fx[currency.split('/')[-1]])
         text1 = ''
         # markah = int(time_period.split(' ')[0])
-        markah = 1
+        if int(time_period.split(' ')[0]) == 1:
+            markah = 1
+        elif int(time_period.split(' ')[0]) == 5:
+            markah = 1.72
+        else:
+            markah = 2
         tindakan = {}
         tindakan[currency] = 0
         nearema1 = float(abs(float(datalist[-1]) - float(emalist[-1])))
@@ -71,64 +76,64 @@ class ReadAllDataText(FxReadDataText_ToolTip):
 
         #### NEWLY CONDITIONS
         if currency == "USD/JPY":
-            floatjauh = float(0.0551)
-            floatdekat = float(0.0151)
+            floatjauh = float(0.0575)
+            floatdekat = float(0.0125)
         else:
-            floatjauh = float(0.00055)
-            floatdekat = float(0.00015)
+            floatjauh = float(0.000575)
+            floatdekat = float(0.000125)
         indexbesar = float(0.7)
         # 1
         if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) <= float(datalist[-1]) and \
                 float(datalist[-1]) <= float(emalist[-1]):
-            tindakan[currency] = tindakan[currency] + (3 * markah)
+            tindakan[currency] = tindakan[currency] + int(3 * markah)
             text1 = text1 + ' BUY1'
         if float(datalist[-4]) > float(datalist[-3]) > float(datalist[-2]) >= float(datalist[-1]) and \
                 float(datalist[-1]) > float(emalist[-1]) + floatdekat:
-            tindakan[currency] = tindakan[currency] - (2 * markah)
+            tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL1'
         # 2
         if gradient3x < gradient2x < gradient1x and float(datalist[-1]) <= float(emalist[-1]):
-            tindakan[currency] = tindakan[currency] + (2 * markah)
+            tindakan[currency] = tindakan[currency] + int(2 * markah)
             text1 = text1 + ' BUY2'
         if gradient3x > gradient2x > gradient1x and float(datalist[-1]) > float(emalist[-1]) + floatdekat:
-            tindakan[currency] = tindakan[currency] - (2 * markah)
+            tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL2'
         # 3
         if float(datalist[-1]) >= float(datalist[-2]) and abs(gradient1x) >= indexbesar:
-            tindakan[currency] = tindakan[currency] + (2 * markah)
+            tindakan[currency] = tindakan[currency] + int(2 * markah)
             text1 = text1 + ' BUY3'
         if float(datalist[-1]) <= float(datalist[-2]) and abs(gradient1x) >= indexbesar:
-            tindakan[currency] = tindakan[currency] - (2 * markah)
+            tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL3'
         # 4
         if nearema1 < floatdekat and float(datalist[-1]) < float(emalist[-1]):
-            tindakan[currency] = tindakan[currency] + (3 * markah)
+            tindakan[currency] = tindakan[currency] + int(3 * markah)
             text1 = text1 + ' BUY4'
         if nearema1 > floatjauh and float(datalist[-1]) > float(emalist[-1]):
-            tindakan[currency] = tindakan[currency] - (3 * markah)
+            tindakan[currency] = tindakan[currency] - int(3 * markah)
             text1 = text1 + ' SELL4'
         # 5
         if float(datalist[-5]) < float(emalist[-5]) and float(datalist[-2]) >= float(emalist[-2]) \
             and float(datalist[-1]) >= float(datalist[-2]):
-            tindakan[currency] = tindakan[currency] + (2 * markah)
+            tindakan[currency] = tindakan[currency] + int(2 * markah)
             text1 = text1 + ' BUY5'
         if float(datalist[-5]) > float(emalist[-5]) + floatjauh and float(datalist[-2]) > float(emalist[-2]) \
             and float(datalist[-1]) <= float(datalist[-2]):
-            tindakan[currency] = tindakan[currency] - (2 * markah)
+            tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL5'
         # 6
         if nearema2 > nearema1 and float(datalist[-1]) > float(datalist[-2]):
-            tindakan[currency] = tindakan[currency] + (2 * markah)
+            tindakan[currency] = tindakan[currency] + int(2 * markah)
             text1 = text1 + ' BUY6'
         if nearema2 > nearema1 and float(datalist[-1]) < float(datalist[-2]):
-            tindakan[currency] = tindakan[currency] - (2 * markah)
+            tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL6'
         # 7
         if float(datalist[-1]) < float(emalist[-1]) - floatjauh:
-            tindakan[currency] = tindakan[currency] + (3 * markah)
+            tindakan[currency] = tindakan[currency] + int(3 * markah)
             text1 = text1 + ' BUY7'
         if float(datalist[-1]) > float(emalist[-1]) + floatjauh:
-            tindakan[currency] = tindakan[currency] - (2 * markah)
+            tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL7'
 
         ######
