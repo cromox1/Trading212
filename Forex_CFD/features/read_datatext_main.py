@@ -51,16 +51,27 @@ class FxReadDataText_Main(FxMainPage):
         self.driver.find_element_by_xpath("//*[contains(text(),'Trend')]").click()
         # self.driver.find_element_by_xpath("//*[contains(text(),'EMA')]").click()  # < -- if using EMA
         self.driver.find_element_by_css_selector(".item-trend-sma").click()  # < -- if using Simple Moving Average (SMA)
+        ## set SMA/EMA value
         xp_period = '//*[@id="chart-settings"]//*[@class="editable-input"]'
         element_period = self.driver.find_element_by_xpath(xp_period)
         element_period.clear()
         element_period.send_keys(str(value_EMA))
+        ## set SMA/EMA colour and thickness
         if self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div"):
             self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div").click()
             self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
-        # confirm button
+            self.driver.find_element_by_xpath(
+                '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_line_width _focusable"]/span[@class="dropdown-arrow"]').click()
+            self.driver.find_element_by_css_selector(".item-main-2").click()
+        ## set SMA/EMA use 'Open' price
+        self.driver.find_element_by_xpath(
+            '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_price _focusable"]/span[@class="dropdown-arrow"]').click()
+        self.driver.find_element_by_css_selector(".item-indicator-settings-list-open").click()
+        sleep(0.5)
+        ## confirm button
         self.driver.find_elements_by_xpath('//div[@class="window-controls"]/div[@class="button confirm-button"]')[0].click()
-        ## alternative
+        ## alternative confirm button
+        # self.driver.find_element_by_css_selector(".confirm-button").click()
         # self.driver.find_element_by_xpath("//*[contains(text(),'Confirm')]").click()
         # print('-- > END 2 -', value_EMA, 'EMA line')
 

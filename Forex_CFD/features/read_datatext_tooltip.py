@@ -82,7 +82,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
             chktext = move[-1]
             if move[2] != 'duplicate' and move[2].split('/')[0].replace(' ', '') != 'xlocation':
                 # print('NEWTEXT = ', move[2])
-                data_list = data_list + [move[2].split('Close')[-1].split('/')[1].replace(' ', '')]
+                data_list = data_list + [move[2].split('Open')[-1].split('/')[1].replace(' ', '')]
                 # EMA_list = EMA_list + [move[2].split('EMA')[-1].split('/')[1].replace(' ', '')]
                 EMA_list = EMA_list + [move[2].split('SMA')[-1].split('/')[1].replace(' ', '')]
             elif move[2].split('/')[0].replace(' ', '') == 'xlocation':

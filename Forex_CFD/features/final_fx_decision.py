@@ -18,6 +18,20 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                 dict3[key] = value + dict1[key]
         return dict3
 
+    def mergeDictNoZero(self, dict1, dict2):
+        dict3 = {**dict1, **dict2}
+        for key, value in dict3.items():
+            if key in dict1 and key in dict2:
+                if dict1[key] > 0 > dict2[key]:
+                    dict3[key] = 0
+                elif dict1[key] < 0 < dict2[key]:
+                    dict3[key] = 0
+                elif dict1[key] == 0:
+                    dict3[key] = 0
+                else:
+                    dict3[key] = value + dict1[key]
+        return dict3
+
     def close_position_elementid(self, id_element):
         xpathto = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_element}']//div[@class='close-icon svg-icon-holder']"
         self.driver.find_elements_by_xpath(xpathto)[0].click()
@@ -104,6 +118,5 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
         if len(list_currencies) >= 1:
             for tperiod in list_tperiod:
                 newpoint = self.looping_check_currencies(value_EMA, tperiod, list_currencies)
-                todopoint = self.mergeDict(todopoint, newpoint)
+                todopoint = self.mergeDictNoZero(todopoint, newpoint)
         return todopoint, open_position, newdict1
-

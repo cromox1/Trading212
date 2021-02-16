@@ -32,11 +32,12 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         grph_div_start_point = 1.331 # 1.329  # division graph of starting point? ( value = 1.28 to infinity)
         fxconvert = currency_date_value()
         print()
+        print('### Scanning Data Result ( SMA =', value_EMA, ' / tperiod =' , tperiod,') ###')
         todopoint = {}
         all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         for currency in list_currency:
             ix = all_currencies.index(currency) + 1
-            print(str(ix) + ' ) (tperiod: ' + str(tperiod) + ') // ', end='')
+            print(str(ix) + ' ) ', end='')
             tindakan = self.main_collect_data(currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
             todopoint.update(tindakan)
             ix += 1
@@ -54,9 +55,12 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         collectdata = self.collecting_data_on_graph(grph_div_start)
         datalist = collectdata[0]
         emalist = collectdata[-1]
+        # gradient1 = float(datalist[-2]) - float(datalist[-3])   ## Original
+        # gradient2 = float(datalist[-3]) - float(datalist[-4])
+        # gradient3 = float(datalist[-4]) - float(datalist[-5])
         gradient1 = float(datalist[-2]) - float(datalist[-3])
-        gradient2 = float(datalist[-3]) - float(datalist[-4])
-        gradient3 = float(datalist[-4]) - float(datalist[-5])
+        gradient2 = float(datalist[-4]) - float(datalist[-5])
+        gradient3 = float(datalist[-6]) - float(datalist[-7])
         ### convert to GBP
         gradient1x = 5000 * gradient1 / float(dict_fx[currency.split('/')[-1]])
         gradient2x = 5000 * gradient2 / float(dict_fx[currency.split('/')[-1]])
@@ -66,6 +70,8 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         if int(time_period.split(' ')[0]) == 1:
             markah = 1
         elif int(time_period.split(' ')[0]) == 5:
+            markah = 1.71
+        elif int(time_period.split(' ')[0]) == 10:
             markah = 1.72
         else:
             markah = 2
@@ -76,12 +82,12 @@ class ReadAllDataText(FxReadDataText_ToolTip):
 
         #### NEWLY CONDITIONS
         if currency == "USD/JPY":
-            floatjauh = float(0.0575)
-            floatdekat = float(0.0125)
+            floatjauh = float(0.0595)
+            floatdekat = float(0.0123)
         else:
-            floatjauh = float(0.000575)
-            floatdekat = float(0.000125)
-        indexbesar = float(0.7)
+            floatjauh = float(0.000595)
+            floatdekat = float(0.000123)
+        indexbesar = float(0.77)
         # 1
         if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) <= float(datalist[-1]) and \
                 float(datalist[-1]) <= float(emalist[-1]):
@@ -99,10 +105,10 @@ class ReadAllDataText(FxReadDataText_ToolTip):
             tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL2'
         # 3
-        if float(datalist[-1]) >= float(datalist[-2]) and abs(gradient1x) >= indexbesar:
+        if float(datalist[-1]) > float(datalist[-2]) and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] + int(2 * markah)
             text1 = text1 + ' BUY3'
-        if float(datalist[-1]) <= float(datalist[-2]) and abs(gradient1x) >= indexbesar:
+        if float(datalist[-1]) < float(datalist[-2]) and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + ' SELL3'
         # 4

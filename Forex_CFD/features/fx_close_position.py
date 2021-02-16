@@ -13,6 +13,12 @@ class FxClosePosition(FxBuySell):
 
     def list_CFD_open_position(self):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
+        try:
+            self.driver.find_element_by_css_selector(
+                "#uniqName_0_0 > span.tab-item.tabpositions.has-tooltip.svg-icon-holder.tab-active")
+        except:
+            self.driver.find_element_by_css_selector(
+                "#uniqName_0_0 > span.tab-item.tabpositions.has-tooltip.svg-icon-holder").click()
         instrument_list = self.driver.find_elements_by_xpath('//table[@data-dojo-attach-point="tableNode"]//tr')
         sleep(1)
         free_fund = self.driver.find_elements_by_xpath(

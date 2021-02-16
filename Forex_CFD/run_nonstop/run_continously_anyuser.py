@@ -10,10 +10,10 @@ base_url = "https://www.trading212.com"
 chromebrowserdriver = webbrowser('chrome').getWebDriverInstance(base_url)
 
 # 2) login
-user1 = "mycromox@gmail.com"
-pswd1 = "Serverg0d!"
-# user1 = "xixa01@yahoo.co.uk"
-# pswd1 = "H0meBase"
+# user1 = "mycromox@gmail.com"
+# pswd1 = "Serverg0d!"
+user1 = "xixa01@yahoo.co.uk"
+pswd1 = "H0meBase"
 
 fxfinal = FxFinalDecision(chromebrowserdriver)
 fxfinal.autologin_maxwindows(base_url, user1, pswd1)
@@ -30,17 +30,17 @@ fxfinal.mode_live_or_demo("Practice")
 pilihan = 0
 while pilihan != 99:
     value_EMA = 25
-    list_tperiod = ['1 minute', '5 minutes']
+    list_tperiod = ['1 minute', '10 minutes']
     check_cfd_current = fxfinal.close_position_CFD_ANY_auto(value_EMA, list_tperiod)
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
     instrument_id = check_cfd_current[-1]
 
     ### AUTO TRADING
-    buymark = 12
-    sellmark = -12
-    closeloss = -0.50
-    closeprofit = 0.15
+    buymark = 14
+    sellmark = -14
+    closeloss = -0.51
+    closeprofit = 0.19
     print()
     print('1) CLOSEPOSITION // LOSS # IF <', closeloss, ' / PROFIT # IF >', closeprofit)
     print(' - > CLOSEINSTPOINT = ', open_position)
