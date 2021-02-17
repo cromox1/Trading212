@@ -16,7 +16,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
 
     def movearound_showtext(self, element, x_value, y_value, prev_text):
         # self.log.info("--> " + inspect.stack()[0][3] + " started")
-        # print('DISPLAY ( x2 y2 ) ', str(element.location['x']), str(element.location['y']))
+        # print('DISPLAY ( x2 y2 ) ', str(element.location['x']), str(element.location['y']), ' / x , y', int(x_value), int(y_value))
         hoover(self.driver).move_to_element_with_offset(element, int(x_value), int(y_value)).perform()
         chktext = element.text.split('\n')[0].replace(' ', '')
         try:
@@ -60,8 +60,10 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
         # print('DISPLAY ( x y ) ', xdisplay, ydisplay, ' / START_POSITION = ', int(float(xdisplay)/float(fr_graph_div)),
         #    int(ydisplay/y_divider), end=' // ')
 
-        css_tooltip = 'div.chart-tooltip'
-        toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_tooltip)))
+        # css_tooltip = 'div.chart-tooltip'
+        # toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_tooltip)))
+        xp_tooltip = '//div[@class="chart-tooltip"]'
+        toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
         sleep(1)
         try:
             move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),

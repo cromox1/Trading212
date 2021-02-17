@@ -92,58 +92,58 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         if float(datalist[-4]) < float(datalist[-3]) < float(datalist[-2]) <= float(datalist[-1]) and \
                 float(datalist[-1]) <= float(emalist[-1]):
             tindakan[currency] = tindakan[currency] + int(3 * markah)
-            text1 = text1 + ' BUY1'
+            text1 = text1 + 'BUY1 '
         if float(datalist[-4]) > float(datalist[-3]) > float(datalist[-2]) >= float(datalist[-1]) and \
                 float(datalist[-1]) > float(emalist[-1]) + floatdekat:
             tindakan[currency] = tindakan[currency] - int(2 * markah)
-            text1 = text1 + ' SELL1'
+            text1 = text1 + 'SELL1 '
         # 2
         if gradient3x < gradient2x < gradient1x and float(datalist[-1]) <= float(emalist[-1]):
             tindakan[currency] = tindakan[currency] + int(2 * markah)
-            text1 = text1 + ' BUY2'
+            text1 = text1 + 'BUY2 '
         if gradient3x > gradient2x > gradient1x and float(datalist[-1]) > float(emalist[-1]) + floatdekat:
             tindakan[currency] = tindakan[currency] - int(2 * markah)
-            text1 = text1 + ' SELL2'
+            text1 = text1 + 'SELL2 '
         # 3
         if float(datalist[-1]) > float(datalist[-2]) and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] + int(2 * markah)
-            text1 = text1 + ' BUY3'
+            text1 = text1 + 'BUY3 '
         if float(datalist[-1]) < float(datalist[-2]) and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] - int(2 * markah)
-            text1 = text1 + ' SELL3'
+            text1 = text1 + 'SELL3 '
         # 4
         if nearema1 < floatdekat and float(datalist[-1]) < float(emalist[-1]):
             tindakan[currency] = tindakan[currency] + int(3 * markah)
-            text1 = text1 + ' BUY4'
+            text1 = text1 + 'BUY4 '
         if nearema1 > floatjauh and float(datalist[-1]) > float(emalist[-1]):
             tindakan[currency] = tindakan[currency] - int(3 * markah)
-            text1 = text1 + ' SELL4'
+            text1 = text1 + 'SELL4 '
         # 5
         if float(datalist[-5]) < float(emalist[-5]) and float(datalist[-2]) >= float(emalist[-2]) \
             and float(datalist[-1]) >= float(datalist[-2]):
             tindakan[currency] = tindakan[currency] + int(2 * markah)
-            text1 = text1 + ' BUY5'
+            text1 = text1 + 'BUY5 '
         if float(datalist[-5]) > float(emalist[-5]) + floatjauh and float(datalist[-2]) > float(emalist[-2]) \
             and float(datalist[-1]) <= float(datalist[-2]):
             tindakan[currency] = tindakan[currency] - int(2 * markah)
-            text1 = text1 + ' SELL5'
+            text1 = text1 + 'SELL5 '
         # 6
         if nearema2 > nearema1 and float(datalist[-1]) > float(datalist[-2]):
             tindakan[currency] = tindakan[currency] + int(2 * markah)
-            text1 = text1 + ' BUY6'
+            text1 = text1 + 'BUY6 '
         if nearema2 > nearema1 and float(datalist[-1]) < float(datalist[-2]):
             tindakan[currency] = tindakan[currency] - int(2 * markah)
-            text1 = text1 + ' SELL6'
+            text1 = text1 + 'SELL6 '
         # 7
         if float(datalist[-1]) < float(emalist[-1]) - floatjauh:
             tindakan[currency] = tindakan[currency] + int(3 * markah)
-            text1 = text1 + ' BUY7'
+            text1 = text1 + 'BUY7 '
         if float(datalist[-1]) > float(emalist[-1]) + floatjauh:
             tindakan[currency] = tindakan[currency] - int(2 * markah)
-            text1 = text1 + ' SELL7'
+            text1 = text1 + 'SELL7 '
 
         ######
-        print('TIME ' + str(arini) + ' # GRADIENT for ' + currency + ' =', str("%.5f" % round(gradient3, 5)), '/',
+        print('(' + str(arini) + ') # Grade:', str("%.5f" % round(gradient3, 5)), '/',
               str("%.6f" % round(gradient3x, 6)),
               '//', str("%.5f" % round(gradient2, 5)), '/', str("%.6f" % round(gradient2x, 6)),
               '//', str("%.5f" % round(gradient1, 5)), '/', str("%.6f" % round(gradient1x, 6)), '#', text1)

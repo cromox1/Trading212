@@ -30,7 +30,7 @@ class FxClosePosition(FxBuySell):
         # "%.5f" % round(float(VALUE)), 5)
         myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
         arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print('\n# No of Instruments = ', len(instrument_list), ' // TIME_RUN =', arini, '// DFD = ', '£' + str(myDFD),
+        print('\n# No of Instruments =', len(instrument_list), '// TIME_RUN =', arini, '// DFD =', '£' + str(myDFD),
               '// Total_Fund =', total_fund, '// Free_Fund =', free_fund, '// Live_Result =', result)
         dict1 = {}
         dict2 = {}

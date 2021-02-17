@@ -39,23 +39,12 @@ while pilihan != 99:
     ### AUTO TRADING
     buymark = 14
     sellmark = -14
-    closeloss = -0.51
-    closeprofit = 0.19
+    closeloss = -0.55
+    # closeprofit = 0.19
     print()
-    print('1) CLOSEPOSITION // LOSS # IF <', closeloss, ' / PROFIT # IF >', closeprofit)
-    print(' - > CLOSEINSTPOINT = ', open_position)
-    for ko,vo in open_position.items():
-        if vo < closeloss:
-            # print('TO CLOSE/RUGI = ', ko, ' / ID = ', instrument_id[ko])
-            print('TO CLOSE (LOSS) = ', ko)
-            fxfinal.close_position_elementid(instrument_id[ko])
-        elif vo > closeprofit:
-            # print('TO CLOSE/UNTUNG = ', ko, ' / ID = ', instrument_id[ko])
-            print('TO CLOSE (PROFIT) = ', ko)
-            fxfinal.close_position_elementid(instrument_id[ko])
-    print('2) BUYSELLINSTRUMENT // BUY # IF POINT >', buymark, ' / SELL # IF POINT <', sellmark)
+    print('1) BUYSELLINSTRUMENT // BUY # IF POINT >', buymark, ' / SELL # IF POINT <', sellmark)
     print(' - > BUYSELLPOINT = ', todopoint)
-    for kt,vt in todopoint.items():
+    for kt, vt in todopoint.items():
         all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         if vt > buymark and kt not in open_position:
             amount = 521 + all_currencies.index(kt)
@@ -65,6 +54,32 @@ while pilihan != 99:
             amount = 511 + all_currencies.index(kt)
             print('TO SELL = (Currency)', kt, '(Amount)', amount)
             fxfinal.sell_stock(kt, amount)
+    print('2) CLOSEPOSITION // WHEN POSITION CHANGE DIRECTION')
+    print(' - > CLOSEINSTPOINT = ', open_position)
+    for ko,vo in open_position.items():
+        id_elem = instrument_id[ko]
+        buysell = fxfinal.direction_elementid(id_elem)
+        dircpoint = todopoint[ko]     # only work when all currencies in todopoint
+        if buysell == 'BUY' and dircpoint < -3:
+            print('   - > TO CLOSE # ', ko, ' / CHANGE DIRECTION - NOW SELL')
+            fxfinal.close_position_elementid(id_elem)
+        elif buysell == 'SELL' and dircpoint > 3:
+            print('   - > TO CLOSE # ', ko, ' / CHANGE DIRECTION - NOW BUY')
+            fxfinal.close_position_elementid(id_elem)
+        elif vo < closeloss:
+            print('TO CLOSE (LOSS) = ', ko)
+            fxfinal.close_position_elementid(id_elem)
+
+        # print('2) CLOSEPOSITION // LOSS # IF <', closeloss, ' / PROFIT # IF >', closeprofit)
+        # if vo < closeloss:
+        #     # print('TO CLOSE/RUGI = ', ko, ' / ID = ', instrument_id[ko])
+        #     print('TO CLOSE (LOSS) = ', ko)
+        #     fxfinal.close_position_elementid(instrument_id[ko])
+        # elif vo > closeprofit:
+        #     # print('TO CLOSE/UNTUNG = ', ko, ' / ID = ', instrument_id[ko])
+        #     print('TO CLOSE (PROFIT) = ', ko)
+        #     fxfinal.close_position_elementid(instrument_id[ko])
+
     print()
     tidor = int(3.5*60)
     arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")

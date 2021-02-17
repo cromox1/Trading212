@@ -25,7 +25,7 @@ class FxReadDataText_Main(FxMainPage):
         xp_currency = '//*[@data-code="' + currency1 + '"]//*[@class="ticker"]//*[@class="has-ellipsed-text"]'
         element1 = self.driver.find_element_by_xpath(xp_currency)
         element1.click()
-        print('CURRENCY = ', currency)
+        print('Currency:', currency, end=' ')
         sleep(0.5)
 
     def change_graph_to_candlestick(self):
@@ -73,6 +73,10 @@ class FxReadDataText_Main(FxMainPage):
         ## alternative confirm button
         # self.driver.find_element_by_css_selector(".confirm-button").click()
         # self.driver.find_element_by_xpath("//*[contains(text(),'Confirm')]").click()
+        ## settings > disable Open position
+        id_ele = self.driver.find_element_by_xpath('//div[@class="chart-container"]/div[@class="chart-menu"]').get_attribute('id')
+        self.driver.find_element_by_css_selector(f"#{id_ele} > #chartTabSettings").click()
+        self.driver.find_element_by_css_selector(".item-chart-settings-list-open-positions").click()
         # print('-- > END 2 -', value_EMA, 'EMA line')
 
     def change_graph_time_period(self, time_period):

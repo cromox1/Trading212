@@ -26,7 +26,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                     dict3[key] = 0
                 elif dict1[key] < 0 < dict2[key]:
                     dict3[key] = 0
-                elif dict1[key] == 0:
+                elif -4 < dict1[key] < 4:
                     dict3[key] = 0
                 else:
                     dict3[key] = value + dict1[key]
@@ -37,6 +37,10 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
         self.driver.find_elements_by_xpath(xpathto)[0].click()
         self.driver.find_elements_by_xpath(f"//span[@class='btn btn-primary' and text()='OK']")[0].click()
         sleep(2)
+
+    def direction_elementid(self, id_element):
+        xpathto = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_element}']//td[contains(@class,'direction')]"
+        return  self.driver.find_elements_by_xpath(xpathto)[0].text
 
     def close_position_CFD_ANY(self, value_EMA, tperiod, rerun):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
@@ -111,9 +115,9 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
             newdict1.update({newkk: newvvid})
 
         # ### ni section checking whatever status of the current Forex/CFD
-        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        list_currencies = [i for i in all_currencies if i not in open_position]
-        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        # list_currencies = [i for i in all_currencies if i not in open_position]
+        list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         todopoint = {}
         if len(list_currencies) >= 1:
             for tperiod in list_tperiod:

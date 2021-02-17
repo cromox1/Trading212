@@ -32,12 +32,16 @@ class FxMainPage(BasePage):
 
     def close_popup_ask_upload_docs(self):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
-        # //*[@id="onfido-upload"]/div[1]/div[2]
-        xpath1 = '//div[@id="onfido-upload"]//div[@class="close-icon svg-icon-holder"]'
+        # #upload-popup-3 > div.popup-header > div.close-icon.svg-icon-holder  # CSS selector
+        xpath1 = '//div[@id="onfido-upload"]//div[@class="close-icon svg-icon-holder"]'   # old one
+        xpath2 = '//div[@id="upload-popup-3"]//div[@class="close-icon svg-icon-holder"]'  # new one
         try:
             self.driver.find_element_by_xpath(xpath1).click()
         except:
-            print('no pop-up')
+            try:
+                self.driver.find_element_by_xpath(xpath2).click()
+            except:
+                print('no pop-up')
 
     def mode_live_or_demo(self, mode):
         self.log.info("--> " + inspect.stack()[0][3] + " started // Mode = " + str(mode))
