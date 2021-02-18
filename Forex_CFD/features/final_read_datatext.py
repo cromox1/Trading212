@@ -1,6 +1,5 @@
 __author__ = 'cromox'
 
-from datetime import datetime
 import inspect
 from Forex_CFD.features.dailyfx_currency import currency_date_value
 from Forex_CFD.features.read_datatext_tooltip import FxReadDataText_ToolTip
@@ -46,7 +45,6 @@ class ReadAllDataText(FxReadDataText_ToolTip):
 
     def main_collect_data(self, currency, value_EMA, time_period, grph_div_start, dict_fx):
         # self.log.info("-> " + inspect.stack()[0][3] + " started")
-        arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.from_search_goto_specific_currency(currency)
         self.change_graph_to_candlestick()
         self.set_graph_EMA_value(value_EMA)
@@ -55,12 +53,9 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         collectdata = self.collecting_data_on_graph(grph_div_start)
         datalist = collectdata[0]
         emalist = collectdata[-1]
-        # gradient1 = float(datalist[-2]) - float(datalist[-3])   ## Original
-        # gradient2 = float(datalist[-3]) - float(datalist[-4])
-        # gradient3 = float(datalist[-4]) - float(datalist[-5])
         gradient1 = float(datalist[-2]) - float(datalist[-3])
-        gradient2 = float(datalist[-4]) - float(datalist[-5])
-        gradient3 = float(datalist[-6]) - float(datalist[-7])
+        gradient2 = float(datalist[-3]) - float(datalist[-4])
+        gradient3 = float(datalist[-5]) - float(datalist[-6])
         ### convert to GBP
         gradient1x = 5000 * gradient1 / float(dict_fx[currency.split('/')[-1]])
         gradient2x = 5000 * gradient2 / float(dict_fx[currency.split('/')[-1]])
@@ -112,10 +107,10 @@ class ReadAllDataText(FxReadDataText_ToolTip):
             tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + 'SELL3 '
         # 4
-        if nearema1 < floatdekat and float(datalist[-1]) < float(emalist[-1]):
+        if nearema1 < floatdekat and float(datalist[-1]) < float(emalist[-1]) and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] + int(3 * markah)
             text1 = text1 + 'BUY4 '
-        if nearema1 > floatjauh and float(datalist[-1]) > float(emalist[-1]):
+        if nearema1 > floatjauh and float(datalist[-1]) > float(emalist[-1]) and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] - int(3 * markah)
             text1 = text1 + 'SELL4 '
         # 5
@@ -135,15 +130,15 @@ class ReadAllDataText(FxReadDataText_ToolTip):
             tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + 'SELL6 '
         # 7
-        if float(datalist[-1]) < float(emalist[-1]) - floatjauh:
+        if float(datalist[-1]) < float(emalist[-1]) - floatjauh and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] + int(3 * markah)
             text1 = text1 + 'BUY7 '
-        if float(datalist[-1]) > float(emalist[-1]) + floatjauh:
+        if float(datalist[-1]) > float(emalist[-1]) + floatjauh and abs(gradient1x) >= indexbesar:
             tindakan[currency] = tindakan[currency] - int(2 * markah)
             text1 = text1 + 'SELL7 '
 
         ######
-        print('(' + str(arini) + ') # Grade:', str("%.5f" % round(gradient3, 5)), '/',
+        print(' # Grade:', str("%.5f" % round(gradient3, 5)), '/',
               str("%.6f" % round(gradient3x, 6)),
               '//', str("%.5f" % round(gradient2, 5)), '/', str("%.6f" % round(gradient2x, 6)),
               '//', str("%.5f" % round(gradient1, 5)), '/', str("%.6f" % round(gradient1x, 6)), '#', text1)

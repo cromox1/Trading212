@@ -217,4 +217,12 @@ css_tooltip = "div[class='chart-tooltip']"
 
 css_tooltip = 'div.chart-tooltip'     <-- exact match
 
-19) 
+19) XPath for not in class
+
+//*[@class != 'Bob']
+
+//*[not(@class = 'Bob')]
+
+//*[@class and @class != 'Bob']   <-- NOT SURE - maybe work as well
+
+20)

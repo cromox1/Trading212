@@ -18,6 +18,13 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
                 dict3[key] = value + dict1[key]
         return dict3
 
+    def mergeDictStrongOne(self, dict1, dict2):
+        dict3 = {**dict1, **dict2}
+        for key, value in dict3.items():
+            if key in dict1 and key in dict2:
+                dict3[key] = value + 2 * dict1[key]
+        return dict3
+
     def mergeDictNoZero(self, dict1, dict2):
         dict3 = {**dict1, **dict2}
         for key, value in dict3.items():
@@ -119,8 +126,10 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
         # list_currencies = [i for i in all_currencies if i not in open_position]
         list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         todopoint = {}
+        tocloseone = {}
         if len(list_currencies) >= 1:
             for tperiod in list_tperiod:
                 newpoint = self.looping_check_currencies(value_EMA, tperiod, list_currencies)
                 todopoint = self.mergeDictNoZero(todopoint, newpoint)
-        return todopoint, open_position, newdict1
+                tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
+        return todopoint, open_position, tocloseone, newdict1

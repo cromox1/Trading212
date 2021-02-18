@@ -19,7 +19,8 @@ class FxClosePosition(FxBuySell):
         except:
             self.driver.find_element_by_css_selector(
                 "#uniqName_0_0 > span.tab-item.tabpositions.has-tooltip.svg-icon-holder").click()
-        instrument_list = self.driver.find_elements_by_xpath('//table[@data-dojo-attach-point="tableNode"]//tr')
+        xp_instr_table = '//div[@id="layout"]/div[@id="accountPanel"]/div[@id="positionsTable"]//table[@data-dojo-attach-point="tableNode"]/tbody/tr'
+        instrument_list = self.driver.find_elements_by_xpath(xp_instr_table)
         sleep(1)
         free_fund = self.driver.find_elements_by_xpath(
             '//*[@id="equity-free"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
@@ -30,7 +31,7 @@ class FxClosePosition(FxBuySell):
         # "%.5f" % round(float(VALUE)), 5)
         myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
         arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print('\n# No of Instruments =', len(instrument_list), '// TIME_RUN =', arini, '// DFD =', '£' + str(myDFD),
+        print('\n# No_Instruments =', len(instrument_list), '// NOW', arini, '// DFD =', '£' + str(myDFD),
               '// Total_Fund =', total_fund, '// Free_Fund =', free_fund, '// Live_Result =', result)
         dict1 = {}
         dict2 = {}
