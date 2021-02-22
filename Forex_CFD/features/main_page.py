@@ -18,30 +18,27 @@ class FxMainPage(BasePage):
         super().__init__(driver)
         self.driver = driver
 
-    def autologin_maxwindows(self, base_url, username, passwd):
+    def autologin_firstwindows(self, base_url, username, passwd):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         self.log.info("--> Trading212 user = " + str(username))
-        self.driver.maximize_window()
         self.driver.get(base_url)
         self.driver.find_element_by_id("cookie-bar").click()
         self.driver.find_element_by_id("login-header-desktop").click()
         self.driver.find_element_by_id("username-real").send_keys(username + Keys.ENTER)
         print('Trading212 user = ', username)
         self.driver.find_element_by_id("pass-real").send_keys(passwd + Keys.ENTER)
-        sleep(3)
+        sleep(2)
 
     def close_popup_ask_upload_docs(self):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
-        # #upload-popup-3 > div.popup-header > div.close-icon.svg-icon-holder  # CSS selector
-        xpath1 = '//div[@id="onfido-upload"]//div[@class="close-icon svg-icon-holder"]'   # old one
-        xpath2 = '//div[@id="upload-popup-3"]//div[@class="close-icon svg-icon-holder"]'  # new one
+        # CSS selector - >  #upload-popup-3 > div.popup-header > div.close-icon.svg-icon-holder
+        # xpath1 = '//div[@id="onfido-upload"]//div[@class="close-icon svg-icon-holder"]'   # old one
+        # xpath2 = '//div[@id="upload-popup-3"]//div[@class="close-icon svg-icon-holder"]'  # new one
+        xpathx = '//div[contains(@id, "upload")]//div[@class="close-icon svg-icon-holder"]'
         try:
-            self.driver.find_element_by_xpath(xpath1).click()
+            self.driver.find_element_by_xpath(xpathx).click()
         except:
-            try:
-                self.driver.find_element_by_xpath(xpath2).click()
-            except:
-                print('no pop-up')
+            print('no pop-up')
 
     def mode_live_or_demo(self, mode):
         self.log.info("--> " + inspect.stack()[0][3] + " started // Mode = " + str(mode))
