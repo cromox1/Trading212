@@ -8,40 +8,15 @@ _USERNAME       = "xixa01@yahoo.co.uk"
 _PASSWORD       = "H0meBase"
 # _USERNAME     = "mycromox@gmail.com"
 # _PASSWORD     = "Serverg0d!"
-
 # Chrome
 _CHROME_NAME    = 'chrome'
 _CHROME_DRIVER  = r'C:\tools\chromedriver\chromedriver.exe'
-# IE
-_IE_NAME        = 'ie'
-_IE_DRIVER      = r'C:\tools\Python36\Scripts\IEDriverServer_x64_2.42.0.exe'
-    # # iedriverserver = r'C:\tools\Python36\Scripts\IEDriverServer_x64_3.12.0.exe' ## not working
-    # # iedriverserver = r'C:\tools\Python36\Scripts\IEDriverServer_x32_3.4.0.exe'  ## work but 32bit
-# Safari
-_SAFARI_NAME    = 'safari'
-_SAFARI_DRIVER  = r'C:\tools\Python36\Scripts\SafariDriver.exe'
-# Brave
-_BRAVE_NAME     = 'brave'
-_BRAVE_EXE      = r'C:\Program Files (x86)\BraveSoftware\Brave-Browser\Application\brave.exe'
-_BRAVE_DRIVER   = r'C:\tools\chromedriver\chromedriver.exe'       # Brave use ChromeDriver
-# Opera
-_OPERA_NAME     = 'opera'
-_OPERA_DRIVER   = r'C:\tools\operadriver_win64\operadriver.exe'
-    # # OperaDriver - win64 2.36 - https://github.com/operasoftware/operachromiumdriver/releases
-    # # OperaDriver - win64 2.36 - https://github.com/operasoftware/operachromiumdriver/releases
-_OPERA_INST_DIR = r'C:\Program Files\Opera\\'
-    # # _operaInstDir = r'C:\tools\Opera\\'
-# Firefox
-_FIRFEFOX_NAME  = 'firefox'
-# (don't need any setup)
 
 ##### STEPS BY STEPS running  #########
 
 # 1) start webdriver
 base_url = "https://www.trading212.com"
 browser_driver = WebBrowser(_CHROME_NAME, driver_path=_CHROME_DRIVER).getWebDriverInstance(base_url)
-# browser_driver = WebBrowser(_OPERA_NAME, browser_inst_dir=_OPERA_INST_DIR, driver_path=_OPERA_DRIVER).getWebDriverInstance(base_url)
-# browser_driver = WebBrowser(_BRAVE_NAME, driver_path=_BRAVE_DRIVER, browser_exe=_BRAVE_EXE).getWebDriverInstance(base_url)
 
 # 2) login
 fxfinal = FxFinalDecision(browser_driver)
@@ -59,8 +34,8 @@ fxfinal.mode_live_or_demo("Practice")
 pilihan = 0
 while pilihan != 99:
     value_EMA = 25
-    list_tperiod = ['1 minute', '10 minutes']
-    check_cfd_current = fxfinal.close_position_CFD_ANY_auto(value_EMA, list_tperiod)
+    tperiod = '5 minutes'
+    check_cfd_current = fxfinal.close_position_CFD_ANY_auto_MACD(value_EMA, tperiod)
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
     tocloseone = check_cfd_current[2]

@@ -12,7 +12,7 @@ user1 = "mycromox@gmail.com"
 pswd1 = "Serverg0d!"
 
 fxfinal = FxFinalDecision(chromedriver)
-fxfinal.autologin_maxwindows(base_url, user1, pswd1)
+fxfinal.autologin_firstwindows(base_url, user1, pswd1)
 
 # 3) pop-up window (which ask to upload ID documents)
 fxfinal.close_popup_ask_upload_docs()
