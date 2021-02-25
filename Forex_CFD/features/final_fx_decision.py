@@ -3,9 +3,10 @@ __author__ = 'cromox'
 from time import sleep
 import inspect
 from Forex_CFD.features.final_read_datatext import ReadAllDataText
+from Forex_CFD.features.final_read_datatext_MACD import ReadAllDataTextMACD
 from Forex_CFD.features.fx_close_position import FxClosePosition
 
-class FxFinalDecision(FxClosePosition, ReadAllDataText):
+class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -157,7 +158,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText):
         todopoint = {}
         tocloseone = {}
         if len(list_currencies) >= 1:
-            newpoint = self.looping_check_currencies_two(value_EMA, tperiod, list_currencies)
+            newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
             todopoint = self.mergeDictNoZero(todopoint, newpoint)
             tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
         return todopoint, open_position, tocloseone, newdict1
