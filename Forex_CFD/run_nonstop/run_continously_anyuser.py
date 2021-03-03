@@ -60,6 +60,7 @@ pilihan = 0
 while pilihan != 99:
     value_EMA = 25
     list_tperiod = ['1 minute', '10 minutes']
+    epochstart = int(datetime.now().timestamp())
     check_cfd_current = fxfinal.close_position_CFD_ANY_auto(value_EMA, list_tperiod)
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
@@ -100,8 +101,12 @@ while pilihan != 99:
             print(' # - > RIGHT DIRECTION')
         elif directionpoint == 0:
             print(' # - >', buysell, 'BUT NO DIRECTION CURRENTLY!!!')
+        elif buysell == 'BUY' and closebuypoint < directionpoint < 0:
+            print(' # - > SLIGHTLY WRONG DIRECTION !!! NEED CHECK FOR NEXT RUN')
+        elif buysell == 'SELL' and closesellpoint > directionpoint > 0:
+            print(' # - > SLIGHTLY WRONG DIRECTION !!! NEED CHECK FOR NEXT RUN')
         else:
-            print(' # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION')
+            print(' # - > WRONG DIRECTION !!! -- URGENT - NEED TO CLOSE POSITION')
         if buysell == 'BUY' and directionpoint < closebuypoint:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
@@ -113,9 +118,13 @@ while pilihan != 99:
             fxfinal.close_position_elementid(id_elem)
 
     print()
-    tidor = int(3.65*60)
-    arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    nanti = int(datetime.now().timestamp()) + tidor
+    bezamasa = int(5 * 60)
+    arini_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    arini_epoch = int(datetime.now().timestamp())
+    lamascript = arini_epoch - epochstart
+    nanti = int((arini_epoch + bezamasa) / bezamasa) * bezamasa + 1
+    tidor = nanti - arini_epoch
     futuretime = datetime.fromtimestamp(nanti).strftime('%Y-%m-%d %H:%M:%S')
-    print('SCRIPT WILL RUN AGAIN AT :', futuretime, '( NOW =', arini, '/ in', tidor, 'secs )')
+    print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
+    print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
     sleep(tidor)

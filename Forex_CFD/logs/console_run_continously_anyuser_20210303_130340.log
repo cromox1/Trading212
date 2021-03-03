@@ -1,0 +1,662 @@
+C:\tools\Python38\python.exe C:/Users/cromox/PycharmProjects/Trading212/Forex_CFD/run_nonstop/run_continously_anyuser.py
+Browser ( chrome ) version = 88.0.4324.190
+Trading212 user =  xixa01@yahoo.co.uk
+Mode use =  Practice
+
+# No_Instruments = 3 // NOW 2021-03-03 13:03:40 // DFD = £90.23 // Total_Fund = £89.18 // Free_Fund = £45.35 // Live_Result = -£1.05
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7287500 / currentPrice = 0.72755 / margin = 13.73 / ppl = -0.47 / 
+2 ) name = GBP/USD / quantity = 521 / direction = BUY / averagePrice = 1.3965800 / currentPrice = 1.39647 / margin = 17.35 / ppl = -0.03 / 
+3 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2614800 / currentPrice = 1.26317 / margin = 12.75 / ppl = -0.55 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00015 / 0.537329 // 0.00041 / 1.468698 // -0.00027 / -0.967191 # SELL3 
+2 ) Currency: EUR/USD  # Grade: -0.00006 / -0.214931 // 0.00002 / 0.071644 // -0.00016 / -0.573150 # BUY6 
+3 ) Currency: USD/JPY  # Grade: -0.01200 / -0.402433 // -0.03000 / -1.006082 // 0.00000 / 0.000000 # BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00007 / -0.273906 // -0.00008 / -0.313035 // -0.00002 / -0.078259 # 
+5 ) Currency: USD/CAD  # Grade: 0.00029 / 0.822707 // -0.00019 / -0.539015 // 0.00003 / 0.085108 # 
+6 ) Currency: AUD/USD  # Grade: 0.00012 / 0.429863 // -0.00017 / -0.608972 // -0.00035 / -1.253767 # BUY3 BUY6 
+7 ) Currency: NZD/USD  # Grade: -0.00010 / -0.358219 // -0.00007 / -0.250753 // -0.00041 / -1.468698 # BUY3 BUY6 
+
+ToDoPoint =  {'GBP/USD': -2, 'EUR/USD': 2, 'USD/JPY': 2, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 4, 'NZD/USD': 4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00022 / -0.788082 // -0.00023 / -0.823904 // 0.00119 / 4.262807 # BUY3 BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00013 / -0.465685 // 0.00000 / 0.000000 // 0.00026 / 0.931370 # BUY2 SELL3 SELL6 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.00600 / 0.201216 // -0.04500 / -1.509123 // -0.03200 / -1.073154 # BUY3 BUY4 BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00040 / -1.565176 // 0.00009 / 0.352165 // -0.00027 / -1.056494 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00064 / 1.815630 // 0.00015 / 0.425538 // -0.00020 / -0.567384 # SELL2 
+6 ) Currency: AUD/USD  # Grade: -0.00022 / -0.788082 // -0.00015 / -0.537329 // -0.00001 / -0.035822 # BUY2 BUY6 
+7 ) Currency: NZD/USD  # Grade: -0.00041 / -1.468698 // 0.00001 / 0.035822 // 0.00012 / 0.429863 # BUY2 
+
+ToDoPoint =  {'GBP/USD': 6, 'EUR/USD': 2, 'USD/JPY': 11, 'USD/CHF': -5, 'USD/CAD': -3, 'AUD/USD': 6, 'NZD/USD': 3}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 10, 'NZD/USD': 7}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': -0.47, 'GBP/USD': -0.03, 'USD/CAD': -0.55}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 11 # - > RIGHT DIRECTION
+  -- >  GBP/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -3 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 190 secs, WILL RUN AGAIN AT : 2021-03-03 13:10:01 ( NOW = 2021-03-03 13:06:45 / in 196 secs )
+
+# No_Instruments = 3 // NOW 2021-03-03 13:10:02 // DFD = £90.23 // Total_Fund = £87.72 // Free_Fund = £43.87 // Live_Result = -£2.51
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7287500 / currentPrice = 0.72630 / margin = 13.73 / ppl = -0.84 / 
+2 ) name = GBP/USD / quantity = 521 / direction = BUY / averagePrice = 1.3965800 / currentPrice = 1.39462 / margin = 17.35 / ppl = -0.80 / 
+3 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2614800 / currentPrice = 1.26464 / margin = 12.77 / ppl = -0.87 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00002 / -0.071640 // 0.00002 / 0.071640 // -0.00028 / -1.002957 # SELL3 BUY7 
+2 ) Currency: EUR/USD  # Grade: -0.00035 / -1.253696 // 0.00018 / 0.644758 // -0.00041 / -1.468615 # SELL3 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.01700 / -0.570078 // -0.00700 / -0.234738 // 0.02300 / 0.771282 # BUY2 SELL3 
+4 ) Currency: USD/CHF  # Grade: -0.00005 / -0.195639 // 0.00005 / 0.195639 // 0.00016 / 0.626044 # 
+5 ) Currency: USD/CAD  # Grade: -0.00011 / -0.312056 // 0.00010 / 0.283687 // 0.00010 / 0.283687 # 
+6 ) Currency: AUD/USD  # Grade: -0.00034 / -1.217876 // -0.00014 / -0.501478 // -0.00065 / -2.328292 # SELL3 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00023 / -0.823857 // -0.00023 / -0.823857 // -0.00038 / -1.361155 # SELL3 BUY7 
+
+ToDoPoint =  {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 1, 'NZD/USD': 1}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00064 / 2.292472 // 0.00119 / 4.262566 // 0.00031 / 1.110416 # SELL3 
+2 ) Currency: EUR/USD  # Grade: 0.00024 / 0.859677 // 0.00026 / 0.931317 // -0.00004 / -0.143280 # 
+3 ) Currency: USD/JPY  # Grade: -0.00600 / -0.201204 // -0.03200 / -1.073088 // 0.00800 / 0.268272 # 
+4 ) Currency: USD/CHF  # Grade: 0.00002 / 0.078256 // -0.00027 / -1.056450 // 0.00005 / 0.195639 # 
+5 ) Currency: USD/CAD  # Grade: -0.00089 / -2.524816 // -0.00020 / -0.567374 // 0.00045 / 1.276592 # BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: 0.00066 / 2.364112 // -0.00001 / -0.035820 // 0.00002 / 0.071640 # BUY6 
+7 ) Currency: NZD/USD  # Grade: 0.00080 / 2.865590 // 0.00012 / 0.429839 // -0.00012 / -0.429839 # 
+
+ToDoPoint =  {'GBP/USD': -3, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -5, 'AUD/USD': 3, 'NZD/USD': 0}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': -0.84, 'GBP/USD': -0.8, 'USD/CAD': -0.87}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+    - > TO CLOSE (LOSS) =  NZD/USD  / LOSS = -0.84
+  -- >  GBP/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+    - > TO CLOSE (LOSS) =  GBP/USD  / LOSS = -0.8
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -5 # - > RIGHT DIRECTION
+    - > TO CLOSE (LOSS) =  USD/CAD  / LOSS = -0.87
+
+SCRIPTS HAS RUN FOR 192 secs, WILL RUN AGAIN AT : 2021-03-03 13:15:01 ( NOW = 2021-03-03 13:13:13 / in 108 secs )
+
+# No_Instruments = 0 // NOW 2021-03-03 13:15:12 // DFD = £88.35 // Total_Fund = £88.35 // Free_Fund = £88.35 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00035 / -1.253696 // 0.00049 / 1.755174 // 0.00069 / 2.471572 # BUY1 BUY2 BUY3 BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00076 / -2.722311 // 0.00009 / 0.322379 // 0.00042 / 1.504435 # BUY1 BUY2 BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.00600 / 0.201204 // -0.00100 / -0.033534 // -0.02500 / -0.838350 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00027 / -1.056450 // -0.00019 / -0.743428 // 0.00009 / 0.352150 # SELL5 SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00011 / 0.312056 // -0.00023 / -0.652480 // -0.00004 / -0.113475 # 
+6 ) Currency: AUD/USD  # Grade: -0.00005 / -0.179099 // 0.00040 / 1.432795 // -0.00007 / -0.250739 # 
+7 ) Currency: NZD/USD  # Grade: -0.00022 / -0.788037 // 0.00025 / 0.895497 // 0.00020 / 0.716398 # 
+
+ToDoPoint =  {'GBP/USD': 9, 'EUR/USD': 12, 'USD/JPY': 4, 'USD/CHF': -4, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00064 / 2.292472 // 0.00119 / 4.262566 // 0.00031 / 1.110416 # SELL3 
+2 ) Currency: EUR/USD  # Grade: 0.00024 / 0.859677 // 0.00026 / 0.931317 // -0.00004 / -0.143280 # 
+3 ) Currency: USD/JPY  # Grade: -0.00600 / -0.201204 // -0.03200 / -1.073088 // 0.00800 / 0.268272 # 
+4 ) Currency: USD/CHF  # Grade: 0.00002 / 0.078256 // -0.00027 / -1.056450 // 0.00005 / 0.195639 # 
+5 ) Currency: USD/CAD  # Grade: -0.00089 / -2.524816 // -0.00020 / -0.567374 // 0.00045 / 1.276592 # BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: 0.00066 / 2.364112 // -0.00001 / -0.035820 // 0.00002 / 0.071640 # BUY6 
+7 ) Currency: NZD/USD  # Grade: 0.00080 / 2.865590 // 0.00012 / 0.429839 // -0.00012 / -0.429839 # 
+
+ToDoPoint =  {'GBP/USD': -3, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -5, 'AUD/USD': 3, 'NZD/USD': 0}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 12, 'USD/JPY': 4, 'USD/CHF': -4, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {}
+
+SCRIPTS HAS RUN FOR 192 secs, WILL RUN AGAIN AT : 2021-03-03 13:20:01 ( NOW = 2021-03-03 13:18:13 / in 108 secs )
+
+# No_Instruments = 0 // NOW 2021-03-03 13:20:12 // DFD = £88.35 // Total_Fund = £88.35 // Free_Fund = £88.35 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00054 / -1.934274 // -0.00018 / -0.644758 // -0.00034 / -1.217876 # SELL3 BUY7 
+2 ) Currency: EUR/USD  # Grade: -0.00032 / -1.146236 // -0.00002 / -0.071640 // -0.00022 / -0.788037 # SELL3 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.02500 / 0.838350 // 0.02400 / 0.804816 // 0.01000 / 0.335340 # BUY1 BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00054 / -2.112900 // -0.00004 / -0.156511 // 0.00027 / 1.056450 # BUY3 
+5 ) Currency: USD/CAD  # Grade: -0.00050 / -1.418436 // 0.00022 / 0.624112 // 0.00006 / 0.170212 # 
+6 ) Currency: AUD/USD  # Grade: -0.00030 / -1.074596 // -0.00062 / -2.220833 // 0.00008 / 0.286559 # BUY6 
+7 ) Currency: NZD/USD  # Grade: 0.00045 / 1.611895 // -0.00007 / -0.250739 // -0.00052 / -1.862634 # BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': 5, 'USD/CHF': 2, 'USD/CAD': 0, 'AUD/USD': 2, 'NZD/USD': 7}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00023 / -0.823857 // 0.00031 / 1.110416 // -0.00021 / -0.752217 # 
+2 ) Currency: EUR/USD  # Grade: 0.00000 / 0.000000 // -0.00004 / -0.143280 // -0.00020 / -0.716398 # 
+3 ) Currency: USD/JPY  # Grade: -0.04500 / -1.509030 // 0.00800 / 0.268272 // -0.02000 / -0.670680 # 
+4 ) Currency: USD/CHF  # Grade: 0.00009 / 0.352150 // 0.00005 / 0.195639 // 0.00023 / 0.899939 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00015 / 0.425531 // 0.00045 / 1.276592 // 0.00045 / 1.276592 # BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00015 / -0.537298 // 0.00002 / 0.071640 // 0.00007 / 0.250739 # BUY2 
+7 ) Currency: NZD/USD  # Grade: 0.00001 / 0.035820 // -0.00012 / -0.429839 // -0.00006 / -0.214919 # 
+
+ToDoPoint =  {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': -5, 'USD/CAD': -5, 'AUD/USD': 3, 'NZD/USD': 0}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 5, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 7}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {}
+
+SCRIPTS HAS RUN FOR 195 secs, WILL RUN AGAIN AT : 2021-03-03 13:25:01 ( NOW = 2021-03-03 13:23:16 / in 105 secs )
+
+# No_Instruments = 0 // NOW 2021-03-03 13:25:12 // DFD = £88.35 // Total_Fund = £88.35 // Free_Fund = £88.35 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00006 / -0.214919 // -0.00013 / -0.465658 // 0.00005 / 0.179099 # BUY6 
+2 ) Currency: EUR/USD  # Grade: 0.00008 / 0.286559 // -0.00001 / -0.035820 // 0.00010 / 0.358199 # 
+3 ) Currency: USD/JPY  # Grade: -0.01000 / -0.335340 // 0.00000 / 0.000000 // 0.01800 / 0.603612 # BUY2 
+4 ) Currency: USD/CHF  # Grade: -0.00027 / -1.056450 // -0.00010 / -0.391278 // -0.00007 / -0.273894 # 
+5 ) Currency: USD/CAD  # Grade: -0.00017 / -0.482268 // -0.00005 / -0.141844 // -0.00026 / -0.737587 # SELL1 SELL6 
+6 ) Currency: AUD/USD  # Grade: 0.00030 / 1.074596 // 0.00012 / 0.429839 // 0.00018 / 0.644758 # SELL6 
+7 ) Currency: NZD/USD  # Grade: 0.00020 / 0.716398 // 0.00008 / 0.286559 // 0.00018 / 0.644758 # 
+
+ToDoPoint =  {'GBP/USD': 2, 'EUR/USD': 0, 'USD/JPY': 2, 'USD/CHF': 0, 'USD/CAD': -4, 'AUD/USD': -2, 'NZD/USD': 0}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00023 / -0.823857 // 0.00031 / 1.110416 // -0.00021 / -0.752217 # 
+2 ) Currency: EUR/USD  # Grade: 0.00000 / 0.000000 // -0.00004 / -0.143280 // -0.00020 / -0.716398 # 
+3 ) Currency: USD/JPY  # Grade: -0.04500 / -1.509030 // 0.00800 / 0.268272 // -0.02000 / -0.670680 # 
+4 ) Currency: USD/CHF  # Grade: 0.00009 / 0.352150 // 0.00005 / 0.195639 // 0.00023 / 0.899939 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00015 / 0.425531 // 0.00045 / 1.276592 // 0.00045 / 1.276592 # BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00015 / -0.537298 // 0.00002 / 0.071640 // 0.00007 / 0.250739 # BUY2 
+7 ) Currency: NZD/USD  # Grade: 0.00001 / 0.035820 // -0.00012 / -0.429839 // -0.00006 / -0.214919 # 
+
+ToDoPoint =  {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': -5, 'USD/CAD': -5, 'AUD/USD': 3, 'NZD/USD': 0}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -9, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {}
+
+SCRIPTS HAS RUN FOR 194 secs, WILL RUN AGAIN AT : 2021-03-03 13:30:01 ( NOW = 2021-03-03 13:28:15 / in 106 secs )
+
+# No_Instruments = 0 // NOW 2021-03-03 13:30:12 // DFD = £88.35 // Total_Fund = £88.35 // Free_Fund = £88.35 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00001 / -0.035820 // 0.00013 / 0.465658 // -0.00023 / -0.823857 # BUY3 
+2 ) Currency: EUR/USD  # Grade: -0.00009 / -0.322379 // -0.00004 / -0.143280 // 0.00001 / 0.035820 # BUY2 
+3 ) Currency: USD/JPY  # Grade: 0.02400 / 0.804816 // 0.00500 / 0.167670 // 0.00900 / 0.301806 # SELL6 
+4 ) Currency: USD/CHF  # Grade: -0.00003 / -0.117383 // -0.00004 / -0.156511 // 0.00016 / 0.626044 # 
+5 ) Currency: USD/CAD  # Grade: 0.00016 / 0.453899 // -0.00011 / -0.312056 // -0.00012 / -0.340425 # SELL6 
+6 ) Currency: AUD/USD  # Grade: -0.00012 / -0.429839 // 0.00017 / 0.608938 // 0.00001 / 0.035820 # BUY1 BUY6 
+7 ) Currency: NZD/USD  # Grade: 0.00006 / 0.214919 // -0.00009 / -0.322379 // -0.00016 / -0.573118 # 
+
+ToDoPoint =  {'GBP/USD': 2, 'EUR/USD': 2, 'USD/JPY': -2, 'USD/CHF': 0, 'USD/CAD': -2, 'AUD/USD': 5, 'NZD/USD': 0}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00119 / 4.262566 // -0.00021 / -0.752217 // -0.00198 / -7.092336 # BUY3 BUY6 BUY7 
+2 ) Currency: EUR/USD  # Grade: 0.00026 / 0.931317 // -0.00020 / -0.716398 // -0.00189 / -6.769957 # BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.03200 / -1.073088 // -0.02000 / -0.670680 // -0.00600 / -0.201204 # BUY2 
+4 ) Currency: USD/CHF  # Grade: -0.00027 / -1.056450 // 0.00023 / 0.899939 // 0.00116 / 4.538822 # SELL3 SELL4 SELL5 SELL6 SELL7 
+5 ) Currency: USD/CAD  # Grade: -0.00020 / -0.567374 // 0.00045 / 1.276592 // 0.00126 / 3.574458 # SELL3 SELL4 SELL5 SELL6 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00001 / -0.035820 // 0.00007 / 0.250739 // -0.00224 / -8.023653 # SELL3 BUY7 
+7 ) Currency: NZD/USD  # Grade: 0.00012 / 0.429839 // -0.00006 / -0.214919 // -0.00174 / -6.232659 # SELL3 BUY7 
+
+ToDoPoint =  {'GBP/USD': 11, 'EUR/USD': 11, 'USD/JPY': 3, 'USD/CHF': -17, 'USD/CAD': -17, 'AUD/USD': 2, 'NZD/USD': 2}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 7, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {}
+
+SCRIPTS HAS RUN FOR 192 secs, WILL RUN AGAIN AT : 2021-03-03 13:35:01 ( NOW = 2021-03-03 13:33:13 / in 108 secs )
+
+# No_Instruments = 0 // NOW 2021-03-03 13:35:13 // DFD = £88.35 // Total_Fund = £88.35 // Free_Fund = £88.35 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00021 / 0.752217 // -0.00045 / -1.611895 // 0.00065 / 2.328292 # SELL3 SELL4 SELL5 SELL6 SELL7 
+2 ) Currency: EUR/USD  # Grade: 0.00012 / 0.429839 // -0.00026 / -0.931317 // -0.00006 / -0.214919 # BUY6 
+3 ) Currency: USD/JPY  # Grade: 0.02400 / 0.804816 // 0.02000 / 0.670680 // -0.00800 / -0.268272 # SELL2 
+4 ) Currency: USD/CHF  # Grade: -0.00015 / -0.586917 // -0.00002 / -0.078256 // -0.00009 / -0.352150 # 
+5 ) Currency: USD/CAD  # Grade: 0.00002 / 0.056737 // -0.00002 / -0.056737 // 0.00065 / 1.843967 # SELL3 SELL6 
+6 ) Currency: AUD/USD  # Grade: -0.00007 / -0.250739 // 0.00004 / 0.143280 // -0.00036 / -1.289516 # BUY3 BUY6 
+7 ) Currency: NZD/USD  # Grade: 0.00000 / 0.000000 // 0.00011 / 0.394019 // -0.00021 / -0.752217 # BUY6 
+
+ToDoPoint =  {'GBP/USD': -11, 'EUR/USD': 2, 'USD/JPY': -2, 'USD/CHF': 0, 'USD/CAD': -4, 'AUD/USD': 4, 'NZD/USD': 2}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00119 / 4.262566 // -0.00021 / -0.752217 // -0.00198 / -7.092336 # BUY3 BUY6 BUY7 
+2 ) Currency: EUR/USD  # Grade: 0.00026 / 0.931317 // -0.00020 / -0.716398 // -0.00189 / -6.769957 # BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.03200 / -1.073088 // -0.02000 / -0.670680 // -0.00600 / -0.201204 # BUY2 
+4 ) Currency: USD/CHF  # Grade: -0.00027 / -1.056450 // 0.00023 / 0.899939 // 0.00116 / 4.538822 # SELL3 SELL4 SELL5 SELL6 SELL7 
+5 ) Currency: USD/CAD  # Grade: -0.00020 / -0.567374 // 0.00045 / 1.276592 // 0.00126 / 3.574458 # SELL3 SELL4 SELL5 SELL6 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00001 / -0.035820 // 0.00007 / 0.250739 // -0.00224 / -8.023653 # SELL3 BUY7 
+7 ) Currency: NZD/USD  # Grade: 0.00012 / 0.429839 // -0.00006 / -0.214919 // -0.00174 / -6.232659 # SELL3 BUY7 
+
+ToDoPoint =  {'GBP/USD': 11, 'EUR/USD': 11, 'USD/JPY': 3, 'USD/CHF': -17, 'USD/CAD': -17, 'AUD/USD': 2, 'NZD/USD': 2}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -21, 'AUD/USD': 6, 'NZD/USD': 0}
+TO SELL = (Currency) USD/CAD (Amount) 515
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {}
+
+SCRIPTS HAS RUN FOR 211 secs, WILL RUN AGAIN AT : 2021-03-03 13:40:01 ( NOW = 2021-03-03 13:38:32 / in 89 secs )
+
+# No_Instruments = 1 // NOW 2021-03-03 13:40:02 // DFD = £88.35 // Total_Fund = £88.33 // Free_Fund = £76.05 // Live_Result = -£0.02
+1 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26430 / margin = 12.28 / ppl = -0.02 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00012 / -0.429839 // 0.00026 / 0.931317 // -0.00021 / -0.752217 # SELL5 SELL6 
+2 ) Currency: EUR/USD  # Grade: 0.00000 / 0.000000 // -0.00011 / -0.394019 // 0.00014 / 0.501478 # BUY5 
+3 ) Currency: USD/JPY  # Grade: 0.00100 / 0.033534 // -0.01200 / -0.402408 // 0.00100 / 0.033534 # SELL6 
+4 ) Currency: USD/CHF  # Grade: 0.00008 / 0.313022 // -0.00015 / -0.586917 // 0.00017 / 0.665172 # SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00021 / 0.595743 // 0.00018 / 0.510637 // 0.00018 / 0.510637 # SELL6 
+6 ) Currency: AUD/USD  # Grade: 0.00011 / 0.394019 // -0.00007 / -0.250739 // 0.00009 / 0.322379 # BUY6 
+7 ) Currency: NZD/USD  # Grade: -0.00013 / -0.465658 // 0.00000 / 0.000000 // 0.00009 / 0.322379 # BUY2 BUY6 
+
+ToDoPoint =  {'GBP/USD': -4, 'EUR/USD': 2, 'USD/JPY': -2, 'USD/CHF': -2, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00031 / 1.110416 // -0.00198 / -7.092336 // 0.00005 / 0.179099 # BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00004 / -0.143280 // -0.00189 / -6.769957 // 0.00037 / 1.325336 # BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.00800 / 0.268272 // -0.00600 / -0.201204 // -0.03100 / -1.039554 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00005 / 0.195639 // 0.00116 / 4.538822 // -0.00041 / -1.604239 # SELL3 SELL4 SELL5 SELL6 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00045 / 1.276592 // 0.00126 / 3.574458 // -0.00008 / -0.226950 # SELL5 SELL6 
+6 ) Currency: AUD/USD  # Grade: 0.00002 / 0.071640 // -0.00224 / -8.023653 // -0.00030 / -1.074596 # BUY3 BUY6 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00012 / -0.429839 // -0.00174 / -6.232659 // -0.00028 / -1.002957 # SELL3 BUY7 
+
+ToDoPoint =  {'GBP/USD': 3, 'EUR/USD': 11, 'USD/JPY': 6, 'USD/CHF': -17, 'USD/CAD': -6, 'AUD/USD': 11, 'NZD/USD': 2}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 6}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'USD/CAD': -0.02}
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -10 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 184 secs, WILL RUN AGAIN AT : 2021-03-03 13:45:01 ( NOW = 2021-03-03 13:43:05 / in 116 secs )
+
+# No_Instruments = 1 // NOW 2021-03-03 13:45:02 // DFD = £88.35 // Total_Fund = £87.96 // Free_Fund = £75.67 // Live_Result = -£0.39
+1 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26556 / margin = 12.29 / ppl = -0.39 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00011 / 0.394019 // -0.00005 / -0.179099 // -0.00075 / -2.686491 # SELL3 
+2 ) Currency: EUR/USD  # Grade: 0.00018 / 0.644758 // -0.00007 / -0.250739 // -0.00023 / -0.823857 # SELL3 BUY4 
+3 ) Currency: USD/JPY  # Grade: -0.00400 / -0.134136 // 0.00500 / 0.167670 // -0.02300 / -0.771282 # BUY3 
+4 ) Currency: USD/CHF  # Grade: 0.00000 / 0.000000 // -0.00009 / -0.352150 // 0.00030 / 1.173833 # BUY3 
+5 ) Currency: USD/CAD  # Grade: 0.00009 / 0.255318 // 0.00043 / 1.219855 // 0.00014 / 0.397162 # BUY5 
+6 ) Currency: AUD/USD  # Grade: 0.00009 / 0.322379 // -0.00032 / -1.146236 // -0.00007 / -0.250739 # 
+7 ) Currency: NZD/USD  # Grade: -0.00004 / -0.143280 // -0.00008 / -0.286559 // -0.00015 / -0.537298 # 
+
+ToDoPoint =  {'GBP/USD': -2, 'EUR/USD': 1, 'USD/JPY': 2, 'USD/CHF': 2, 'USD/CAD': 2, 'AUD/USD': 0, 'NZD/USD': 0}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00031 / 1.110416 // -0.00198 / -7.092336 // 0.00005 / 0.179099 # BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00004 / -0.143280 // -0.00189 / -6.769957 // 0.00037 / 1.325336 # BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.00800 / 0.268272 // -0.00600 / -0.201204 // -0.03100 / -1.039554 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00005 / 0.195639 // 0.00116 / 4.538822 // -0.00041 / -1.604239 # SELL3 SELL4 SELL5 SELL6 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00045 / 1.276592 // 0.00126 / 3.574458 // -0.00008 / -0.226950 # SELL5 SELL6 
+6 ) Currency: AUD/USD  # Grade: 0.00002 / 0.071640 // -0.00224 / -8.023653 // -0.00030 / -1.074596 # BUY3 BUY6 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00012 / -0.429839 // -0.00174 / -6.232659 // -0.00028 / -1.002957 # SELL3 BUY7 
+
+ToDoPoint =  {'GBP/USD': 3, 'EUR/USD': 11, 'USD/JPY': 6, 'USD/CHF': -17, 'USD/CAD': -6, 'AUD/USD': 11, 'NZD/USD': 2}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'USD/CAD': -0.39}
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 185 secs, WILL RUN AGAIN AT : 2021-03-03 13:50:01 ( NOW = 2021-03-03 13:48:06 / in 115 secs )
+
+# No_Instruments = 1 // NOW 2021-03-03 13:50:03 // DFD = £88.35 // Total_Fund = £88.00 // Free_Fund = £75.72 // Live_Result = -£0.35
+1 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26544 / margin = 12.28 / ppl = -0.35 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00024 / -0.859614 // 0.00003 / 0.107452 // -0.00032 / -1.146153 # BUY3 BUY4 BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00005 / -0.179086 // -0.00018 / -0.644711 // 0.00016 / 0.573076 # BUY5 
+3 ) Currency: USD/JPY  # Grade: 0.01300 / 0.435911 // 0.00300 / 0.100595 // 0.00600 / 0.201190 # 
+4 ) Currency: USD/CHF  # Grade: 0.00010 / 0.391253 // -0.00030 / -1.173758 // -0.00039 / -1.525885 # SELL3 
+5 ) Currency: USD/CAD  # Grade: 0.00024 / 0.680830 // 0.00011 / 0.312047 // 0.00003 / 0.085104 # SELL2 SELL5 SELL6 
+6 ) Currency: AUD/USD  # Grade: -0.00004 / -0.143269 // -0.00005 / -0.179086 // 0.00002 / 0.071635 # BUY6 
+7 ) Currency: NZD/USD  # Grade: 0.00001 / 0.035817 // -0.00006 / -0.214904 // 0.00022 / 0.787980 # BUY3 BUY6 
+
+ToDoPoint =  {'GBP/USD': 7, 'EUR/USD': 2, 'USD/JPY': 0, 'USD/CHF': -2, 'USD/CAD': -6, 'AUD/USD': 2, 'NZD/USD': 4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00021 / -0.752163 // 0.00005 / 0.179086 // 0.00148 / 5.300956 # BUY2 SELL3 BUY7 
+2 ) Currency: EUR/USD  # Grade: -0.00020 / -0.716345 // 0.00037 / 1.325239 // 0.00018 / 0.644711 # BUY1 BUY6 
+3 ) Currency: USD/JPY  # Grade: -0.02000 / -0.670633 // -0.03100 / -1.039480 // 0.04800 / 1.609518 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00023 / 0.899881 // -0.00041 / -1.604135 // -0.00003 / -0.117376 # BUY6 
+5 ) Currency: USD/CAD  # Grade: 0.00045 / 1.276557 // -0.00008 / -0.226943 // -0.00045 / -1.276557 # SELL2 BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: 0.00007 / 0.250721 // -0.00030 / -1.074518 // 0.00036 / 1.289422 # SELL3 SELL6 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00006 / -0.214904 // -0.00028 / -1.002884 // -0.00042 / -1.504325 # BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': 5, 'EUR/USD': 8, 'USD/JPY': 6, 'USD/CHF': 3, 'USD/CAD': -8, 'AUD/USD': -1, 'NZD/USD': 11}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 12, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -14, 'AUD/USD': 0, 'NZD/USD': 15}
+TO BUY = (Currency) NZD/USD (Amount) 527
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'USD/CAD': -0.35}
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -20 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 195 secs, WILL RUN AGAIN AT : 2021-03-03 13:55:01 ( NOW = 2021-03-03 13:53:16 / in 105 secs )
+
+# No_Instruments = 2 // NOW 2021-03-03 13:55:02 // DFD = £88.35 // Total_Fund = £88.17 // Free_Fund = £62.20 // Live_Result = -£0.18
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7262200 / currentPrice = 0.72581 / margin = 13.70 / ppl = -0.15 / 
+2 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26424 / margin = 12.27 / ppl = -0.03 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00018 / 0.644711 // -0.00019 / -0.680528 // 0.00027 / 0.967066 # BUY3 SELL4 SELL7 
+2 ) Currency: EUR/USD  # Grade: -0.00001 / -0.035817 // 0.00036 / 1.289422 // 0.00001 / 0.035817 # 
+3 ) Currency: USD/JPY  # Grade: 0.02500 / 0.838291 // -0.03500 / -1.173607 // 0.00500 / 0.167658 # BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00000 / 0.000000 // -0.00054 / -2.112764 // -0.00004 / -0.156501 # 
+5 ) Currency: USD/CAD  # Grade: -0.00028 / -0.794302 // -0.00020 / -0.567359 // -0.00037 / -1.049613 # SELL3 BUY7 
+6 ) Currency: AUD/USD  # Grade: 0.00004 / 0.143269 // 0.00009 / 0.322355 // 0.00017 / 0.608894 # 
+7 ) Currency: NZD/USD  # Grade: 0.00003 / 0.107452 // 0.00010 / 0.358173 // 0.00030 / 1.074518 # SELL3 SELL6 
+
+ToDoPoint =  {'GBP/USD': -3, 'EUR/USD': 0, 'USD/JPY': 2, 'USD/CHF': 0, 'USD/CAD': 1, 'AUD/USD': 0, 'NZD/USD': -4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00021 / -0.752163 // 0.00005 / 0.179086 // 0.00148 / 5.300956 # BUY2 SELL3 BUY7 
+2 ) Currency: EUR/USD  # Grade: -0.00020 / -0.716345 // 0.00037 / 1.325239 // 0.00018 / 0.644711 # BUY1 BUY6 
+3 ) Currency: USD/JPY  # Grade: -0.02000 / -0.670633 // -0.03100 / -1.039480 // 0.04800 / 1.609518 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00023 / 0.899881 // -0.00041 / -1.604135 // -0.00003 / -0.117376 # BUY6 
+5 ) Currency: USD/CAD  # Grade: 0.00045 / 1.276557 // -0.00008 / -0.226943 // -0.00045 / -1.276557 # SELL2 BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: 0.00007 / 0.250721 // -0.00030 / -1.074518 // 0.00036 / 1.289422 # SELL3 SELL6 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00006 / -0.214904 // -0.00028 / -1.002884 // -0.00042 / -1.504325 # BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': 5, 'EUR/USD': 8, 'USD/JPY': 6, 'USD/CHF': 3, 'USD/CAD': -8, 'AUD/USD': -1, 'NZD/USD': 11}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': -0.15, 'USD/CAD': -0.03}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -6 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 186 secs, WILL RUN AGAIN AT : 2021-03-03 14:00:01 ( NOW = 2021-03-03 13:58:07 / in 114 secs )
+
+# No_Instruments = 2 // NOW 2021-03-03 14:00:02 // DFD = £88.35 // Total_Fund = £88.05 // Free_Fund = £62.09 // Live_Result = -£0.30
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7262200 / currentPrice = 0.72565 / margin = 13.69 / ppl = -0.25 / 
+2 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26450 / margin = 12.27 / ppl = -0.05 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00004 / 0.143269 // -0.00013 / -0.465625 // -0.00030 / -1.074518 # SELL2 BUY3 SELL4 SELL7 
+2 ) Currency: EUR/USD  # Grade: 0.00014 / 0.501442 // -0.00005 / -0.179086 // -0.00034 / -1.217787 # SELL2 BUY3 
+3 ) Currency: USD/JPY  # Grade: -0.00100 / -0.033532 // 0.00400 / 0.134127 // -0.00300 / -0.100595 # BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00001 / -0.039125 // 0.00006 / 0.234752 // 0.00017 / 0.665129 # BUY2 SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00000 / 0.000000 // 0.00036 / 1.021245 // -0.00015 / -0.425519 # BUY6 
+6 ) Currency: AUD/USD  # Grade: -0.00012 / -0.429807 // -0.00023 / -0.823797 // 0.00013 / 0.465625 # SELL6 
+7 ) Currency: NZD/USD  # Grade: 0.00007 / 0.250721 // -0.00029 / -1.038701 // 0.00022 / 0.787980 # SELL3 SELL6 
+
+ToDoPoint =  {'GBP/USD': -5, 'EUR/USD': 0, 'USD/JPY': 2, 'USD/CHF': 0, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00198 / -7.091820 // 0.00148 / 5.300956 // -0.00030 / -1.074518 # BUY3 BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00189 / -6.769464 // 0.00018 / 0.644711 // 0.00024 / 0.859614 # BUY2 SELL3 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.00600 / -0.201190 // 0.04800 / 1.609518 // 0.00400 / 0.134127 # 
+4 ) Currency: USD/CHF  # Grade: 0.00116 / 4.538529 // -0.00003 / -0.117376 // 0.00004 / 0.156501 # SELL5 SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00126 / 3.574359 // -0.00045 / -1.276557 // 0.00019 / 0.538991 # 
+6 ) Currency: AUD/USD  # Grade: -0.00224 / -8.023069 // 0.00036 / 1.289422 // -0.00013 / -0.465625 # 
+7 ) Currency: NZD/USD  # Grade: -0.00174 / -6.232205 // -0.00042 / -1.504325 // 0.00009 / 0.322355 # BUY2 
+
+ToDoPoint =  {'GBP/USD': 6, 'EUR/USD': 5, 'USD/JPY': 0, 'USD/CHF': -6, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 3}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': -0.25, 'USD/CAD': -0.05}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -5 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+    - > TO CLOSE # NZD/USD // CHANGE DIRECTION = BUY to SELL / Point = -5
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 4 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+
+SCRIPTS HAS RUN FOR 187 secs, WILL RUN AGAIN AT : 2021-03-03 14:05:01 ( NOW = 2021-03-03 14:03:08 / in 113 secs )
+
+# No_Instruments = 1 // NOW 2021-03-03 14:05:02 // DFD = £88.10 // Total_Fund = £88.12 // Free_Fund = £75.85 // Live_Result = £0.02
+1 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26419 / margin = 12.27 / ppl = 0.02 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00011 / -0.393990 // 0.00021 / 0.752163 // -0.00047 / -1.683412 # BUY3 SELL4 SELL7 
+2 ) Currency: EUR/USD  # Grade: -0.00003 / -0.107452 // 0.00036 / 1.289422 // -0.00005 / -0.179086 # 
+3 ) Currency: USD/JPY  # Grade: 0.01000 / 0.335316 // -0.01700 / -0.570038 // -0.01600 / -0.536506 # 
+4 ) Currency: USD/CHF  # Grade: 0.00002 / 0.078251 // -0.00026 / -1.017257 // -0.00001 / -0.039125 # BUY6 
+5 ) Currency: USD/CAD  # Grade: 0.00017 / 0.482255 // 0.00010 / 0.283679 // -0.00017 / -0.482255 # BUY6 
+6 ) Currency: AUD/USD  # Grade: -0.00008 / -0.286538 // -0.00010 / -0.358173 // 0.00018 / 0.644711 # 
+7 ) Currency: NZD/USD  # Grade: -0.00016 / -0.573076 // -0.00018 / -0.644711 // 0.00021 / 0.752163 # 
+
+ToDoPoint =  {'GBP/USD': -3, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 2, 'USD/CAD': 2, 'AUD/USD': 0, 'NZD/USD': 0}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00198 / -7.091820 // 0.00148 / 5.300956 // -0.00030 / -1.074518 # BUY3 BUY6 
+2 ) Currency: EUR/USD  # Grade: -0.00189 / -6.769464 // 0.00018 / 0.644711 // 0.00024 / 0.859614 # BUY2 SELL3 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.00600 / -0.201190 // 0.04800 / 1.609518 // 0.00400 / 0.134127 # 
+4 ) Currency: USD/CHF  # Grade: 0.00116 / 4.538529 // -0.00003 / -0.117376 // 0.00004 / 0.156501 # SELL5 SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00126 / 3.574359 // -0.00045 / -1.276557 // 0.00019 / 0.538991 # 
+6 ) Currency: AUD/USD  # Grade: -0.00224 / -8.023069 // 0.00036 / 1.289422 // -0.00013 / -0.465625 # 
+7 ) Currency: NZD/USD  # Grade: -0.00174 / -6.232205 // -0.00042 / -1.504325 // 0.00009 / 0.322355 # BUY2 
+
+ToDoPoint =  {'GBP/USD': 6, 'EUR/USD': 5, 'USD/JPY': 0, 'USD/CHF': -6, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 3}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'USD/CAD': 0.02}
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 4 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+
+SCRIPTS HAS RUN FOR 182 secs, WILL RUN AGAIN AT : 2021-03-03 14:10:01 ( NOW = 2021-03-03 14:08:03 / in 118 secs )
+
+# No_Instruments = 1 // NOW 2021-03-03 14:10:02 // DFD = £88.10 // Total_Fund = £88.02 // Free_Fund = £75.74 // Live_Result = -£0.08
+1 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26427 / margin = 12.28 / ppl = -0.08 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00012 / -0.429769 // -0.00036 / -1.289307 // -0.00007 / -0.250699 # 
+2 ) Currency: EUR/USD  # Grade: -0.00015 / -0.537211 // -0.00037 / -1.325121 // -0.00007 / -0.250699 # 
+3 ) Currency: USD/JPY  # Grade: 0.01400 / 0.469404 // 0.02500 / 0.838222 // 0.00600 / 0.201173 # SELL6 
+4 ) Currency: USD/CHF  # Grade: -0.00008 / -0.312979 // 0.00030 / 1.173671 // 0.00007 / 0.273856 # BUY5 
+5 ) Currency: USD/CAD  # Grade: -0.00012 / -0.340392 // 0.00024 / 0.680785 // -0.00014 / -0.397125 # 
+6 ) Currency: AUD/USD  # Grade: 0.00003 / 0.107442 // -0.00023 / -0.823724 // 0.00006 / 0.214885 # 
+7 ) Currency: NZD/USD  # Grade: -0.00007 / -0.250699 // -0.00005 / -0.179070 // 0.00014 / 0.501397 # 
+
+ToDoPoint =  {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': -2, 'USD/CHF': 2, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00005 / 0.179070 // -0.00030 / -1.074423 // 0.00028 / 1.002794 # BUY3 BUY6 
+2 ) Currency: EUR/USD  # Grade: 0.00037 / 1.325121 // 0.00024 / 0.859538 // -0.00027 / -0.966980 # BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.03100 / -1.039395 // 0.00400 / 0.134115 // -0.03400 / -1.139982 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00041 / -1.604017 // 0.00004 / 0.156489 // -0.00053 / -2.073485 # SELL3 SELL5 SELL6 
+5 ) Currency: USD/CAD  # Grade: -0.00008 / -0.226928 // 0.00019 / 0.538955 // 0.00113 / 3.205362 # SELL3 SELL4 SELL5 SELL6 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00030 / -1.074423 // -0.00013 / -0.465583 // -0.00031 / -1.110237 # BUY3 BUY6 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00028 / -1.002794 // 0.00009 / 0.322327 // -0.00041 / -1.468378 # BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': 6, 'EUR/USD': 11, 'USD/JPY': 6, 'USD/CHF': -9, 'USD/CAD': -17, 'AUD/USD': 11, 'NZD/USD': 11}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'USD/CAD': -0.08}
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -17 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 183 secs, WILL RUN AGAIN AT : 2021-03-03 14:15:01 ( NOW = 2021-03-03 14:13:04 / in 117 secs )
+
+# No_Instruments = 1 // NOW 2021-03-03 14:15:03 // DFD = £88.10 // Total_Fund = £87.87 // Free_Fund = £75.58 // Live_Result = -£0.23
+1 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26504 / margin = 12.29 / ppl = -0.23 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00036 / 1.289307 // -0.00049 / -1.754890 // -0.00020 / -0.716282 # 
+2 ) Currency: EUR/USD  # Grade: 0.00017 / 0.608839 // -0.00044 / -1.575820 // -0.00016 / -0.573025 # 
+3 ) Currency: USD/JPY  # Grade: -0.00600 / -0.201173 // 0.01300 / 0.435875 // 0.02200 / 0.737635 # 
+4 ) Currency: USD/CHF  # Grade: 0.00010 / 0.391224 // 0.00017 / 0.665080 // -0.00010 / -0.391224 # 
+5 ) Currency: USD/CAD  # Grade: -0.00034 / -0.964445 // 0.00031 / 0.879347 // 0.00017 / 0.482223 # 
+6 ) Currency: AUD/USD  # Grade: 0.00023 / 0.823724 // -0.00032 / -1.146051 // -0.00062 / -2.220473 # BUY3 BUY6 BUY7 
+7 ) Currency: NZD/USD  # Grade: 0.00025 / 0.895352 // -0.00014 / -0.501397 // -0.00048 / -1.719076 # BUY3 BUY6 
+
+ToDoPoint =  {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 7, 'NZD/USD': 4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00005 / 0.179070 // -0.00030 / -1.074423 // 0.00028 / 1.002794 # BUY3 BUY6 
+2 ) Currency: EUR/USD  # Grade: 0.00037 / 1.325121 // 0.00024 / 0.859538 // -0.00027 / -0.966980 # BUY3 BUY6 BUY7 
+3 ) Currency: USD/JPY  # Grade: -0.03100 / -1.039395 // 0.00400 / 0.134115 // -0.03400 / -1.139982 # BUY3 BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00041 / -1.604017 // 0.00004 / 0.156489 // -0.00053 / -2.073485 # SELL3 SELL5 SELL6 
+5 ) Currency: USD/CAD  # Grade: -0.00008 / -0.226928 // 0.00019 / 0.538955 // 0.00113 / 3.205362 # SELL3 SELL4 SELL5 SELL6 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00030 / -1.074423 // -0.00013 / -0.465583 // -0.00031 / -1.110237 # BUY3 BUY6 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00028 / -1.002794 // 0.00009 / 0.322327 // -0.00041 / -1.468378 # BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': 6, 'EUR/USD': 11, 'USD/JPY': 6, 'USD/CHF': -9, 'USD/CAD': -17, 'AUD/USD': 11, 'NZD/USD': 11}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 18, 'NZD/USD': 15}
+TO BUY = (Currency) AUD/USD (Amount) 526
+TO BUY = (Currency) NZD/USD (Amount) 527
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'USD/CAD': -0.23}
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -17 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 198 secs, WILL RUN AGAIN AT : 2021-03-03 14:20:01 ( NOW = 2021-03-03 14:18:19 / in 102 secs )
+
+# No_Instruments = 3 // NOW 2021-03-03 14:20:02 // DFD = £88.10 // Total_Fund = £87.60 // Free_Fund = £46.95 // Live_Result = -£0.50
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7253100 / currentPrice = 0.72518 / margin = 13.69 / ppl = -0.12 / 
+2 ) name = AUD/USD / quantity = 526 / direction = BUY / averagePrice = 0.7783100 / currentPrice = 0.77811 / margin = 14.67 / ppl = -0.13 / 
+3 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26490 / margin = 12.29 / ppl = -0.25 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00011 / 0.393955 // 0.00016 / 0.573025 // 0.00028 / 1.002794 # BUY1 BUY2 BUY3 BUY6 BUY7 
+2 ) Currency: EUR/USD  # Grade: 0.00019 / 0.680468 // 0.00010 / 0.358141 // -0.00015 / -0.537211 # BUY6 
+3 ) Currency: USD/JPY  # Grade: 0.00200 / 0.067058 // -0.00700 / -0.234702 // 0.01100 / 0.368818 # SELL5 SELL6 
+4 ) Currency: USD/CHF  # Grade: -0.00011 / -0.430346 // -0.00002 / -0.078245 // 0.00007 / 0.273856 # SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00007 / 0.198562 // 0.00028 / 0.794249 // -0.00058 / -1.645230 # SELL3 SELL5 SELL6 
+6 ) Currency: AUD/USD  # Grade: -0.00021 / -0.752096 // -0.00001 / -0.035814 // 0.00029 / 1.038609 # BUY2 SELL3 BUY7 
+7 ) Currency: NZD/USD  # Grade: -0.00024 / -0.859538 // -0.00008 / -0.286513 // 0.00013 / 0.465583 # BUY2 BUY6 
+
+ToDoPoint =  {'GBP/USD': 12, 'EUR/USD': 2, 'USD/JPY': -4, 'USD/CHF': -2, 'USD/CAD': -6, 'AUD/USD': 3, 'NZD/USD': 4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00148 / 5.300485 // 0.00028 / 1.002794 // 0.00076 / 2.721871 # SELL3 SELL6 
+2 ) Currency: EUR/USD  # Grade: 0.00018 / 0.644654 // -0.00027 / -0.966980 // 0.00041 / 1.468378 # SELL3 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.04800 / 1.609386 // -0.03400 / -1.139982 // 0.00600 / 0.201173 # BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00003 / -0.117367 // -0.00053 / -2.073485 // -0.00048 / -1.877873 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: -0.00045 / -1.276472 // 0.00113 / 3.205362 // -0.00086 / -2.439479 # SELL3 SELL4 SELL5 SELL6 SELL7 
+6 ) Currency: AUD/USD  # Grade: 0.00036 / 1.289307 // -0.00031 / -1.110237 // 0.00016 / 0.573025 # BUY6 
+7 ) Currency: NZD/USD  # Grade: -0.00042 / -1.504192 // -0.00041 / -1.468378 // 0.00036 / 1.289307 # BUY2 BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': -6, 'EUR/USD': 2, 'USD/JPY': 3, 'USD/CHF': -5, 'USD/CAD': -17, 'AUD/USD': 3, 'NZD/USD': 14}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -23, 'AUD/USD': 0, 'NZD/USD': 18}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': -0.12, 'AUD/USD': -0.13, 'USD/CAD': -0.25}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 22 # - > RIGHT DIRECTION
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 9 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -29 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 187 secs, WILL RUN AGAIN AT : 2021-03-03 14:25:01 ( NOW = 2021-03-03 14:23:08 / in 113 secs )
+
+# No_Instruments = 3 // NOW 2021-03-03 14:25:02 // DFD = £88.10 // Total_Fund = £88.18 // Free_Fund = £47.53 // Live_Result = £0.08
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7253100 / currentPrice = 0.72557 / margin = 13.70 / ppl = 0.11 / 
+2 ) name = AUD/USD / quantity = 526 / direction = BUY / averagePrice = 0.7783100 / currentPrice = 0.77826 / margin = 14.67 / ppl = 0.05 / 
+3 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26473 / margin = 12.28 / ppl = -0.08 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00002 / 0.071628 // 0.00078 / 2.793499 // 0.00032 / 1.146051 # SELL3 
+2 ) Currency: EUR/USD  # Grade: 0.00002 / 0.071628 // 0.00036 / 1.289307 // 0.00028 / 1.002794 # SELL3 BUY4 SELL6 
+3 ) Currency: USD/JPY  # Grade: 0.00300 / 0.100587 // -0.02300 / -0.771164 // -0.00700 / -0.234702 # 
+4 ) Currency: USD/CHF  # Grade: 0.00004 / 0.156489 // -0.00041 / -1.604017 // -0.00005 / -0.195612 # SELL6 
+5 ) Currency: USD/CAD  # Grade: 0.00098 / 2.779872 // -0.00046 / -1.304838 // 0.00010 / 0.283660 # SELL5 SELL6 
+6 ) Currency: AUD/USD  # Grade: -0.00120 / -4.297690 // 0.00050 / 1.790704 // -0.00004 / -0.143256 # 
+7 ) Currency: NZD/USD  # Grade: -0.00072 / -2.578614 // 0.00040 / 1.432563 // 0.00005 / 0.179070 # SELL6 
+
+ToDoPoint =  {'GBP/USD': -2, 'EUR/USD': -1, 'USD/JPY': 0, 'USD/CHF': -2, 'USD/CAD': -4, 'AUD/USD': 0, 'NZD/USD': -2}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00148 / 5.300485 // 0.00028 / 1.002794 // 0.00076 / 2.721871 # SELL3 SELL6 
+2 ) Currency: EUR/USD  # Grade: 0.00018 / 0.644654 // -0.00027 / -0.966980 // 0.00041 / 1.468378 # SELL3 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.04800 / 1.609386 // -0.03400 / -1.139982 // 0.00600 / 0.201173 # BUY6 
+4 ) Currency: USD/CHF  # Grade: -0.00003 / -0.117367 // -0.00053 / -2.073485 // -0.00048 / -1.877873 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: -0.00045 / -1.276472 // 0.00113 / 3.205362 // -0.00086 / -2.439479 # SELL3 SELL4 SELL5 SELL6 SELL7 
+6 ) Currency: AUD/USD  # Grade: 0.00036 / 1.289307 // -0.00031 / -1.110237 // 0.00016 / 0.573025 # BUY6 
+7 ) Currency: NZD/USD  # Grade: -0.00042 / -1.504192 // -0.00041 / -1.468378 // 0.00036 / 1.289307 # BUY2 BUY3 BUY6 BUY7 
+
+ToDoPoint =  {'GBP/USD': -6, 'EUR/USD': 2, 'USD/JPY': 3, 'USD/CHF': -5, 'USD/CAD': -17, 'AUD/USD': 3, 'NZD/USD': 14}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -21, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': 0.11, 'AUD/USD': 0.05, 'USD/CAD': -0.08}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 10 # - > RIGHT DIRECTION
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -25 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 184 secs, WILL RUN AGAIN AT : 2021-03-03 14:30:01 ( NOW = 2021-03-03 14:28:05 / in 116 secs )
+
+# No_Instruments = 3 // NOW 2021-03-03 14:30:02 // DFD = £88.10 // Total_Fund = £88.11 // Free_Fund = £47.45 // Live_Result = £0.01
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7253100 / currentPrice = 0.72552 / margin = 13.70 / ppl = 0.08 / 
+2 ) name = AUD/USD / quantity = 526 / direction = BUY / averagePrice = 0.7783100 / currentPrice = 0.77832 / margin = 14.67 / ppl = 0.08 / 
+3 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26481 / margin = 12.29 / ppl = -0.15 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: 0.00000 / 0.000000 // -0.00031 / -1.110237 // 0.00003 / 0.107442 # 
+2 ) Currency: EUR/USD  # Grade: -0.00008 / -0.286513 // 0.00002 / 0.071628 // 0.00010 / 0.358141 # BUY5 
+3 ) Currency: USD/JPY  # Grade: -0.00800 / -0.268231 // 0.02100 / 0.704106 // -0.01700 / -0.569991 # 
+4 ) Currency: USD/CHF  # Grade: -0.00008 / -0.312979 // -0.00012 / -0.469468 // -0.00006 / -0.234734 # 
+5 ) Currency: USD/CAD  # Grade: 0.00024 / 0.680785 // 0.00000 / 0.000000 // -0.00002 / -0.056732 # SELL6 
+6 ) Currency: AUD/USD  # Grade: 0.00011 / 0.393955 // -0.00017 / -0.608839 // -0.00019 / -0.680468 # 
+7 ) Currency: NZD/USD  # Grade: 0.00016 / 0.573025 // 0.00018 / 0.644654 // -0.00009 / -0.322327 # SELL6 
+
+ToDoPoint =  {'GBP/USD': 0, 'EUR/USD': 2, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': -2, 'AUD/USD': 0, 'NZD/USD': -2}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00030 / -1.074423 // 0.00076 / 2.721871 // -0.00055 / -1.969775 # SELL3 BUY7 
+2 ) Currency: EUR/USD  # Grade: 0.00024 / 0.859538 // 0.00041 / 1.468378 // -0.00022 / -0.787910 # SELL3 SELL6 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.00400 / 0.134115 // 0.00600 / 0.201173 // 0.02000 / 0.670577 # BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00004 / 0.156489 // -0.00048 / -1.877873 // 0.00082 / 3.208033 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00019 / 0.538955 // -0.00086 / -2.439479 // -0.00033 / -0.936079 # BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00013 / -0.465583 // 0.00016 / 0.573025 // 0.00012 / 0.429769 # 
+7 ) Currency: NZD/USD  # Grade: 0.00009 / 0.322327 // 0.00036 / 1.289307 // 0.00021 / 0.752096 # 
+
+ToDoPoint =  {'GBP/USD': 2, 'EUR/USD': -1, 'USD/JPY': 3, 'USD/CHF': -5, 'USD/CAD': -5, 'AUD/USD': 0, 'NZD/USD': 0}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': 0.08, 'AUD/USD': 0.08, 'USD/CAD': -0.15}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -4 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -9 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 188 secs, WILL RUN AGAIN AT : 2021-03-03 14:35:01 ( NOW = 2021-03-03 14:33:09 / in 112 secs )
+
+# No_Instruments = 3 // NOW 2021-03-03 14:35:02 // DFD = £88.10 // Total_Fund = £88.28 // Free_Fund = £47.63 // Live_Result = £0.18
+1 ) name = NZD/USD / quantity = 527 / direction = BUY / averagePrice = 0.7253100 / currentPrice = 0.72545 / margin = 13.70 / ppl = 0.12 / 
+2 ) name = AUD/USD / quantity = 526 / direction = BUY / averagePrice = 0.7783100 / currentPrice = 0.77862 / margin = 14.67 / ppl = 0.11 / 
+3 ) name = USD/CAD / quantity = 515 / direction = SELL / averagePrice = 1.2643100 / currentPrice = 1.26470 / margin = 12.28 / ppl = -0.05 / 
+
+### Scanning Data Result ( SMA = 25  / tperiod = 1 minute ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00024 / -0.859538 // 0.00052 / 1.862333 // 0.00001 / 0.035814 # SELL6 
+2 ) Currency: EUR/USD  # Grade: 0.00025 / 0.895352 // 0.00023 / 0.823724 // -0.00044 / -1.575820 # SELL2 SELL3 SELL6 
+3 ) Currency: USD/JPY  # Grade: 0.01500 / 0.502933 // -0.01100 / -0.368818 // -0.00200 / -0.067058 # 
+4 ) Currency: USD/CHF  # Grade: 0.00005 / 0.195612 // -0.00051 / -1.995240 // -0.00031 / -1.212793 # BUY3 BUY6 
+5 ) Currency: USD/CAD  # Grade: -0.00082 / -2.326015 // 0.00077 / 2.184185 // 0.00007 / 0.198562 # 
+6 ) Currency: AUD/USD  # Grade: -0.00002 / -0.071628 // 0.00026 / 0.931166 // -0.00039 / -1.396749 # SELL3 SELL6 
+7 ) Currency: NZD/USD  # Grade: -0.00020 / -0.716282 // 0.00032 / 1.146051 // -0.00034 / -1.217679 # SELL3 SELL6 
+
+ToDoPoint =  {'GBP/USD': -2, 'EUR/USD': -6, 'USD/JPY': 0, 'USD/CHF': 4, 'USD/CAD': 0, 'AUD/USD': -4, 'NZD/USD': -4}
+
+### Scanning Data Result ( SMA = 25  / tperiod = 10 minutes ) ###
+1 ) Currency: GBP/USD  # Grade: -0.00030 / -1.074423 // 0.00076 / 2.721871 // -0.00055 / -1.969775 # SELL3 BUY7 
+2 ) Currency: EUR/USD  # Grade: 0.00024 / 0.859538 // 0.00041 / 1.468378 // -0.00022 / -0.787910 # SELL3 SELL6 BUY7 
+3 ) Currency: USD/JPY  # Grade: 0.00400 / 0.134115 // 0.00600 / 0.201173 // 0.02000 / 0.670577 # BUY6 
+4 ) Currency: USD/CHF  # Grade: 0.00004 / 0.156489 // -0.00048 / -1.877873 // 0.00082 / 3.208033 # BUY3 SELL4 SELL7 
+5 ) Currency: USD/CAD  # Grade: 0.00019 / 0.538955 // -0.00086 / -2.439479 // -0.00033 / -0.936079 # BUY3 SELL4 SELL7 
+6 ) Currency: AUD/USD  # Grade: -0.00013 / -0.465583 // 0.00016 / 0.573025 // 0.00012 / 0.429769 # 
+7 ) Currency: NZD/USD  # Grade: 0.00009 / 0.322327 // 0.00036 / 1.289307 // 0.00021 / 0.752096 # 
+
+ToDoPoint =  {'GBP/USD': 2, 'EUR/USD': -1, 'USD/JPY': 3, 'USD/CHF': -5, 'USD/CAD': -5, 'AUD/USD': 0, 'NZD/USD': 0}
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT > 14  / SELL # IF POINT < -14
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -7, 'USD/JPY': 0, 'USD/CHF': 0, 'USD/CAD': 0, 'AUD/USD': -4, 'NZD/USD': -4}
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY < -4 / SELL > 4 // OR LOSS < -0.75
+ - > OPEN_POSITION = {'NZD/USD': 0.12, 'AUD/USD': 0.11, 'USD/CAD': -0.05}
+  -- >  NZD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -8 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+    - > TO CLOSE # NZD/USD // CHANGE DIRECTION = BUY to SELL / Point = -8
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -8 # - > WRONG DIRECTION !!! -- NEED TO CLOSE POSITION
+    - > TO CLOSE # AUD/USD // CHANGE DIRECTION = BUY to SELL / Point = -8
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -5 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 191 secs, WILL RUN AGAIN AT : 2021-03-03 14:40:01 ( NOW = 2021-03-03 14:38:12 / in 109 secs )
+
+Process finished with exit code -1
+
