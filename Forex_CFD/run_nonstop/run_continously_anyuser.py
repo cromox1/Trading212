@@ -64,7 +64,7 @@ while pilihan != 99:
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
     tocloseone = check_cfd_current[2]
-    instrument_id = check_cfd_current[-1]
+    instrument_id = check_cfd_current[3]
 
     ### FOREX AUTO TRADER
     buymark = 14

@@ -39,7 +39,9 @@ while pilihan != 99:
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
     tocloseone = check_cfd_current[2]
-    instrument_id = check_cfd_current[-1]
+    instrument_id = check_cfd_current[3]
+    masastart = check_cfd_current[4]
+    epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S").timestamp())
 
     ### FOREX AUTO TRADER
     buymark = -6
@@ -95,8 +97,10 @@ while pilihan != 99:
     bezamasa = int(5 * 60)
     arini_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     arini_epoch = int(datetime.now().timestamp())
+    lamascript = arini_epoch - epochstart
     nanti = int((arini_epoch + bezamasa) / bezamasa) * bezamasa + 61
     tidor = nanti - arini_epoch
     futuretime = datetime.fromtimestamp(nanti).strftime('%Y-%m-%d %H:%M:%S')
-    print('SCRIPT WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
+    print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
+    print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
     sleep(tidor)

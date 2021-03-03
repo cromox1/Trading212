@@ -50,7 +50,7 @@ class FxClosePosition(FxBuySell):
                 dict2[i] = text
                 i += 1
                 print()
-        return dict1, dict2
+        return dict1, dict2, arini
 
     def pilihan_to_close_position(self, num_choice):
         self.log.info("--> " + inspect.stack()[0][3] + " started")

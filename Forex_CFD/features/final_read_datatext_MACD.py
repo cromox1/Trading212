@@ -74,35 +74,35 @@ class ReadAllDataTextMACD(FxReadDataText_ToolTip):
         print('// MACD:', MACD_point, '/ last', macdlist1[-1], '// HAD', -1*had_macd, had_macd, end=' ')
         tindakan[currency] =  MACD_point[-1]
         if macdlist[-2] > macdlist[-1] and macdlist[-2] > macdlist[-3] and macdlist[-2] > 0 and macdlist[-1] > 0:
-            print('// MACD_high1', macdlist[-1], end=' ')
+            print('// MACD_high1', macdlist1[-3], macdlist1[-2], macdlist1[-1], end=' ')
             tindakan[currency] =  tindakan[currency] + 5
         elif macdlist[-2] > macdlist[-1] and macdlist[-2] > macdlist[-3] and macdlist[-2] > 0:
-            print('// MACD_high2', macdlist[-2], end=' ')
+            print('// MACD_high2', macdlist1[-2], end=' ')
             tindakan[currency] =  tindakan[currency] + 3
         elif macdlist[-3] > macdlist[-2] and macdlist[-3] > macdlist[-4] and macdlist[-3] > 0:
-            print('// MACD_high3', macdlist[-3], end=' ')
+            print('// MACD_high3', macdlist1[-3], end=' ')
             tindakan[currency] =  tindakan[currency] + 3
         elif macdlist[-2] > 0 and macdlist[-1] < 0:
-            print('// MACD_high4A', macdlist[-2], end=' ')
+            print('// MACD_high4A', macdlist1[-2], end=' ')
             tindakan[currency] = tindakan[currency] + 4
-        elif macdlist[-3] > 0 and macdlist[-2] < 0:
-            print('// MACD_high4B', macdlist[-3], end=' ')
+        elif macdlist[-3] > 0 and macdlist[-2] < 0 and macdlist[-1] < 0:
+            print('// MACD_high4B', macdlist1[-3], end=' ')
             tindakan[currency] = tindakan[currency] + 4
         if macdlist[-2] < macdlist[-1] and macdlist[-2] < macdlist[-3] and macdlist[-2] < 0 and macdlist[-1] < 0:
-            print('// MACD_low1', macdlist[-1], end=' ')
+            print('// MACD_low1', macdlist1[-3], macdlist1[-2], macdlist1[-1], end=' ')
             tindakan[currency] =  tindakan[currency] - 5
         elif macdlist[-2] < macdlist[-1] and macdlist[-2] < macdlist[-3] and macdlist[-2] < 0:
-            print('// MACD_low2', macdlist[-2], end=' ')
+            print('// MACD_low2', macdlist1[-2], end=' ')
             tindakan[currency] =  tindakan[currency] - 3
         elif macdlist[-3] < macdlist[-2] and macdlist[-3] < macdlist[-4] and macdlist[-3] < 0:
-            print('// MACD_low3', macdlist[-3], end=' ')
+            print('// MACD_low3', macdlist1[-3], end=' ')
             tindakan[currency] =  tindakan[currency] - 3
         elif macdlist[-2] < 0 and macdlist[-1] > 0:
-            print('// MACD_low4A', macdlist[-2], end=' ')
+            print('// MACD_low4A', macdlist1[-2], end=' ')
             tindakan[currency] = tindakan[currency] - 4
-        elif macdlist[-3] < 0 and macdlist[-2] > 0:
-            print('// MACD_low4B', macdlist[-3], end=' ')
+        elif macdlist[-3] < 0 and macdlist[-2] > 0 and macdlist[-1] > 0:
+            print('// MACD_low4B', macdlist1[-3], end=' ')
             tindakan[currency] = tindakan[currency] - 4
 
-        print('// POINT = ', tindakan[currency])
+        print('// POINT =', tindakan[currency])
         return tindakan
