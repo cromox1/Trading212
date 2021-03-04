@@ -1,3 +1,7 @@
+## THIS REQUIRED - TO MAKE IT RUN ON CONSOLE / COMMAND LINE / CLI
+import sys
+sys.path.extend(['C:\\Users\\cromox\\PycharmProjects\\Trading212', 'C:/Users/cromox/PycharmProjects/Trading212'])
+
 from Forex_CFD.base.webdriverfactory import WebDriverFactory as webbrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 

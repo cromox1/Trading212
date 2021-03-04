@@ -1,3 +1,7 @@
+## THIS REQUIRED - TO MAKE IT RUN ON CONSOLE / COMMAND LINE / CLI
+import sys
+sys.path.extend(['C:\\Users\\cromox\\PycharmProjects\\Trading212', 'C:/Users/cromox/PycharmProjects/Trading212'])
+
 from datetime import datetime
 from time import sleep
 from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
@@ -102,11 +106,11 @@ while pilihan != 99:
         elif directionpoint == 0:
             print(' # - >', buysell, 'BUT NO DIRECTION CURRENTLY!!!')
         elif buysell == 'BUY' and closebuypoint < directionpoint < 0:
-            print(' # - > SLIGHTLY WRONG DIRECTION !!! NEED CHECK FOR NEXT RUN')
+            print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         elif buysell == 'SELL' and closesellpoint > directionpoint > 0:
-            print(' # - > SLIGHTLY WRONG DIRECTION !!! NEED CHECK FOR NEXT RUN')
+            print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         else:
-            print(' # - > WRONG DIRECTION !!! -- URGENT - NEED TO CLOSE POSITION')
+            print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION')
         if buysell == 'BUY' and directionpoint < closebuypoint:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
