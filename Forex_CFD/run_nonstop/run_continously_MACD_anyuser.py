@@ -8,10 +8,10 @@ from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
 ## USER'S PARAMETER
-# _USERNAME       = "xixa01@yahoo.co.uk"
-# _PASSWORD       = "H0meBase"
-_USERNAME     = "mycromox@gmail.com"
-_PASSWORD     = "Serverg0d!"
+_USERNAME       = "xixa01@yahoo.co.uk"
+_PASSWORD       = "H0meBase"
+# _USERNAME     = "mycromox@gmail.com"
+# _PASSWORD     = "Serverg0d!"
 # Chrome
 _CHROME_NAME    = 'chrome'
 _CHROME_DRIVER  = r'C:\tools\chromedriver\chromedriver.exe'
@@ -52,21 +52,23 @@ while pilihan != 99:
     sellmark = 6
     closesellpoint = -2
     closebuypoint = 2
+    limit_buysell = 4
     # closeloss = -0.85
 
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT <', buymark, ' / SELL # IF POINT >', sellmark)
     print(' - > BUYSELL_POINT =', todopoint)
-    for kt, vt in todopoint.items():
-        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        if vt < buymark and kt not in open_position:
-            amount = 541 + all_currencies.index(kt)
-            print('TO BUY = (Currency)', kt, '(Amount)', amount)
-            fxfinal.buy_stock(kt, amount)
-        elif vt > sellmark and kt not in open_position:
-            amount = 531 + all_currencies.index(kt)
-            print('TO SELL = (Currency)', kt, '(Amount)', amount)
-            fxfinal.sell_stock(kt, amount)
+    if len(instrument_id) <= limit_buysell:
+        for kt, vt in todopoint.items():
+            all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+            if vt < buymark and kt not in open_position:
+                amount = 541 + all_currencies.index(kt)
+                print('TO BUY = (Currency)', kt, '(Amount)', amount)
+                fxfinal.buy_stock(kt, amount)
+            elif vt > sellmark and kt not in open_position:
+                amount = 531 + all_currencies.index(kt)
+                print('TO SELL = (Currency)', kt, '(Amount)', amount)
+                fxfinal.sell_stock(kt, amount)
 
     # print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint, '// OR LOSS <', closeloss)
     print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint)

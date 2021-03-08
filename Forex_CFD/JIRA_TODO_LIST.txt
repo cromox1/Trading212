@@ -1,0 +1,4 @@
+1) Jira-20210307-1 : limit the number of Instrument / Open_position to 4 (out of 7 Majot currencies)
+2) Jira-20210307-2 : increase speed run of run_manually_ALL_anyuser.py (old script which use gradient) - currently 190 secs / more than 3 mins
+3) Jira-20210307-3 :  rename folder run_nonstop to run_full_auto_nonstop
+4)
