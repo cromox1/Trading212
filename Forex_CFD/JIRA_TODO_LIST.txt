@@ -1,4 +1,14 @@
-1) Jira-20210307-1 : limit the number of Instrument / Open_position to 4 (out of 7 Majot currencies)
+1) Jira-20210307-1 : limit the number of Instrument / Open_position to 3 or 4 (out of 7 Major currencies) ##DONE##
 2) Jira-20210307-2 : increase speed run of run_manually_ALL_anyuser.py (old script which use gradient) - currently 190 secs / more than 3 mins
-3) Jira-20210307-3 :  rename folder run_nonstop to run_full_auto_nonstop
-4)
+3) Jira-20210307-3 : rename folder run_nonstop to run_full_auto_nonstop
+4) Jira-20210308-1 : log any xtvt/error/message to file (as well appear on console) from python script (as bash not work)
+5) Jira-20210308-2 : combine MACD & old style gradient
+6) Jira-20210308-3 : script cannot running from other computer/laptop
+7) Jira-20210309-1 : currencies that are in open_position should run first/earlier from other currencies
+8) Jira-20210309-2 : script to scan only (MACD) - no buy, no suggest etc... (link to Jira-20210308-2)
+9) Jira-20210309-3 : script to scan only (gradient style) - no buy, no suggest etc... (link to Jira-20210308-2)
+10) Jira-20210309-4 : change to 2 mins (121 secs) after every 5 mins - 1 min (61 secs) look data not stable ##DONE##
+11) Jira-20210309-5 : auto script to wait 5 secs before execution, so can stop if needed
+12) Jira-20210309-6 : gradient script - run curencies by currencies, then time period by time period (link to Jira-20210307-2)
+13) Jira-20210309-7 : decrease number of data to just the last 5
+14)
