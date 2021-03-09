@@ -25,7 +25,7 @@ class FxReadDataText_Main(FxMainPage):
         xp_currency = '//*[@data-code="' + currency1 + '"]//*[@class="ticker"]//*[@class="has-ellipsed-text"]'
         element1 = self.driver.find_element_by_xpath(xp_currency)
         element1.click()
-        print('Currency:', currency, end=' ')
+        print(currency, end=' ')
         sleep(0.5)
 
     def change_graph_to_candlestick(self):
