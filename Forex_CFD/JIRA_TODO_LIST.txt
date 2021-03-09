@@ -13,7 +13,8 @@
 13) Jira-20210309-7 : decrease number of data to just the last 5
 14) Jira-20210309-8 : script to auto restart execution if the existing one is stop/terminate (by itself/error)
 15) Jira-20210309-9 : script to close existing open_position and won't buy/open new position
-16) Jira-20210309-10 : script to run specific/choosen currencies only (list_currencies as input)
+16) Jira-20210309-10 : script to run specific/choosen currencies only (make list_currencies as input)
 17) Jira-20210309-11 : modify data result output for more infos - to show last & second last data ##DONE##
 18) Jira-20210309-12 : add highest/lowest point - highest (=, =, low vice-versa), lowest (=, =, high vice-versa) ##DONE##
 19) Jira-20210309-13 : check chance run MACD to use lower time period (1 min) rather than currently (5 mins)
+20) Jira-20210309-14 : add some minor currencies - like GBP/JPY
