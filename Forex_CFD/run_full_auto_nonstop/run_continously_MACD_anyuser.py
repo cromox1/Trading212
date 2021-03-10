@@ -48,6 +48,7 @@ while pilihan != 99:
     epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S").timestamp())
 
     ### FOREX AUTO TRADER
+    all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
     buymark = -6
     sellmark = 6
     closesellpoint = -2
@@ -60,19 +61,32 @@ while pilihan != 99:
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT <', buymark, ' / SELL # IF POINT >', sellmark)
     print(' - > BUYSELL_POINT =', todopoint)
-    if len(instrument_id) < limit_buysell:
-        for kt, vt in todopoint.items():
-            all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-            if vt < buymark and kt not in open_position:
-                amount = 541 + all_currencies.index(kt)
-                print('TO BUY = (Currency)', kt, '(Amount)', amount)
-                fxfinal.buy_stock(kt, amount)
-            elif vt > sellmark and kt not in open_position:
-                amount = 531 + all_currencies.index(kt)
-                print('TO SELL = (Currency)', kt, '(Amount)', amount)
-                fxfinal.sell_stock(kt, amount)
+    list_to_buysell = [vv for vv in list(todopoint.keys()) if todopoint[vv] > sellmark or todopoint[vv] < buymark]
+    current_number = len(instrument_id)
+    to_add_number = len(list_to_buysell)
+    avail_number = limit_buysell - current_number
+    if 0 < to_add_number <= avail_number:
+        list_add_instrument = list_to_buysell
+    elif 0 < avail_number < to_add_number:
+        list_add_instrument = list_to_buysell[:avail_number]
     else:
-        print('Number of Forex to be trade has been limit to', limit_buysell)
+        list_add_instrument = []
+    print(' -- > LIMIT =', limit_buysell, '// CURRENT_TRADE =', current_number, '// TO_ADD =', to_add_number,
+          '// AVAILABLE =', avail_number)
+    if to_add_number == 0:
+        print(' --- > NO Currency MEET requirement to Trade')
+    elif to_add_number > avail_number:
+        print(' --- > Limit_Trader (', limit_buysell, ') nearly reach - Only', avail_number, 'Currrency will be Traded')
+    if len(list_add_instrument) > 0:
+        for curr in list_add_instrument:
+            if todopoint[curr] < buymark and curr not in open_position:
+                amount = 541 + all_currencies.index(curr)
+                print(' --- > TO BUY = (Currency)', curr, '(Amount)', amount)
+                fxfinal.buy_stock(curr, amount)
+            elif todopoint[curr] > sellmark and curr not in open_position:
+                amount = 531 + all_currencies.index(curr)
+                print(' --- > TO SELL = (Currency)', curr, '(Amount)', amount)
+                fxfinal.sell_stock(curr, amount)
 
     # print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint, '// OR LOSS <', closeloss)
     print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint)
