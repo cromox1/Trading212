@@ -52,13 +52,15 @@ while pilihan != 99:
     sellmark = 6
     closesellpoint = -2
     closebuypoint = 2
-    limit_buysell = 4
+    limit_buysell = 3
     # closeloss = -0.85
+    delaymins = 1.5             # delay in mins before execute the script
+    timemins = 5                # time in mins between every script execution / running
 
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT <', buymark, ' / SELL # IF POINT >', sellmark)
     print(' - > BUYSELL_POINT =', todopoint)
-    if len(instrument_id) <= limit_buysell:
+    if len(instrument_id) < limit_buysell:
         for kt, vt in todopoint.items():
             all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
             if vt < buymark and kt not in open_position:
@@ -69,6 +71,8 @@ while pilihan != 99:
                 amount = 531 + all_currencies.index(kt)
                 print('TO SELL = (Currency)', kt, '(Amount)', amount)
                 fxfinal.sell_stock(kt, amount)
+    else:
+        print('Number of Forex to be trade has been limit to', limit_buysell)
 
     # print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint, '// OR LOSS <', closeloss)
     print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint)
@@ -101,11 +105,12 @@ while pilihan != 99:
         #     fxfinal.close_position_elementid(id_elem)
 
     print()
-    bezamasa = int(5 * 60)
+    delaybeforerun = int(delaymins * 60) + 1
+    timebetweenrun = int(timemins * 60)
     arini_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     arini_epoch = int(datetime.now().timestamp())
     lamascript = arini_epoch - epochstart
-    nanti = int((arini_epoch + bezamasa) / bezamasa) * bezamasa + 61
+    nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
     tidor = nanti - arini_epoch
     futuretime = datetime.fromtimestamp(nanti).strftime('%Y-%m-%d %H:%M:%S')
     print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
