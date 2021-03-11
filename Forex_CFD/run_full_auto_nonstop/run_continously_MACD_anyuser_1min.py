@@ -38,7 +38,7 @@ fxfinal.mode_live_or_demo("Practice")
 pilihan = 0
 while pilihan != 99:
     value_EMA = 25
-    tperiod = '5 minutes'
+    tperiod = '1 minute'
     check_cfd_current = fxfinal.close_position_CFD_ANY_auto_MACD(value_EMA, tperiod)
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
@@ -55,8 +55,8 @@ while pilihan != 99:
     closebuypoint = 2
     limit_buysell = 3
     # closeloss = -0.85
-    delaymins = 1.5             # delay in mins before execute the script
-    timemins = 5                # time in mins between every script execution / running
+    delaymins = 1                   # delay in mins before execute the script
+    timemins = 2.5                  # time in mins between every script execution / running
 
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT <', buymark, ' / SELL # IF POINT >', sellmark)

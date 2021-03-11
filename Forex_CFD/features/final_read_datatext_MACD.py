@@ -10,6 +10,26 @@ class ReadAllDataTextMACD(FxReadDataText_ToolTip):
         super().__init__(driver)
         self.driver = driver
 
+    def currency_had_macd(self, currency='', time_period=''):
+        dictionary = {'1 minute': {"USD/JPY": float(0.00540),
+                                   "GBP/USD": float(0.00011),
+                                   "EUR/USD": float(0.00006),
+                                   "USD/CHF": float(0.00005),
+                                   "USD/CAD": float(0.00006),
+                                   "AUD/USD": float(0.00005),
+                                   "NZD/USD": float(0.00005),
+                                   '': float(0.00006)},
+                      '5 minutes': {"USD/JPY": float(0.01075),
+                                    "GBP/USD": float(0.00021),
+                                    "EUR/USD": float(0.00016),
+                                    "USD/CHF": float(0.00013),
+                                    "USD/CAD": float(0.00016),
+                                    "AUD/USD": float(0.00014),
+                                    "NZD/USD": float(0.00014),
+                                    '': float(0.00013)},
+                      '': {'': float(0.00010)}}
+        return dictionary[time_period][currency]
+
     def looping_check_currencies_MACD(self, value_EMA, tperiod, list_currency):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         grph_div_start_point = 1.331 # 1.329  # division graph of starting point? ( value = 1.28 to infinity)
@@ -38,23 +58,7 @@ class ReadAllDataTextMACD(FxReadDataText_ToolTip):
         tindakan = {}
         tindakan[currency] = 0
         ## MACD filter limit
-        if currency == "USD/JPY":
-            had_macd = float(0.01075)
-        elif currency == "GBP/USD":
-            had_macd = float(0.00021)
-        elif currency == "EUR/USD":
-            had_macd = float(0.00016)
-        elif currency == "USD/CHF":
-            had_macd = float(0.00013)
-        elif currency == "USD/CAD":
-            had_macd = float(0.00016)
-        elif currency == "AUD/USD":
-            had_macd = float(0.00014)
-        elif currency == "NZD/USD":
-            had_macd = float(0.00014)
-        else:
-            had_macd = float(0.00013)
-
+        had_macd = self.currency_had_macd(currency, time_period)
         collectdata = self.collecting_data_on_graph_MACD(grph_div_start)
         macdlist1 = collectdata
         macdlist = [float(i) for i in macdlist1]
