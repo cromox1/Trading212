@@ -8,10 +8,10 @@ from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
 ## USER'S PARAMETER
-_USERNAME       = "xixa01@yahoo.co.uk"
-_PASSWORD       = "H0meBase"
-# _USERNAME     = "mycromox@gmail.com"
-# _PASSWORD     = "Serverg0d!"
+# _USERNAME       = "xixa01@yahoo.co.uk"
+# _PASSWORD       = "H0meBase"
+_USERNAME     = "mycromox@gmail.com"
+_PASSWORD     = "Serverg0d!"
 # Chrome
 _CHROME_NAME    = 'chrome'
 _CHROME_DRIVER  = r'C:\tools\chromedriver\chromedriver.exe'
@@ -48,7 +48,7 @@ while pilihan != 99:
     epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S").timestamp())
 
     ### FOREX AUTO TRADER
-    all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+    all_currencies = fxfinal.currencies_to_use('major')
     buymark = -6
     sellmark = 6
     closesellpoint = -2

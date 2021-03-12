@@ -61,3 +61,39 @@ class FxMainPage(BasePage):
                 elem.click()
             except:
                 print('already on Real mode')
+
+    def currency_had_macd(self, currency='', time_period=''):
+        dictionary = {'1 minute': {"USD/JPY": float(0.00540),
+                                   "GBP/USD": float(0.00011),
+                                   "EUR/USD": float(0.00006),
+                                   "USD/CHF": float(0.00005),
+                                   "USD/CAD": float(0.00006),
+                                   "AUD/USD": float(0.00005),
+                                   "NZD/USD": float(0.00005)},
+                      '5 minutes': {"USD/JPY": float(0.01075),
+                                    "GBP/USD": float(0.00021),
+                                    "EUR/USD": float(0.00016),
+                                    "USD/CHF": float(0.00013),
+                                    "USD/CAD": float(0.00016),
+                                    "AUD/USD": float(0.00014),
+                                    "NZD/USD": float(0.00014)}}
+        if time_period in dictionary and currency in dictionary[time_period]:
+            return dictionary[time_period][currency]
+        elif time_period in dictionary and currency not in dictionary[time_period]:
+            if time_period == list(dictionary.keys())[0]:
+                return float(0.00006)
+            elif time_period == list(dictionary.keys())[1]:
+                return float(0.00013)
+            else:
+                return float(0.00010)
+        else:
+            return float(0)
+
+    def currencies_to_use(self, level):
+        dictionary = {'major': ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"],
+                      'minor': ["EUR/GBP", "GBP/JPY", "AUD/JPY", "AUD/NZD", "CAD/JPY", "EUR/CAD", "EUR/CHF", "EUR/JPY",
+                                "EUR/NZD", "GBP/CHF"]}
+        if level in dictionary:
+            return dictionary[level]
+        else:
+            return []

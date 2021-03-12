@@ -10,26 +10,6 @@ class ReadAllDataTextMACD(FxReadDataText_ToolTip):
         super().__init__(driver)
         self.driver = driver
 
-    def currency_had_macd(self, currency='', time_period=''):
-        dictionary = {'1 minute': {"USD/JPY": float(0.00540),
-                                   "GBP/USD": float(0.00011),
-                                   "EUR/USD": float(0.00006),
-                                   "USD/CHF": float(0.00005),
-                                   "USD/CAD": float(0.00006),
-                                   "AUD/USD": float(0.00005),
-                                   "NZD/USD": float(0.00005),
-                                   '': float(0.00006)},
-                      '5 minutes': {"USD/JPY": float(0.01075),
-                                    "GBP/USD": float(0.00021),
-                                    "EUR/USD": float(0.00016),
-                                    "USD/CHF": float(0.00013),
-                                    "USD/CAD": float(0.00016),
-                                    "AUD/USD": float(0.00014),
-                                    "NZD/USD": float(0.00014),
-                                    '': float(0.00013)},
-                      '': {'': float(0.00010)}}
-        return dictionary[time_period][currency]
-
     def looping_check_currencies_MACD(self, value_EMA, tperiod, list_currency):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         grph_div_start_point = 1.331 # 1.329  # division graph of starting point? ( value = 1.28 to infinity)
@@ -38,7 +18,7 @@ class ReadAllDataTextMACD(FxReadDataText_ToolTip):
         print()
         print('### Scanning Data Result ( SMA =', value_EMA, ' / tperiod =' , tperiod,') ###')
         todopoint = {}
-        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        all_currencies = self.currencies_to_use('major')
         for currency in list_currency:
             ix = all_currencies.index(currency) + 1
             print(str(ix) + ' ) ', end='')

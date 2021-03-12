@@ -48,7 +48,7 @@ while pilihan != 99:
     epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S").timestamp())
 
     ### FOREX AUTO TRADER
-    all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+    all_currencies = fxfinal.currencies_to_use('major')
     buymark = -6
     sellmark = 6
     closesellpoint = -2
