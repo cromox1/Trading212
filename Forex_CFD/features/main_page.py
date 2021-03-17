@@ -51,6 +51,8 @@ class FxMainPage(BasePage):
             try:
                 elem = self.driver.find_element_by_class_name("green")
                 elem.click()
+                current_url = self.driver.current_url
+                self.driver.get(current_url)
             except:
                 print('already on Practice mode')
         elif urlmode == "demo" and mode == "Real":
@@ -59,8 +61,12 @@ class FxMainPage(BasePage):
             try:
                 elem = self.driver.find_element_by_class_name("blue")
                 elem.click()
+                current_url = self.driver.current_url
+                self.driver.get(current_url)
             except:
                 print('already on Real mode')
+        else:
+            print('Already on ' + mode + ' mode')
 
     def currency_had_macd(self, currency='', time_period=''):
         dictionary = {'1 minute': {"USD/JPY": float(0.00540),

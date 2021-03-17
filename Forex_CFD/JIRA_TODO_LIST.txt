@@ -1,22 +1,28 @@
-1) Jira-20210307-1 : limit the number of Instrument / Open_position to 3 or 4 (out of 7 Major currencies) ##DONE##
+1)##CLOSE## Jira-20210307-1 : limit the number of Instrument / Open_position to 3 or 4 (out of 7 Major currencies)
 2) Jira-20210307-2 : increase speed run of run_manually_ALL_anyuser.py (old script which use gradient) - currently 190 secs / more than 3 mins
-3) Jira-20210307-3 : rename folder run_nonstop to run_full_auto_nonstop ##DONE##
+3)##CLOSE## Jira-20210307-3 : rename folder run_nonstop to run_full_auto_nonstop
 4) Jira-20210308-1 : log any xtvt/error/message to file (as well appear on console) from python script (as bash not work)
 5) Jira-20210308-2 : combine MACD & old style gradient
 6) Jira-20210308-3 : script cannot running from other computer/laptop
 7) Jira-20210309-1 : currencies that are in open_position should run first/earlier from other currencies
 8) Jira-20210309-2 : script to scan only (MACD) - no buy, no suggest etc... (link to Jira-20210308-2)
 9) Jira-20210309-3 : script to scan only (gradient style) - no buy, no suggest etc... (link to Jira-20210308-2)
-10) Jira-20210309-4 : change to 2 mins (121 secs) after every 5 mins - 1 min (61 secs) look data not stable ##DONE##
+10)##CLOSE## Jira-20210309-4 : change to 2 mins (121 secs) after every 5 mins - 1 min (61 secs) look data not stable
 11) Jira-20210309-5 : auto script to wait 5 secs before execution, so can stop if needed
 12) Jira-20210309-6 : gradient script - run curencies by currencies, then time period by time period (link to Jira-20210307-2)
 13) Jira-20210309-7 : decrease number of data to just the last 5
 14) Jira-20210309-8 : script to auto restart execution if the existing one is stop/terminate (by itself/error)
 15) Jira-20210309-9 : script to close existing open_position and won't buy/open new position
 16) Jira-20210309-10 : script to run specific/choosen currencies only (make list_currencies as input)
-17) Jira-20210309-11 : modify data result output for more infos - to show last & second last data ##DONE##
-18) Jira-20210309-12 : add highest/lowest point - highest (=, =, low vice-versa), lowest (=, =, high vice-versa) ##DONE##
+17)##CLOSE## Jira-20210309-11 : modify data result output for more infos - to show last & second last data
+18)##CLOSE## Jira-20210309-12 : add highest/lowest point - highest (=, =, low vice-versa), lowest (=, =, high vice-versa)
 19) Jira-20210309-13 : check chance run MACD to use lower time period (1 min) rather than currently (5 mins)
-20) Jira-20210309-14 : add some minor currencies - like GBP/JPY
+20)##CLOSE## Jira-20210309-14 : add some minor currencies - like GBP/JPY
 21) Jira-20210310-1 : script will add all open_position (all with points more than 7) even if the total > limit_buysell
-22) 
+22) Jira-20210312-1 : script MACD cannot run using '1 minute' time period - error cannot read data
+23) Jira-20210312-2 : to add new currencies to open position should not take existing running open currencies
+24) Jira-20210312-3 : if buysell_instrument reached limit, script should only run on open position currencies only
+25) Jira-20210312-4 : Ubuntu (Lubuntu) has diff setting (browser, browser driver, directory setting, etc.)
+26) Jira-20210312-5 : MACD for '1 minute' time period is inverted with '5 minutes' time period
+27) Jira-20210312-6 : add new currencies to open position for overlimit number should pick up randomly
+28) Jira-20210317-1 : change mode from Live to Demo (Real to Practice) hang and only show word 'Practice'
