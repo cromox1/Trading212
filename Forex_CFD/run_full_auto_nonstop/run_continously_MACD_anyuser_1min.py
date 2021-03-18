@@ -3,6 +3,7 @@ import sys
 sys.path.extend(['C:\\Users\\cromox\\PycharmProjects\\Trading212', 'C:/Users/cromox/PycharmProjects/Trading212'])
 
 from datetime import datetime
+from pytz import timezone
 from time import sleep
 from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
@@ -45,7 +46,7 @@ while pilihan != 99:
     tocloseone = check_cfd_current[2]
     instrument_id = check_cfd_current[3]
     masastart = check_cfd_current[4]
-    epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S").timestamp())
+    epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S %Z%z").timestamp())
 
     ### FOREX AUTO TRADER
     all_currencies = fxfinal.currencies_to_use('major')
@@ -124,12 +125,12 @@ while pilihan != 99:
     print()
     delaybeforerun = int(delaymins * 60) + 1
     timebetweenrun = int(timemins * 60)
-    arini_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    arini_epoch = int(datetime.now().timestamp())
+    arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S")
+    arini_epoch = int(datetime.now(timezone('Europe/London')).timestamp())
     lamascript = arini_epoch - epochstart
     nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
     tidor = nanti - arini_epoch
-    futuretime = datetime.fromtimestamp(nanti).strftime('%Y-%m-%d %H:%M:%S')
+    futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S')
     print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
     print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
     sleep(tidor)

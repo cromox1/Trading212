@@ -37,9 +37,11 @@ fxfinal.mode_live_or_demo("Practice")
 ### AUTO RUN SCRIPTS - BUY / SELL / CLOSE POSITION AUTOMATICALLY & CONTINOUSLY
 
 pilihan = 0
+rerun = 'Y'
+value_EMA = 25
+tperiod = '5 minutes'      # tperiod = '1 minute' / '5 minutes' / '10 minutes' / '15 minutes'
+
 while pilihan != 99:
-    value_EMA = 25
-    tperiod = '5 minutes'
     check_cfd_current = fxfinal.close_position_CFD_ANY_auto_MACD(value_EMA, tperiod)
     todopoint = check_cfd_current[0]
     open_position = check_cfd_current[1]
@@ -122,6 +124,10 @@ while pilihan != 99:
         #     print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
         #     fxfinal.close_position_elementid(id_elem)
 
+    ####
+    # PILIHAN - TODO
+
+    ## Sleep / Gap between RUN
     print()
     delaybeforerun = int(delaymins * 60) + 1
     timebetweenrun = int(timemins * 60)

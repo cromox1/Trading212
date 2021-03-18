@@ -16,7 +16,8 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         fxconvert = currency_date_value()
         print()
         todopoint = {}
-        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        all_currencies = self.currencies_to_use('major')
         for currency in all_currencies:
             ix = all_currencies.index(currency) + 1
             print(str(ix) + ' ) (tperiod: ' + str(tperiod) + ') // ', end='')
@@ -33,7 +34,8 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         print()
         print('### Scanning Data Result ( SMA =', value_EMA, ' / tperiod =' , tperiod,') ###')
         todopoint = {}
-        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        all_currencies = self.currencies_to_use('major')
         for currency in list_currency:
             ix = all_currencies.index(currency) + 1
             print(str(ix) + ' ) ', end='')

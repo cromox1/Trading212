@@ -3,6 +3,7 @@ __author__ = 'cromox'
 from time import sleep
 import inspect
 from datetime import datetime
+from pytz import timezone
 from Forex_CFD.features.fx_buysell import FxBuySell
 
 class FxClosePosition(FxBuySell):
@@ -30,7 +31,7 @@ class FxClosePosition(FxBuySell):
             '//*[@id="equity-ppl"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
         # "%.5f" % round(float(VALUE)), 5)
         myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
-        arini = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        arini = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S %Z%z")
         print('\n# No_Instruments =', len(instrument_list), '// NOW', arini, '// DFD =', '£' + str(myDFD),
               '// Total_Fund =', total_fund, '// Free_Fund =', free_fund, '// Live_Result =', result)
         dict1 = {}

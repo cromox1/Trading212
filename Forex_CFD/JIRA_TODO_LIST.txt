@@ -25,4 +25,7 @@
 25) Jira-20210312-4 : Ubuntu (Lubuntu) has diff setting (browser, browser driver, directory setting, etc.)
 26) Jira-20210312-5 : MACD for '1 minute' time period is inverted with '5 minutes' time period
 27) Jira-20210312-6 : add new currencies to open position for overlimit number should pick up randomly
-28) Jira-20210317-1 : change mode from Live to Demo (Real to Practice) hang and only show word 'Practice'
+28)##CLOSE## Jira-20210317-1 : change user mode from Live to Demo (or Real to Practice) hang and only show word 'Practice'
+29) Jira-20210317-2 : script MACD '1 minute' time period making max & min only - not in sinusoid pattern
+30)##CLOSE## Jira-20210318-1 : timezone use Europe/Berlin timezone, should use Europe/London
+31)##CLOSE## Jira-20210318-2 : script running time wrong - has additional 1 hr because of timezone problem

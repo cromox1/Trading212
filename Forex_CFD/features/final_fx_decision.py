@@ -126,7 +126,8 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         # ### ni section checking whatever status of the current Forex/CFD
         # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         # list_currencies = [i for i in all_currencies if i not in open_position]
-        list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        list_currencies = self.currencies_to_use('major')     # all_currencies
         todopoint = {}
         tocloseone = {}
         if len(list_currencies) >= 1:
@@ -156,7 +157,35 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         # ### ni section checking whatever status of the current Forex/CFD
         # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         # list_currencies = [i for i in all_currencies if i not in open_position]
-        list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        list_currencies = self.currencies_to_use('major')   # all_currencies
+        todopoint = {}
+        tocloseone = {}
+        if len(list_currencies) >= 1:
+            newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
+            todopoint = self.mergeDictNoZero(todopoint, newpoint)
+            tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
+        return todopoint, open_position, tocloseone, newdict1, arini
+
+    def close_position_CFD_ANY_semiauto_MACD(self, value_EMA, tperiod, rerun='Y'):
+        # self.log.info("-> " + inspect.stack()[0][3] + " started")
+        ### ni section nak tengok apa yg kita ada skrg
+        list_choice = self.list_CFD_open_position()
+        dict1 = list_choice[0]
+        dict2 = list_choice[1]
+        arini = list_choice[2]
+        open_position = {}
+        newdict1 = {}
+        for kk,vv in dict2.items():
+            newkk = vv.split(' ')[0]
+            newvv1 = vv.split('/')[-2].replace(' ','')
+            newvv = round(float(newvv1), 2)
+            newvvid = dict1[kk]
+            open_position.update({newkk: newvv})
+            newdict1.update({newkk: newvvid})
+
+        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        list_currencies = self.currencies_to_use('major')    # all_currencies
         todopoint = {}
         tocloseone = {}
         if len(list_currencies) >= 1:
