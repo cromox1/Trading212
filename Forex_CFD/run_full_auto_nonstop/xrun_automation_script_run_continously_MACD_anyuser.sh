@@ -21,6 +21,6 @@ echo "PC-TALIBR2+cromox@PC-TALIBR2 /cygdrive/c/Users/cromox/PycharmProjects/Trad
 echo "$ cat" "$file1" >> "$file1"
 echo >> "$file1"
 
-# /cygdrive/c/tools/Python38/python.exe run_semi_auto_MACD_anyuser.py | tee -a "$file1"
-# /cygdrive/c/tools/Python38/python.exe run_semi_auto_MACD_anyuser.py >> "$file1" 2>&1 | tee -a "$file1"
-/cygdrive/c/tools/Python38/python.exe run_semi_auto_MACD_anyuser.py 2>&1 | tee -a "$file1"
+# /cygdrive/c/tools/Python38/python.exe run_continously_MACD_anyuser.py | tee -a "$file1"
+# /cygdrive/c/tools/Python38/python.exe run_continously_MACD_anyuser.py >> "$file1" 2>&1 | tee -a "$file1"
+/cygdrive/c/tools/Python38/python.exe run_continously_MACD_anyuser.py 2>&1 | tee -a "$file1"

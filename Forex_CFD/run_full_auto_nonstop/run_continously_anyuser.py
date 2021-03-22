@@ -9,10 +9,10 @@ from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
 ## USER'S PARAMETER
-_USERNAME       = "xixa01@yahoo.co.uk"
-_PASSWORD       = "H0meBase"
-# _USERNAME     = "mycromox@gmail.com"
-# _PASSWORD     = "Serverg0d!"
+# _USERNAME       = "xixa01@yahoo.co.uk"
+# _PASSWORD       = "H0meBase"
+_USERNAME     = "mycromox@gmail.com"
+_PASSWORD     = "Serverg0d!"
 
 # Chrome
 _CHROME_NAME    = 'chrome'
@@ -118,9 +118,10 @@ while pilihan != 99:
         elif buysell == 'SELL' and directionpoint > closesellpoint:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
-        elif vo < closeloss:
-            print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
-            fxfinal.close_position_elementid(id_elem)
+        # REMOVE closeloss for time being
+        # elif vo < closeloss:
+        #     print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
+        #     fxfinal.close_position_elementid(id_elem)
 
     print()
     bezamasa = int(5 * 60)
