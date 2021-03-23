@@ -30,4 +30,4 @@
 30)##CLOSE## Jira-20210318-1 : timezone use Europe/Berlin timezone, should use Europe/London
 31)##CLOSE## Jira-20210318-2 : script running time wrong - has additional 1 hr because of timezone problem
 32) Jira-20210319-1 : to make script that run MACD/momentum to enter CFD then just wait until get big profit
-33)
+33) Jira-20210323-1 : make semi-auto script
