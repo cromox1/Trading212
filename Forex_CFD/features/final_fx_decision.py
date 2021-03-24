@@ -1,6 +1,8 @@
 __author__ = 'cromox'
 
 from time import sleep
+from datetime import datetime
+from pytz import timezone
 import inspect
 from Forex_CFD.features.final_read_datatext import ReadAllDataText
 from Forex_CFD.features.final_read_datatext_MACD import ReadAllDataTextMACD
@@ -167,29 +169,83 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
         return todopoint, open_position, tocloseone, newdict1, arini
 
-    def close_position_CFD_ANY_semiauto_MACD(self, value_EMA, tperiod, rerun='Y'):
+    def close_position_CFD_ANY_manual_MACD(self, value_EMA, tperiod, rerun):
         # self.log.info("-> " + inspect.stack()[0][3] + " started")
-        ### ni section nak tengok apa yg kita ada skrg
-        list_choice = self.list_CFD_open_position()
-        dict1 = list_choice[0]
-        dict2 = list_choice[1]
-        arini = list_choice[2]
-        open_position = {}
-        newdict1 = {}
-        for kk,vv in dict2.items():
-            newkk = vv.split(' ')[0]
-            newvv1 = vv.split('/')[-2].replace(' ','')
-            newvv = round(float(newvv1), 2)
-            newvvid = dict1[kk]
-            open_position.update({newkk: newvv})
-            newdict1.update({newkk: newvvid})
-
-        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        list_currencies = self.currencies_to_use('major')    # all_currencies
+        list_currencies = self.currencies_to_use('major')  # all_currencies
         todopoint = {}
         tocloseone = {}
-        if len(list_currencies) >= 1:
+        if rerun == 'Y' and len(list_currencies) >= 1:
             newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
             todopoint = self.mergeDictNoZero(todopoint, newpoint)
             tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
-        return todopoint, open_position, tocloseone, newdict1, arini
+        list_choice = self.list_CFD_open_position()
+        dict1 = list_choice[0]
+        dict2 = list_choice[1]
+        masastart = list_choice[2]
+        epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S %Z%z").timestamp())
+        buy_sell_dict = self.pilihan_buy_or_sell(dict1)
+        number_of_choice = len(dict1) + 2
+        pilihan = self.pilihan_to_close_position(number_of_choice)
+        if len(dict1):
+            try:
+                rerun = 'N'
+                if len(dict1) > 0 and 0 < int(pilihan) <= len(dict1):
+                    print(' -- > Close Position [', str(pilihan), '] =', dict2[int(pilihan)])
+                    confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
+                    id_ele = dict1[int(pilihan)]
+                    if confirmation.lower() == 'y':
+                        self.close_position_elementid(id_ele)
+                    else:
+                        print("CHANGE MIND!! - Didn't CLOSE [", str(pilihan), '] =', dict2[int(pilihan)])
+                elif int(pilihan) == buy_sell_dict['buy']:
+                    currency = self.choice_currency("BUY")
+                    amount = input('Amount to BUY (min 500) : ')
+                    try:
+                        if currency != 'x':
+                            self.buy_stock(currency, int(amount))
+                        else:
+                            print('Wrong currency')
+                    except:
+                        print('ERROR on BUY')
+                        self.log.info("---> ERROR on BUY // amount = " + str(amount))
+                elif int(pilihan) == buy_sell_dict['sell']:
+                    currency = self.choice_currency("SELL")
+                    amount = input('Amount to SELL (min 500) : ')
+                    try:
+                        if currency != 'x':
+                            self.sell_stock(currency, int(amount))
+                        else:
+                            print('Wrong currency')
+                    except:
+                        print('ERROR on SELL')
+                        self.log.info("---> ERROR on SELL // amount = " + str(amount))
+                elif int(pilihan) == 99:
+                    print("You choose - QUIT/EXIT !!")
+                    self.driver.close()
+                elif int(pilihan) == 77:
+                    print("You choose - RERUN !!")
+                    rerun = 'Y'
+                else:
+                    print("Out of range")
+                return pilihan, rerun
+            except:
+                rerun = 'N'
+                print("Nothing TODO")
+                return pilihan, rerun
+        else:
+            ## Sleep / Gap between RUN
+            delaymins = 1.5  # delay in mins before execute the script
+            timemins = 5  # time in mins between every script execution / running
+            print()
+            delaybeforerun = int(delaymins * 60) + 1
+            timebetweenrun = int(timemins * 60)
+            arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S")
+            arini_epoch = int(datetime.now(timezone('Europe/London')).timestamp())
+            lamascript = arini_epoch - epochstart
+            nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
+            tidor = nanti - arini_epoch
+            futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S')
+            print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
+            print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
+            sleep(tidor)
+        return pilihan, rerun
