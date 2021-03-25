@@ -1,6 +1,8 @@
 __author__ = 'cromox'
 
 from time import sleep
+from datetime import datetime
+from pytz import timezone
 import inspect
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -103,3 +105,18 @@ class FxMainPage(BasePage):
             return dictionary[level]
         else:
             return []
+
+    def time_script_running_and_next(self, datetimestart, min_delay, min_gap, timezonename='Europe/London'):
+        print()
+        delaybeforerun = int(min_delay * 60) + 1
+        timebetweenrun = int(min_gap * 60)
+        epochstart = int(datetime.strptime(datetimestart, "%Y-%m-%d %H:%M:%S %Z%z").timestamp())
+        arini_date = datetime.now(timezone(timezonename)).strftime("%Y-%m-%d %H:%M:%S")
+        arini_epoch = int(datetime.now(timezone(timezonename)).timestamp())
+        lamascript = arini_epoch - epochstart
+        nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
+        tidor = nanti - arini_epoch
+        futuretime = datetime.fromtimestamp(nanti, timezone(timezonename)).strftime('%Y-%m-%d %H:%M:%S')
+        print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
+        print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
+        sleep(tidor)

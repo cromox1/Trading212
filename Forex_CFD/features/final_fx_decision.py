@@ -52,6 +52,37 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         xpathto = f"//table[@data-dojo-attach-point='tableNode']//tr[@id='{id_element}']//td[contains(@class,'direction')]"
         return  self.driver.find_elements_by_xpath(xpathto)[0].text
 
+    def close_position_pilihan_elementid(self, dict1, dict2, pilihan):
+        print(' -- > Close Position [', str(pilihan), '] =', dict2[int(pilihan)])
+        confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
+        id_ele = dict1[int(pilihan)]
+        if confirmation.lower() == 'y':
+            self.close_position_elementid(id_ele)
+        else:
+            print("CHANGE MIND!! - Didn't CLOSE [", str(pilihan), '] =', dict2[int(pilihan)])
+
+    def buy_currency_with_amount(self, currency):
+        amount = input('Amount to BUY (min 500) : ')
+        try:
+            if currency != 'x':
+                self.buy_stock(currency, int(amount))
+            else:
+                print('Wrong currency')
+        except:
+            print('ERROR on BUY')
+            self.log.info("---> ERROR on BUY // amount = " + str(amount))
+
+    def sell_currency_with_amount(self, currency):
+        amount = input('Amount to SELL (min 500) : ')
+        try:
+            if currency != 'x':
+                self.sell_stock(currency, int(amount))
+            else:
+                print('Wrong currency')
+        except:
+            print('ERROR on SELL')
+            self.log.info("---> ERROR on SELL // amount = " + str(amount))
+
     def close_position_CFD_ANY(self, value_EMA, tperiod, rerun):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         if rerun == 'Y':
@@ -65,35 +96,13 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         try:
             rerun = 'N'
             if len(dict1) > 0 and 0 < int(pilihan) <= len(dict1):
-                print(' -- > Close Position [', str(pilihan), '] =', dict2[int(pilihan)])
-                confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
-                id_ele = dict1[int(pilihan)]
-                if confirmation.lower() == 'y':
-                    self.close_position_elementid(id_ele)
-                else:
-                    print("CHANGE MIND!! - Didn't CLOSE [", str(pilihan), '] =', dict2[int(pilihan)])
+                self.close_position_pilihan_elementid(dict1, dict2, pilihan)
             elif int(pilihan) == buy_sell_dict['buy']:
                 currency = self.choice_currency("BUY")
-                amount = input('Amount to BUY (min 500) : ')
-                try:
-                    if currency != 'x':
-                        self.buy_stock(currency, int(amount))
-                    else:
-                        print('Wrong currency')
-                except:
-                    print('ERROR on BUY')
-                    self.log.info("---> ERROR on BUY // amount = " + str(amount))
+                self.buy_currency_with_amount(currency)
             elif int(pilihan) == buy_sell_dict['sell']:
                 currency = self.choice_currency("SELL")
-                amount = input('Amount to SELL (min 500) : ')
-                try:
-                    if currency != 'x':
-                        self.sell_stock(currency, int(amount))
-                    else:
-                        print('Wrong currency')
-                except:
-                    print('ERROR on SELL')
-                    self.log.info("---> ERROR on SELL // amount = " + str(amount))
+                self.sell_currency_with_amount(currency)
             elif int(pilihan) == 99:
                 print("You choose - QUIT/EXIT !!")
                 self.driver.close()
@@ -178,48 +187,28 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
             todopoint = self.mergeDictNoZero(todopoint, newpoint)
             tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
+            print('\nCHK1 -- \n todopoint =', todopoint, '\n tocloseone =', tocloseone)
         list_choice = self.list_CFD_open_position()
         dict1 = list_choice[0]
         dict2 = list_choice[1]
         masastart = list_choice[2]
-        epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S %Z%z").timestamp())
         buy_sell_dict = self.pilihan_buy_or_sell(dict1)
         number_of_choice = len(dict1) + 2
         pilihan = self.pilihan_to_close_position(number_of_choice)
-        print('CHK2 -- dict1 = ', dict1)
+        print('\nCHK2 -- dict1 =', dict1, ' / len(dict1) =', len(dict1))
+        print('\nCHK3 -- dict2 =', dict2, ' / len(dict2) =', len(dict2))
+        print('\nCHK4 -- pilihan =', pilihan)
         if len(dict1) > 0:
             try:
                 rerun = 'N'
                 if len(dict1) > 0 and 0 < int(pilihan) <= len(dict1):
-                    print(' -- > Close Position [', str(pilihan), '] =', dict2[int(pilihan)])
-                    confirmation = input("Confirm to CLOSE position [ " + str(pilihan) + " ] ? [ Y / N ] : ")
-                    id_ele = dict1[int(pilihan)]
-                    if confirmation.lower() == 'y':
-                        self.close_position_elementid(id_ele)
-                    else:
-                        print("CHANGE MIND!! - Didn't CLOSE [", str(pilihan), '] =', dict2[int(pilihan)])
+                    self.close_position_pilihan_elementid(dict1, dict2, pilihan)
                 elif int(pilihan) == buy_sell_dict['buy']:
                     currency = self.choice_currency("BUY")
-                    amount = input('Amount to BUY (min 500) : ')
-                    try:
-                        if currency != 'x':
-                            self.buy_stock(currency, int(amount))
-                        else:
-                            print('Wrong currency')
-                    except:
-                        print('ERROR on BUY')
-                        self.log.info("---> ERROR on BUY // amount = " + str(amount))
+                    self.buy_currency_with_amount(currency)
                 elif int(pilihan) == buy_sell_dict['sell']:
                     currency = self.choice_currency("SELL")
-                    amount = input('Amount to SELL (min 500) : ')
-                    try:
-                        if currency != 'x':
-                            self.sell_stock(currency, int(amount))
-                        else:
-                            print('Wrong currency')
-                    except:
-                        print('ERROR on SELL')
-                        self.log.info("---> ERROR on SELL // amount = " + str(amount))
+                    self.sell_currency_with_amount(currency)
                 elif int(pilihan) == 99:
                     print("You choose - QUIT/EXIT !!")
                     self.driver.close()
@@ -237,16 +226,5 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             ## Sleep / Gap between RUN
             delaymins = 1.5  # delay in mins before execute the script
             timemins = 5  # time in mins between every script execution / running
-            print()
-            delaybeforerun = int(delaymins * 60) + 1
-            timebetweenrun = int(timemins * 60)
-            arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S")
-            arini_epoch = int(datetime.now(timezone('Europe/London')).timestamp())
-            lamascript = arini_epoch - epochstart
-            nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
-            tidor = nanti - arini_epoch
-            futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S')
-            print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
-            print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
-            sleep(tidor)
+            self.time_script_running_and_next(masastart, delaymins, timemins)
         return pilihan, rerun

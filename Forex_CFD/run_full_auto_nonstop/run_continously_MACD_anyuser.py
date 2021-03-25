@@ -122,15 +122,4 @@ while pilihan != 99:
         #     print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
         #     fxfinal.close_position_elementid(id_elem)
 
-    print()
-    delaybeforerun = int(delaymins * 60) + 1
-    timebetweenrun = int(timemins * 60)
-    arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S")
-    arini_epoch = int(datetime.now(timezone('Europe/London')).timestamp())
-    lamascript = arini_epoch - epochstart
-    nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
-    tidor = nanti - arini_epoch
-    futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S')
-    print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
-    print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
-    sleep(tidor)
+    fxfinal.time_script_running_and_next(masastart, delaymins, timemins)

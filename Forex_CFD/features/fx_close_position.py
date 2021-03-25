@@ -103,14 +103,15 @@ class FxClosePosition(FxBuySell):
 
     def choice_currency(self, buysell):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
-        list = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        for curr in list:
-            print(list.index(curr) + 1, ")", curr)
-        currency = input("Chose currency to " + str(buysell) + " [ 1 - " + str(len(list)) + " ] : ")
-        if currency in list:
+        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
+        list_currencies = self.currencies_to_use('major')
+        for curr in list_currencies:
+            print(list_currencies.index(curr) + 1, ")", curr)
+        currency = input("Chose currency to " + str(buysell) + " [ 1 - " + str(len(list_currencies)) + " ] : ")
+        if currency in list_currencies:
             return currency
-        elif 0 < int(currency) <= len(list):
-            return list[int(currency) - 1]
+        elif 0 < int(currency) <= len(list_currencies):
+            return list_currencies[int(currency) - 1]
         else:
             self.log.info("---> Wrong currency // currency = " + str(currency))
             return 'x'
