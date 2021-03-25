@@ -186,7 +186,8 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         buy_sell_dict = self.pilihan_buy_or_sell(dict1)
         number_of_choice = len(dict1) + 2
         pilihan = self.pilihan_to_close_position(number_of_choice)
-        if len(dict1):
+        print('CHK2 -- dict1 = ', dict1)
+        if len(dict1) > 0:
             try:
                 rerun = 'N'
                 if len(dict1) > 0 and 0 < int(pilihan) <= len(dict1):

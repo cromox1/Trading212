@@ -31,3 +31,6 @@
 31)##CLOSE## Jira-20210318-2 : script running time wrong - has additional 1 hr because of timezone problem
 32) Jira-20210319-1 : to make script that run MACD/momentum to enter CFD then just wait until get big profit
 33) Jira-20210323-1 : make semi-auto script
+34) Jira-20210325-1 : semi-auto script - if Open_Position=0 or buysell_point<7, Pilihan_script sleep (5mins) then rerun
+35) Jira-20210325-2 : semi-auto script - if Open_position=limit, only run MACD_scanning for currencies in Open_position
+36) Jira-20210325-3 : semi-auto script - if no_choice on Pilihan_script fro certain time(auto_calculate), rerun script
