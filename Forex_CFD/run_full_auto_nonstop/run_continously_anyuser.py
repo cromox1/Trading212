@@ -125,12 +125,12 @@ while pilihan != 99:
 
     print()
     bezamasa = int(5 * 60)
-    arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S")
+    arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S GMT%z")
     arini_epoch = int(datetime.now(timezone('Europe/London')).timestamp())
     lamascript = arini_epoch - epochstart
     nanti = int((arini_epoch + bezamasa) / bezamasa) * bezamasa + 1
     tidor = nanti - arini_epoch
-    futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S')
+    futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S GMT%z')
     print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
     print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
     sleep(tidor)

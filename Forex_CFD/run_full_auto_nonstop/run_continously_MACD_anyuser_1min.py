@@ -46,7 +46,7 @@ while pilihan != 99:
     tocloseone = check_cfd_current[2]
     instrument_id = check_cfd_current[3]
     masastart = check_cfd_current[4]
-    epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S %Z%z").timestamp())
+    epochstart = int(datetime.strptime(masastart, "%Y-%m-%d %H:%M:%S GMT%z").timestamp())
 
     ### FOREX AUTO TRADER
     all_currencies = fxfinal.currencies_to_use('major')

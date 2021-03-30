@@ -110,13 +110,13 @@ class FxMainPage(BasePage):
         print()
         delaybeforerun = int(min_delay * 60) + 1
         timebetweenrun = int(min_gap * 60)
-        epochstart = int(datetime.strptime(datetimestart, "%Y-%m-%d %H:%M:%S %Z%z").timestamp())
-        arini_date = datetime.now(timezone(timezonename)).strftime("%Y-%m-%d %H:%M:%S")
+        epochstart = int(datetime.strptime(datetimestart, "%Y-%m-%d %H:%M:%S GMT%z").timestamp())
+        arini_date = datetime.now(timezone(timezonename)).strftime("%Y-%m-%d %H:%M:%S GMT%z")
         arini_epoch = int(datetime.now(timezone(timezonename)).timestamp())
         lamascript = arini_epoch - epochstart
         nanti = int((arini_epoch + timebetweenrun) / timebetweenrun) * timebetweenrun + delaybeforerun
         tidor = nanti - arini_epoch
-        futuretime = datetime.fromtimestamp(nanti, timezone(timezonename)).strftime('%Y-%m-%d %H:%M:%S')
+        futuretime = datetime.fromtimestamp(nanti, timezone(timezonename)).strftime('%Y-%m-%d %H:%M:%S GMT%z')
         print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
         print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
         sleep(tidor)

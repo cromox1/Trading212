@@ -34,3 +34,8 @@
 34) Jira-20210325-1 : semi-auto script - if Open_Position=0 or buysell_point<7, Pilihan_script sleep (5mins) then rerun
 35) Jira-20210325-2 : semi-auto script - if Open_position=limit, only run MACD_scanning for currencies in Open_position
 36) Jira-20210325-3 : semi-auto script - if no_choice on Pilihan_script fro certain time(auto_calculate), rerun script
+37)##CLOSE## Jira-20210331-1 : run on LUbuntu PC from remote - problem to open X11 display using ssh/telnet
+38)##CLOSE## Jira-20210331-2 : run on LUbuntu PC - bash script to convert Windows directories to Linux directories etc.
+39) Jira-20210331-3 : run on LUbuntu PC - script stuck at currency 'NZD/USD'
+40) Jira-20210331-4 : timezone problem - strptime cannot convert strftime vice-versa
+41) Jira-20210331-5 :

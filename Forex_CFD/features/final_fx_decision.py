@@ -154,7 +154,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         list_choice = self.list_CFD_open_position()
         dict1 = list_choice[0]
         dict2 = list_choice[1]
-        arini = list_choice[2]
+        masastart = list_choice[2]
         open_position = {}
         newdict1 = {}
         for kk,vv in dict2.items():
@@ -176,7 +176,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
             todopoint = self.mergeDictNoZero(todopoint, newpoint)
             tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
-        return todopoint, open_position, tocloseone, newdict1, arini
+        return todopoint, open_position, tocloseone, newdict1, masastart
 
     def close_position_CFD_ANY_manual_MACD(self, value_EMA, tperiod, rerun):
         # self.log.info("-> " + inspect.stack()[0][3] + " started")
@@ -222,9 +222,4 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
                 rerun = 'N'
                 print("Nothing TODO")
                 return pilihan, rerun
-        else:
-            ## Sleep / Gap between RUN
-            delaymins = 1.5  # delay in mins before execute the script
-            timemins = 5  # time in mins between every script execution / running
-            self.time_script_running_and_next(masastart, delaymins, timemins)
-        return pilihan, rerun
+        return pilihan, todopoint, masastart, rerun

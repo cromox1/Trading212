@@ -31,8 +31,8 @@ class FxClosePosition(FxBuySell):
             '//*[@id="equity-ppl"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
         # "%.5f" % round(float(VALUE)), 5)
         myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
-        arini = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S %Z%z")
-        print('\n# No_Instruments =', len(instrument_list), '// NOW', arini, '// DFD =', '£' + str(myDFD),
+        masastart = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S GMT%z")
+        print('\n# No_Instruments =', len(instrument_list), '// NOW', masastart, '// DFD =', '£' + str(myDFD),
               '// Total_Fund =', total_fund, '// Free_Fund =', free_fund, '// Live_Result =', result)
         dict1 = {}
         dict2 = {}
@@ -51,7 +51,7 @@ class FxClosePosition(FxBuySell):
                 dict2[i] = text
                 i += 1
                 print()
-        return dict1, dict2, arini
+        return dict1, dict2, masastart
 
     def pilihan_to_close_position(self, num_choice):
         self.log.info("--> " + inspect.stack()[0][3] + " started")
