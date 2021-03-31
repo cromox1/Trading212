@@ -9,10 +9,10 @@ from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
 ## USER'S PARAMETER
-_USERNAME       = "xixa01@yahoo.co.uk"
-_PASSWORD       = "H0meBase"
-# _USERNAME     = "mycromox@gmail.com"
-# _PASSWORD     = "Serverg0d!"
+# _USERNAME       = "xixa01@yahoo.co.uk"
+# _PASSWORD       = "H0meBase"
+_USERNAME     = "mycromox@gmail.com"
+_PASSWORD     = "Serverg0d!"
 # Chrome
 _CHROME_NAME    = 'chrome'
 _CHROME_DRIVER  = r'C:\tools\chromedriver\chromedriver.exe'
