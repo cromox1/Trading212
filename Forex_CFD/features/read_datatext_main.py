@@ -58,24 +58,23 @@ class FxReadDataText_Main(FxMainPage):
         element_period.clear()
         element_period.send_keys(str(value_EMA))
         ## set SMA/EMA colour and thickness
-        # unixcolor_ele = self.driver.find_element_by_xpath(
-        #     '//div[@id="chart-settings"]//div[@class="editable-content"]/div[@class="colorpicker-icon combobox _focusable"]')
-        unixcolor_ele = self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div")
+        # unixcolor_ele = self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div")
+        # (working on Windows but not Linux/Lubuntu)
+        unixcolor_ele = self.driver.find_element_by_css_selector('div.combobox._focusable.colorpicker-icon')
         unixcolor_id = unixcolor_ele.get_attribute('id')
-        # self.driver.find_element_by_css_selector(f"#{unixcolor_id} > span").click()
         unixcolor_ele.click()
         self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+        unixcolor_list = str(unixcolor_id).split('_')
         ## thickness
-        idnewlist = str(unixcolor_id).split('_')
-        idthickness1 = int(idnewlist[-1]) + 1
-        idthickness = '_'.join(str(i) for i in idnewlist[:-1] + [idthickness1])
+        idthickness1 = int(unixcolor_list[-1]) + 1
+        idthickness = '_'.join(str(i) for i in unixcolor_list[:-1] + [idthickness1])
         self.driver.find_element_by_css_selector(f"#{idthickness} > span").click()
         self.driver.find_element_by_css_selector(".item-main-2").click()
         ## set SMA/EMA use 'Open' price
         # '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_price _focusable"]/span[@class="dropdown-arrow"]'
         # '//div[@id="chart-settings"]//div[@class="editable-container"]/div[@class="editable-content"]/div[@class="combo_indicator_settings_price"]/span[@class="dropdown-arrow"]'
-        idprice1 = int(idnewlist[-1]) - 1
-        idprice = '_'.join(str(i) for i in idnewlist[:-1] + [idprice1])
+        idprice1 = int(unixcolor_list[-1]) - 1
+        idprice = '_'.join(str(i) for i in unixcolor_list[:-1] + [idprice1])
         self.driver.find_element_by_css_selector(f"#{idprice} > span").click()
         self.driver.find_element_by_css_selector(".item-indicator-settings-list-open").click()
         sleep(0.5)

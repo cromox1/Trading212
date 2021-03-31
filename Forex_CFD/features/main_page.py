@@ -124,3 +124,7 @@ class FxMainPage(BasePage):
         print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
         print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
         sleep(tidor)
+
+    # def css_list_containing_text_in_class(self, driver, selector, text):
+    #     elements = driver.find_elements_by_css_selector(selector)
+    #     return [element for element in elements if text in element.get_attribute('class')]
