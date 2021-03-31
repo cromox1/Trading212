@@ -15,7 +15,8 @@ class FxReadDataText_Main(FxMainPage):
         self.log.info("-> " + inspect.stack()[0][3] + " started" + ' / CURRENCY = ' + currency)
         # if self.driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]'):
         #     self.driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]').click()
-        elemlist = self.driver.find_elements_by_id("navigation-search-button")
+        # elemlist = self.driver.find_elements_by_id("navigation-search-button")
+        elemlist = self.driver.find_elements_by_xpath('//*[@id="navigation"]//div[@id="navigation-search-button" and @class="search-button"]')
         hoover(self.driver).move_to_element_with_offset(elemlist[0], 10, 0).perform()
         elemlist[0].click()
         self.driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
@@ -57,15 +58,25 @@ class FxReadDataText_Main(FxMainPage):
         element_period.clear()
         element_period.send_keys(str(value_EMA))
         ## set SMA/EMA colour and thickness
-        if self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div"):
-            self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div").click()
-            self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
-            self.driver.find_element_by_xpath(
-                '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_line_width _focusable"]/span[@class="dropdown-arrow"]').click()
-            self.driver.find_element_by_css_selector(".item-main-2").click()
+        # unixcolor_ele = self.driver.find_element_by_xpath(
+        #     '//div[@id="chart-settings"]//div[@class="editable-content"]/div[@class="colorpicker-icon combobox _focusable"]')
+        unixcolor_ele = self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div")
+        unixcolor_id = unixcolor_ele.get_attribute('id')
+        # self.driver.find_element_by_css_selector(f"#{unixcolor_id} > span").click()
+        unixcolor_ele.click()
+        self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+        ## thickness
+        idnewlist = str(unixcolor_id).split('_')
+        idthickness1 = int(idnewlist[-1]) + 1
+        idthickness = '_'.join(str(i) for i in idnewlist[:-1] + [idthickness1])
+        self.driver.find_element_by_css_selector(f"#{idthickness} > span").click()
+        self.driver.find_element_by_css_selector(".item-main-2").click()
         ## set SMA/EMA use 'Open' price
-        self.driver.find_element_by_xpath(
-            '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_price _focusable"]/span[@class="dropdown-arrow"]').click()
+        # '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_price _focusable"]/span[@class="dropdown-arrow"]'
+        # '//div[@id="chart-settings"]//div[@class="editable-container"]/div[@class="editable-content"]/div[@class="combo_indicator_settings_price"]/span[@class="dropdown-arrow"]'
+        idprice1 = int(idnewlist[-1]) - 1
+        idprice = '_'.join(str(i) for i in idnewlist[:-1] + [idprice1])
+        self.driver.find_element_by_css_selector(f"#{idprice} > span").click()
         self.driver.find_element_by_css_selector(".item-indicator-settings-list-open").click()
         sleep(0.5)
         ## confirm button
