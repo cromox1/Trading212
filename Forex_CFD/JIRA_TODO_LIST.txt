@@ -165,3 +165,27 @@ selenium.common.exceptions.NoSuchElementException: Message: no such element: Una
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 
+46) Jira-20210401-1 : test on LUbuntu - stop at user section
+
+azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$ python run_continously_MACD_anyuser.py
+Browser ( chrome ) version = 89.0.4389.114
+Trading212 user =  mycromox@gmail.com
+Mode use =  Practice
+Traceback (most recent call last):
+  File "run_continously_MACD_anyuser.py", line 32, in <module>
+    fxfinal.mode_live_or_demo("Practice")
+  File "/home/azizah/Trading212/Forex_CFD/features/main_page.py", line 55, in mode_live_or_demo
+    elem.click()
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <div class="user" data-dojo-attach-point="usernameNode">...</div> is not clickable at point (1759, 19). Other element would receive the click: <div class="border"></div>
+  (Session info: chrome=89.0.4389.114)
+
+azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
+
