@@ -52,12 +52,12 @@ class FxMainPage(BasePage):
             # (By.CLASS_NAME, "account-menu-button")))
             # elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
             #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
-            elem = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
+            elem_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
                 (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
-            elem.click()
+            elem_ele.click()
             try:
-                elem = self.driver.find_element_by_class_name("green")
-                elem.click()
+                elem_chg = self.driver.find_element_by_class_name("green")
+                elem_chg.click()
                 current_url = self.driver.current_url
                 self.driver.get(current_url)
             except:
@@ -65,12 +65,12 @@ class FxMainPage(BasePage):
         elif urlmode == "demo" and mode == "Real":
             # elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
             #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
-            elem = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
+            elem_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
                 (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
-            elem.click()
+            elem_ele.click()
             try:
-                elem = self.driver.find_element_by_class_name("blue")
-                elem.click()
+                elem_chg = self.driver.find_element_by_class_name("blue")
+                elem_chg.click()
                 current_url = self.driver.current_url
                 self.driver.get(current_url)
             except:
