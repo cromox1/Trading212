@@ -38,7 +38,7 @@
 38)##CLOSE## Jira-20210331-2 : run on LUbuntu PC - bash script to convert Windows directories to Linux directories etc.
 39) Jira-20210331-3 : run on LUbuntu PC - script stuck at currency 'NZD/USD'
 40)##CLOSE## Jira-20210331-4 : timezone problem - strptime cannot convert strftime vice-versa
-41) Jira-20210331-5 : test on LUbuntu - script stop at mode_live_or_demo
+41)##FIXED## Jira-20210331-5 : test on LUbuntu - script stop at mode_live_or_demo
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$ python run_continously_MACD_anyuser.py 
 Browser ( chrome ) version = 89.0.4389.90
@@ -62,7 +62,7 @@ selenium.common.exceptions.ElementClickInterceptedException: Message: element cl
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 
-42) Jira-20210331-6 : test on LUbuntu - script stop at second currency (EUR/USD)
+42)##FIXED## Jira-20210331-6 : test on LUbuntu - script stop at second currency (EUR/USD)
 
 Traceback (most recent call last):
   File "run_continously_MACD_anyuser.py", line 43, in <module>
@@ -139,7 +139,7 @@ selenium.common.exceptions.ElementClickInterceptedException: Message: element cl
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 
-45) Jira-20210331-9 : test on LUbuntu - cannot locate red color (code=be4138)
+45)##FIXED## Jira-20210331-9 : test on LUbuntu - cannot locate red color (code=be4138)
 
 Traceback (most recent call last):
   File "run_continously_MACD_anyuser.py", line 41, in <module>
@@ -165,9 +165,11 @@ selenium.common.exceptions.NoSuchElementException: Message: no such element: Una
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 
-46) Jira-20210401-1 : test on LUbuntu - stop at user section
+46)##FIXED## Jira-20210401-1 : test on LUbuntu - stop at user section
 
 ***### Found the problem was due to after login the website take longer time to be on user's page (maybe because of PC slow). Need waiting solution to wait until the page properly load
+
+https://stackoverflow.com/questions/59130200/selenium-wait-until-element-is-present-visible-and-interactable
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$ python run_continously_MACD_anyuser.py
 Browser ( chrome ) version = 89.0.4389.114
@@ -191,7 +193,7 @@ selenium.common.exceptions.ElementClickInterceptedException: Message: element cl
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 
-47) Jira-20210401-2 : test on LUbuntu - script scanning fine for 5 currencies until AUD/USD or NZD/USD (seen more than 2 times)
+47)##FIXED## Jira-20210401-2 : test on LUbuntu - script scanning fine for 5 currencies until AUD/USD or NZD/USD (seen more than 2 times)
 
 7 ) NZD/USD Traceback (most recent call last):
   File "run_continously_MACD_anyuser.py", line 41, in <module>
@@ -215,9 +217,9 @@ azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":".item-colorpicker-be4138"}
   (Session info: chrome=89.0.4389.114)
 
-48) Jira-20210402-1 : test on LUbuntu - script stuck while opening browser
+48)##CLOSE## Jira-20210402-1 : test on LUbuntu - script stuck while opening browser
 
-***### Most probably problem with Chrome running version diff with ChromeDriver version
+***### Problem with X11 display (from error DevToolsActivePort) == SOLUTION == export DISPLAY=:0.0
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$ python run_continously_MACD_anyuser.py
 Traceback (most recent call last):
@@ -240,3 +242,5 @@ Traceback (most recent call last):
 selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.
   (unknown error: DevToolsActivePort file doesn't exist)
   (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
+
+48) Jira-20210402-1 : test on LUbuntu -

@@ -50,7 +50,9 @@ class FxMainPage(BasePage):
         if urlmode == "live" and mode == "Practice":
             # elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
             # (By.CLASS_NAME, "account-menu-button")))
-            elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            # elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
+            elem = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
                 (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
             elem.click()
             try:
@@ -61,7 +63,9 @@ class FxMainPage(BasePage):
             except:
                 print('already on Practice mode')
         elif urlmode == "demo" and mode == "Real":
-            elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            # elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
+            #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
+            elem = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
                 (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
             elem.click()
             try:

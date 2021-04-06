@@ -4,6 +4,9 @@ from time import sleep
 import inspect
 from selenium.webdriver.common.action_chains import ActionChains as hoover
 from Forex_CFD.features.main_page import FxMainPage
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 
 class FxReadDataText_Main(FxMainPage):
 
@@ -60,10 +63,14 @@ class FxReadDataText_Main(FxMainPage):
         ## set SMA/EMA colour and thickness
         # unixcolor_ele = self.driver.find_element_by_xpath("//div[@id='chart-settings']/div[3]/div[3]/div[2]/div")
         # (working on Windows but not Linux/Lubuntu)
-        unixcolor_ele = self.driver.find_element_by_css_selector('div.combobox._focusable.colorpicker-icon')
+        # unixcolor_ele = self.driver.find_element_by_css_selector('div.combobox._focusable.colorpicker-icon')
+        unixcolor_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, 'div.combobox._focusable.colorpicker-icon')))
         unixcolor_id = unixcolor_ele.get_attribute('id')
         unixcolor_ele.click()
-        self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+        # self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+        WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, ".item-colorpicker-be4138"))).click()
         unixcolor_list = str(unixcolor_id).split('_')
         ## thickness
         idthickness1 = int(unixcolor_list[-1]) + 1
