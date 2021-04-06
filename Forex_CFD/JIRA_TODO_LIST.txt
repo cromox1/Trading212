@@ -62,7 +62,7 @@ selenium.common.exceptions.ElementClickInterceptedException: Message: element cl
 
 azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
 
-42)##FIXED## Jira-20210331-6 : test on LUbuntu - script stop at second currency (EUR/USD)
+42)##REOPENED## Jira-20210331-6 : test on LUbuntu - script stop at second currency (EUR/USD)
 
 Traceback (most recent call last):
   File "run_continously_MACD_anyuser.py", line 43, in <module>
@@ -85,6 +85,31 @@ Traceback (most recent call last):
     raise exception_class(message, screen, stacktrace)
 selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <div id="navigation-search-button" class="search-button" data-dojo-attach-point="searchNode" data-dojo-attach-event="click: openSearch">...</div> is not clickable at point (392, 30). Other element would receive the click: <input class="search-input" type="text" placeholder="Instrument search" data-dojo-attach-point="searchInputNode" data-dojo-attach-event="onfocus: focus, onkeyup: changeText, onpaste: changeText" maxlength="500">
   (Session info: chrome=89.0.4389.90)
+
+## REOPENED error ##
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.00021) / -0.00005[-3] -0.00005[-2] -0.00000[-1] // POINT = 0
+2 ) EUR/USD Traceback (most recent call last):
+  File "run_continously_MACD_anyuser.py", line 41, in <module>
+    check_cfd_current = fxfinal.close_position_CFD_ANY_auto_MACD(value_EMA, tperiod)
+  File "/home/azizah/Trading212/Forex_CFD/features/final_fx_decision.py", line 176, in close_position_CFD_ANY_auto_MACD
+    newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
+  File "/home/azizah/Trading212/Forex_CFD/features/final_read_datatext_MACD.py", line 25, in looping_check_currencies_MACD
+    tindakan = self.main_collect_data_MACD(currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
+  File "/home/azizah/Trading212/Forex_CFD/features/final_read_datatext_MACD.py", line 35, in main_collect_data_MACD
+    self.set_graph_EMA_value(value_EMA)
+  File "/home/azizah/Trading212/Forex_CFD/features/read_datatext_main.py", line 71, in set_graph_EMA_value
+    self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/webdriver.py", line 598, in find_element_by_css_selector
+    return self.find_element(by=By.CSS_SELECTOR, value=css_selector)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/webdriver.py", line 976, in find_element
+    return self.execute(Command.FIND_ELEMENT, {
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "/usr/local/lib/python3.8/dist-packages/selenium/webdriver/remote/errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"css selector","selector":".item-colorpicker-be4138"}
+  (Session info: chrome=89.0.4389.114)
 
 43) Jira-20210331-7 : test on LUbuntu - script can't find correct element and element not clickable
 
