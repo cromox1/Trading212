@@ -69,7 +69,7 @@ class FxReadDataText_Main(FxMainPage):
         unixcolor_id = unixcolor_ele.get_attribute('id')
         unixcolor_ele.click()
         # self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
-        colorpick_ele = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(
+        colorpick_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
             (By.CSS_SELECTOR, ".item-colorpicker-be4138")))
         colorpick_ele.click()
         unixcolor_list = str(unixcolor_id).split('_')

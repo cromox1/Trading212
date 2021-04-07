@@ -154,7 +154,7 @@ class FxReadDataText_ToolTip(FxReadDataText_Main):
         # css_tooltip = 'div.chart-tooltip'
         # toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, css_tooltip)))
         xp_tooltip = '//div[@class="chart-tooltip"]'
-        toolTip = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
+        toolTip = WebDriverWait(self.driver, 15).until(EC.presence_of_element_located((By.XPATH, xp_tooltip)))
         sleep(0.5)
         move0 = self.movearound_showtext(toolTip, int(float(xdisplay) / float(fr_graph_div)),
                                         int(ydisplay / y_divider), 'x')
