@@ -289,4 +289,67 @@ selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome fa
   (unknown error: DevToolsActivePort file doesn't exist)
   (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.)
 
-48) Jira-20210402-1 : test on LUbuntu -
+48) Jira-20210402-1 : test on LUbuntu - script stuck while opening browser cannot find element (.item-colorpicker-be4138)
+
+azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$ python run_continously_MACD_anyuser.py
+Browser ( chrome ) version = 89.0.4389.114
+Trading212 user =  mycromox@gmail.com
+Mode use =  Practice
+CHK1 == len(div.user) = 1
+
+# No_Instruments = 0 // NOW 2021-04-13 07:18:43 GMT+0100 // DFD = £152.39 // Total_Fund = £152.39 // Free_Fund = £152.39 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [1, 1, 1, 1, 1, 1, 2] (HAD_0.00021) / 0.00015[-3] 0.00021[-2] 0.00022[-1] // POINT = 2
+2 ) EUR/USD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00010[-3] 0.00013[-2] 0.00013[-1] // POINT = 1
+3 ) USD/JPY CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [-1, -1, -1, -1, -1, -2, -2] (HAD_0.01075) / -0.00902[-3] -0.01183[-2] -0.01380[-1] // POINT = -2
+4 ) USD/CHF CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [-1, -1, -1, -1, -1, -2, -2] (HAD_0.00013) / -0.00012[-3] -0.00016[-2] -0.00017[-1] // POINT = -2
+5 ) USD/CAD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [0, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00007[-3] -0.00009[-2] -0.00012[-1] // POINT = -1
+6 ) AUD/USD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [1, 1, 1, 1, 1, 2, 2] (HAD_0.00014) / 0.00014[-3] 0.00018[-2] 0.00019[-1] // POINT = 2
+7 ) NZD/USD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [1, 1, 1, 1, 2, 2] (HAD_0.00014) / 0.00012[-3] 0.00015[-2] 0.00016[-1] // POINT = 2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 2, 'EUR/USD': 1, 'USD/JPY': -2, 'USD/CHF': -2, 'USD/CAD': -1, 'AUD/USD': 2, 'NZD/USD': 2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 0 // AVAILABLE = 3 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {}
+
+SCRIPTS HAS RUN FOR 108 secs, WILL RUN AGAIN AT : 2021-04-13 07:26:31 GMT+0100 ( NOW = 2021-04-13 07:20:31 GMT+0100 / in 360 secs )
+
+# No_Instruments = 0 // NOW 2021-04-13 07:26:43 GMT+0100 // DFD = £152.39 // Total_Fund = £152.39 // Free_Fund = £152.39 // Live_Result = £0.00
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 1
+# MACD: [1, 1, 1, 1, 2, 2, 2] (HAD_0.00021) / 0.00024[-3] 0.00025[-2] 0.00023[-1] / MACD_high1 = 0.00025[-2] // POINT = 7
+2 ) EUR/USD CHK2 == len(div.combobox._focusable.colorpicker-icon) = 1
+CHK3 == len(.item-colorpicker-be4138) = 0
+Traceback (most recent call last):
+  File "run_continously_MACD_anyuser.py", line 41, in <module>
+    check_cfd_current = fxfinal.close_position_CFD_ANY_auto_MACD(value_EMA, tperiod)
+  File "/home/azizah/Trading212/Forex_CFD/features/final_fx_decision.py", line 176, in close_position_CFD_ANY_auto_MACD
+    newpoint = self.looping_check_currencies_MACD(value_EMA, tperiod, list_currencies)
+  File "/home/azizah/Trading212/Forex_CFD/features/final_read_datatext_MACD.py", line 25, in looping_check_currencies_MACD
+    tindakan = self.main_collect_data_MACD(currency, value_EMA, tperiod, grph_div_start_point, fxconvert)
+  File "/home/azizah/Trading212/Forex_CFD/features/final_read_datatext_MACD.py", line 35, in main_collect_data_MACD
+    self.set_graph_EMA_value(value_EMA)
+  File "/home/azizah/Trading212/Forex_CFD/features/read_datatext_main.py", line 75, in set_graph_EMA_value
+    colorpick_ele = colorpick_ele_list[0]
+IndexError: list index out of range
+azizah@PC-LUbuntu:~/Trading212/Forex_CFD/run_full_auto_nonstop$
+
