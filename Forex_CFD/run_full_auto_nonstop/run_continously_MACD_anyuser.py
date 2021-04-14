@@ -110,10 +110,10 @@ while pilihan != 99:
             print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         else:
             print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION')
-        if buysell == 'BUY' and directionpoint > closebuypoint:
+        if buysell == 'BUY' and directionpoint > closebuypoint and open_position[ko] > 0.15:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
-        elif buysell == 'SELL' and directionpoint < closesellpoint:
+        elif buysell == 'SELL' and directionpoint < closesellpoint and open_position[ko] > 0.15:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
         # elif vo < closeloss:

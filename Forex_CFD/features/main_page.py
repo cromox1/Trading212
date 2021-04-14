@@ -50,8 +50,10 @@ class FxMainPage(BasePage):
         if urlmode == "live" and mode == "Practice":
             # elem = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(
             # (By.CLASS_NAME, "account-menu-button")))
+            # elem_ele = WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(
+            #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
             elem_ele = WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(
-                (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
+                (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper')))
             # elem_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
             #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
             elem_ele.click()
@@ -61,10 +63,12 @@ class FxMainPage(BasePage):
                 current_url = self.driver.current_url
                 self.driver.get(current_url)
             except:
-                print('already on Practice mode')
+                print('Unsuccessfull to change from', urlmode, 'to', mode)
         elif urlmode == "demo" and mode == "Real":
+            # elem_ele = WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(
+            #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
             elem_ele = WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(
-                (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
+                (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper')))
             # elem_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
             #     (By.CSS_SELECTOR, '#navigation > div.account-menu-button.cfd > div.text-wrapper > div.user')))
             elem_ele.click()
@@ -74,7 +78,7 @@ class FxMainPage(BasePage):
                 current_url = self.driver.current_url
                 self.driver.get(current_url)
             except:
-                print('already on Real mode')
+                print('Unsuccessfull to change from', urlmode, 'to', mode)
         else:
             print('Already on ' + mode + ' mode')
 

@@ -67,22 +67,25 @@ class FxReadDataText_Main(FxMainPage):
         unixcolor_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
             (By.CSS_SELECTOR, 'div.combobox._focusable.colorpicker-icon')))
         unixcolor_id = unixcolor_ele.get_attribute('id')
-        unixcolor_ele.click()
-        # self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
-        colorpick_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
-            (By.CSS_SELECTOR, ".item-colorpicker-be4138")))
-        colorpick_ele.click()
         unixcolor_list = str(unixcolor_id).split('_')
+        unixcolor_ele.click()
+        try:
+            # self.driver.find_element_by_css_selector(".item-colorpicker-be4138").click()
+            colorpick_ele = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
+                (By.CSS_SELECTOR, ".item-colorpicker-be4138")))
+            colorpick_ele.click()
+        except:
+            print('Error change SMA color')
         ## thickness
         idthickness1 = int(unixcolor_list[-1]) + 1
-        idthickness = '_'.join(str(i) for i in unixcolor_list[:-1] + [idthickness1])
+        idthickness = '_'.join(str(i) for i in unixcolor_list[:-1] + [str(idthickness1)])
         self.driver.find_element_by_css_selector(f"#{idthickness} > span").click()
         self.driver.find_element_by_css_selector(".item-main-2").click()
         ## set SMA/EMA use 'Open' price
         # '//div[@class="editable-content"]/div[@class="combobox combo_indicator_settings_price _focusable"]/span[@class="dropdown-arrow"]'
         # '//div[@id="chart-settings"]//div[@class="editable-container"]/div[@class="editable-content"]/div[@class="combo_indicator_settings_price"]/span[@class="dropdown-arrow"]'
         idprice1 = int(unixcolor_list[-1]) - 1
-        idprice = '_'.join(str(i) for i in unixcolor_list[:-1] + [idprice1])
+        idprice = '_'.join(str(i) for i in unixcolor_list[:-1] + [str(idprice1)])
         self.driver.find_element_by_css_selector(f"#{idprice} > span").click()
         self.driver.find_element_by_css_selector(".item-indicator-settings-list-open").click()
         sleep(0.5)
