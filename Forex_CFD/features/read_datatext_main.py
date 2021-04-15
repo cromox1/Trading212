@@ -75,7 +75,7 @@ class FxReadDataText_Main(FxMainPage):
                 (By.CSS_SELECTOR, ".item-colorpicker-be4138")))
             colorpick_ele.click()
         except:
-            print('Error change SMA color')
+            print('', end='')
         ## thickness
         idthickness1 = int(unixcolor_list[-1]) + 1
         idthickness = '_'.join(str(i) for i in unixcolor_list[:-1] + [str(idthickness1)])
@@ -87,7 +87,10 @@ class FxReadDataText_Main(FxMainPage):
         idprice1 = int(unixcolor_list[-1]) - 1
         idprice = '_'.join(str(i) for i in unixcolor_list[:-1] + [str(idprice1)])
         self.driver.find_element_by_css_selector(f"#{idprice} > span").click()
-        self.driver.find_element_by_css_selector(".item-indicator-settings-list-open").click()
+        # self.driver.find_element_by_css_selector(".item-indicator-settings-list-open").click()
+        ele_open1 = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(
+            (By.CSS_SELECTOR, ".item-indicator-settings-list-open")))
+        ele_open1.click()
         sleep(0.5)
         ## confirm button
         self.driver.find_elements_by_xpath('//div[@class="window-controls"]/div[@class="button confirm-button"]')[0].click()

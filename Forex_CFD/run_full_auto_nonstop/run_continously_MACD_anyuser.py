@@ -54,6 +54,8 @@ while pilihan != 99:
     closebuypoint = 2
     limit_buysell = 3
     # closeloss = -0.85
+    hardprofit = 0.51
+    exitprofit = 0.11
     delaymins = 1.5             # delay in mins before execute the script
     timemins = 5                # time in mins between every script execution / running
 
@@ -109,14 +111,20 @@ while pilihan != 99:
         elif buysell == 'SELL' and closesellpoint <= directionpoint < 0:
             print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         else:
-            print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION')
-        if buysell == 'BUY' and directionpoint > closebuypoint and open_position[ko] > 0.15:
+            if vo > 0:
+                print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION // PROFIT =', vo)
+            elif vo <= 0:
+                print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT =', vo)
+        if vo > hardprofit:
+            print('    - > TO CLOSE #', ko, '// ACHIEVED Target Hard_Profit ( >', hardprofit, ') =', vo)
+            fxfinal.close_position_elementid(id_elem)
+        elif buysell == 'BUY' and directionpoint > closebuypoint and vo > exitprofit:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
-        elif buysell == 'SELL' and directionpoint < closesellpoint and open_position[ko] > 0.15:
+        elif buysell == 'SELL' and directionpoint < closesellpoint and vo > exitprofit:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
-        # elif vo < closeloss:
+        # elif vo < closeloss:             -- ## DISABLE FOR TIME BEING
         #     print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
         #     fxfinal.close_position_elementid(id_elem)
 
