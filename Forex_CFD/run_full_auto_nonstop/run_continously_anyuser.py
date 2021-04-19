@@ -9,10 +9,10 @@ from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
 ## USER'S PARAMETER
-# _USERNAME       = "xixa01@yahoo.co.uk"
-# _PASSWORD       = "H0meBase"
-_USERNAME     = "mycromox@gmail.com"
-_PASSWORD     = "Serverg0d!"
+_USERNAME       = "xixa01@yahoo.co.uk"
+_PASSWORD       = "H0meBase"
+# _USERNAME     = "mycromox@gmail.com"
+# _PASSWORD     = "Serverg0d!"
 
 # Chrome
 _CHROME_NAME    = 'chrome'
@@ -71,13 +71,18 @@ while pilihan != 99:
     open_position = check_cfd_current[1]
     tocloseone = check_cfd_current[2]
     instrument_id = check_cfd_current[3]
+    masastart = check_cfd_current[4]
 
     ### FOREX AUTO TRADER
     buymark = 14
     sellmark = -14
     closesellpoint = 4
     closebuypoint = -4
-    closeloss = -0.75
+    # closeloss = -0.75
+    hardprofit = 0.51
+    exitprofit = 0.11
+    delaymins = 0.5  # delay in mins before execute the script
+    timemins = 5  # time in mins between every script execution / running
 
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT >', buymark, ' / SELL # IF POINT <', sellmark)
@@ -92,7 +97,7 @@ while pilihan != 99:
             amount = 511 + all_currencies.index(kt)
             print('TO SELL = (Currency)', kt, '(Amount)', amount)
             fxfinal.sell_stock(kt, amount)
-    print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY <', closebuypoint, '/ SELL >', closesellpoint, '// OR LOSS <', closeloss)
+    print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY <', closebuypoint, '/ SELL >', closesellpoint)
     # print(' - > DIRECTN_POINT =', tocloseone)
     print(' - > OPEN_POSITION =', open_position)
     for ko,vo in open_position.items():
@@ -112,25 +117,17 @@ while pilihan != 99:
             print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         else:
             print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION')
-        if buysell == 'BUY' and directionpoint < closebuypoint:
+        if vo > hardprofit:
+            print('    - > TO CLOSE #', ko, '// ACHIEVED Target Hard_Profit ( >', hardprofit, ') =', vo)
+            fxfinal.close_position_elementid(id_elem)
+        elif buysell == 'BUY' and directionpoint < closebuypoint and vo > exitprofit:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
-        elif buysell == 'SELL' and directionpoint > closesellpoint:
+        elif buysell == 'SELL' and directionpoint > closesellpoint and vo > exitprofit:
             print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
             fxfinal.close_position_elementid(id_elem)
         # REMOVE closeloss for time being
         # elif vo < closeloss:
         #     print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
         #     fxfinal.close_position_elementid(id_elem)
-
-    print()
-    bezamasa = int(5 * 60)
-    arini_date = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S GMT%z")
-    arini_epoch = int(datetime.now(timezone('Europe/London')).timestamp())
-    lamascript = arini_epoch - epochstart
-    nanti = int((arini_epoch + bezamasa) / bezamasa) * bezamasa + 1
-    tidor = nanti - arini_epoch
-    futuretime = datetime.fromtimestamp(nanti, timezone('Europe/London')).strftime('%Y-%m-%d %H:%M:%S GMT%z')
-    print('SCRIPTS HAS RUN FOR', lamascript, 'secs', end='')
-    print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
-    sleep(tidor)
+    fxfinal.time_script_running_and_next(masastart, delaymins, timemins)

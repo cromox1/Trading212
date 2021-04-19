@@ -91,6 +91,8 @@ while pilihan != 99:
                 amount = 531 + all_currencies.index(curr)
                 print(' ---- > TO SELL = (Currency)', curr, '(Amount)', amount)
                 fxfinal.sell_stock(curr, amount)
+            else:
+                print(' ---- > CANNOT ADD (Currency)', curr, '-- Already EXIST in open_position')
 
     # print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint, '// OR LOSS <', closeloss)
     print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint)
