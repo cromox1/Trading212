@@ -62,25 +62,9 @@ while pilihan != 99:
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT <', buymark, ' / SELL # IF POINT >', sellmark)
     print(' - > BUYSELL_POINT =', todopoint)
-    list_to_buysell = [vv for vv in list(todopoint.keys()) if todopoint[vv] > sellmark or todopoint[vv] < buymark]
     current_number = len(instrument_id)
-    to_add_number = len(list_to_buysell)
-    avail_number = limit_buysell - current_number
-    if 0 < to_add_number <= avail_number:
-        list_add_instrument = list_to_buysell
-    elif 0 < avail_number < to_add_number:
-        list_add_instrument = list_to_buysell[:avail_number]
-    else:
-        list_add_instrument = []
-    print(' -- > LIMIT =', limit_buysell, '// CURRENT_TRADE =', current_number, '// AVAILABLE =', avail_number,
-          '// TO_ADD =', to_add_number, ':: LIST = ', list_to_buysell)
-    if to_add_number == 0:
-        print(' --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading')
-    elif to_add_number > avail_number and avail_number > 0:
-        print(' --- > Limit_Trader (', limit_buysell, ') nearly reach - Mean only', avail_number, 'Currrency will be Traded',
-              '- > LIST =', list_add_instrument)
-    else:
-        print(' --- > TO_ADD =', len(list_add_instrument), '- > LIST =', list_add_instrument)
+    list_add_instrument = fxfinal.buy_sell_list_add_instrument(
+        todopoint, current_number, limit_buysell, buymark, sellmark)
     if len(list_add_instrument) > 0:
         for curr in list_add_instrument:
             if todopoint[curr] < buymark and curr not in open_position:
@@ -114,9 +98,9 @@ while pilihan != 99:
             print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         else:
             if vo > 0:
-                print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION // PROFIT =', vo)
+                print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE // PROFIT =', vo)
             elif vo <= 0:
-                print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT =', vo)
+                print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE // NOT_PROFIT =', vo)
         if vo > hardprofit:
             print('    - > TO CLOSE #', ko, '// ACHIEVED Target Hard_Profit ( >', hardprofit, ') =', vo)
             fxfinal.close_position_elementid(id_elem)

@@ -133,6 +133,28 @@ class FxMainPage(BasePage):
         print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
         sleep(tidor)
 
+    def buy_sell_list_add_instrument(self, todopoint_dict, current_buysell, limit_buysell, min_point, max_point):
+        list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if todopoint_dict[vv] > max_point or todopoint_dict[vv] < min_point]
+        to_add_number = len(list_to_buysell)
+        avail_number = limit_buysell - current_buysell
+        if 0 < to_add_number <= avail_number:
+            list_add_instrument = list_to_buysell
+        elif 0 < avail_number < to_add_number:
+            list_add_instrument = list_to_buysell[:avail_number]
+        else:
+            list_add_instrument = []
+        print(' -- > LIMIT =', limit_buysell, '// CURRENT_TRADE =', current_buysell, '// AVAILABLE =', avail_number,
+              '// TO_ADD =', to_add_number, ':: LIST = ', list_to_buysell)
+        if to_add_number == 0:
+            print(' --- > # NOTHING TO ADD - NO Currency MEET the requirement for current Forex_Trading')
+        elif to_add_number > avail_number and avail_number > 0:
+            print(' --- > Limit_Trader (', limit_buysell, ') nearly reach - Mean only', avail_number,
+                  'Currrency will be Traded',
+                  '- > LIST =', list_add_instrument)
+        else:
+            print(' --- > TO_ADD =', len(list_add_instrument), '- > LIST =', list_add_instrument)
+        return list_add_instrument
+
     # def css_list_containing_text_in_class(self, driver, selector, text):
     #     elements = driver.find_elements_by_css_selector(selector)
     #     return [element for element in elements if text in element.get_attribute('class')]

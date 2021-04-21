@@ -74,10 +74,14 @@ while pilihan != 99:
     masastart = check_cfd_current[4]
 
     ### FOREX AUTO TRADER
+    all_currencies = fxfinal.currencies_to_use('major')
     buymark = 14
     sellmark = -14
+    minpoint = -14 # sellmark -- base on gradient i.e reverse from MACD
+    maxpoint = 14  # buymark  -- base on gradient i.e reverse from MACD
     closesellpoint = 4
     closebuypoint = -4
+    limit_buysell = 3
     # closeloss = -0.75
     hardprofit = 0.51
     exitprofit = 0.11
@@ -87,16 +91,22 @@ while pilihan != 99:
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT >', buymark, ' / SELL # IF POINT <', sellmark)
     print(' - > BUYSELL_POINT =', todopoint)
-    for kt, vt in todopoint.items():
-        all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        if vt > buymark and kt not in open_position:
-            amount = 521 + all_currencies.index(kt)
-            print('TO BUY = (Currency)', kt, '(Amount)', amount)
-            fxfinal.buy_stock(kt, amount)
-        elif vt < sellmark and kt not in open_position:
-            amount = 511 + all_currencies.index(kt)
-            print('TO SELL = (Currency)', kt, '(Amount)', amount)
-            fxfinal.sell_stock(kt, amount)
+    current_number = len(instrument_id)
+    list_add_instrument = fxfinal.buy_sell_list_add_instrument(
+        todopoint, current_number, limit_buysell, minpoint, maxpoint)
+    if len(list_add_instrument) > 0:
+        for curr in list_add_instrument:
+            if todopoint[curr] > buymark and curr not in open_position:
+                amount = 521 + all_currencies.index(curr)
+                print(' ---- > TO BUY = (Currency)', curr, '(Amount)', amount)
+                fxfinal.buy_stock(curr, amount)
+            elif todopoint[curr] < sellmark and curr not in open_position:
+                amount = 511 + all_currencies.index(curr)
+                print(' ---- > TO SELL = (Currency)', curr, '(Amount)', amount)
+                fxfinal.sell_stock(curr, amount)
+            else:
+                print(' ---- > CANNOT ADD (Currency)', curr, '-- Already EXIST in open_position')
+
     print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY <', closebuypoint, '/ SELL >', closesellpoint)
     # print(' - > DIRECTN_POINT =', tocloseone)
     print(' - > OPEN_POSITION =', open_position)
@@ -116,7 +126,10 @@ while pilihan != 99:
         elif buysell == 'SELL' and closesellpoint > directionpoint > 0:
             print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
         else:
-            print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE POSITION')
+            if vo > 0:
+                print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE // PROFIT =', vo)
+            elif vo <= 0:
+                print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE // NOT_PROFIT =', vo)
         if vo > hardprofit:
             print('    - > TO CLOSE #', ko, '// ACHIEVED Target Hard_Profit ( >', hardprofit, ') =', vo)
             fxfinal.close_position_elementid(id_elem)

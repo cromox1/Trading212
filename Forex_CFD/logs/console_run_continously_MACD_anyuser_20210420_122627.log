@@ -1,0 +1,1875 @@
+PC-TALIBR2+cromox@PC-TALIBR2 /cygdrive/c/Users/cromox/PycharmProjects/Trading212/Forex_CFD/run_full_auto_nonstop
+$ python run_continously_MACD_anyuser.py
+Browser ( chrome ) version = 89.0.4389.128
+Trading212 user =  mycromox@gmail.com
+Mode use =  Practice
+
+# No_Instruments = 2 // NOW 2021-04-20 12:26:27 GMT+0100 // DFD = £150.17 // Total_Fund = £148.73 // Free_Fund = £120.82 // Live_Result = -£1.44
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77705 / margin = 15.17 / ppl = -1.04 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25291 / margin = 12.74 / ppl = -0.40 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00021) / 0.00007[-3] 0.00011[-2] 0.00014[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00016) / 0.00008[-3] 0.00009[-2] 0.00011[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.01075) / -0.00999[-3] -0.00893[-2] -0.00812[-1] / MACD_low3 = -0.00999[-3] -0.00955[-4] // POINT = -4
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00013[-3] -0.00013[-2] -0.00012[-1] / MACD_low1 = -0.00013[-2] -0.00012[-4] // POINT = -6
+5 ) USD/CAD # MACD: [1, 1, 1, 1, 0, 0, -1] (HAD_0.00016) / 0.00002[-3] -0.00003[-2] -0.00009[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00014) / 0.00006[-3] 0.00008[-2] 0.00010[-1] // POINT = 1
+7 ) NZD/USD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00014) / -0.00002[-3] 0.00001[-2] 0.00002[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': -4, 'USD/CHF': -6, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.04, 'USD/CAD': -0.4}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 12:31:31 GMT+0100 ( NOW = 2021-04-20 12:27:46 GMT+0100 / in 225 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 12:31:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.74 // Free_Fund = £120.83 // Live_Result = -£1.43
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77718 / margin = 15.17 / ppl = -1.03 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25291 / margin = 12.74 / ppl = -0.40 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00021) / 0.00011[-3] 0.00012[-2] 0.00013[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00009[-3] 0.00010[-2] 0.00010[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.01075) / -0.00893[-3] -0.00761[-2] -0.00554[-1] // POINT = -1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00013[-3] -0.00010[-2] -0.00009[-1] / MACD_low7 = -0.00013[-3] -0.00012[-5] // POINT = -4
+5 ) USD/CAD # MACD: [1, 1, 1, 0, 0, -1, -1] (HAD_0.00016) / -0.00003[-3] -0.00008[-2] -0.00012[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00008[-3] 0.00010[-2] 0.00013[-1] // POINT = 1
+7 ) NZD/USD # MACD: [-1, -1, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00001[-3] 0.00001[-2] 0.00004[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': -1, 'USD/CHF': -4, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.03, 'USD/CAD': -0.4}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 12:36:31 GMT+0100 ( NOW = 2021-04-20 12:32:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 12:36:33 GMT+0100 // DFD = £150.17 // Total_Fund = £148.80 // Free_Fund = £120.89 // Live_Result = -£1.37
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77729 / margin = 15.17 / ppl = -0.98 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25294 / margin = 12.74 / ppl = -0.39 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00012[-3] 0.00014[-2] 0.00014[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00010[-3] 0.00011[-2] 0.00011[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, -1, -1, 0] (HAD_0.01075) / -0.00761[-3] -0.00395[-2] -0.00079[-1] // POINT = 0
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00010[-3] -0.00009[-2] -0.00007[-1] // POINT = -1
+5 ) USD/CAD # MACD: [1, 1, 0, 0, -1, -1, -1] (HAD_0.00016) / -0.00008[-3] -0.00012[-2] -0.00015[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 1, 1, 1, 1, 1, 2] (HAD_0.00014) / 0.00010[-3] 0.00013[-2] 0.00015[-1] // POINT = 2
+7 ) NZD/USD # MACD: [-1, 0, 0, 0, 0, 0, 1] (HAD_0.00014) / 0.00001[-3] 0.00004[-2] 0.00007[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': 0, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.98, 'USD/CAD': -0.39}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 12:41:31 GMT+0100 ( NOW = 2021-04-20 12:37:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 12:41:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.98 // Free_Fund = £121.06 // Live_Result = -£1.19
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77753 / margin = 15.18 / ppl = -0.88 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25271 / margin = 12.74 / ppl = -0.31 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00014[-3] 0.00013[-2] 0.00013[-1] / MACD_high3 = 0.00014[-3] 0.00012[-4] // POINT = 4
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00011[-3] 0.00011[-2] 0.00011[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.01075) / -0.00395[-3] -0.00079[-2] 0.00139[-1] / MACD_low8 = -0.00079[-2] // POINT = -3
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00009[-3] -0.00008[-2] -0.00008[-1] // POINT = -1
+5 ) USD/CAD # MACD: [1, 0, 0, -1, -1, -1, -2] (HAD_0.00016) / -0.00012[-3] -0.00016[-2] -0.00019[-1] // POINT = -2
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 2, 2] (HAD_0.00014) / 0.00013[-3] 0.00016[-2] 0.00018[-1] // POINT = 2
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 0, 1, 1] (HAD_0.00014) / 0.00004[-3] 0.00005[-2] 0.00007[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 4, 'EUR/USD': 1, 'USD/JPY': -3, 'USD/CHF': -1, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.88, 'USD/CAD': -0.31}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 12:46:31 GMT+0100 ( NOW = 2021-04-20 12:42:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 12:46:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.97 // Free_Fund = £121.05 // Live_Result = -£1.20
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77771 / margin = 15.18 / ppl = -0.84 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25285 / margin = 12.74 / ppl = -0.36 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00013[-3] 0.00012[-2] 0.00012[-1] // POINT = 1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00011[-3] 0.00013[-2] 0.00013[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.01075) / -0.00079[-3] 0.00101[-2] 0.00152[-1] // POINT = 0
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00008[-3] -0.00009[-2] -0.00009[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 0, -1, -1, -1, -2, -2] (HAD_0.00016) / -0.00016[-3] -0.00020[-2] -0.00020[-1] // POINT = -2
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 2, 2, 2] (HAD_0.00014) / 0.00016[-3] 0.00019[-2] 0.00021[-1] // POINT = 2
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00014) / 0.00005[-3] 0.00008[-2] 0.00010[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': 0, 'USD/CHF': -1, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.84, 'USD/CAD': -0.36}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 75 secs, WILL RUN AGAIN AT : 2021-04-20 12:51:31 GMT+0100 ( NOW = 2021-04-20 12:47:47 GMT+0100 / in 224 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 12:51:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.03 // Free_Fund = £121.10 // Live_Result = -£1.14
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77786 / margin = 15.19 / ppl = -0.80 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25278 / margin = 12.74 / ppl = -0.34 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00012[-3] 0.00011[-2] 0.00009[-1] // POINT = 1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00013[-3] 0.00013[-2] 0.00011[-1] / MACD_high1 = 0.00013[-2] 0.00011[-4] // POINT = 6
+3 ) USD/JPY # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.01075) / 0.00101[-3] 0.00069[-2] 0.00144[-1] / MACD_high3 = 0.00101[-3] -0.00079[-4] // POINT = 3
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00009[-3] -0.00009[-2] -0.00008[-1] / MACD_low1 = -0.00009[-2] -0.00008[-4] // POINT = -6
+5 ) USD/CAD # MACD: [0, -1, -1, -1, -2, -2, -2] (HAD_0.00016) / -0.00020[-3] -0.00021[-2] -0.00021[-1] // POINT = -2
+6 ) AUD/USD # MACD: [1, 1, 1, 2, 2, 2, 2] (HAD_0.00014) / 0.00019[-3] 0.00021[-2] 0.00022[-1] // POINT = 2
+7 ) NZD/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00014) / 0.00008[-3] 0.00012[-2] 0.00013[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 6, 'USD/JPY': 3, 'USD/CHF': -6, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.8, 'USD/CAD': -0.34}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 12:56:31 GMT+0100 ( NOW = 2021-04-20 12:52:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 12:56:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.05 // Free_Fund = £121.10 // Live_Result = -£1.12
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77778 / margin = 15.20 / ppl = -0.79 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25274 / margin = 12.75 / ppl = -0.33 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 0, 0] (HAD_0.00021) / 0.00011[-3] 0.00003[-2] -0.00000[-1] // POINT = 0
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00013[-3] 0.00011[-2] 0.00010[-1] / MACD_high7 = 0.00013[-3] 0.00011[-5] // POINT = 4
+3 ) USD/JPY # MACD: [-1, -1, 0, 0, 0, 0, 1] (HAD_0.01075) / 0.00069[-3] 0.00112[-2] 0.00364[-1] // POINT = 1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00009[-3] -0.00008[-2] -0.00007[-1] / MACD_low7 = -0.00009[-3] -0.00008[-5] // POINT = -4
+5 ) USD/CAD # MACD: [-1, -1, -1, -2, -2, -2, -2] (HAD_0.00016) / -0.00021[-3] -0.00021[-2] -0.00020[-1] / MACD_low1 = -0.00021[-2] -0.00020[-4] // POINT = -7
+6 ) AUD/USD # MACD: [1, 1, 2, 2, 2, 2, 2] (HAD_0.00014) / 0.00021[-3] 0.00022[-2] 0.00021[-1] / MACD_high1 = 0.00022[-2] // POINT = 7
+7 ) NZD/USD # MACD: [0, 0, 1, 1, 1, 1, 2] (HAD_0.00014) / 0.00012[-3] 0.00014[-2] 0.00015[-1] // POINT = 2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 4, 'USD/JPY': 1, 'USD/CHF': -4, 'USD/CAD': -7, 'AUD/USD': 7, 'NZD/USD': 2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 2 :: LIST =  ['USD/CAD', 'AUD/USD']
+ --- > Limit_Trader ( 3 ) nearly reach - Mean only 1 Currrency will be Traded - > LIST = ['USD/CAD']
+ ---- > CANNOT ADD (Currency) USD/CAD -- Already EXIST in open_position
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.79, 'USD/CAD': -0.33}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 7 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.79
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -7 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.33
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 13:01:31 GMT+0100 ( NOW = 2021-04-20 12:57:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:01:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.00 // Free_Fund = £121.05 // Live_Result = -£1.17
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77768 / margin = 15.20 / ppl = -0.83 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25281 / margin = 12.75 / ppl = -0.34 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 0, 0, -1] (HAD_0.00021) / 0.00003[-3] -0.00002[-2] -0.00007[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 0] (HAD_0.00016) / 0.00011[-3] 0.00008[-2] 0.00003[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-1, 0, 0, 0, 0, 1, 1] (HAD_0.01075) / 0.00112[-3] 0.00370[-2] 0.00610[-1] // POINT = 1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, 0] (HAD_0.00013) / -0.00008[-3] -0.00006[-2] -0.00002[-1] // POINT = 0
+5 ) USD/CAD # MACD: [-1, -1, -2, -2, -2, -2, -2] (HAD_0.00016) / -0.00021[-3] -0.00019[-2] -0.00018[-1] / MACD_low7 = -0.00021[-3] -0.00020[-5] // POINT = -5
+6 ) AUD/USD # MACD: [1, 2, 2, 2, 2, 2, 2] (HAD_0.00014) / 0.00022[-3] 0.00021[-2] 0.00018[-1] / MACD_high3 = 0.00022[-3] 0.00021[-4] // POINT = 5
+7 ) NZD/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00014[-3] 0.00014[-2] 0.00013[-1] / MACD_high1 = 0.00014[-2] 0.00012[-4] // POINT = 6
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 0, 'USD/CAD': -5, 'AUD/USD': 5, 'NZD/USD': 6}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.83, 'USD/CAD': -0.34}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 5 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.83
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -5 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.34
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 13:06:31 GMT+0100 ( NOW = 2021-04-20 13:02:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:06:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.03 // Free_Fund = £121.08 // Live_Result = -£1.14
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77779 / margin = 15.20 / ppl = -0.78 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25282 / margin = 12.75 / ppl = -0.36 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 0, 0, 0, -1] (HAD_0.00021) / -0.00002[-3] -0.00005[-2] -0.00007[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 0, 0] (HAD_0.00016) / 0.00008[-3] 0.00004[-2] 0.00002[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.01075) / 0.00370[-3] 0.00418[-2] 0.00496[-1] // POINT = 1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.00013) / -0.00006[-3] -0.00003[-2] -0.00001[-1] // POINT = 0
+5 ) USD/CAD # MACD: [-1, -2, -2, -2, -2, -2, -2] (HAD_0.00016) / -0.00019[-3] -0.00018[-2] -0.00017[-1] // POINT = -2
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00014) / 0.00021[-3] 0.00019[-2] 0.00018[-1] // POINT = 2
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00014[-3] 0.00014[-2] 0.00013[-1] / MACD_high1 = 0.00014[-2] 0.00012[-5] // POINT = 6
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 0, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 6}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.78, 'USD/CAD': -0.36}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 13:11:31 GMT+0100 ( NOW = 2021-04-20 13:07:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:11:33 GMT+0100 // DFD = £150.17 // Total_Fund = £149.09 // Free_Fund = £121.12 // Live_Result = -£1.08
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77784 / margin = 15.21 / ppl = -0.77 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25256 / margin = 12.76 / ppl = -0.31 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 0, 0, 0, -1, -1] (HAD_0.00021) / -0.00005[-3] -0.00010[-2] -0.00012[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 0, 0, 0] (HAD_0.00016) / 0.00004[-3] 0.00002[-2] 0.00000[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.01075) / 0.00418[-3] 0.00541[-2] 0.00633[-1] // POINT = 1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.00013) / -0.00003[-3] -0.00001[-2] 0.00001[-1] / MACD_low8 = -0.00001[-2] // POINT = -3
+5 ) USD/CAD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00016) / -0.00018[-3] -0.00018[-2] -0.00017[-1] // POINT = -2
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00014) / 0.00019[-3] 0.00018[-2] 0.00016[-1] // POINT = 2
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00014[-3] 0.00013[-2] 0.00011[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': -3, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.77, 'USD/CAD': -0.31}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 13:16:31 GMT+0100 ( NOW = 2021-04-20 13:12:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:16:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.12 // Free_Fund = £121.15 // Live_Result = -£1.05
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77777 / margin = 15.21 / ppl = -0.83 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25234 / margin = 12.76 / ppl = -0.22 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 0, 0, 0, -1, -1, -1] (HAD_0.00021) / -0.00010[-3] -0.00013[-2] -0.00014[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 1, 1, 0, 0, 0, 0] (HAD_0.00016) / 0.00002[-3] -0.00001[-2] -0.00003[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00541[-3] 0.00595[-2] 0.00652[-1] // POINT = 1
+4 ) USD/CHF # MACD: [-1, -1, -1, 0, 0, 0, 1] (HAD_0.00013) / -0.00001[-3] 0.00002[-2] 0.00004[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00016) / -0.00018[-3] -0.00018[-2] -0.00018[-1] // POINT = -2
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 2, 2, 1] (HAD_0.00014) / 0.00018[-3] 0.00016[-2] 0.00014[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00013[-3] 0.00011[-2] 0.00010[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -2, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.83, 'USD/CAD': -0.22}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 13:21:31 GMT+0100 ( NOW = 2021-04-20 13:17:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:21:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.23 // Free_Fund = £121.26 // Live_Result = -£0.94
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77783 / margin = 15.21 / ppl = -0.72 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25238 / margin = 12.76 / ppl = -0.22 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, -1, -1, -1, -1] (HAD_0.00021) / -0.00013[-3] -0.00016[-2] -0.00015[-1] / MACD_low1 = -0.00016[-2] // POINT = -6
+2 ) EUR/USD # MACD: [1, 1, 0, 0, 0, 0, 0] (HAD_0.00016) / -0.00001[-3] -0.00003[-2] -0.00003[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00595[-3] 0.00626[-2] 0.00514[-1] / MACD_high1 = 0.00626[-2] // POINT = 6
+4 ) USD/CHF # MACD: [-1, -1, 0, 0, 0, 0, 1] (HAD_0.00013) / 0.00002[-3] 0.00003[-2] 0.00004[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00016) / -0.00018[-3] -0.00019[-2] -0.00017[-1] / MACD_low1 = -0.00019[-2] // POINT = -7
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 2, 2, 1] (HAD_0.00014) / 0.00016[-3] 0.00015[-2] 0.00014[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00011[-3] 0.00011[-2] 0.00009[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -6, 'EUR/USD': 0, 'USD/JPY': 6, 'USD/CHF': 1, 'USD/CAD': -7, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 1 :: LIST =  ['USD/CAD']
+ --- > TO_ADD = 1 - > LIST = ['USD/CAD']
+ ---- > CANNOT ADD (Currency) USD/CAD -- Already EXIST in open_position
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.72, 'USD/CAD': -0.22}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -7 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.22
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 13:26:31 GMT+0100 ( NOW = 2021-04-20 13:22:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:26:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.85 // Free_Fund = £120.88 // Live_Result = -£1.32
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77719 / margin = 15.21 / ppl = -0.96 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25288 / margin = 12.76 / ppl = -0.36 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00016[-3] -0.00019[-2] -0.00021[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 0, 0, 0, 0, -1, -1] (HAD_0.00016) / -0.00003[-3] -0.00006[-2] -0.00008[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00626[-3] 0.00711[-2] 0.00741[-1] // POINT = 1
+4 ) USD/CHF # MACD: [-1, 0, 0, 0, 0, 1, 1] (HAD_0.00013) / 0.00003[-3] 0.00005[-2] 0.00006[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-2, -2, -2, -2, -2, -1, -1] (HAD_0.00016) / -0.00019[-3] -0.00016[-2] -0.00013[-1] / MACD_low3 = -0.00019[-3] -0.00018[-4] // POINT = -4
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 2, 1, 1] (HAD_0.00014) / 0.00015[-3] 0.00011[-2] 0.00005[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00011[-3] 0.00008[-2] 0.00005[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -1, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -4, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.96, 'USD/CAD': -0.36}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -4 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.36
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 13:31:31 GMT+0100 ( NOW = 2021-04-20 13:27:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:31:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.41 // Free_Fund = £120.45 // Live_Result = -£1.76
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77657 / margin = 15.20 / ppl = -1.23 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25354 / margin = 12.76 / ppl = -0.53 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, -1, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00019[-3] -0.00020[-2] -0.00020[-1] // POINT = -1
+2 ) EUR/USD # MACD: [0, 0, 0, 0, -1, -1, -1] (HAD_0.00016) / -0.00006[-3] -0.00010[-2] -0.00014[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00711[-3] 0.00836[-2] 0.00895[-1] // POINT = 1
+4 ) USD/CHF # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00013) / 0.00005[-3] 0.00008[-2] 0.00012[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-2, -2, -2, -2, -1, -1, -1] (HAD_0.00016) / -0.00016[-3] -0.00011[-2] -0.00006[-1] // POINT = -1
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 1, 1, 0] (HAD_0.00014) / 0.00011[-3] 0.00005[-2] -0.00002[-1] / MACD_high8 = 0.00005[-2] // POINT = 3
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 0] (HAD_0.00014) / 0.00008[-3] 0.00005[-2] 0.00000[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -1, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -1, 'AUD/USD': 3, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.23, 'USD/CAD': -0.53}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 3 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -1.23
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 76 secs, WILL RUN AGAIN AT : 2021-04-20 13:36:31 GMT+0100 ( NOW = 2021-04-20 13:32:48 GMT+0100 / in 223 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:36:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.42 // Free_Fund = £120.47 // Live_Result = -£1.75
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77665 / margin = 15.19 / ppl = -1.25 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25339 / margin = 12.76 / ppl = -0.50 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, -2, -1] (HAD_0.00021) / -0.00020[-3] -0.00022[-2] -0.00020[-1] / MACD_low1 = -0.00022[-2] // POINT = -6
+2 ) EUR/USD # MACD: [0, 0, 0, -1, -1, -1, -1] (HAD_0.00016) / -0.00010[-3] -0.00015[-2] -0.00015[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 2, 2] (HAD_0.01075) / 0.00836[-3] 0.01100[-2] 0.01222[-1] // POINT = 2
+4 ) USD/CHF # MACD: [0, 0, 0, 1, 1, 2, 2] (HAD_0.00013) / 0.00008[-3] 0.00015[-2] 0.00017[-1] // POINT = 2
+5 ) USD/CAD # MACD: [-2, -2, -2, -1, -1, -1, 0] (HAD_0.00016) / -0.00011[-3] -0.00007[-2] -0.00003[-1] // POINT = 0
+6 ) AUD/USD # MACD: [2, 2, 2, 1, 1, 0, -1] (HAD_0.00014) / 0.00005[-3] -0.00002[-2] -0.00006[-1] // POINT = -1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 0, 0] (HAD_0.00014) / 0.00005[-3] 0.00000[-2] -0.00003[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -6, 'EUR/USD': -1, 'USD/JPY': 2, 'USD/CHF': 2, 'USD/CAD': 0, 'AUD/USD': -1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.25, 'USD/CAD': -0.5}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 13:41:31 GMT+0100 ( NOW = 2021-04-20 13:37:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:41:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.33 // Free_Fund = £120.37 // Live_Result = -£1.84
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77640 / margin = 15.19 / ppl = -1.32 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25335 / margin = 12.77 / ppl = -0.52 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -2, -1, -1] (HAD_0.00021) / -0.00022[-3] -0.00020[-2] -0.00018[-1] / MACD_low3 = -0.00022[-3] -0.00020[-4] // POINT = -4
+2 ) EUR/USD # MACD: [0, 0, -1, -1, -1, -2, -2] (HAD_0.00016) / -0.00015[-3] -0.00017[-2] -0.00018[-1] // POINT = -2
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 2, 2, 2] (HAD_0.01075) / 0.01100[-3] 0.01190[-2] 0.01255[-1] // POINT = 2
+4 ) USD/CHF # MACD: [0, 0, 1, 1, 2, 2, 2] (HAD_0.00013) / 0.00015[-3] 0.00017[-2] 0.00017[-1] // POINT = 2
+5 ) USD/CAD # MACD: [-2, -2, -1, -1, -1, 0, 0] (HAD_0.00016) / -0.00007[-3] -0.00002[-2] -0.00001[-1] // POINT = 0
+6 ) AUD/USD # MACD: [2, 2, 1, 1, 0, -1, -1] (HAD_0.00014) / -0.00002[-3] -0.00007[-2] -0.00011[-1] // POINT = -1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 0, 0, -1] (HAD_0.00014) / 0.00000[-3] -0.00003[-2] -0.00005[-1] // POINT = -1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -4, 'EUR/USD': -2, 'USD/JPY': 2, 'USD/CHF': 2, 'USD/CAD': 0, 'AUD/USD': -1, 'NZD/USD': -1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.32, 'USD/CAD': -0.52}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 13:46:31 GMT+0100 ( NOW = 2021-04-20 13:42:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 13:46:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.08 // Free_Fund = £120.13 // Live_Result = -£2.09
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77632 / margin = 15.19 / ppl = -1.40 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25392 / margin = 12.76 / ppl = -0.69 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -2, -1, -1, -1] (HAD_0.00021) / -0.00020[-3] -0.00019[-2] -0.00016[-1] // POINT = -1
+2 ) EUR/USD # MACD: [0, -1, -1, -1, -2, -2, -2] (HAD_0.00016) / -0.00017[-3] -0.00019[-2] -0.00021[-1] // POINT = -2
+3 ) USD/JPY # MACD: [1, 1, 1, 2, 2, 2, 2] (HAD_0.01075) / 0.01190[-3] 0.01197[-2] 0.01155[-1] / MACD_high1 = 0.01197[-2] // POINT = 7
+4 ) USD/CHF # MACD: [0, 1, 1, 2, 2, 2, 2] (HAD_0.00013) / 0.00017[-3] 0.00018[-2] 0.00017[-1] / MACD_high1 = 0.00018[-2] // POINT = 7
+5 ) USD/CAD # MACD: [-2, -1, -1, -1, 0, 0, 1] (HAD_0.00016) / -0.00002[-3] 0.00003[-2] 0.00005[-1] // POINT = 1
+6 ) AUD/USD # MACD: [2, 1, 1, 0, -1, -1, -1] (HAD_0.00014) / -0.00007[-3] -0.00010[-2] -0.00012[-1] // POINT = -1
+7 ) NZD/USD # MACD: [1, 1, 1, 0, 0, -1, -1] (HAD_0.00014) / -0.00003[-3] -0.00006[-2] -0.00007[-1] // POINT = -1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -2, 'USD/JPY': 7, 'USD/CHF': 7, 'USD/CAD': 1, 'AUD/USD': -1, 'NZD/USD': -1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 2 :: LIST =  ['USD/JPY', 'USD/CHF']
+ --- > Limit_Trader ( 3 ) nearly reach - Mean only 1 Currrency will be Traded - > LIST = ['USD/JPY']
+ ---- > TO SELL = (Currency) USD/JPY (Amount) 533
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.4, 'USD/CAD': -0.69}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 85 secs, WILL RUN AGAIN AT : 2021-04-20 13:51:31 GMT+0100 ( NOW = 2021-04-20 13:47:57 GMT+0100 / in 214 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 13:51:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.42 // Free_Fund = £107.74 // Live_Result = -£1.75
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77684 / margin = 15.20 / ppl = -1.18 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25356 / margin = 12.76 / ppl = -0.54 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.465 / margin = 12.72 / ppl = -0.03 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -2, -1, -1, -1, -1] (HAD_0.00021) / -0.00019[-3] -0.00014[-2] -0.00010[-1] // POINT = -1
+2 ) EUR/USD # MACD: [-1, -1, -1, -2, -2, -2, -2] (HAD_0.00016) / -0.00019[-3] -0.00019[-2] -0.00018[-1] / MACD_low1 = -0.00019[-2] -0.00017[-4] // POINT = -7
+3 ) USD/JPY # MACD: [1, 1, 2, 2, 2, 1, 1] (HAD_0.01075) / 0.01197[-3] 0.00951[-2] 0.00710[-1] / MACD_high3 = 0.01197[-3] 0.01190[-4] // POINT = 4
+4 ) USD/CHF # MACD: [1, 1, 2, 2, 2, 2, 2] (HAD_0.00013) / 0.00018[-3] 0.00016[-2] 0.00014[-1] / MACD_high3 = 0.00018[-3] 0.00017[-4] // POINT = 5
+5 ) USD/CAD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00016) / 0.00003[-3] 0.00002[-2] 0.00003[-1] / MACD_high3 = 0.00003[-3] -0.00002[-4] // POINT = 3
+6 ) AUD/USD # MACD: [1, 1, 0, -1, -1, -1, -1] (HAD_0.00014) / -0.00010[-3] -0.00008[-2] -0.00007[-1] / MACD_low3 = -0.00010[-3] -0.00007[-4] // POINT = -4
+7 ) NZD/USD # MACD: [1, 1, 0, 0, -1, -1, 0] (HAD_0.00014) / -0.00006[-3] -0.00005[-2] -0.00003[-1] / MACD_low3 = -0.00006[-3] -0.00003[-4] // POINT = -3
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -7, 'USD/JPY': 4, 'USD/CHF': 5, 'USD/CAD': 3, 'AUD/USD': -4, 'NZD/USD': -3}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['EUR/USD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.18, 'USD/CAD': -0.54, 'USD/JPY': -0.03}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -4 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 4 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 13:56:31 GMT+0100 ( NOW = 2021-04-20 13:52:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 13:56:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.54 // Free_Fund = £107.87 // Live_Result = -£1.63
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77682 / margin = 15.20 / ppl = -1.18 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25330 / margin = 12.76 / ppl = -0.52 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.435 / margin = 12.71 / ppl = 0.07 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -2, -1, -1, -1, -1, 0] (HAD_0.00021) / -0.00014[-3] -0.00010[-2] -0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, -1, -2, -2, -2, -2, -1] (HAD_0.00016) / -0.00019[-3] -0.00018[-2] -0.00015[-1] / MACD_low7 = -0.00019[-3] -0.00017[-5] // POINT = -4
+3 ) USD/JPY # MACD: [1, 2, 2, 2, 1, 1, 1] (HAD_0.01075) / 0.00951[-3] 0.00678[-2] 0.00439[-1] // POINT = 1
+4 ) USD/CHF # MACD: [1, 2, 2, 2, 2, 2, 1] (HAD_0.00013) / 0.00016[-3] 0.00015[-2] 0.00013[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-1, -1, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00002[-3] 0.00003[-2] 0.00001[-1] / MACD_high1 = 0.00003[-2] // POINT = 5
+6 ) AUD/USD # MACD: [1, 0, -1, -1, -1, -1, -1] (HAD_0.00014) / -0.00008[-3] -0.00006[-2] -0.00005[-1] // POINT = -1
+7 ) NZD/USD # MACD: [1, 0, 0, -1, -1, 0, 0] (HAD_0.00014) / -0.00005[-3] -0.00003[-2] -0.00001[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -4, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 5, 'AUD/USD': -1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.18, 'USD/CAD': -0.52, 'USD/JPY': 0.07}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 5 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 14:01:31 GMT+0100 ( NOW = 2021-04-20 13:57:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:01:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.45 // Free_Fund = £107.79 // Live_Result = -£1.72
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77694 / margin = 15.19 / ppl = -1.12 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25355 / margin = 12.76 / ppl = -0.59 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.456 / margin = 12.71 / ppl = -0.01 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-2, -1, -1, -1, -1, 0, 0] (HAD_0.00021) / -0.00010[-3] -0.00006[-2] -0.00001[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, -2, -2, -2, -2, -1, -1] (HAD_0.00016) / -0.00018[-3] -0.00016[-2] -0.00014[-1] // POINT = -1
+3 ) USD/JPY # MACD: [2, 2, 2, 1, 1, 1, 1] (HAD_0.01075) / 0.00678[-3] 0.00586[-2] 0.00375[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 2, 2, 2, 2, 1] (HAD_0.00013) / 0.00015[-3] 0.00014[-2] 0.00012[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-1, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00003[-3] 0.00002[-2] 0.00001[-1] / MACD_high3 = 0.00003[-3] 0.00002[-4] // POINT = 3
+6 ) AUD/USD # MACD: [0, -1, -1, -1, -1, 0, 0] (HAD_0.00014) / -0.00006[-3] -0.00003[-2] -0.00002[-1] // POINT = 0
+7 ) NZD/USD # MACD: [0, 0, -1, -1, 0, 0, 0] (HAD_0.00014) / -0.00003[-3] 0.00000[-2] 0.00002[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -1, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 3, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.12, 'USD/CAD': -0.59, 'USD/JPY': -0.01}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 83 secs, WILL RUN AGAIN AT : 2021-04-20 14:06:31 GMT+0100 ( NOW = 2021-04-20 14:02:55 GMT+0100 / in 216 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:06:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.31 // Free_Fund = £107.65 // Live_Result = -£1.86
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77683 / margin = 15.19 / ppl = -1.21 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25335 / margin = 12.76 / ppl = -0.51 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.504 / margin = 12.71 / ppl = -0.14 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.00021) / -0.00006[-3] -0.00002[-2] -0.00000[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-2, -2, -2, -2, -1, -1, -1] (HAD_0.00016) / -0.00016[-3] -0.00014[-2] -0.00011[-1] // POINT = -1
+3 ) USD/JPY # MACD: [2, 2, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00586[-3] 0.00522[-2] 0.00637[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 2, 2, 2, 1, 1] (HAD_0.00013) / 0.00014[-3] 0.00012[-2] 0.00010[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00002[-3] 0.00001[-2] -0.00000[-1] // POINT = 0
+6 ) AUD/USD # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.00014) / -0.00003[-3] -0.00002[-2] -0.00000[-1] // POINT = 0
+7 ) NZD/USD # MACD: [0, -1, -1, 0, 0, 0, 0] (HAD_0.00014) / 0.00000[-3] 0.00002[-2] 0.00004[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -1, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.21, 'USD/CAD': -0.51, 'USD/JPY': -0.14}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 14:11:31 GMT+0100 ( NOW = 2021-04-20 14:07:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:11:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.67 // Free_Fund = £108.00 // Live_Result = -£1.50
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77737 / margin = 15.20 / ppl = -1.01 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25290 / margin = 12.76 / ppl = -0.39 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.480 / margin = 12.71 / ppl = -0.10 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00021) / -0.00002[-3] 0.00002[-2] 0.00004[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-2, -2, -2, -1, -1, -1, -1] (HAD_0.00016) / -0.00014[-3] -0.00008[-2] -0.00005[-1] // POINT = -1
+3 ) USD/JPY # MACD: [2, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00522[-3] 0.00464[-2] 0.00419[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 2, 2, 1, 1, 1] (HAD_0.00013) / 0.00012[-3] 0.00008[-2] 0.00004[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 0, 0, -1] (HAD_0.00016) / 0.00001[-3] -0.00002[-2] -0.00005[-1] // POINT = -1
+6 ) AUD/USD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00014) / -0.00002[-3] 0.00001[-2] 0.00003[-1] // POINT = 0
+7 ) NZD/USD # MACD: [-1, -1, 0, 0, 0, 0, 1] (HAD_0.00014) / 0.00002[-3] 0.00004[-2] 0.00007[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -1, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -1, 'AUD/USD': 0, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.01, 'USD/CAD': -0.39, 'USD/JPY': -0.1}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 14:16:31 GMT+0100 ( NOW = 2021-04-20 14:12:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:16:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.64 // Free_Fund = £107.97 // Live_Result = -£1.53
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77708 / margin = 15.20 / ppl = -1.03 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25313 / margin = 12.76 / ppl = -0.42 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.474 / margin = 12.71 / ppl = -0.08 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, 0, 0, 0, 0, 0] (HAD_0.00021) / 0.00002[-3] 0.00005[-2] 0.00005[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-2, -2, -1, -1, -1, 0, 0] (HAD_0.00016) / -0.00008[-3] -0.00004[-2] -0.00001[-1] // POINT = 0
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00464[-3] 0.00375[-2] 0.00352[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 2, 1, 1, 0, 0] (HAD_0.00013) / 0.00008[-3] 0.00003[-2] 0.00001[-1] // POINT = 0
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 0, 0, -1] (HAD_0.00016) / -0.00002[-3] -0.00004[-2] -0.00005[-1] // POINT = -1
+6 ) AUD/USD # MACD: [-1, -1, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00001[-3] 0.00004[-2] 0.00004[-1] // POINT = 0
+7 ) NZD/USD # MACD: [-1, 0, 0, 0, 0, 1, 1] (HAD_0.00014) / 0.00004[-3] 0.00008[-2] 0.00009[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 0, 'USD/CAD': -1, 'AUD/USD': 0, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.03, 'USD/CAD': -0.42, 'USD/JPY': -0.08}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 14:21:31 GMT+0100 ( NOW = 2021-04-20 14:17:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:21:32 GMT+0100 // DFD = £150.17 // Total_Fund = £148.68 // Free_Fund = £108.01 // Live_Result = -£1.49
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77730 / margin = 15.20 / ppl = -1.00 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25291 / margin = 12.76 / ppl = -0.38 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.481 / margin = 12.71 / ppl = -0.11 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, 0, 0, 0, 0, 0, 0] (HAD_0.00021) / 0.00005[-3] 0.00005[-2] 0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-2, -1, -1, -1, 0, 0, 0] (HAD_0.00016) / -0.00004[-3] -0.00002[-2] 0.00002[-1] / MACD_low8 = -0.00002[-2] // POINT = -3
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 1, 0] (HAD_0.01075) / 0.00375[-3] 0.00415[-2] 0.00286[-1] / MACD_high1 = 0.00415[-2] // POINT = 5
+4 ) USD/CHF # MACD: [2, 2, 1, 1, 0, 0, 0] (HAD_0.00013) / 0.00003[-3] 0.00001[-2] -0.00001[-1] / MACD_high8 = 0.00001[-2] // POINT = 3
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 0, -1, -1] (HAD_0.00016) / -0.00004[-3] -0.00006[-2] -0.00007[-1] // POINT = -1
+6 ) AUD/USD # MACD: [-1, 0, 0, 0, 0, 1, 1] (HAD_0.00014) / 0.00004[-3] 0.00005[-2] 0.00006[-1] // POINT = 1
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00014) / 0.00008[-3] 0.00009[-2] 0.00009[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -3, 'USD/JPY': 5, 'USD/CHF': 3, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.0, 'USD/CAD': -0.38, 'USD/JPY': -0.11}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 5 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 14:26:31 GMT+0100 ( NOW = 2021-04-20 14:22:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:26:33 GMT+0100 // DFD = £150.17 // Total_Fund = £148.66 // Free_Fund = £107.99 // Live_Result = -£1.51
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77719 / margin = 15.20 / ppl = -1.03 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25279 / margin = 12.76 / ppl = -0.36 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.484 / margin = 12.71 / ppl = -0.12 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 0, 0, 1] (HAD_0.00021) / 0.00005[-3] 0.00006[-2] 0.00007[-1] // POINT = 1
+2 ) EUR/USD # MACD: [-1, -1, -1, 0, 0, 0, 1] (HAD_0.00016) / -0.00002[-3] 0.00003[-2] 0.00006[-1] // POINT = 1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 0, 0] (HAD_0.01075) / 0.00415[-3] 0.00292[-2] 0.00277[-1] / MACD_high3 = 0.00415[-3] 0.00375[-4] // POINT = 3
+4 ) USD/CHF # MACD: [2, 1, 1, 0, 0, 0, -1] (HAD_0.00013) / 0.00001[-3] -0.00003[-2] -0.00006[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 0, 0, 0, -1, -1, -1] (HAD_0.00016) / -0.00006[-3] -0.00008[-2] -0.00009[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00014) / 0.00005[-3] 0.00005[-2] 0.00005[-1] // POINT = 1
+7 ) NZD/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00014) / 0.00009[-3] 0.00009[-2] 0.00010[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': 3, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.03, 'USD/CAD': -0.36, 'USD/JPY': -0.12}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 14:31:31 GMT+0100 ( NOW = 2021-04-20 14:27:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:31:33 GMT+0100 // DFD = £150.17 // Total_Fund = £148.96 // Free_Fund = £108.28 // Live_Result = -£1.21
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77729 / margin = 15.21 / ppl = -0.98 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25271 / margin = 12.76 / ppl = -0.33 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.425 / margin = 12.71 / ppl = 0.10 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00021) / 0.00006[-3] 0.00006[-2] 0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, -1, 0, 0, 0, 1, 1] (HAD_0.00016) / 0.00003[-3] 0.00007[-2] 0.00008[-1] // POINT = 1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 0, 0, 0] (HAD_0.01075) / 0.00292[-3] -0.00011[-2] -0.00283[-1] // POINT = 0
+4 ) USD/CHF # MACD: [1, 1, 0, 0, 0, -1, -1] (HAD_0.00013) / -0.00003[-3] -0.00007[-2] -0.00009[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 0, 0, -1, -1, -1, -1] (HAD_0.00016) / -0.00008[-3] -0.00009[-2] -0.00011[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00014) / 0.00005[-3] 0.00005[-2] 0.00005[-1] // POINT = 1
+7 ) NZD/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00009[-3] 0.00009[-2] 0.00009[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 1, 'USD/JPY': 0, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.98, 'USD/CAD': -0.33, 'USD/JPY': 0.1}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 14:36:31 GMT+0100 ( NOW = 2021-04-20 14:32:53 GMT+0100 / in 218 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:36:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.13 // Free_Fund = £108.45 // Live_Result = -£1.04
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77751 / margin = 15.21 / ppl = -0.88 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25262 / margin = 12.76 / ppl = -0.28 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.412 / margin = 12.71 / ppl = 0.12 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00021) / 0.00006[-3] 0.00006[-2] 0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, 0, 0, 0, 1, 1, 1] (HAD_0.00016) / 0.00007[-3] 0.00008[-2] 0.00007[-1] / MACD_high1 = 0.00008[-2] // POINT = 6
+3 ) USD/JPY # MACD: [1, 1, 1, 0, 0, -1, -1] (HAD_0.01075) / -0.00011[-3] -0.00353[-2] -0.00612[-1] // POINT = -1
+4 ) USD/CHF # MACD: [1, 0, 0, 0, -1, -1, -1] (HAD_0.00013) / -0.00007[-3] -0.00009[-2] -0.00010[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 0, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00009[-3] -0.00011[-2] -0.00011[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00005[-3] 0.00007[-2] 0.00010[-1] // POINT = 1
+7 ) NZD/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00009[-3] 0.00010[-2] 0.00011[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 6, 'USD/JPY': -1, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.88, 'USD/CAD': -0.28, 'USD/JPY': 0.12}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 14:41:31 GMT+0100 ( NOW = 2021-04-20 14:37:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:41:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.33 // Free_Fund = £108.63 // Live_Result = -£0.84
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77776 / margin = 15.22 / ppl = -0.84 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25243 / margin = 12.76 / ppl = -0.26 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.373 / margin = 12.72 / ppl = 0.26 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00021) / 0.00006[-3] 0.00006[-2] 0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00016) / 0.00008[-3] 0.00010[-2] 0.00012[-1] // POINT = 1
+3 ) USD/JPY # MACD: [1, 1, 0, 0, -1, -1, -1] (HAD_0.01075) / -0.00353[-3] -0.00771[-2] -0.00990[-1] // POINT = -1
+4 ) USD/CHF # MACD: [0, 0, 0, -1, -1, -1, -1] (HAD_0.00013) / -0.00009[-3] -0.00010[-2] -0.00012[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00011[-3] -0.00012[-2] -0.00012[-1] // POINT = -1
+6 ) AUD/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00007[-3] 0.00009[-2] 0.00011[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00010[-3] 0.00010[-2] 0.00011[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 1, 'USD/JPY': -1, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.84, 'USD/CAD': -0.26, 'USD/JPY': 0.26}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 14:46:31 GMT+0100 ( NOW = 2021-04-20 14:42:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:46:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.64 // Free_Fund = £108.95 // Live_Result = -£0.53
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77793 / margin = 15.22 / ppl = -0.72 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25217 / margin = 12.76 / ppl = -0.17 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.349 / margin = 12.71 / ppl = 0.36 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 0, 1, 1] (HAD_0.00021) / 0.00006[-3] 0.00008[-2] 0.00009[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00010[-3] 0.00015[-2] 0.00015[-1] // POINT = 1
+3 ) USD/JPY # MACD: [1, 0, 0, -1, -1, -2, -2] (HAD_0.01075) / -0.00771[-3] -0.01290[-2] -0.01478[-1] // POINT = -2
+4 ) USD/CHF # MACD: [0, 0, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00010[-3] -0.00013[-2] -0.00013[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00012[-3] -0.00014[-2] -0.00015[-1] // POINT = -1
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00009[-3] 0.00012[-2] 0.00013[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00010[-3] 0.00012[-2] 0.00012[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': -2, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.72, 'USD/CAD': -0.17, 'USD/JPY': 0.36}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 14:51:31 GMT+0100 ( NOW = 2021-04-20 14:47:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 14:51:32 GMT+0100 // DFD = £150.17 // Total_Fund = £149.96 // Free_Fund = £109.27 // Live_Result = -£0.21
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77813 / margin = 15.22 / ppl = -0.65 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25237 / margin = 12.76 / ppl = -0.18 /
+3 ) name = USD/JPY / quantity = 533 / direction = SELL / averagePrice = 108.45200 / currentPrice = 108.269 / margin = 12.71 / ppl = 0.62 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00021) / 0.00008[-3] 0.00010[-2] 0.00011[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00015[-3] 0.00014[-2] 0.00015[-1] / MACD_high3 = 0.00015[-3] 0.00010[-4] // POINT = 4
+3 ) USD/JPY # MACD: [0, 0, -1, -1, -2, -2, -2] (HAD_0.01075) / -0.01290[-3] -0.01797[-2] -0.02133[-1] // POINT = -2
+4 ) USD/CHF # MACD: [0, -1, -1, -1, -1, -1, -2] (HAD_0.00013) / -0.00013[-3] -0.00013[-2] -0.00014[-1] // POINT = -2
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00014[-3] -0.00014[-2] -0.00013[-1] / MACD_low1 = -0.00014[-2] -0.00012[-4] // POINT = -6
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00012[-3] 0.00013[-2] 0.00014[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00012[-3] 0.00014[-2] 0.00014[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 4, 'USD/JPY': -2, 'USD/CHF': -2, 'USD/CAD': -6, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.65, 'USD/CAD': -0.18, 'USD/JPY': 0.62}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -6 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.18
+  -- >  USD/JPY  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+    - > TO CLOSE # USD/JPY // ACHIEVED Target Hard_Profit ( > 0.51 ) = 0.62
+
+SCRIPTS HAS RUN FOR 81 secs, WILL RUN AGAIN AT : 2021-04-20 14:56:31 GMT+0100 ( NOW = 2021-04-20 14:52:53 GMT+0100 / in 218 secs )
+
+# No_Instruments = 2 // NOW 2021-04-20 14:56:33 GMT+0100 // DFD = £150.76 // Total_Fund = £149.98 // Free_Fund = £122.00 // Live_Result = -£0.78
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77810 / margin = 15.22 / ppl = -0.65 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25207 / margin = 12.76 / ppl = -0.13 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00021) / 0.00010[-3] 0.00009[-2] 0.00008[-1] / MACD_high3 = 0.00010[-3] 0.00008[-4] // POINT = 4
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00014[-3] 0.00014[-2] 0.00013[-1] // POINT = 1
+3 ) USD/JPY # MACD: [0, -1, -1, -2, -2, -2, -2] (HAD_0.01075) / -0.01797[-3] -0.02062[-2] -0.02042[-1] / MACD_low1 = -0.02062[-2] // POINT = -7
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00013[-3] -0.00012[-2] -0.00009[-1] / MACD_low7 = -0.00013[-3] -0.00010[-5] // POINT = -4
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00014[-3] -0.00013[-2] -0.00014[-1] / MACD_low7 = -0.00014[-3] -0.00012[-5] // POINT = -4
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00013[-3] 0.00013[-2] 0.00013[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00014[-3] 0.00014[-2] 0.00013[-1] / MACD_high1 = 0.00014[-2] 0.00012[-4] // POINT = 6
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 4, 'EUR/USD': 1, 'USD/JPY': -7, 'USD/CHF': -4, 'USD/CAD': -4, 'AUD/USD': 1, 'NZD/USD': 6}
+ -- > LIMIT = 3 // CURRENT_TRADE = 2 // AVAILABLE = 1 // TO_ADD = 1 :: LIST =  ['USD/JPY']
+ --- > TO_ADD = 1 - > LIST = ['USD/JPY']
+ ---- > TO BUY = (Currency) USD/JPY (Amount) 543
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.65, 'USD/CAD': -0.13}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -4 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.13
+
+SCRIPTS HAS RUN FOR 84 secs, WILL RUN AGAIN AT : 2021-04-20 15:01:31 GMT+0100 ( NOW = 2021-04-20 14:57:57 GMT+0100 / in 214 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:01:32 GMT+0100 // DFD = £150.76 // Total_Fund = £149.95 // Free_Fund = £109.00 // Live_Result = -£0.81
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77790 / margin = 15.22 / ppl = -0.67 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25207 / margin = 12.77 / ppl = -0.06 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.285 / margin = 12.96 / ppl = -0.08 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 1, 1, 1, 1, 0] (HAD_0.00021) / 0.00009[-3] 0.00008[-2] 0.00005[-1] // POINT = 0
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00014[-3] 0.00012[-2] 0.00010[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -1, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.02062[-3] -0.02099[-2] -0.02057[-1] / MACD_low1 = -0.02099[-2] // POINT = -7
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00012[-3] -0.00011[-2] -0.00011[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00013[-3] -0.00014[-2] -0.00014[-1] // POINT = -1
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00013[-3] 0.00012[-2] 0.00009[-1] / MACD_high7 = 0.00013[-3] 0.00012[-5] // POINT = 4
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00014[-3] 0.00013[-2] 0.00012[-1] / MACD_high7 = 0.00014[-3] 0.00012[-5] // POINT = 4
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 1, 'USD/JPY': -7, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 4, 'NZD/USD': 4}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['USD/JPY']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.67, 'USD/CAD': -0.06, 'USD/JPY': -0.08}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 4 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.67
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -7 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 81 secs, WILL RUN AGAIN AT : 2021-04-20 15:06:31 GMT+0100 ( NOW = 2021-04-20 15:02:53 GMT+0100 / in 218 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:06:32 GMT+0100 // DFD = £150.76 // Total_Fund = £149.69 // Free_Fund = £108.76 // Live_Result = -£1.07
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77774 / margin = 15.22 / ppl = -0.79 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25225 / margin = 12.76 / ppl = -0.18 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.265 / margin = 12.95 / ppl = -0.10 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 1, 1, 1, 1, 0, 0] (HAD_0.00021) / 0.00008[-3] 0.00003[-2] 0.00003[-1] // POINT = 0
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00012[-3] 0.00008[-2] 0.00009[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-1, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.02099[-3] -0.02102[-2] -0.01982[-1] / MACD_low1 = -0.02102[-2] // POINT = -7
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00011[-3] -0.00009[-2] -0.00008[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00014[-3] -0.00009[-2] -0.00008[-1] / MACD_low3 = -0.00014[-3] -0.00013[-4] // POINT = -4
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00012[-3] 0.00008[-2] 0.00006[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00013[-3] 0.00010[-2] 0.00010[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 1, 'USD/JPY': -7, 'USD/CHF': -1, 'USD/CAD': -4, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['USD/JPY']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.79, 'USD/CAD': -0.18, 'USD/JPY': -0.1}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -4 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.18
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -7 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 15:11:31 GMT+0100 ( NOW = 2021-04-20 15:07:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:11:32 GMT+0100 // DFD = £150.76 // Total_Fund = £149.53 // Free_Fund = £108.61 // Live_Result = -£1.23
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77774 / margin = 15.21 / ppl = -0.82 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25239 / margin = 12.76 / ppl = -0.24 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.236 / margin = 12.95 / ppl = -0.17 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 0, 0, 1] (HAD_0.00021) / 0.00004[-3] 0.00005[-2] 0.00007[-1] // POINT = 1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00008[-3] 0.00006[-2] 0.00006[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.02102[-3] -0.01975[-2] -0.01885[-1] / MACD_low3 = -0.02102[-3] -0.02099[-4] // POINT = -5
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00009[-3] -0.00009[-2] -0.00009[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00009[-3] -0.00008[-2] -0.00008[-1] // POINT = -1
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00008[-3] 0.00006[-2] 0.00005[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00010[-3] 0.00010[-2] 0.00008[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': -5, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.82, 'USD/CAD': -0.24, 'USD/JPY': -0.17}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -5 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:16:31 GMT+0100 ( NOW = 2021-04-20 15:12:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:16:32 GMT+0100 // DFD = £150.76 // Total_Fund = £149.49 // Free_Fund = £108.57 // Live_Result = -£1.27
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77781 / margin = 15.21 / ppl = -0.79 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25235 / margin = 12.76 / ppl = -0.23 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.191 / margin = 12.95 / ppl = -0.25 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 0, 0, 0, 0] (HAD_0.00021) / 0.00005[-3] 0.00005[-2] 0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00006[-3] 0.00010[-2] 0.00010[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.01975[-3] -0.01975[-2] -0.01953[-1] // POINT = -2
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00009[-3] -0.00010[-2] -0.00011[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00008[-3] -0.00006[-2] -0.00006[-1] // POINT = -1
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 1, 0, 1] (HAD_0.00014) / 0.00006[-3] 0.00004[-2] 0.00005[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00010[-3] 0.00010[-2] 0.00011[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 1, 'USD/JPY': -2, 'USD/CHF': -1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.79, 'USD/CAD': -0.23, 'USD/JPY': -0.25}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:21:31 GMT+0100 ( NOW = 2021-04-20 15:17:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:21:33 GMT+0100 // DFD = £150.76 // Total_Fund = £149.34 // Free_Fund = £108.42 // Live_Result = -£1.42
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77763 / margin = 15.21 / ppl = -0.83 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25271 / margin = 12.76 / ppl = -0.34 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.221 / margin = 12.95 / ppl = -0.25 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 0, 0, 0, 1, 1] (HAD_0.00021) / 0.00005[-3] 0.00012[-2] 0.00015[-1] // POINT = 1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00009[-3] 0.00012[-2] 0.00012[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.01975[-3] -0.01876[-2] -0.01787[-1] // POINT = -2
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00010[-3] -0.00012[-2] -0.00010[-1] / MACD_low1 = -0.00012[-2] // POINT = -6
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.00016) / -0.00006[-3] -0.00003[-2] -0.00001[-1] // POINT = 0
+6 ) AUD/USD # MACD: [1, 1, 1, 1, 0, 0, 0] (HAD_0.00014) / 0.00004[-3] 0.00004[-2] 0.00002[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00010[-3] 0.00010[-2] 0.00008[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': -2, 'USD/CHF': -6, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.83, 'USD/CAD': -0.34, 'USD/JPY': -0.25}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:26:31 GMT+0100 ( NOW = 2021-04-20 15:22:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:26:32 GMT+0100 // DFD = £150.76 // Total_Fund = £149.35 // Free_Fund = £108.46 // Live_Result = -£1.41
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77781 / margin = 15.20 / ppl = -0.83 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25271 / margin = 12.75 / ppl = -0.34 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.216 / margin = 12.94 / ppl = -0.24 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 0, 0, 0, 1, 1, 1] (HAD_0.00021) / 0.00012[-3] 0.00015[-2] 0.00017[-1] // POINT = 1
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00012[-3] 0.00013[-2] 0.00014[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.01876[-3] -0.01653[-2] -0.01430[-1] // POINT = -2
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00012[-3] -0.00012[-2] -0.00011[-1] / MACD_low1 = -0.00012[-2] -0.00010[-4] // POINT = -6
+5 ) USD/CAD # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.00016) / -0.00003[-3] 0.00001[-2] 0.00002[-1] // POINT = 0
+6 ) AUD/USD # MACD: [1, 1, 1, 0, 0, 0, 0] (HAD_0.00014) / 0.00004[-3] 0.00002[-2] 0.00001[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00010[-3] 0.00007[-2] 0.00006[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 1, 'USD/JPY': -2, 'USD/CHF': -6, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.83, 'USD/CAD': -0.34, 'USD/JPY': -0.24}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:31:31 GMT+0100 ( NOW = 2021-04-20 15:27:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:31:32 GMT+0100 // DFD = £150.76 // Total_Fund = £149.46 // Free_Fund = £108.57 // Live_Result = -£1.30
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77788 / margin = 15.20 / ppl = -0.75 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25255 / margin = 12.75 / ppl = -0.26 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.194 / margin = 12.94 / ppl = -0.29 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, 1, 1, 1, 2] (HAD_0.00021) / 0.00015[-3] 0.00021[-2] 0.00022[-1] // POINT = 2
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 1, 2] (HAD_0.00016) / 0.00013[-3] 0.00015[-2] 0.00017[-1] // POINT = 2
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.01653[-3] -0.01564[-2] -0.01286[-1] // POINT = -2
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00012[-3] -0.00013[-2] -0.00013[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00016) / 0.00001[-3] -0.00001[-2] -0.00001[-1] / MACD_high3 = 0.00001[-3] -0.00003[-4] // POINT = 3
+6 ) AUD/USD # MACD: [1, 1, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] 0.00004[-2] 0.00004[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00007[-3] 0.00008[-2] 0.00007[-1] / MACD_high1 = 0.00008[-2] // POINT = 6
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 2, 'EUR/USD': 2, 'USD/JPY': -2, 'USD/CHF': -1, 'USD/CAD': 3, 'AUD/USD': 0, 'NZD/USD': 6}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.75, 'USD/CAD': -0.26, 'USD/JPY': -0.29}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:36:31 GMT+0100 ( NOW = 2021-04-20 15:32:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:36:33 GMT+0100 // DFD = £150.76 // Total_Fund = £149.10 // Free_Fund = £108.21 // Live_Result = -£1.66
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77733 / margin = 15.20 / ppl = -0.95 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25294 / margin = 12.75 / ppl = -0.38 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.197 / margin = 12.94 / ppl = -0.33 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00021[-3] 0.00021[-2] 0.00019[-1] / MACD_high1 = 0.00021[-2] 0.00015[-4] // POINT = 6
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 1, 2, 1] (HAD_0.00016) / 0.00015[-3] 0.00017[-2] 0.00016[-1] / MACD_high1 = 0.00017[-2] // POINT = 6
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.01564[-3] -0.01401[-2] -0.01152[-1] // POINT = -2
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00013[-3] -0.00013[-2] -0.00013[-1] // POINT = -1
+5 ) USD/CAD # MACD: [-1, -1, 0, 0, 0, 0, 0] (HAD_0.00016) / -0.00001[-3] 0.00003[-2] 0.00004[-1] / MACD_low3 = -0.00001[-3] 0.00001[-4] // POINT = -3
+6 ) AUD/USD # MACD: [1, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00004[-3] 0.00001[-2] -0.00002[-1] / MACD_high3 = 0.00004[-3] 0.00002[-4] // POINT = 3
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 0] (HAD_0.00014) / 0.00008[-3] 0.00007[-2] 0.00004[-1] / MACD_high3 = 0.00008[-3] 0.00007[-4] // POINT = 3
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 6, 'EUR/USD': 6, 'USD/JPY': -2, 'USD/CHF': -1, 'USD/CAD': -3, 'AUD/USD': 3, 'NZD/USD': 3}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -0.95, 'USD/CAD': -0.38, 'USD/JPY': -0.33}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 3 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.95
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -3 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.38
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:41:31 GMT+0100 ( NOW = 2021-04-20 15:37:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:41:32 GMT+0100 // DFD = £150.76 // Total_Fund = £148.38 // Free_Fund = £107.51 // Live_Result = -£2.38
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77681 / margin = 15.18 / ppl = -1.24 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25381 / margin = 12.75 / ppl = -0.72 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.169 / margin = 12.94 / ppl = -0.42 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 1, 1, 1, 1, 2, 1] (HAD_0.00021) / 0.00021[-3] 0.00022[-2] 0.00021[-1] / MACD_high1 = 0.00022[-2] // POINT = 6
+2 ) EUR/USD # MACD: [1, 1, 1, 1, 2, 2, 1] (HAD_0.00016) / 0.00017[-3] 0.00019[-2] 0.00016[-1] / MACD_high1 = 0.00019[-2] // POINT = 6
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.01075) / -0.01401[-3] -0.01477[-2] -0.01326[-1] / MACD_low1 = -0.01477[-2] // POINT = -7
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, -2, -1] (HAD_0.00013) / -0.00013[-3] -0.00014[-2] -0.00013[-1] / MACD_low1 = -0.00014[-2] // POINT = -6
+5 ) USD/CAD # MACD: [-1, 0, 0, 0, 0, 1, 1] (HAD_0.00016) / 0.00003[-3] 0.00007[-2] 0.00013[-1] // POINT = 1
+6 ) AUD/USD # MACD: [0, 0, 0, 0, 0, 0, -1] (HAD_0.00014) / 0.00001[-3] -0.00002[-2] -0.00009[-1] // POINT = -1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 1, 0] (HAD_0.00014) / 0.00007[-3] 0.00006[-2] 0.00002[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 6, 'EUR/USD': 6, 'USD/JPY': -7, 'USD/CHF': -6, 'USD/CAD': 1, 'AUD/USD': -1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['USD/JPY']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.24, 'USD/CAD': -0.72, 'USD/JPY': -0.42}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -7 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 15:46:31 GMT+0100 ( NOW = 2021-04-20 15:42:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:46:33 GMT+0100 // DFD = £150.76 // Total_Fund = £147.85 // Free_Fund = £106.97 // Live_Result = -£2.91
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77554 / margin = 15.17 / ppl = -1.60 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25475 / margin = 12.76 / ppl = -0.93 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.184 / margin = 12.95 / ppl = -0.38 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 2, 1, 1] (HAD_0.00021) / 0.00022[-3] 0.00017[-2] 0.00010[-1] / MACD_high3 = 0.00022[-3] 0.00021[-4] // POINT = 4
+2 ) EUR/USD # MACD: [1, 1, 1, 2, 2, 1, 1] (HAD_0.00016) / 0.00019[-3] 0.00014[-2] 0.00009[-1] / MACD_high3 = 0.00019[-3] 0.00017[-4] // POINT = 4
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -2, -1] (HAD_0.01075) / -0.01477[-3] -0.01179[-2] -0.00921[-1] / MACD_low3 = -0.01477[-3] -0.01401[-4] // POINT = -4
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -2, -1, -1] (HAD_0.00013) / -0.00014[-3] -0.00013[-2] -0.00009[-1] / MACD_low3 = -0.00014[-3] -0.00013[-4] // POINT = -4
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 1, 1, 2] (HAD_0.00016) / 0.00007[-3] 0.00015[-2] 0.00024[-1] // POINT = 2
+6 ) AUD/USD # MACD: [0, 0, 0, 0, 0, -1, -2] (HAD_0.00014) / -0.00002[-3] -0.00011[-2] -0.00022[-1] // POINT = -2
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 0, -1] (HAD_0.00014) / 0.00006[-3] -0.00000[-2] -0.00005[-1] // POINT = -1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 4, 'EUR/USD': 4, 'USD/JPY': -4, 'USD/CHF': -4, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.6, 'USD/CAD': -0.93, 'USD/JPY': -0.38}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -4 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 15:51:31 GMT+0100 ( NOW = 2021-04-20 15:47:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:51:32 GMT+0100 // DFD = £150.76 // Total_Fund = £147.45 // Free_Fund = £106.58 // Live_Result = -£3.31
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77478 / margin = 15.16 / ppl = -1.84 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25497 / margin = 12.76 / ppl = -1.01 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.177 / margin = 12.95 / ppl = -0.46 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 2, 1, 1, 0] (HAD_0.00021) / 0.00017[-3] 0.00010[-2] 0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [1, 1, 2, 2, 1, 1, 1] (HAD_0.00016) / 0.00014[-3] 0.00008[-2] 0.00005[-1] // POINT = 1
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -2, -1, -1] (HAD_0.01075) / -0.01179[-3] -0.01011[-2] -0.00815[-1] // POINT = -1
+4 ) USD/CHF # MACD: [-1, -1, -1, -2, -1, -1, -1] (HAD_0.00013) / -0.00013[-3] -0.00010[-2] -0.00009[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 0, 0, 1, 1, 2, 2] (HAD_0.00016) / 0.00015[-3] 0.00023[-2] 0.00026[-1] // POINT = 2
+6 ) AUD/USD # MACD: [0, 0, 0, 0, -1, -2, -2] (HAD_0.00014) / -0.00011[-3] -0.00021[-2] -0.00030[-1] // POINT = -2
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 0, -1, -1] (HAD_0.00014) / -0.00000[-3] -0.00005[-2] -0.00010[-1] // POINT = -1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 1, 'USD/JPY': -1, 'USD/CHF': -1, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -1.84, 'USD/CAD': -1.01, 'USD/JPY': -0.46}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 15:56:31 GMT+0100 ( NOW = 2021-04-20 15:52:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 15:56:32 GMT+0100 // DFD = £150.76 // Total_Fund = £146.77 // Free_Fund = £105.88 // Live_Result = -£3.99
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77434 / margin = 15.16 / ppl = -2.13 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25559 / margin = 12.77 / ppl = -1.24 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.123 / margin = 12.96 / ppl = -0.62 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 2, 1, 1, 0, -1] (HAD_0.00021) / 0.00010[-3] -0.00002[-2] -0.00009[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 2, 2, 1, 1, 0, 0] (HAD_0.00016) / 0.00008[-3] 0.00004[-2] 0.00002[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-2, -2, -2, -2, -1, -1, -2] (HAD_0.01075) / -0.01011[-3] -0.01070[-2] -0.01076[-1] // POINT = -2
+4 ) USD/CHF # MACD: [-1, -1, -2, -1, -1, -1, -1] (HAD_0.00013) / -0.00010[-3] -0.00008[-2] -0.00007[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 0, 1, 1, 2, 2, 2] (HAD_0.00016) / 0.00023[-3] 0.00033[-2] 0.00037[-1] // POINT = 2
+6 ) AUD/USD # MACD: [0, 0, 0, -1, -2, -2, -2] (HAD_0.00014) / -0.00021[-3] -0.00035[-2] -0.00038[-1] // POINT = -2
+7 ) NZD/USD # MACD: [1, 1, 1, 0, -1, -1, -2] (HAD_0.00014) / -0.00005[-3] -0.00014[-2] -0.00017[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': -2, 'USD/CHF': -1, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.13, 'USD/CAD': -1.24, 'USD/JPY': -0.62}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 16:01:31 GMT+0100 ( NOW = 2021-04-20 15:57:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:01:32 GMT+0100 // DFD = £150.76 // Total_Fund = £146.67 // Free_Fund = £105.78 // Live_Result = -£4.09
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77452 / margin = 15.16 / ppl = -2.03 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25624 / margin = 12.77 / ppl = -1.40 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.119 / margin = 12.96 / ppl = -0.66 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 2, 1, 1, 0, -1, -1] (HAD_0.00021) / -0.00002[-3] -0.00008[-2] -0.00011[-1] // POINT = -1
+2 ) EUR/USD # MACD: [2, 2, 1, 1, 0, 0, 0] (HAD_0.00016) / 0.00004[-3] 0.00003[-2] 0.00003[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-2, -2, -2, -1, -1, -2, -1] (HAD_0.01075) / -0.01070[-3] -0.01114[-2] -0.01016[-1] / MACD_low1 = -0.01114[-2] // POINT = -6
+4 ) USD/CHF # MACD: [-1, -2, -1, -1, -1, -1, -1] (HAD_0.00013) / -0.00008[-3] -0.00008[-2] -0.00006[-1] // POINT = -1
+5 ) USD/CAD # MACD: [0, 1, 1, 2, 2, 2, 2] (HAD_0.00016) / 0.00033[-3] 0.00037[-2] 0.00041[-1] // POINT = 2
+6 ) AUD/USD # MACD: [0, 0, -1, -2, -2, -2, -2] (HAD_0.00014) / -0.00035[-3] -0.00037[-2] -0.00040[-1] // POINT = -2
+7 ) NZD/USD # MACD: [1, 1, 0, -1, -1, -2, -2] (HAD_0.00014) / -0.00014[-3] -0.00015[-2] -0.00020[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': -6, 'USD/CHF': -1, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.03, 'USD/CAD': -1.4, 'USD/JPY': -0.66}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -6 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 77 secs, WILL RUN AGAIN AT : 2021-04-20 16:06:31 GMT+0100 ( NOW = 2021-04-20 16:02:49 GMT+0100 / in 222 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:06:32 GMT+0100 // DFD = £150.76 // Total_Fund = £146.54 // Free_Fund = £105.64 // Live_Result = -£4.22
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77445 / margin = 15.16 / ppl = -2.14 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25644 / margin = 12.77 / ppl = -1.45 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.124 / margin = 12.97 / ppl = -0.63 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [2, 1, 1, 0, -1, -1, -1] (HAD_0.00021) / -0.00008[-3] -0.00016[-2] -0.00020[-1] // POINT = -1
+2 ) EUR/USD # MACD: [2, 1, 1, 0, 0, 0, 0] (HAD_0.00016) / 0.00003[-3] 0.00003[-2] 0.00002[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-2, -2, -1, -1, -2, -1, -1] (HAD_0.01075) / -0.01114[-3] -0.01073[-2] -0.00819[-1] / MACD_low3 = -0.01114[-3] -0.01070[-4] // POINT = -4
+4 ) USD/CHF # MACD: [-2, -1, -1, -1, -1, -1, 0] (HAD_0.00013) / -0.00008[-3] -0.00005[-2] -0.00002[-1] // POINT = 0
+5 ) USD/CAD # MACD: [1, 1, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00037[-3] 0.00040[-2] 0.00041[-1] // POINT = 2
+6 ) AUD/USD # MACD: [0, -1, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00037[-3] -0.00039[-2] -0.00038[-1] / MACD_low1 = -0.00039[-2] // POINT = -7
+7 ) NZD/USD # MACD: [1, 0, -1, -1, -2, -2, -2] (HAD_0.00014) / -0.00015[-3] -0.00019[-2] -0.00022[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': -4, 'USD/CHF': 0, 'USD/CAD': 2, 'AUD/USD': -7, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['AUD/USD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.14, 'USD/CAD': -1.45, 'USD/JPY': -0.63}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -7 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -4 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 82 secs, WILL RUN AGAIN AT : 2021-04-20 16:11:31 GMT+0100 ( NOW = 2021-04-20 16:07:54 GMT+0100 / in 217 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:11:33 GMT+0100 // DFD = £150.76 // Total_Fund = £146.72 // Free_Fund = £105.83 // Live_Result = -£4.04
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77452 / margin = 15.16 / ppl = -2.06 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25611 / margin = 12.77 / ppl = -1.33 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.117 / margin = 12.96 / ppl = -0.65 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 0, -1, -1, -1, -1] (HAD_0.00021) / -0.00016[-3] -0.00015[-2] -0.00015[-1] / MACD_low3 = -0.00016[-3] -0.00008[-4] // POINT = -4
+2 ) EUR/USD # MACD: [1, 1, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00003[-3] 0.00002[-2] 0.00001[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-2, -1, -1, -2, -1, -1, -1] (HAD_0.01075) / -0.01073[-3] -0.00921[-2] -0.00763[-1] // POINT = -1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.00013) / -0.00005[-3] -0.00003[-2] -0.00001[-1] // POINT = 0
+5 ) USD/CAD # MACD: [1, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00040[-3] 0.00038[-2] 0.00035[-1] / MACD_high3 = 0.00040[-3] 0.00037[-4] // POINT = 5
+6 ) AUD/USD # MACD: [-1, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00039[-3] -0.00036[-2] -0.00032[-1] / MACD_low3 = -0.00039[-3] -0.00037[-4] // POINT = -5
+7 ) NZD/USD # MACD: [0, -1, -1, -2, -2, -2, -2] (HAD_0.00014) / -0.00019[-3] -0.00020[-2] -0.00021[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -4, 'EUR/USD': 0, 'USD/JPY': -1, 'USD/CHF': 0, 'USD/CAD': 5, 'AUD/USD': -5, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.06, 'USD/CAD': -1.33, 'USD/JPY': -0.65}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -5 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 5 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 85 secs, WILL RUN AGAIN AT : 2021-04-20 16:16:31 GMT+0100 ( NOW = 2021-04-20 16:12:58 GMT+0100 / in 213 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:16:32 GMT+0100 // DFD = £150.76 // Total_Fund = £146.41 // Free_Fund = £105.52 // Live_Result = -£4.35
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77400 / margin = 15.16 / ppl = -2.20 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25756 / margin = 12.77 / ppl = -1.53 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.121 / margin = 12.96 / ppl = -0.62 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 0, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00015[-3] -0.00013[-2] -0.00011[-1] // POINT = -1
+2 ) EUR/USD # MACD: [1, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00002[-3] 0.00001[-2] -0.00001[-1] / MACD_high8 = 0.00001[-2] // POINT = 3
+3 ) USD/JPY # MACD: [-1, -1, -2, -1, -1, -1, -1] (HAD_0.01075) / -0.00921[-3] -0.00680[-2] -0.00496[-1] // POINT = -1
+4 ) USD/CHF # MACD: [-1, -1, -1, -1, 0, 0, 1] (HAD_0.00013) / -0.00003[-3] 0.00000[-2] 0.00004[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00038[-3] 0.00037[-2] 0.00042[-1] // POINT = 2
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00036[-3] -0.00033[-2] -0.00033[-1] // POINT = -2
+7 ) NZD/USD # MACD: [-1, -1, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00020[-3] -0.00022[-2] -0.00024[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 3, 'USD/JPY': -1, 'USD/CHF': 1, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.2, 'USD/CAD': -1.53, 'USD/JPY': -0.62}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 16:21:31 GMT+0100 ( NOW = 2021-04-20 16:17:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:21:33 GMT+0100 // DFD = £150.76 // Total_Fund = £145.98 // Free_Fund = £105.07 // Live_Result = -£4.78
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77387 / margin = 15.16 / ppl = -2.31 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25752 / margin = 12.78 / ppl = -1.77 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.094 / margin = 12.97 / ppl = -0.70 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, -1, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00013[-3] -0.00016[-2] -0.00016[-1] // POINT = -1
+2 ) EUR/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00001[-3] -0.00001[-2] -0.00004[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-1, -2, -1, -1, -1, -1, -1] (HAD_0.01075) / -0.00680[-3] -0.00451[-2] -0.00337[-1] // POINT = -1
+4 ) USD/CHF # MACD: [-1, -1, -1, 0, 0, 1, 1] (HAD_0.00013) / 0.00000[-3] 0.00005[-2] 0.00009[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00037[-3] 0.00041[-2] 0.00040[-1] / MACD_high1 = 0.00041[-2] // POINT = 7
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00033[-3] -0.00032[-2] -0.00030[-1] // POINT = -2
+7 ) NZD/USD # MACD: [-1, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00022[-3] -0.00023[-2] -0.00025[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': -1, 'USD/CHF': 1, 'USD/CAD': 7, 'AUD/USD': -2, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['USD/CAD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.31, 'USD/CAD': -1.77, 'USD/JPY': -0.7}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 7 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 16:26:31 GMT+0100 ( NOW = 2021-04-20 16:22:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:26:33 GMT+0100 // DFD = £150.76 // Total_Fund = £145.56 // Free_Fund = £104.66 // Live_Result = -£5.20
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77356 / margin = 15.15 / ppl = -2.47 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25829 / margin = 12.78 / ppl = -2.08 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.110 / margin = 12.97 / ppl = -0.65 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, -1, -2] (HAD_0.00021) / -0.00016[-3] -0.00021[-2] -0.00022[-1] // POINT = -2
+2 ) EUR/USD # MACD: [0, 0, 0, 0, 0, -1, -1] (HAD_0.00016) / -0.00001[-3] -0.00008[-2] -0.00011[-1] // POINT = -1
+3 ) USD/JPY # MACD: [-2, -1, -1, -1, -1, -1, 0] (HAD_0.01075) / -0.00451[-3] -0.00325[-2] -0.00153[-1] // POINT = 0
+4 ) USD/CHF # MACD: [-1, -1, 0, 0, 1, 1, 1] (HAD_0.00013) / 0.00005[-3] 0.00009[-2] 0.00012[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00041[-3] 0.00044[-2] 0.00044[-1] // POINT = 2
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00032[-3] -0.00034[-2] -0.00032[-1] / MACD_low1 = -0.00034[-2] // POINT = -7
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00023[-3] -0.00028[-2] -0.00027[-1] / MACD_low1 = -0.00028[-2] // POINT = -7
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -2, 'EUR/USD': -1, 'USD/JPY': 0, 'USD/CHF': 1, 'USD/CAD': 2, 'AUD/USD': -7, 'NZD/USD': -7}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 2 :: LIST =  ['AUD/USD', 'NZD/USD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.47, 'USD/CAD': -2.08, 'USD/JPY': -0.65}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -7 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 16:31:31 GMT+0100 ( NOW = 2021-04-20 16:27:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:31:33 GMT+0100 // DFD = £150.76 // Total_Fund = £145.65 // Free_Fund = £104.76 // Live_Result = -£5.11
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77360 / margin = 15.15 / ppl = -2.49 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25816 / margin = 12.77 / ppl = -2.02 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.113 / margin = 12.97 / ppl = -0.60 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00021[-3] -0.00019[-2] -0.00015[-1] / MACD_low3 = -0.00021[-3] -0.00016[-4] // POINT = -4
+2 ) EUR/USD # MACD: [0, 0, 0, 0, -1, -1, -1] (HAD_0.00016) / -0.00008[-3] -0.00013[-2] -0.00016[-1] // POINT = -1
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.01075) / -0.00325[-3] -0.00076[-2] 0.00013[-1] / MACD_low8 = -0.00076[-2] // POINT = -3
+4 ) USD/CHF # MACD: [-1, 0, 0, 1, 1, 1, 2] (HAD_0.00013) / 0.00009[-3] 0.00012[-2] 0.00014[-1] // POINT = 2
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00044[-3] 0.00043[-2] 0.00040[-1] / MACD_high3 = 0.00044[-3] 0.00041[-4] // POINT = 5
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00034[-3] -0.00031[-2] -0.00028[-1] / MACD_low3 = -0.00034[-3] -0.00032[-4] // POINT = -5
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00028[-3] -0.00029[-2] -0.00030[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -4, 'EUR/USD': -1, 'USD/JPY': -3, 'USD/CHF': 2, 'USD/CAD': 5, 'AUD/USD': -5, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.49, 'USD/CAD': -2.02, 'USD/JPY': -0.6}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -5 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 5 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -3 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 16:36:31 GMT+0100 ( NOW = 2021-04-20 16:32:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:36:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.12 // Free_Fund = £104.23 // Live_Result = -£5.64
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77293 / margin = 15.14 / ppl = -2.68 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25872 / margin = 12.78 / ppl = -2.13 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.055 / margin = 12.97 / ppl = -0.83 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00019[-3] -0.00018[-2] -0.00016[-1] // POINT = -1
+2 ) EUR/USD # MACD: [0, 0, 0, -1, -1, -1, -2] (HAD_0.00016) / -0.00013[-3] -0.00016[-2] -0.00018[-1] // POINT = -2
+3 ) USD/JPY # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.01075) / -0.00076[-3] -0.00230[-2] -0.00321[-1] // POINT = 0
+4 ) USD/CHF # MACD: [0, 0, 1, 1, 1, 2, 2] (HAD_0.00013) / 0.00012[-3] 0.00014[-2] 0.00016[-1] // POINT = 2
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00043[-3] 0.00043[-2] 0.00040[-1] // POINT = 2
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00031[-3] -0.00032[-2] -0.00029[-1] / MACD_low1 = -0.00032[-2] // POINT = -7
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00029[-3] -0.00031[-2] -0.00031[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -2, 'USD/JPY': 0, 'USD/CHF': 2, 'USD/CAD': 2, 'AUD/USD': -7, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['AUD/USD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.68, 'USD/CAD': -2.13, 'USD/JPY': -0.83}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -7 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 16:41:31 GMT+0100 ( NOW = 2021-04-20 16:37:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:41:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.11 // Free_Fund = £104.22 // Live_Result = -£5.65
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77301 / margin = 15.14 / ppl = -2.63 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25836 / margin = 12.78 / ppl = -2.07 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.025 / margin = 12.97 / ppl = -0.95 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00021) / -0.00018[-3] -0.00015[-2] -0.00011[-1] // POINT = -1
+2 ) EUR/USD # MACD: [0, 0, -1, -1, -1, -2, -1] (HAD_0.00016) / -0.00016[-3] -0.00017[-2] -0.00015[-1] / MACD_low1 = -0.00017[-2] // POINT = -6
+3 ) USD/JPY # MACD: [-1, -1, -1, 0, 0, -1, -1] (HAD_0.01075) / -0.00230[-3] -0.00493[-2] -0.00434[-1] / MACD_low1 = -0.00493[-2] // POINT = -6
+4 ) USD/CHF # MACD: [0, 1, 1, 1, 2, 2, 2] (HAD_0.00013) / 0.00014[-3] 0.00015[-2] 0.00015[-1] // POINT = 2
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00043[-3] 0.00040[-2] 0.00034[-1] // POINT = 2
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00032[-3] -0.00030[-2] -0.00026[-1] / MACD_low3 = -0.00032[-3] -0.00031[-4] // POINT = -5
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00031[-3] -0.00031[-2] -0.00027[-1] / MACD_low1 = -0.00031[-2] -0.00029[-4] // POINT = -7
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -6, 'USD/JPY': -6, 'USD/CHF': 2, 'USD/CAD': 2, 'AUD/USD': -5, 'NZD/USD': -7}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 1 :: LIST =  ['NZD/USD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.63, 'USD/CAD': -2.07, 'USD/JPY': -0.95}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -5 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -6 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 81 secs, WILL RUN AGAIN AT : 2021-04-20 16:46:31 GMT+0100 ( NOW = 2021-04-20 16:42:53 GMT+0100 / in 218 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:46:33 GMT+0100 // DFD = £150.76 // Total_Fund = £145.20 // Free_Fund = £104.33 // Live_Result = -£5.56
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77329 / margin = 15.14 / ppl = -2.59 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25839 / margin = 12.77 / ppl = -2.09 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.058 / margin = 12.96 / ppl = -0.88 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, -1, 0] (HAD_0.00021) / -0.00015[-3] -0.00010[-2] -0.00005[-1] // POINT = 0
+2 ) EUR/USD # MACD: [0, -1, -1, -1, -2, -1, -1] (HAD_0.00016) / -0.00017[-3] -0.00016[-2] -0.00013[-1] / MACD_low3 = -0.00017[-3] -0.00016[-4] // POINT = -4
+3 ) USD/JPY # MACD: [-1, -1, 0, 0, -1, -1, 0] (HAD_0.01075) / -0.00493[-3] -0.00390[-2] -0.00277[-1] / MACD_low3 = -0.00493[-3] -0.00230[-4] // POINT = -3
+4 ) USD/CHF # MACD: [1, 1, 1, 2, 2, 1, 1] (HAD_0.00013) / 0.00015[-3] 0.00013[-2] 0.00011[-1] / MACD_high3 = 0.00015[-3] 0.00014[-4] // POINT = 4
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00040[-3] 0.00033[-2] 0.00027[-1] // POINT = 2
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00030[-3] -0.00024[-2] -0.00017[-1] // POINT = -2
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00031[-3] -0.00026[-2] -0.00022[-1] / MACD_low7 = -0.00031[-3] -0.00029[-5] // POINT = -5
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -4, 'USD/JPY': -3, 'USD/CHF': 4, 'USD/CAD': 2, 'AUD/USD': -2, 'NZD/USD': -5}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.59, 'USD/CAD': -2.09, 'USD/JPY': -0.88}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -2 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -3 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 16:51:31 GMT+0100 ( NOW = 2021-04-20 16:47:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:51:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.58 // Free_Fund = £104.71 // Live_Result = -£5.18
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77356 / margin = 15.14 / ppl = -2.46 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25831 / margin = 12.77 / ppl = -1.93 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.062 / margin = 12.96 / ppl = -0.79 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.00021) / -0.00010[-3] -0.00003[-2] 0.00001[-1] / MACD_low8 = -0.00003[-2] // POINT = -3
+2 ) EUR/USD # MACD: [-1, -1, -1, -2, -1, -1, -1] (HAD_0.00016) / -0.00016[-3] -0.00013[-2] -0.00008[-1] // POINT = -1
+3 ) USD/JPY # MACD: [-1, 0, 0, -1, -1, 0, 0] (HAD_0.01075) / -0.00390[-3] -0.00283[-2] -0.00040[-1] // POINT = 0
+4 ) USD/CHF # MACD: [1, 1, 2, 2, 1, 1, 1] (HAD_0.00013) / 0.00013[-3] 0.00012[-2] 0.00010[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.00016) / 0.00033[-3] 0.00027[-2] 0.00020[-1] // POINT = 2
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -2, -1] (HAD_0.00014) / -0.00024[-3] -0.00017[-2] -0.00012[-1] // POINT = -1
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -2] (HAD_0.00014) / -0.00026[-3] -0.00022[-2] -0.00018[-1] // POINT = -2
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -3, 'EUR/USD': -1, 'USD/JPY': 0, 'USD/CHF': 1, 'USD/CAD': 2, 'AUD/USD': -1, 'NZD/USD': -2}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.46, 'USD/CAD': -1.93, 'USD/JPY': -0.79}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -1 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 2 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 16:56:31 GMT+0100 ( NOW = 2021-04-20 16:52:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 16:56:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.69 // Free_Fund = £104.82 // Live_Result = -£5.07
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77378 / margin = 15.14 / ppl = -2.37 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25794 / margin = 12.77 / ppl = -1.85 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.055 / margin = 12.96 / ppl = -0.85 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, -1, 0, 0, 1] (HAD_0.00021) / -0.00003[-3] 0.00004[-2] 0.00009[-1] // POINT = 1
+2 ) EUR/USD # MACD: [-1, -1, -2, -1, -1, -1, 0] (HAD_0.00016) / -0.00013[-3] -0.00008[-2] -0.00004[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 0, -1, -1, 0, 0, 0] (HAD_0.01075) / -0.00283[-3] -0.00053[-2] 0.00122[-1] / MACD_low8 = -0.00053[-2] // POINT = -3
+4 ) USD/CHF # MACD: [1, 2, 2, 1, 1, 1, 1] (HAD_0.00013) / 0.00012[-3] 0.00008[-2] 0.00006[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 2, 1, 1] (HAD_0.00016) / 0.00027[-3] 0.00016[-2] 0.00007[-1] // POINT = 1
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -2, -1, 0] (HAD_0.00014) / -0.00017[-3] -0.00009[-2] -0.00001[-1] // POINT = 0
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -2, -1] (HAD_0.00014) / -0.00022[-3] -0.00016[-2] -0.00011[-1] // POINT = -1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 0, 'USD/JPY': -3, 'USD/CHF': 1, 'USD/CAD': 1, 'AUD/USD': 0, 'NZD/USD': -1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.37, 'USD/CAD': -1.85, 'USD/JPY': -0.85}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -3 # - > RIGHT DIRECTION
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 17:01:31 GMT+0100 ( NOW = 2021-04-20 16:57:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:01:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.72 // Free_Fund = £104.85 // Live_Result = -£5.04
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77388 / margin = 15.14 / ppl = -2.31 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25785 / margin = 12.77 / ppl = -1.89 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.062 / margin = 12.96 / ppl = -0.84 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, -1, 0, 0, 1, 1] (HAD_0.00021) / 0.00004[-3] 0.00010[-2] 0.00012[-1] // POINT = 1
+2 ) EUR/USD # MACD: [-1, -2, -1, -1, -1, 0, 0] (HAD_0.00016) / -0.00008[-3] -0.00003[-2] 0.00000[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, -1, -1, 0, 0, 0, 1] (HAD_0.01075) / -0.00053[-3] 0.00116[-2] 0.00339[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00008[-3] 0.00007[-2] 0.00006[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 2, 1, 1, 0] (HAD_0.00016) / 0.00016[-3] 0.00007[-2] 0.00001[-1] // POINT = 0
+6 ) AUD/USD # MACD: [-2, -2, -2, -2, -1, 0, 0] (HAD_0.00014) / -0.00009[-3] -0.00001[-2] 0.00003[-1] / MACD_low8 = -0.00001[-2] // POINT = -3
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -2, -1, -1] (HAD_0.00014) / -0.00016[-3] -0.00010[-2] -0.00007[-1] // POINT = -1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 0, 'AUD/USD': -3, 'NZD/USD': -1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.31, 'USD/CAD': -1.89, 'USD/JPY': -0.84}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = -3 # - > RIGHT DIRECTION
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 17:06:31 GMT+0100 ( NOW = 2021-04-20 17:02:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:06:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.78 // Free_Fund = £104.90 // Live_Result = -£4.98
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77410 / margin = 15.15 / ppl = -2.27 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25787 / margin = 12.77 / ppl = -1.95 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.077 / margin = 12.96 / ppl = -0.76 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, 0, 0, 1, 1, 1] (HAD_0.00021) / 0.00010[-3] 0.00013[-2] 0.00012[-1] / MACD_high1 = 0.00013[-2] // POINT = 6
+2 ) EUR/USD # MACD: [-2, -1, -1, -1, 0, 0, 0] (HAD_0.00016) / -0.00003[-3] 0.00000[-2] 0.00001[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-1, -1, 0, 0, 0, 1, 1] (HAD_0.01075) / 0.00116[-3] 0.00441[-2] 0.00629[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00007[-3] 0.00006[-2] 0.00006[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 2, 1, 1, 0, 0] (HAD_0.00016) / 0.00007[-3] 0.00002[-2] -0.00003[-1] / MACD_high8 = 0.00002[-2] // POINT = 3
+6 ) AUD/USD # MACD: [-2, -2, -2, -1, 0, 1, 1] (HAD_0.00014) / -0.00001[-3] 0.00005[-2] 0.00009[-1] // POINT = 1
+7 ) NZD/USD # MACD: [-2, -2, -2, -2, -1, -1, 0] (HAD_0.00014) / -0.00010[-3] -0.00006[-2] -0.00002[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 6, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 3, 'AUD/USD': 1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.27, 'USD/CAD': -1.95, 'USD/JPY': -0.76}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 17:11:31 GMT+0100 ( NOW = 2021-04-20 17:07:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:11:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.80 // Free_Fund = £104.93 // Live_Result = -£4.96
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77385 / margin = 15.14 / ppl = -2.32 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25778 / margin = 12.77 / ppl = -1.89 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.069 / margin = 12.96 / ppl = -0.75 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, 0, 0, 1, 1, 1, 1] (HAD_0.00021) / 0.00013[-3] 0.00015[-2] 0.00014[-1] / MACD_high1 = 0.00015[-2] // POINT = 6
+2 ) EUR/USD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00016) / 0.00000[-3] 0.00001[-2] 0.00001[-1] // POINT = 0
+3 ) USD/JPY # MACD: [-1, 0, 0, 0, 1, 1, 1] (HAD_0.01075) / 0.00441[-3] 0.00565[-2] 0.00747[-1] // POINT = 1
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00006[-3] 0.00005[-2] 0.00004[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 2, 1, 1, 0, 0, -1] (HAD_0.00016) / 0.00002[-3] -0.00002[-2] -0.00005[-1] // POINT = -1
+6 ) AUD/USD # MACD: [-2, -2, -1, 0, 1, 1, 1] (HAD_0.00014) / 0.00005[-3] 0.00009[-2] 0.00012[-1] // POINT = 1
+7 ) NZD/USD # MACD: [-2, -2, -2, -1, -1, 0, 0] (HAD_0.00014) / -0.00006[-3] -0.00002[-2] 0.00002[-1] / MACD_low8 = -0.00002[-2] // POINT = -3
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 6, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': -3}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.32, 'USD/CAD': -1.89, 'USD/JPY': -0.75}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 17:16:31 GMT+0100 ( NOW = 2021-04-20 17:12:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:16:33 GMT+0100 // DFD = £150.76 // Total_Fund = £146.07 // Free_Fund = £105.19 // Live_Result = -£4.69
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77440 / margin = 15.15 / ppl = -2.16 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25749 / margin = 12.77 / ppl = -1.75 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.070 / margin = 12.96 / ppl = -0.78 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00015[-3] 0.00016[-2] 0.00016[-1] // POINT = 1
+2 ) EUR/USD # MACD: [-1, -1, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00001[-3] 0.00002[-2] 0.00002[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.01075) / 0.00565[-3] 0.00639[-2] 0.00790[-1] // POINT = 1
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00005[-3] 0.00004[-2] 0.00005[-1] // POINT = 1
+5 ) USD/CAD # MACD: [2, 1, 1, 0, 0, -1, -1] (HAD_0.00016) / -0.00002[-3] -0.00009[-2] -0.00015[-1] // POINT = -1
+6 ) AUD/USD # MACD: [-2, -1, 0, 1, 1, 2, 2] (HAD_0.00014) / 0.00009[-3] 0.00015[-2] 0.00018[-1] // POINT = 2
+7 ) NZD/USD # MACD: [-2, -2, -1, -1, 0, 0, 1] (HAD_0.00014) / -0.00002[-3] 0.00004[-2] 0.00006[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -1, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.16, 'USD/CAD': -1.75, 'USD/JPY': -0.78}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 83 secs, WILL RUN AGAIN AT : 2021-04-20 17:21:31 GMT+0100 ( NOW = 2021-04-20 17:17:56 GMT+0100 / in 215 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:21:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.92 // Free_Fund = £105.04 // Live_Result = -£4.84
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77407 / margin = 15.15 / ppl = -2.22 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25786 / margin = 12.77 / ppl = -1.85 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.064 / margin = 12.96 / ppl = -0.77 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00016[-3] 0.00014[-2] 0.00014[-1] / MACD_high3 = 0.00016[-3] 0.00015[-4] // POINT = 4
+2 ) EUR/USD # MACD: [-1, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00002[-3] -0.00000[-2] -0.00001[-1] / MACD_high3 = 0.00002[-3] 0.00001[-4] // POINT = 3
+3 ) USD/JPY # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00639[-3] 0.00752[-2] 0.00831[-1] // POINT = 1
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00004[-3] 0.00006[-2] 0.00006[-1] // POINT = 1
+5 ) USD/CAD # MACD: [1, 1, 0, 0, -1, -1, -1] (HAD_0.00016) / -0.00009[-3] -0.00013[-2] -0.00015[-1] // POINT = -1
+6 ) AUD/USD # MACD: [-1, 0, 1, 1, 2, 2, 2] (HAD_0.00014) / 0.00015[-3] 0.00017[-2] 0.00018[-1] // POINT = 2
+7 ) NZD/USD # MACD: [-2, -1, -1, 0, 0, 1, 1] (HAD_0.00014) / 0.00004[-3] 0.00006[-2] 0.00007[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 4, 'EUR/USD': 3, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -1, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.22, 'USD/CAD': -1.85, 'USD/JPY': -0.77}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 17:26:31 GMT+0100 ( NOW = 2021-04-20 17:22:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:26:32 GMT+0100 // DFD = £150.76 // Total_Fund = £146.07 // Free_Fund = £105.19 // Live_Result = -£4.69
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77437 / margin = 15.15 / ppl = -2.13 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25744 / margin = 12.77 / ppl = -1.74 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.068 / margin = 12.96 / ppl = -0.82 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00014[-3] 0.00014[-2] 0.00013[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / -0.00000[-3] -0.00001[-2] -0.00001[-1] // POINT = 0
+3 ) USD/JPY # MACD: [0, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00752[-3] 0.00786[-2] 0.00794[-1] // POINT = 1
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00006[-3] 0.00006[-2] 0.00006[-1] // POINT = 1
+5 ) USD/CAD # MACD: [1, 0, 0, -1, -1, -2, -2] (HAD_0.00016) / -0.00013[-3] -0.00018[-2] -0.00021[-1] // POINT = -2
+6 ) AUD/USD # MACD: [0, 1, 1, 2, 2, 2, 2] (HAD_0.00014) / 0.00017[-3] 0.00019[-2] 0.00021[-1] // POINT = 2
+7 ) NZD/USD # MACD: [-1, -1, 0, 0, 1, 1, 1] (HAD_0.00014) / 0.00006[-3] 0.00008[-2] 0.00009[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -2, 'AUD/USD': 2, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.13, 'USD/CAD': -1.74, 'USD/JPY': -0.82}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 17:31:31 GMT+0100 ( NOW = 2021-04-20 17:27:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:31:33 GMT+0100 // DFD = £150.76 // Total_Fund = £145.88 // Free_Fund = £105.00 // Live_Result = -£4.88
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77406 / margin = 15.15 / ppl = -2.28 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25766 / margin = 12.77 / ppl = -1.85 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.076 / margin = 12.96 / ppl = -0.75 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00014[-3] 0.00012[-2] 0.00010[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 0, 0, 0, 0, 0, -1] (HAD_0.00016) / -0.00001[-3] -0.00002[-2] -0.00005[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.01075) / 0.00786[-3] 0.00838[-2] 0.00960[-1] // POINT = 1
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00006[-3] 0.00006[-2] 0.00008[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, -1, -1, -2, -2, -2] (HAD_0.00016) / -0.00018[-3] -0.00020[-2] -0.00019[-1] / MACD_low1 = -0.00020[-2] // POINT = -7
+6 ) AUD/USD # MACD: [1, 1, 2, 2, 2, 2, 2] (HAD_0.00014) / 0.00019[-3] 0.00020[-2] 0.00019[-1] / MACD_high1 = 0.00020[-2] // POINT = 7
+7 ) NZD/USD # MACD: [-1, 0, 0, 1, 1, 1, 1] (HAD_0.00014) / 0.00008[-3] 0.00009[-2] 0.00009[-1] // POINT = 1
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': -1, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': -7, 'AUD/USD': 7, 'NZD/USD': 1}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 2 :: LIST =  ['USD/CAD', 'AUD/USD']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.28, 'USD/CAD': -1.85, 'USD/JPY': -0.75}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 7 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -2.28
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -7 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -1.85
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 17:36:31 GMT+0100 ( NOW = 2021-04-20 17:32:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:36:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.69 // Free_Fund = £104.81 // Live_Result = -£5.07
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77383 / margin = 15.15 / ppl = -2.31 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25858 / margin = 12.77 / ppl = -2.09 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.092 / margin = 12.96 / ppl = -0.67 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00021) / 0.00012[-3] 0.00010[-2] 0.00008[-1] // POINT = 1
+2 ) EUR/USD # MACD: [0, 0, 0, 0, 0, -1, -1] (HAD_0.00016) / -0.00002[-3] -0.00005[-2] -0.00008[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 1, 2] (HAD_0.01075) / 0.00838[-3] 0.01011[-2] 0.01242[-1] // POINT = 2
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00006[-3] 0.00008[-2] 0.00009[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, -1, -1, -2, -2, -2, -1] (HAD_0.00016) / -0.00020[-3] -0.00017[-2] -0.00012[-1] / MACD_low3 = -0.00020[-3] -0.00018[-4] // POINT = -4
+6 ) AUD/USD # MACD: [1, 2, 2, 2, 2, 2, 2] (HAD_0.00014) / 0.00020[-3] 0.00018[-2] 0.00016[-1] / MACD_high3 = 0.00020[-3] 0.00019[-4] // POINT = 5
+7 ) NZD/USD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00014) / 0.00009[-3] 0.00008[-2] 0.00007[-1] / MACD_high3 = 0.00009[-3] 0.00008[-4] // POINT = 4
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 1, 'EUR/USD': -1, 'USD/JPY': 2, 'USD/CHF': 1, 'USD/CAD': -4, 'AUD/USD': 5, 'NZD/USD': 4}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.31, 'USD/CAD': -2.09, 'USD/JPY': -0.67}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 5 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -2.31
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -4 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -2.09
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 17:41:31 GMT+0100 ( NOW = 2021-04-20 17:37:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:41:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.39 // Free_Fund = £104.52 // Live_Result = -£5.37
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77350 / margin = 15.14 / ppl = -2.49 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25901 / margin = 12.77 / ppl = -2.29 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.123 / margin = 12.96 / ppl = -0.59 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 1, 0] (HAD_0.00021) / 0.00010[-3] 0.00007[-2] 0.00002[-1] // POINT = 0
+2 ) EUR/USD # MACD: [0, 0, 0, 0, -1, -1, -1] (HAD_0.00016) / -0.00005[-3] -0.00008[-2] -0.00009[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 1, 2, 2] (HAD_0.01075) / 0.01011[-3] 0.01389[-2] 0.01617[-1] // POINT = 2
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 1, 2] (HAD_0.00013) / 0.00008[-3] 0.00012[-2] 0.00014[-1] // POINT = 2
+5 ) USD/CAD # MACD: [-1, -1, -2, -2, -2, -1, -1] (HAD_0.00016) / -0.00017[-3] -0.00010[-2] -0.00006[-1] // POINT = -1
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 2, 1, 1] (HAD_0.00014) / 0.00018[-3] 0.00014[-2] 0.00010[-1] // POINT = 1
+7 ) NZD/USD # MACD: [0, 1, 1, 1, 1, 1, 0] (HAD_0.00014) / 0.00008[-3] 0.00007[-2] 0.00004[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -1, 'USD/JPY': 2, 'USD/CHF': 2, 'USD/CAD': -1, 'AUD/USD': 1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.49, 'USD/CAD': -2.29, 'USD/JPY': -0.59}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 17:46:31 GMT+0100 ( NOW = 2021-04-20 17:42:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:46:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.15 // Free_Fund = £104.26 // Live_Result = -£5.61
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77318 / margin = 15.14 / ppl = -2.59 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25954 / margin = 12.78 / ppl = -2.40 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.112 / margin = 12.97 / ppl = -0.62 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 1, 0, 0] (HAD_0.00021) / 0.00007[-3] 0.00000[-2] -0.00003[-1] // POINT = 0
+2 ) EUR/USD # MACD: [0, 0, 0, -1, -1, -1, -1] (HAD_0.00016) / -0.00008[-3] -0.00012[-2] -0.00014[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 1, 2, 2, 2] (HAD_0.01075) / 0.01389[-3] 0.01636[-2] 0.01702[-1] // POINT = 2
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 1, 2, 2] (HAD_0.00013) / 0.00012[-3] 0.00016[-2] 0.00017[-1] // POINT = 2
+5 ) USD/CAD # MACD: [-1, -2, -2, -2, -1, 0, 0] (HAD_0.00016) / -0.00010[-3] -0.00003[-2] 0.00001[-1] / MACD_low8 = -0.00003[-2] // POINT = -3
+6 ) AUD/USD # MACD: [2, 2, 2, 2, 1, 1, 1] (HAD_0.00014) / 0.00014[-3] 0.00009[-2] 0.00006[-1] // POINT = 1
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 1, 0, 0] (HAD_0.00014) / 0.00007[-3] 0.00003[-2] 0.00001[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -1, 'USD/JPY': 2, 'USD/CHF': 2, 'USD/CAD': -3, 'AUD/USD': 1, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.59, 'USD/CAD': -2.4, 'USD/JPY': -0.62}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = -3 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -2.4
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 17:51:31 GMT+0100 ( NOW = 2021-04-20 17:47:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:51:33 GMT+0100 // DFD = £150.76 // Total_Fund = £145.01 // Free_Fund = £104.12 // Live_Result = -£5.75
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77316 / margin = 15.14 / ppl = -2.67 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25935 / margin = 12.78 / ppl = -2.42 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.105 / margin = 12.97 / ppl = -0.66 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 1, 0, 0, 0] (HAD_0.00021) / 0.00000[-3] -0.00003[-2] -0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [0, 0, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00012[-3] -0.00013[-2] -0.00013[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 1, 1, 2, 2, 2, 2] (HAD_0.01075) / 0.01636[-3] 0.01663[-2] 0.01624[-1] / MACD_high1 = 0.01663[-2] // POINT = 7
+4 ) USD/CHF # MACD: [1, 1, 1, 1, 2, 2, 2] (HAD_0.00013) / 0.00016[-3] 0.00017[-2] 0.00016[-1] / MACD_high1 = 0.00017[-2] // POINT = 7
+5 ) USD/CAD # MACD: [-2, -2, -2, -1, 0, 0, 0] (HAD_0.00016) / -0.00003[-3] 0.00001[-2] 0.00001[-1] // POINT = 0
+6 ) AUD/USD # MACD: [2, 2, 2, 1, 1, 1, 0] (HAD_0.00014) / 0.00009[-3] 0.00005[-2] 0.00004[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 1, 1, 1, 0, 0, 0] (HAD_0.00014) / 0.00003[-3] 0.00001[-2] 0.00001[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -1, 'USD/JPY': 7, 'USD/CHF': 7, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 2 :: LIST =  ['USD/JPY', 'USD/CHF']
+ --- > TO_ADD = 0 - > LIST = []
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.67, 'USD/CAD': -2.42, 'USD/JPY': -0.66}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 7 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.66
+
+SCRIPTS HAS RUN FOR 83 secs, WILL RUN AGAIN AT : 2021-04-20 17:56:31 GMT+0100 ( NOW = 2021-04-20 17:52:56 GMT+0100 / in 215 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 17:56:33 GMT+0100 // DFD = £150.76 // Total_Fund = £144.96 // Free_Fund = £104.07 // Live_Result = -£5.80
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77306 / margin = 15.14 / ppl = -2.67 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25958 / margin = 12.78 / ppl = -2.47 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.104 / margin = 12.97 / ppl = -0.66 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 1, 0, 0, 0, 0] (HAD_0.00021) / -0.00003[-3] -0.00005[-2] -0.00005[-1] // POINT = 0
+2 ) EUR/USD # MACD: [0, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00013[-3] -0.00012[-2] -0.00009[-1] / MACD_low3 = -0.00013[-3] -0.00012[-4] // POINT = -4
+3 ) USD/JPY # MACD: [1, 1, 2, 2, 2, 2, 2] (HAD_0.01075) / 0.01663[-3] 0.01605[-2] 0.01442[-1] / MACD_high3 = 0.01663[-3] 0.01636[-4] // POINT = 5
+4 ) USD/CHF # MACD: [1, 1, 1, 2, 2, 2, 2] (HAD_0.00013) / 0.00017[-3] 0.00016[-2] 0.00015[-1] / MACD_high3 = 0.00017[-3] 0.00016[-4] // POINT = 5
+5 ) USD/CAD # MACD: [-2, -2, -1, 0, 0, 0, 0] (HAD_0.00016) / 0.00001[-3] 0.00003[-2] 0.00004[-1] // POINT = 0
+6 ) AUD/USD # MACD: [2, 2, 1, 1, 1, 0, 0] (HAD_0.00014) / 0.00005[-3] 0.00002[-2] 0.00002[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 1, 1, 0, 0, 0, 0] (HAD_0.00014) / 0.00001[-3] -0.00000[-2] 0.00000[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': -4, 'USD/JPY': 5, 'USD/CHF': 5, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.67, 'USD/CAD': -2.47, 'USD/JPY': -0.66}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 5 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.66
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 18:01:31 GMT+0100 ( NOW = 2021-04-20 17:57:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 18:01:32 GMT+0100 // DFD = £150.76 // Total_Fund = £145.02 // Free_Fund = £104.13 // Live_Result = -£5.74
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77297 / margin = 15.14 / ppl = -2.67 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.25964 / margin = 12.78 / ppl = -2.44 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.109 / margin = 12.97 / ppl = -0.63 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 1, 0, 0, 0, -1, -1] (HAD_0.00021) / -0.00005[-3] -0.00008[-2] -0.00009[-1] // POINT = -1
+2 ) EUR/USD # MACD: [-1, -1, -1, -1, -1, -1, -1] (HAD_0.00016) / -0.00012[-3] -0.00010[-2] -0.00007[-1] // POINT = -1
+3 ) USD/JPY # MACD: [1, 2, 2, 2, 2, 2, 2] (HAD_0.01075) / 0.01605[-3] 0.01595[-2] 0.01452[-1] // POINT = 2
+4 ) USD/CHF # MACD: [1, 1, 2, 2, 2, 2, 1] (HAD_0.00013) / 0.00016[-3] 0.00014[-2] 0.00012[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-2, -1, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00003[-3] 0.00002[-2] 0.00001[-1] / MACD_high3 = 0.00003[-3] 0.00001[-4] // POINT = 3
+6 ) AUD/USD # MACD: [2, 1, 1, 1, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] 0.00002[-2] 0.00001[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 1, 0, 0, 0, 0, 0] (HAD_0.00014) / -0.00000[-3] -0.00001[-2] -0.00001[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': -1, 'USD/JPY': 2, 'USD/CHF': 1, 'USD/CAD': 3, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.67, 'USD/CAD': -2.44, 'USD/JPY': -0.63}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 3 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 82 secs, WILL RUN AGAIN AT : 2021-04-20 18:06:31 GMT+0100 ( NOW = 2021-04-20 18:02:54 GMT+0100 / in 217 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 18:06:33 GMT+0100 // DFD = £150.76 // Total_Fund = £144.81 // Free_Fund = £103.92 // Live_Result = -£5.95
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77285 / margin = 15.14 / ppl = -2.70 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.26022 / margin = 12.78 / ppl = -2.57 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.100 / margin = 12.97 / ppl = -0.68 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [1, 0, 0, 0, -1, -1, -1] (HAD_0.00021) / -0.00008[-3] -0.00007[-2] -0.00008[-1] / MACD_low3 = -0.00008[-3] -0.00005[-4] // POINT = -4
+2 ) EUR/USD # MACD: [-1, -1, -1, -1, -1, -1, 0] (HAD_0.00016) / -0.00010[-3] -0.00007[-2] -0.00004[-1] // POINT = 0
+3 ) USD/JPY # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.01075) / 0.01595[-3] 0.01311[-2] 0.01150[-1] // POINT = 2
+4 ) USD/CHF # MACD: [1, 2, 2, 2, 2, 1, 1] (HAD_0.00013) / 0.00014[-3] 0.00011[-2] 0.00009[-1] // POINT = 1
+5 ) USD/CAD # MACD: [-1, 0, 0, 0, 0, 0, 0] (HAD_0.00016) / 0.00002[-3] 0.00003[-2] 0.00004[-1] // POINT = 0
+6 ) AUD/USD # MACD: [1, 1, 1, 0, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] 0.00002[-2] 0.00001[-1] // POINT = 0
+7 ) NZD/USD # MACD: [1, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / -0.00001[-3] 0.00001[-2] 0.00002[-1] / MACD_low3 = -0.00001[-3] -0.00000[-4] // POINT = -3
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -4, 'EUR/USD': 0, 'USD/JPY': 2, 'USD/CHF': 1, 'USD/CAD': 0, 'AUD/USD': 0, 'NZD/USD': -3}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.7, 'USD/CAD': -2.57, 'USD/JPY': -0.68}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 0 # - > SELL , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 18:11:31 GMT+0100 ( NOW = 2021-04-20 18:07:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 18:11:32 GMT+0100 // DFD = £150.76 // Total_Fund = £144.57 // Free_Fund = £103.69 // Live_Result = -£6.19
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77279 / margin = 15.13 / ppl = -2.73 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.26085 / margin = 12.78 / ppl = -2.83 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.107 / margin = 12.97 / ppl = -0.63 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, 0, -1, -1, 0, 0] (HAD_0.00021) / -0.00007[-3] -0.00006[-2] -0.00006[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, -1, -1, -1, -1, -1, 0] (HAD_0.00016) / -0.00007[-3] -0.00005[-2] -0.00003[-1] // POINT = 0
+3 ) USD/JPY # MACD: [2, 2, 2, 2, 2, 2, 2] (HAD_0.01075) / 0.01311[-3] 0.01162[-2] 0.01090[-1] // POINT = 2
+4 ) USD/CHF # MACD: [2, 2, 2, 2, 1, 1, 1] (HAD_0.00013) / 0.00011[-3] 0.00010[-2] 0.00009[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 0, 1, 1] (HAD_0.00016) / 0.00003[-3] 0.00008[-2] 0.00010[-1] // POINT = 1
+6 ) AUD/USD # MACD: [1, 1, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] 0.00002[-2] 0.00001[-1] // POINT = 0
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00001[-3] 0.00001[-2] 0.00001[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 2, 'USD/CHF': 1, 'USD/CAD': 1, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.73, 'USD/CAD': -2.83, 'USD/JPY': -0.63}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 2 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 78 secs, WILL RUN AGAIN AT : 2021-04-20 18:16:31 GMT+0100 ( NOW = 2021-04-20 18:12:50 GMT+0100 / in 221 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 18:16:32 GMT+0100 // DFD = £150.76 // Total_Fund = £144.53 // Free_Fund = £103.65 // Live_Result = -£6.23
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77287 / margin = 15.13 / ppl = -2.77 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.26063 / margin = 12.78 / ppl = -2.78 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.093 / margin = 12.97 / ppl = -0.68 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, 0, -1, -1, 0, 0, 0] (HAD_0.00021) / -0.00006[-3] -0.00005[-2] -0.00004[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, -1, -1, -1, -1, 0, 0] (HAD_0.00016) / -0.00005[-3] -0.00002[-2] 0.00000[-1] // POINT = 0
+3 ) USD/JPY # MACD: [2, 2, 2, 2, 2, 1, 1] (HAD_0.01075) / 0.01162[-3] 0.01052[-2] 0.00885[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 2, 1, 1, 1, 1] (HAD_0.00013) / 0.00010[-3] 0.00010[-2] 0.00009[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, 0, 0, 1, 1, 1] (HAD_0.00016) / 0.00008[-3] 0.00010[-2] 0.00008[-1] / MACD_high1 = 0.00010[-2] // POINT = 6
+6 ) AUD/USD # MACD: [1, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] 0.00002[-2] 0.00002[-1] // POINT = 0
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00001[-3] 0.00001[-2] 0.00002[-1] // POINT = 0
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 6, 'AUD/USD': 0, 'NZD/USD': 0}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.77, 'USD/CAD': -2.78, 'USD/JPY': -0.68}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 6 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 18:21:31 GMT+0100 ( NOW = 2021-04-20 18:17:51 GMT+0100 / in 220 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 18:21:32 GMT+0100 // DFD = £150.76 // Total_Fund = £144.59 // Free_Fund = £103.70 // Live_Result = -£6.17
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77292 / margin = 15.14 / ppl = -2.72 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.26072 / margin = 12.78 / ppl = -2.81 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.102 / margin = 12.97 / ppl = -0.64 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [0, -1, -1, 0, 0, 0, 0] (HAD_0.00021) / -0.00005[-3] -0.00004[-2] -0.00004[-1] // POINT = 0
+2 ) EUR/USD # MACD: [-1, -1, -1, -1, 0, 0, 0] (HAD_0.00016) / -0.00002[-3] -0.00001[-2] -0.00001[-1] // POINT = 0
+3 ) USD/JPY # MACD: [2, 2, 2, 2, 1, 1, 1] (HAD_0.01075) / 0.01052[-3] 0.00917[-2] 0.00830[-1] // POINT = 1
+4 ) USD/CHF # MACD: [2, 2, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00010[-3] 0.00009[-2] 0.00008[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, 0, 1, 1, 1, 1] (HAD_0.00016) / 0.00010[-3] 0.00007[-2] 0.00008[-1] / MACD_high3 = 0.00010[-3] 0.00008[-4] // POINT = 4
+6 ) AUD/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] 0.00003[-2] 0.00003[-1] // POINT = 0
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00001[-3] 0.00002[-2] 0.00001[-1] / MACD_high1 = 0.00002[-2] // POINT = 5
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': 0, 'EUR/USD': 0, 'USD/JPY': 1, 'USD/CHF': 1, 'USD/CAD': 4, 'AUD/USD': 0, 'NZD/USD': 5}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.72, 'USD/CAD': -2.81, 'USD/JPY': -0.64}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 0 # - > BUY , BUT NO DIRECTION CURRENTLY!!!
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 4 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 1 # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN
+
+SCRIPTS HAS RUN FOR 80 secs, WILL RUN AGAIN AT : 2021-04-20 18:26:31 GMT+0100 ( NOW = 2021-04-20 18:22:52 GMT+0100 / in 219 secs )
+
+# No_Instruments = 3 // NOW 2021-04-20 18:26:32 GMT+0100 // DFD = £150.76 // Total_Fund = £144.30 // Free_Fund = £103.40 // Live_Result = -£6.46
+1 ) name = AUD/USD / quantity = 546 / direction = BUY / averagePrice = 0.7798000 / currentPrice = 0.77248 / margin = 15.14 / ppl = -2.84 /
+2 ) name = USD/CAD / quantity = 535 / direction = SELL / averagePrice = 1.2516400 / currentPrice = 1.26133 / margin = 12.78 / ppl = -2.95 /
+3 ) name = USD/JPY / quantity = 543 / direction = BUY / averagePrice = 108.28600 / currentPrice = 108.099 / margin = 12.98 / ppl = -0.67 /
+
+### Scanning Data Result ( SMA = 25  / tperiod = 5 minutes ) ###
+1 ) GBP/USD # MACD: [-1, -1, 0, 0, 0, -1, -1] (HAD_0.00021) / -0.00004[-3] -0.00008[-2] -0.00010[-1] // POINT = -1
+2 ) EUR/USD # MACD: [-1, -1, -1, 0, 0, 0, 0] (HAD_0.00016) / -0.00001[-3] -0.00004[-2] -0.00004[-1] // POINT = 0
+3 ) USD/JPY # MACD: [2, 2, 2, 1, 1, 1, 1] (HAD_0.01075) / 0.00917[-3] 0.00977[-2] 0.00822[-1] / MACD_high1 = 0.00977[-2] // POINT = 6
+4 ) USD/CHF # MACD: [2, 1, 1, 1, 1, 1, 1] (HAD_0.00013) / 0.00009[-3] 0.00010[-2] 0.00010[-1] // POINT = 1
+5 ) USD/CAD # MACD: [0, 0, 1, 1, 1, 1, 1] (HAD_0.00016) / 0.00007[-3] 0.00009[-2] 0.00010[-1] // POINT = 1
+6 ) AUD/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00003[-3] 0.00001[-2] -0.00000[-1] / MACD_high3 = 0.00003[-3] 0.00002[-4] // POINT = 3
+7 ) NZD/USD # MACD: [0, 0, 0, 0, 0, 0, 0] (HAD_0.00014) / 0.00002[-3] -0.00000[-2] -0.00001[-1] / MACD_high3 = 0.00002[-3] 0.00001[-4] // POINT = 3
+
+1) BUYSELL_INSTRUMENT // BUY # IF POINT < -6  / SELL # IF POINT > 6
+ - > BUYSELL_POINT = {'GBP/USD': -1, 'EUR/USD': 0, 'USD/JPY': 6, 'USD/CHF': 1, 'USD/CAD': 1, 'AUD/USD': 3, 'NZD/USD': 3}
+ -- > LIMIT = 3 // CURRENT_TRADE = 3 // AVAILABLE = 0 // TO_ADD = 0 :: LIST =  []
+ --- > # NOTHING TO ADD - NO Currency MEET the requirement for MACD_Forex_Trading
+2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY > 2 / SELL < -2
+ - > OPEN_POSITION = {'AUD/USD': -2.84, 'USD/CAD': -2.95, 'USD/JPY': -0.67}
+  -- >  AUD/USD  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 3 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -2.84
+  -- >  USD/CAD  # DIRECTION = SELL / CURRENT_DIRECTION_POINT = 1 # - > RIGHT DIRECTION
+  -- >  USD/JPY  # DIRECTION = BUY / CURRENT_DIRECTION_POINT = 6 # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE POSITION // NOT_PROFIT = -0.67
+
+SCRIPTS HAS RUN FOR 79 secs, WILL RUN AGAIN AT : 2021-04-20 18:31:31 GMT+0100 ( NOW = 2021-04-20 18:27:51 GMT+0100 / in 220 secs )
+
+
+PC-TALIBR2+cromox@PC-TALIBR2 /cygdrive/c/Users/cromox/PycharmProjects/Trading212/Forex_CFD/run_full_auto_nonstop$
