@@ -4,7 +4,6 @@ sys.path.extend(['C:\\Users\\cromox\\PycharmProjects\\Trading212', 'C:/Users/cro
 
 from datetime import datetime
 from pytz import timezone
-from time import sleep
 from Forex_CFD.base.webdriverfactory import WebDriverFactory as WebBrowser
 from Forex_CFD.features.final_fx_decision import FxFinalDecision
 
@@ -75,16 +74,15 @@ while pilihan != 99:
 
     ### FOREX AUTO TRADER
     all_currencies = fxfinal.currencies_to_use('major')
-    buymark = 14
-    sellmark = -14
-    minpoint = -14 # sellmark -- base on gradient i.e reverse from MACD
-    maxpoint = 14  # buymark  -- base on gradient i.e reverse from MACD
+    # buymark = 14
+    # sellmark = -14
+    buymark = 12
+    sellmark = -12
     closesellpoint = 4
     closebuypoint = -4
     limit_buysell = 3
-    # closeloss = -0.75
     hardprofit = 0.51
-    exitprofit = 0.11
+    exitprofit = 0.09
     delaymins = 0.5  # delay in mins before execute the script
     timemins = 5  # time in mins between every script execution / running
 
@@ -93,54 +91,28 @@ while pilihan != 99:
     print(' - > BUYSELL_POINT =', todopoint)
     current_number = len(instrument_id)
     list_add_instrument = fxfinal.buy_sell_list_add_instrument(
-        todopoint, current_number, limit_buysell, minpoint, maxpoint)
-    if len(list_add_instrument) > 0:
-        for curr in list_add_instrument:
-            if todopoint[curr] > buymark and curr not in open_position:
-                amount = 521 + all_currencies.index(curr)
-                print(' ---- > TO BUY = (Currency)', curr, '(Amount)', amount)
-                fxfinal.buy_stock(curr, amount)
-            elif todopoint[curr] < sellmark and curr not in open_position:
-                amount = 511 + all_currencies.index(curr)
-                print(' ---- > TO SELL = (Currency)', curr, '(Amount)', amount)
-                fxfinal.sell_stock(curr, amount)
-            else:
-                print(' ---- > CANNOT ADD (Currency)', curr, '-- Already EXIST in open_position')
+        todopoint, current_number, limit_buysell, buymark, sellmark)
+    dict_buy_sell = fxfinal.final_dict_buy_sell_currency(
+        list_add_instrument, todopoint, open_position, all_currencies, buymark, 521, sellmark, 511)
+    if len(dict_buy_sell[0]) > 0:
+        for k, v in dict_buy_sell[0].items():
+            fxfinal.buy_stock(k, v)
+    if len(dict_buy_sell[-1]) > 0:
+        for k, v in dict_buy_sell[-1].items():
+            fxfinal.sell_stock(k, v)
 
     print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY <', closebuypoint, '/ SELL >', closesellpoint)
-    # print(' - > DIRECTN_POINT =', tocloseone)
     print(' - > OPEN_POSITION =', open_position)
-    for ko,vo in open_position.items():
-        id_elem = instrument_id[ko]
-        buysell = fxfinal.direction_elementid(id_elem)
-        directionpoint = tocloseone[ko]     # only work when all currencies in todopoint
-        print('  -- > ', ko, ' # DIRECTION =', buysell, '/ CURRENT_DIRECTION_POINT =', directionpoint, end='')
-        if buysell == 'BUY' and directionpoint > 0:
-            print(' # - > RIGHT DIRECTION')
-        elif buysell == 'SELL' and directionpoint < 0:
-            print(' # - > RIGHT DIRECTION')
-        elif directionpoint == 0:
-            print(' # - >', buysell, 'BUT NO DIRECTION CURRENTLY!!!')
-        elif buysell == 'BUY' and closebuypoint < directionpoint < 0:
-            print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
-        elif buysell == 'SELL' and closesellpoint > directionpoint > 0:
-            print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
-        else:
-            if vo > 0:
-                print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE // PROFIT =', vo)
-            elif vo <= 0:
-                print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE // NOT_PROFIT =', vo)
-        if vo > hardprofit:
-            print('    - > TO CLOSE #', ko, '// ACHIEVED Target Hard_Profit ( >', hardprofit, ') =', vo)
-            fxfinal.close_position_elementid(id_elem)
-        elif buysell == 'BUY' and directionpoint < closebuypoint and vo > exitprofit:
-            print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
-            fxfinal.close_position_elementid(id_elem)
-        elif buysell == 'SELL' and directionpoint > closesellpoint and vo > exitprofit:
-            print('    - > TO CLOSE #', ko, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
-            fxfinal.close_position_elementid(id_elem)
-        # REMOVE closeloss for time being
-        # elif vo < closeloss:
-        #     print('    - > TO CLOSE (LOSS) = ', ko, ' / LOSS =', vo)
-        #     fxfinal.close_position_elementid(id_elem)
+    if len(open_position) > 0:
+        for ko,vo in open_position.items():
+            id_elem = instrument_id[ko]
+            buysell = fxfinal.direction_elementid(id_elem)
+            directionpoint = tocloseone[ko]     # only work when all currencies in todopoint
+            fxfinal.open_position_printstatus(
+                ko, vo, buysell, directionpoint, closebuypoint, closesellpoint)
+            elementid_toclose = fxfinal.final_close_position_elemenid(
+                ko, vo, buysell, directionpoint, hardprofit, closebuypoint, closesellpoint, exitprofit, id_elem)
+            if elementid_toclose != None:
+                fxfinal.close_position_elementid(elementid_toclose)
+
     fxfinal.time_script_running_and_next(masastart, delaymins, timemins)

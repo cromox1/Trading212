@@ -133,8 +133,13 @@ class FxMainPage(BasePage):
         print(', WILL RUN AGAIN AT :', futuretime, '( NOW =', arini_date, '/ in', tidor, 'secs )')
         sleep(tidor)
 
-    def buy_sell_list_add_instrument(self, todopoint_dict, current_buysell, limit_buysell, min_point, max_point):
-        list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if todopoint_dict[vv] > max_point or todopoint_dict[vv] < min_point]
+    def buy_sell_list_add_instrument(self, todopoint_dict, current_buysell, limit_buysell, buymark, sellmark):
+        if buymark < 0 and sellmark > 0:
+            list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if todopoint_dict[vv] > sellmark or todopoint_dict[vv] < buymark]
+        elif buymark > 0 and sellmark < 0:
+            list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if todopoint_dict[vv] < sellmark or todopoint_dict[vv] > buymark]
+        else:
+            list_to_buysell = []
         to_add_number = len(list_to_buysell)
         avail_number = limit_buysell - current_buysell
         if 0 < to_add_number <= avail_number:
@@ -148,12 +153,91 @@ class FxMainPage(BasePage):
         if to_add_number == 0:
             print(' --- > # NOTHING TO ADD - NO Currency MEET the requirement for current Forex_Trading')
         elif to_add_number > avail_number and avail_number > 0:
-            print(' --- > Limit_Trader (', limit_buysell, ') nearly reach - Mean only', avail_number,
-                  'Currrency will be Traded',
-                  '- > LIST =', list_add_instrument)
+            print(' --- > Limit_Trader (', limit_buysell, ') nearly reach - SO only', avail_number,
+                  'Currency will be Traded', '- > NEW LIST =', list_add_instrument)
         else:
             print(' --- > TO_ADD =', len(list_add_instrument), '- > LIST =', list_add_instrument)
         return list_add_instrument
+
+    def final_dict_buy_sell_currency(self, list_instrument, dict_todopoint, open_position, all_currencies, buymark, buystart, sellmark, sellstart):
+        buy_dict = {}
+        sell_dict = {}
+        if len(list_instrument) > 0:
+            for curr in list_instrument:
+                if dict_todopoint[curr] < buymark < 0 and curr not in open_position:
+                    amount = buystart + all_currencies.index(curr)
+                    print(' ---- > TO BUY = (Currency)', curr, '(Amount)', amount)
+                    buy_dict[curr] = amount
+                elif dict_todopoint[curr] > sellmark > 0 and curr not in open_position:
+                    amount = sellstart + all_currencies.index(curr)
+                    print(' ---- > TO SELL = (Currency)', curr, '(Amount)', amount)
+                    sell_dict[curr] = amount
+                elif dict_todopoint[curr] > buymark > 0 and curr not in open_position:
+                    amount = buystart + all_currencies.index(curr)
+                    print(' ---- > TO BUY = (Currency)', curr, '(Amount)', amount)
+                    buy_dict[curr] = amount
+                elif dict_todopoint[curr] < sellmark < 0 and curr not in open_position:
+                    amount = sellstart + all_currencies.index(curr)
+                    print(' ---- > TO SELL = (Currency)', curr, '(Amount)', amount)
+                    sell_dict[curr] = amount
+                else:
+                    print(' ---- > CANNOT ADD (Currency)', curr, '-- Already EXIST in open_position')
+        return buy_dict, sell_dict
+
+    def open_position_printstatus(self, currency, currency_value, direction, directionpoint, closebuypoint, closesellpoint):
+        print('  -- > ', currency, ' # DIRECTION =', direction, '/ CURRENT_DIRECTION_POINT =', directionpoint, end='')
+        if closebuypoint < 0 and closesellpoint > 0:            ## GRADIENT
+            if direction == 'BUY' and directionpoint > 0:
+                print(' # - > RIGHT DIRECTION')
+            elif direction == 'SELL' and directionpoint < 0:
+                print(' # - > RIGHT DIRECTION')
+            elif directionpoint == 0:
+                print(' # - >', direction, 'BUT NO DIRECTION CURRENTLY!!!')
+            elif direction == 'BUY' and closebuypoint <= directionpoint < 0:
+                print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
+            elif direction == 'SELL' and closesellpoint >= directionpoint > 0:
+                print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
+            else:
+                if currency_value > 0:
+                    print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE // PROFIT =', currency_value)
+                elif currency_value <= 0:
+                    print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE // NOT_PROFIT =', currency_value)
+        elif closebuypoint > 0 and closesellpoint < 0:         ## MACD
+            if direction == 'BUY' and directionpoint < 0:
+                print(' # - > RIGHT DIRECTION')
+            elif direction == 'SELL' and directionpoint > 0:
+                print(' # - > RIGHT DIRECTION')
+            elif directionpoint == 0:
+                print(' # - >', direction, 'BUT NO DIRECTION CURRENTLY!!!')
+            elif direction == 'BUY' and closebuypoint >= directionpoint > 0:
+                print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
+            elif direction == 'SELL' and closesellpoint <= directionpoint < 0:
+                print(' # - > SLIGHTLY WRONG DIRECTION !!! TO CHECK FOR NEXT RUN')
+            else:
+                if currency_value > 0:
+                    print(' # - > WRONG DIRECTION !!! -- URGENT - TO CLOSE // PROFIT =', currency_value)
+                elif currency_value <= 0:
+                    print(' # - > WRONG DIRECTION !!! URGENT BUT CANNOT CLOSE // NOT_PROFIT =', currency_value)
+
+    def final_close_position_elemenid(self, currency, currency_value, direction, directionpoint, hardprofit,
+                                      closebuypoint, closesellpoint, exitprofit, elementid):
+        if currency_value > hardprofit:
+            print('    - > TO CLOSE #', currency, '// ACHIEVED Target Hard_Profit ( >', hardprofit, ') =', currency_value)
+            return elementid
+        elif direction == 'BUY' and directionpoint < closebuypoint < 0 and currency_value > exitprofit:    ## GRADIENT
+            print('    - > TO CLOSE #', currency, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
+            return elementid
+        elif direction == 'SELL' and directionpoint > closesellpoint > 0 and currency_value > exitprofit:  ## GRADIENT
+            print('    - > TO CLOSE #', currency, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
+            return elementid
+        elif direction == 'BUY' and directionpoint > closebuypoint > 0 and currency_value > exitprofit:    ## MACD
+            print('    - > TO CLOSE #', currency, '// CHANGE DIRECTION = BUY to SELL / Point =', directionpoint)
+            return elementid
+        elif direction == 'SELL' and directionpoint < closesellpoint < 0 and currency_value > exitprofit:  ## MACD
+            print('    - > TO CLOSE #', currency, '// CHANGE DIRECTION = SELL to BUY / Point =', directionpoint)
+            return elementid
+        else:
+            return
 
     # def css_list_containing_text_in_class(self, driver, selector, text):
     #     elements = driver.find_elements_by_css_selector(selector)
