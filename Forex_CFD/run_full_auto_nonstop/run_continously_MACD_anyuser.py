@@ -58,6 +58,7 @@ while pilihan != 99:
     delaymins = 1.5             # delay in mins before execute the script
     timemins = 5                # time in mins between every script execution / running
 
+    print('\n# FINAL_ToDoPoint =', todopoint)
     print()
     print('1) BUYSELL_INSTRUMENT // BUY # IF POINT <', buymark, ' / SELL # IF POINT >', sellmark)
     print(' - > BUYSELL_POINT =', todopoint)

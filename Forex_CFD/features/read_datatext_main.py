@@ -16,10 +16,10 @@ class FxReadDataText_Main(FxMainPage):
 
     def from_search_goto_specific_currency(self, currency):
         self.log.info("-> " + inspect.stack()[0][3] + " started" + ' / CURRENCY = ' + currency)
-        # if self.driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]'):
-        #     self.driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]').click()
-        # elemlist = self.driver.find_elements_by_id("navigation-search-button")
-        elemlist = self.driver.find_elements_by_xpath('//*[@id="navigation"]//div[@id="navigation-search-button" and @class="search-button"]')
+        # self.driver.find_element_by_xpath('//*[@id="search-header"]//*[@class="search-input"]')
+        # self.driver.find_elements_by_id("navigation-search-button")
+        # self.driver.find_elements_by_xpath('//div[@id="navigation"]//div[@id="navigation-search-button" and @class="search-button"]/span')
+        elemlist = self.driver.find_elements_by_css_selector('#navigation-search-button > span')
         hoover(self.driver).move_to_element_with_offset(elemlist[0], 10, 0).perform()
         elemlist[0].click()
         self.driver.find_element_by_xpath("//*[contains(text(),'Currencies')]").click()
