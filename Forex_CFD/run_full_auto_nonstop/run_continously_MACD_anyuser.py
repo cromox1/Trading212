@@ -50,6 +50,8 @@ while pilihan != 99:
     all_currencies = fxfinal.currencies_to_use('major')
     buymark = -6
     sellmark = 6
+    buystartprice = 541
+    sellstartprice = 531
     closesellpoint = -2
     closebuypoint = 2
     limit_buysell = 3
@@ -66,7 +68,7 @@ while pilihan != 99:
     list_add_instrument = fxfinal.buy_sell_list_add_instrument(
         todopoint, current_number, limit_buysell, buymark, sellmark)
     dict_buy_sell = fxfinal.final_dict_buy_sell_currency(
-        list_add_instrument, todopoint, open_position, all_currencies, buymark, 541, sellmark, 531)
+        list_add_instrument, todopoint, open_position, all_currencies, buymark, buystartprice, sellmark, sellstartprice)
     if len(dict_buy_sell[0]) > 0:
         for k,v in dict_buy_sell[0].items():
             fxfinal.buy_stock(k, v)
@@ -74,7 +76,7 @@ while pilihan != 99:
         for k,v in dict_buy_sell[-1].items():
             fxfinal.sell_stock(k, v)
 
-    print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint)
+    print('2) CLOSE_POSITION // BECAUSE CHANGE_DIRECTION: BUY >', closebuypoint, '/ SELL <', closesellpoint, 'OR PROFIT >', hardprofit)
     print(' - > OPEN_POSITION =', open_position)
     if len(open_position) > 0:
         for ko,vo in open_position.items():

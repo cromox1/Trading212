@@ -134,12 +134,6 @@ class FxMainPage(BasePage):
         sleep(tidor)
 
     def buy_sell_list_add_instrument(self, todopoint_dict, current_buysell, limit_buysell, buymark, sellmark):
-        # if buymark < 0 and sellmark > 0:
-        #     list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if todopoint_dict[vv] > sellmark or todopoint_dict[vv] < buymark]
-        # elif buymark > 0 and sellmark < 0:
-        #     list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if todopoint_dict[vv] < sellmark or todopoint_dict[vv] > buymark]
-        # else:
-        #     list_to_buysell = []
         list_to_buysell = [vv for vv in list(todopoint_dict.keys()) if
                            todopoint_dict[vv] > sellmark > 0 or todopoint_dict[vv] < buymark < 0 or
                            todopoint_dict[vv] < sellmark < 0 or todopoint_dict[vv] > buymark > 0]

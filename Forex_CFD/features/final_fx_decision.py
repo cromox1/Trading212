@@ -1,8 +1,8 @@
 __author__ = 'cromox'
 
 from time import sleep
-from datetime import datetime
-from pytz import timezone
+# from datetime import datetime
+# from pytz import timezone
 import inspect
 from Forex_CFD.features.final_read_datatext import ReadAllDataText
 from Forex_CFD.features.final_read_datatext_MACD import ReadAllDataTextMACD
