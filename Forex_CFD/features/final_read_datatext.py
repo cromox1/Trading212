@@ -18,7 +18,8 @@ class ReadAllDataText(FxReadDataText_ToolTip):
         todopoint = {}
         # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
         all_currencies = self.currencies_to_use('major')
-        for currency in all_currencies:
+        tocheck_currencies = all_currencies
+        for currency in tocheck_currencies:
             ix = all_currencies.index(currency) + 1
             print(str(ix) + ' ) (tperiod: ' + str(tperiod) + ') // ', end='')
             tindakan = self.main_collect_data(currency, value_EMA, tperiod, grph_div_start_point, fxconvert)

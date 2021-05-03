@@ -19,6 +19,10 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         for key, value in dict3.items():
             if key in dict1 and key in dict2:
                 dict3[key] = value + dict1[key]
+            elif key in dict1 and key not in dict2:
+                dict3[key] = dict1[key]
+            elif key in dict2 and key not in dict1:
+                dict3[key] = dict2[key]
         return dict3
 
     def mergeDictStrongOne(self, dict1, dict2):
@@ -26,9 +30,15 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
         for key, value in dict3.items():
             if key in dict1 and key in dict2:
                 dict3[key] = value + 2 * dict1[key]
+            elif key in dict1 and key not in dict2:
+                dict3[key] = 2 * dict1[key]
+            elif key in dict2 and key not in dict1:
+                dict3[key] = dict2[key]
         return dict3
 
     def mergeDictNoZero(self, dict1, dict2):
+        topborder = 4
+        btmborder = -4
         dict3 = {**dict1, **dict2}
         for key, value in dict3.items():
             if key in dict1 and key in dict2:
@@ -36,10 +46,17 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
                     dict3[key] = 0
                 elif dict1[key] < 0 < dict2[key]:
                     dict3[key] = 0
-                elif -4 < dict1[key] < 4:
+                elif btmborder < dict1[key] < topborder:
                     dict3[key] = 0
                 else:
-                    dict3[key] = value + dict1[key]
+                    dict3[key] = dict1[key] + dict2[key]
+            elif key in dict1 and key not in dict2:
+                if btmborder < dict1[key] < topborder:
+                    dict3[key] = 0
+                else:
+                    dict3[key] = dict1[key]
+            elif key in dict2 and key not in dict1:
+                dict3[key] = dict2[key]
         return dict3
 
     def close_position_elementid(self, id_element):
@@ -117,7 +134,7 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             print("Nothing TODO")
             return pilihan, rerun
 
-    def close_position_CFD_ANY_auto(self, value_EMA, list_tperiod):
+    def close_position_CFD_ANY_auto(self, value_EMA, list_tperiod, limit_buysell):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         ### ni section nak tengok apa yg kita ada skrg
         list_choice = self.list_CFD_open_position()
@@ -135,20 +152,23 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             newdict1.update({newkk: newvvid})
 
         # ### ni section checking whatever status of the current Forex/CFD
-        # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        # list_currencies = [i for i in all_currencies if i not in open_position]
-        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        list_currencies = self.currencies_to_use('major')     # all_currencies
+        if len(dict2) >= limit_buysell:
+            list_currencies = [i.split(' / ')[0] for i in dict2.values()]
+        else:
+            list_currencies = self.currencies_to_use('major')   # all_currencies
         todopoint = {}
         tocloseone = {}
+        newdist1_list = [i for i in newdict1.keys()]
         if len(list_currencies) >= 1:
             for tperiod in list_tperiod:
                 newpoint = self.looping_check_currencies(value_EMA, tperiod, list_currencies)
                 todopoint = self.mergeDictNoZero(todopoint, newpoint)
                 tocloseone = self.mergeDictStrongOne(tocloseone, newpoint)
+                list_select1 = [i for i in todopoint.keys() if todopoint[i] > 2 or todopoint[i] < -2]
+                list_currencies = [i for i in newdist1_list if i not in list_select1] + list_select1
         return todopoint, open_position, tocloseone, newdict1, masastart
 
-    def close_position_CFD_ANY_auto_MACD(self, value_EMA, tperiod):
+    def close_position_CFD_ANY_auto_MACD(self, value_EMA, tperiod, limit_buysell):
         self.log.info("-> " + inspect.stack()[0][3] + " started")
         ### ni section nak tengok apa yg kita ada skrg
         list_choice = self.list_CFD_open_position()
@@ -166,10 +186,10 @@ class FxFinalDecision(FxClosePosition, ReadAllDataText, ReadAllDataTextMACD):
             newdict1.update({newkk: newvvid})
 
         # ### ni section checking whatever status of the current Forex/CFD
-        # all_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        # list_currencies = [i for i in all_currencies if i not in open_position]
-        # list_currencies = ["GBP/USD", "EUR/USD", "USD/JPY", "USD/CHF", "USD/CAD", "AUD/USD", "NZD/USD"]
-        list_currencies = self.currencies_to_use('major')   # all_currencies
+        if len(dict2) >= limit_buysell:
+            list_currencies = [i.split(' / ')[0] for i in dict2.values()]
+        else:
+            list_currencies = self.currencies_to_use('major')   # all_currencies
         todopoint = {}
         tocloseone = {}
         if len(list_currencies) >= 1:

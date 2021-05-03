@@ -147,8 +147,10 @@ class FxMainPage(BasePage):
             list_add_instrument = []
         print(' -- > LIMIT =', limit_buysell, '// CURRENT_TRADE =', current_buysell, '// AVAILABLE =', avail_number,
               '// TO_ADD =', to_add_number, ':: LIST = ', list_to_buysell)
-        if to_add_number == 0:
+        if to_add_number == 0 and current_buysell != limit_buysell:
             print(' --- > # NOTHING TO ADD - NO Currency MEET the requirement for current Forex_Trading')
+        elif current_buysell == limit_buysell:
+            print(' --- > # NOTHING TO ADD - Had Reach Max_Limit =', limit_buysell)
         elif to_add_number > avail_number and avail_number > 0:
             print(' --- > Limit_Trader (', limit_buysell, ') nearly reach - SO only', avail_number,
                   'Currency will be Traded', '- > NEW LIST =', list_add_instrument)

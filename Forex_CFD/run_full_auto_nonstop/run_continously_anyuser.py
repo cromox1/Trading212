@@ -62,22 +62,12 @@ fxfinal.mode_live_or_demo("Practice")
 
 pilihan = 0
 while pilihan != 99:
+    ## parameter1 - graph parameters
     value_EMA = 25
     list_tperiod = ['1 minute', '10 minutes']
-    epochstart = int(datetime.now(timezone('Europe/London')).timestamp())
-    check_cfd_current = fxfinal.close_position_CFD_ANY_auto(value_EMA, list_tperiod)
-    todopoint = check_cfd_current[0]
-    open_position = check_cfd_current[1]
-    tocloseone = check_cfd_current[2]
-    instrument_id = check_cfd_current[3]
-    masastart = check_cfd_current[4]
-
-    ### FOREX AUTO TRADER
-    all_currencies = fxfinal.currencies_to_use('major')
-    # buymark = 14
-    # sellmark = -14
-    buymark = 12
-    sellmark = -12
+    ## parameter2 - running function parameters
+    buymark = 12    # buymark = 14
+    sellmark = -12  # sellmark = -14
     buystartprice = 521
     sellstartprice = 511
     closesellpoint = 4
@@ -87,7 +77,19 @@ while pilihan != 99:
     exitprofit = 0.09
     delaymins = 0.5  # delay in mins before execute the script
     timemins = 5  # time in mins between every script execution / running
+    ## parameter3 - general parameter
+    all_currencies = fxfinal.currencies_to_use('major')
 
+    ### EXISTING AUTO TRADER
+    epochstart = int(datetime.now(timezone('Europe/London')).timestamp())
+    check_cfd_current = fxfinal.close_position_CFD_ANY_auto(value_EMA, list_tperiod, limit_buysell)
+    todopoint = check_cfd_current[0]
+    open_position = check_cfd_current[1]
+    tocloseone = check_cfd_current[2]
+    instrument_id = check_cfd_current[3]
+    masastart = check_cfd_current[4]
+
+    ### FOREX AUTO TRADER
     print('\n# FINAL_ToDoPoint =', todopoint)
     print('# FINAL_ToCloseOne =', tocloseone)
     print()
