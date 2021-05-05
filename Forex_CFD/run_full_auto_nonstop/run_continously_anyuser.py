@@ -38,11 +38,15 @@ _OPERA_INST_DIR = r'C:\Program Files\Opera\\'
 # Firefox
 _FIRFEFOX_NAME  = 'firefox'
 # (don't need any setup)
+# NoBrowser
+_NOBROWSER      ='nobrowser'
+_NOBROWSER_DRIVER  = r'C:\tools\chromedriver\chromedriver.exe'
 
 ##### STEPS BY STEPS running  #########
 
 # 1) start webdriver
 base_url = "https://www.trading212.com"
+# browser_driver = WebBrowser(_NOBROWSER, driver_path=_NOBROWSER_DRIVER).getWebDriverInstance(base_url)
 browser_driver = WebBrowser(_CHROME_NAME, driver_path=_CHROME_DRIVER).getWebDriverInstance(base_url)
 # browser_driver = WebBrowser(_OPERA_NAME, browser_inst_dir=_OPERA_INST_DIR, driver_path=_OPERA_DRIVER).getWebDriverInstance(base_url)
 # browser_driver = WebBrowser(_BRAVE_NAME, driver_path=_BRAVE_DRIVER, browser_exe=_BRAVE_EXE).getWebDriverInstance(base_url)

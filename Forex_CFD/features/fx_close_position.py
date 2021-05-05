@@ -30,7 +30,12 @@ class FxClosePosition(FxBuySell):
         result = self.driver.find_elements_by_xpath(
             '//*[@id="equity-ppl"]/span[@data-dojo-attach-point="valueNode"]')[-1].text.replace(' ', '')
         # "%.5f" % round(float(VALUE)), 5)
-        myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
+        # print('CHK1 - total_fund =', total_fund, '//', type(total_fund))
+        # print('CHK2 - result =', result, '//', type(result))
+        try:
+            myDFD = "%.2f" % round((float(total_fund.replace('£', '')) - float(result.replace('£', ''))), 2)
+        except:
+            myDFD = "%.2f" % round((float(total_fund) - float(result)), 2)
         masastart = datetime.now(timezone('Europe/London')).strftime("%Y-%m-%d %H:%M:%S GMT%z")
         print('\n# No_Instruments =', len(instrument_list), '// NOW', masastart, '// DFD =', '£' + str(myDFD),
               '// Total_Fund =', total_fund, '// Free_Fund =', free_fund, '// Live_Result =', result)

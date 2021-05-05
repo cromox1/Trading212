@@ -73,15 +73,27 @@ class WebDriverFactory():
             driver_version = _operacurrentversion
         elif name == "headless" or name == "nobrowser" or name == "virtual":
             # This is for running without open Browser UI display - good for Jenkins
+            # # chrome_options.add_argument('--disable-extensions')
+            # # chrome_options.add_argument("--disable-plugins-discovery")
             chromedriverpath = self.driver_path
             chrome_options = webdriver.ChromeOptions()
-            # chrome_options.add_argument('--disable-extensions')
-            chrome_options.add_argument("--incognito")
-            # chrome_options.add_argument("--disable-plugins-discovery")
-            # chrome_options.add_argument("--start-maximized")
             chrome_options.add_argument('--headless')
+            chrome_options.add_argument('--ignore-certificate-errors')
+            chrome_options.add_argument("--disable-web-security")
+            chrome_options.add_argument("--incognito")
+            chrome_options.add_argument("--allow-running-insecure-content")
+            chrome_options.add_argument("--allow-cross-origin-auth-prompt")
+            chrome_options.add_argument("--disable-cookie-encryption")
+            chrome_options.add_argument('--disable-dev-shm-usage')
+            chrome_options.add_argument("--test-type")
+            chrome_options.add_argument('--disable-default-apps')
+            chrome_options.add_argument('--disable-prompt-on-repost')
+            chrome_options.add_argument("--disable-zero-browsers-open-for-tests")
+            chrome_options.add_argument("--no-default-browser-check")
             chrome_options.add_argument("--proxy-server='direct://'")
             chrome_options.add_argument("--proxy-bypass-list=*")
+            prefs = {"profile.default_content_setting_values.notifications": 2}
+            chrome_options.add_experimental_option("prefs", prefs)
             driver = webdriver.Chrome(chromedriverpath, options=chrome_options)
         else:
             # Set chrome driver
